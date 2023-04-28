@@ -1,7 +1,24 @@
-# discover_rails
-Discover
+# README
 
-ASSI_Project Hi team, welcome to the ASSI project. I hope you will be fine collaborating with each other, thus we will do the best job ever. Jk, we sucks and this project will fail in a day. Bye bye Discover Company Partner Alessandro Saccone
-Versions used
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Rails 7.0.4.3 ruby 2.7.2 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
