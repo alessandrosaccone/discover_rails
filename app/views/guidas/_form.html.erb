@@ -1,0 +1,17 @@
+<%= form_with(model: guida) do |form| %>
+  <% if guida.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(guida.errors.count, "error") %> prohibited this guida from being saved:</h2>
+
+      <ul>
+        <% guida.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

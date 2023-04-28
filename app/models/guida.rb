@@ -1,0 +1,2 @@
+class Guida < ApplicationRecord
+end
