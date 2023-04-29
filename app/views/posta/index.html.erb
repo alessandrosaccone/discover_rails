@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Posta</h1>
+
+<div id="posta">
+  <% @posta.each do |postum| %>
+    <%= render postum %>
+    <p>
+      <%= link_to "Show this postum", postum %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New postum", new_postum_path %>

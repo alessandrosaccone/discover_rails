@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_28_220759) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_29_084255) do
+  create_table "guida", force: :cascade do |t|
+    t.string "email"
+    t.integer "followers"
+    t.integer "rating"
+    t.integer "visits"
+    t.string "lingue"
+    t.text "descrizione"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "guidas", force: :cascade do |t|
     t.string "email"
     t.integer "followers"
@@ -18,6 +29,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_28_220759) do
     t.integer "visits"
     t.string "lingue"
     t.text "descrizione"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "postas", force: :cascade do |t|
+    t.string "email"
+    t.integer "id_posta"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,11 +50,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_28_220759) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer "guida_id"
     t.string "email"
     t.string "psw"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["guida_id"], name: "index_users_on_guida_id"
   end
 
 end

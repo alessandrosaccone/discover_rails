@@ -1,2 +1,0 @@
-class Turistas < ApplicationRecord
-end
