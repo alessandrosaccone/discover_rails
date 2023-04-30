@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application" %>
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
     <%= javascript_importmap_tags %>
+    <%if content_for? :for_head %>
+      <%= yield :for_head%>
+    <%end%>
   </head>
 
   <body>

@@ -5,4 +5,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "pages#home"
 
+  resources :pages do
+    collection do
+      get :login 
+      get :home
+    end
+  end
+
 end
