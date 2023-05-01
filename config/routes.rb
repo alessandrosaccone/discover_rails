@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :roles
+  devise_for :users 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -7,9 +9,12 @@ Rails.application.routes.draw do
 
   resources :pages do
     collection do
-      get :login 
       get :home
     end
+  end
+
+  namespace :user do
+    root :to => "pages#dummypage"
   end
 
 end

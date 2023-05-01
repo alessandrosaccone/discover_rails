@@ -9,7 +9,7 @@
 }
 
 body {
-  background: #020410;
+  background: #000000;
 }
 
 .header {
@@ -97,9 +97,7 @@ body {
 .background {
   width: 100%;
   height: 100vh;
-  background: url("../image/banner_mario.jpg")
-    no-repeat;
-  background-size: cover;
+  background-size: cover !important;
   background-position: center;
   filter: blur(10px);
 }
@@ -111,9 +109,8 @@ body {
   transform: translate(-50%, -50%);
   width: 75%;
   height: 550px;
-  background: url("../image/banner_mario.jpg")
-    no-repeat; /*qui devo modificare l'immagine di*/
-  background-size: cover;
+  background: no-repeat; /*qui devo modificare l'immagine di*/
+  background-size: cover !important;
   background-position: center;
   border-radius: 10px;
   margin-top: 20px;
@@ -123,7 +120,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 58%;
+  width: 68%;
   height: 100%;
   background: transparent;
   padding: 80px;
@@ -186,24 +183,24 @@ body {
 }
 
 .logreg-box .form-box.login {
-  transform: translateX(0);
+  transform: translateX(30px);
   transition: transform 0.6s ease;
   transition-delay: 0.7s;
 }
 
 .logreg-box.active .form-box.login {
-  transform: translateX(610px);
+  transform: translateX(640px);
   transition-delay: 0s;
 }
 
 .logreg-box .form-box.register {
-  transform: translateX(610px); /*controllare bene questo*/
+  transform: translateX(640px); /*controllare bene questo*/
   transition: transform 0.6s ease;
   transition-delay: 0s;
 }
 
 .logreg-box.active .form-box.register {
-  transform: translateX(0px); /*controllare bene questo*/
+  transform: translateX(30px); /*controllare bene questo*/
   transition-delay: 0.7s;
 }
 

@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
-    def def home  
+
+    def home  
+    end
+
+    def dummypage
     end
 
 end
