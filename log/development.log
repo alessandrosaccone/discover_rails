@@ -7406,3 +7406,120 @@ Started GET "/users/sign_out" for 127.0.0.1 at 2023-05-02 16:40:01 +0200
   
 ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
   
+Started GET "/" for 127.0.0.1 at 2023-05-02 17:14:11 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 57.9ms | Allocations: 14061)
+  Rendered layout layouts/application.html.erb (Duration: 64.2ms | Allocations: 18991)
+Completed 200 OK in 75ms (Views: 67.8ms | ActiveRecord: 0.0ms | Allocations: 23889)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-05-02 17:14:13 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 254)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 54.0ms | Allocations: 8244)
+  Rendered layout layouts/application.html.erb (Duration: 57.0ms | Allocations: 9363)
+Completed 200 OK in 93ms (Views: 58.9ms | ActiveRecord: 0.9ms | Allocations: 32101)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-02 17:14:20 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (1.9ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 12], ["current_sign_in_at", "2023-05-02 15:14:20.416472"], ["last_sign_in_at", "2023-05-02 14:39:55.295673"], ["updated_at", "2023-05-02 15:14:20.416959"], ["id", 1]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 352ms (ActiveRecord: 6.9ms | Allocations: 11482)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-02 17:14:20 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 14.4ms | Allocations: 4556)
+  Rendered layout layouts/application.html.erb (Duration: 30.9ms | Allocations: 5747)
+Completed 200 OK in 32ms (Views: 31.7ms | ActiveRecord: 0.3ms | Allocations: 5971)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-05-02 17:14:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/" for 127.0.0.1 at 2023-05-02 17:25:01 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 149.9ms | Allocations: 50726)
+  Rendered layout layouts/application.html.erb (Duration: 160.0ms | Allocations: 55600)
+Completed 200 OK in 178ms (Views: 167.7ms | ActiveRecord: 1.1ms | Allocations: 60497)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-05-02 17:25:04 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/" for 127.0.0.1 at 2023-05-02 17:26:09 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 90.9ms | Allocations: 37343)
+  Rendered layout layouts/application.html.erb (Duration: 102.4ms | Allocations: 42293)
+Completed 200 OK in 114ms (Views: 101.6ms | ActiveRecord: 5.3ms | Allocations: 47191)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-05-02 17:26:13 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/" for 127.0.0.1 at 2023-05-02 17:27:33 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 112.8ms | Allocations: 50775)
+  Rendered layout layouts/application.html.erb (Duration: 125.3ms | Allocations: 55683)
+Completed 200 OK in 136ms (Views: 128.5ms | ActiveRecord: 1.1ms | Allocations: 60580)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-05-02 17:27:35 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 28ms (ActiveRecord: 0.2ms | Allocations: 5562)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-02 17:27:35 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 13.1ms | Allocations: 3796)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 5012)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.0ms | Allocations: 5238)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-05-02 17:27:38 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 254)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 41.2ms | Allocations: 8241)
+  Rendered layout layouts/application.html.erb (Duration: 44.4ms | Allocations: 9393)
+Completed 200 OK in 50ms (Views: 48.1ms | ActiveRecord: 0.0ms | Allocations: 10453)
+
+
