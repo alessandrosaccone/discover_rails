@@ -13,8 +13,6 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :user do
-    root :to => "pages#dummypage"
-  end
+  
 
 end
