@@ -7523,3 +7523,334 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 50ms (Views: 48.1ms | ActiveRecord: 0.0ms | Allocations: 10453)
 
 
+Started GET "/" for ::1 at 2023-05-02 17:24:47 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 95.6ms | Allocations: 47838)
+  Rendered layout layouts/application.html.erb (Duration: 99.6ms | Allocations: 52773)
+Completed 200 OK in 107ms (Views: 102.0ms | ActiveRecord: 0.0ms | Allocations: 57673)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-02 17:24:49 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 254)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.0ms | Allocations: 8249)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 9405)
+Completed 200 OK in 40ms (Views: 13.5ms | ActiveRecord: 1.2ms | Allocations: 32156)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-05-02 17:25:24 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 13], ["current_sign_in_at", "2023-05-02 15:25:24.862772"], ["last_sign_in_at", "2023-05-02 15:14:20.416472"], ["current_sign_in_ip", "::1"], ["updated_at", "2023-05-02 15:25:24.863003"], ["id", 1]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 214ms (ActiveRecord: 7.5ms | Allocations: 11480)
+
+
+Started GET "/" for ::1 at 2023-05-02 17:25:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.4ms | Allocations: 4549)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 5769)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.1ms | Allocations: 5996)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-05-02 17:25:33 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 6ms (ActiveRecord: 0.3ms | Allocations: 1712)
+
+
+Started GET "/" for ::1 at 2023-05-02 17:25:33 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.7ms | Allocations: 3773)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 4981)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 5207)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-02 17:25:37 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 13.0ms | Allocations: 3720)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 4861)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.0ms | Allocations: 5430)
+
+
+Started GET "/" for ::1 at 2023-05-02 17:30:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 5175)
+
+
+  
+NameError (undefined local variable or method `root' for #<PagesController:0x00000000007918>):
+  
+app/controllers/application_controller.rb:9:in `authenticate_user!'
+Started GET "/" for ::1 at 2023-05-02 17:30:24 +0200
+Processing by PagesController#home as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2899)
+
+
+  
+NameError (undefined local variable or method `root' for #<PagesController:0x00000000007b70>):
+  
+app/controllers/application_controller.rb:9:in `authenticate_user!'
+Started GET "/" for ::1 at 2023-05-02 17:32:52 +0200
+Processing by PagesController#home as HTML
+Completed 401 Unauthorized in 3ms (Allocations: 2190)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-02 17:32:52 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 253)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 19.2ms | Allocations: 17041)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 21684)
+Completed 200 OK in 39ms (Views: 24.5ms | ActiveRecord: 0.7ms | Allocations: 44666)
+
+
+Started GET "/pages/home" for ::1 at 2023-05-02 17:33:00 +0200
+Processing by PagesController#home as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 245)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-02 17:33:00 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.3ms | Allocations: 3721)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 4864)
+Completed 200 OK in 17ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 5458)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddOmniauthToUsers (20230502153835)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "provider" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "uid" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230502153835"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for ::1 at 2023-05-02 17:43:08 +0200
+  
+Gem::LoadError (omniauth is not part of the bundle. Add it to your Gemfile.):
+  
+app/models/user.rb:4:in `<class:User>'
+app/models/user.rb:3:in `<top (required)>'
+config/routes.rb:3:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/" for ::1 at 2023-05-02 17:43:46 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 20.3ms | Allocations: 14170)
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | Allocations: 19147)
+Completed 200 OK in 31ms (Views: 26.5ms | ActiveRecord: 0.0ms | Allocations: 24045)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-02 17:43:49 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 255)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.2ms | Allocations: 8251)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 9403)
+Completed 200 OK in 51ms (Views: 14.7ms | ActiveRecord: 2.0ms | Allocations: 33170)
+
+
+Started GET "/" for ::1 at 2023-05-02 17:49:14 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 19.1ms | Allocations: 14208)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 19185)
+Completed 200 OK in 29ms (Views: 25.1ms | ActiveRecord: 0.0ms | Allocations: 24083)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-02 17:49:18 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 23.3ms | Allocations: 10096)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 10164)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 1.8ms | Allocations: 33916)
+
+
+  
+ActionView::Template::Error (undefined method `user_omniauth_authorize_path' for #<ActionView::Base:0x00000000008408>
+Did you mean?  user_facebook_omniauth_authorize_path):
+    66:                 <a href="#" class="register-link">Registrati</a>
+    67:               </p>
+    68:             </div>
+    69:             <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+    70:           <%end%>
+    71:         </div>
+    72:         <div class="form-box register">
+  
+app/views/devise/sessions/new.html.erb:69
+app/views/devise/sessions/new.html.erb:36
+Started GET "/users/sign_in" for ::1 at 2023-05-02 17:50:27 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.8ms | Allocations: 254)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 20.0ms | Allocations: 5132)
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 6583)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.0ms | Allocations: 7788)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2023-05-02 17:50:32 +0200
+Processing by Users::OmniauthCallbacksController#passthru as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 5)
+Completed 404 Not Found in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 739)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-02 17:50:45 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.1ms | Allocations: 3749)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 4890)
+Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 5458)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2023-05-02 17:50:46 +0200
+Processing by Users::OmniauthCallbacksController#passthru as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 5)
+Completed 404 Not Found in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2023-05-02 17:52:40 +0200
+Processing by Users::OmniauthCallbacksController#passthru as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+Completed 404 Not Found in 2ms (Views: 0.9ms | Allocations: 605)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2023-05-02 17:52:43 +0200
+Processing by Users::OmniauthCallbacksController#passthru as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 4)
+Completed 404 Not Found in 2ms (Views: 1.2ms | Allocations: 188)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-02 17:53:01 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3766)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 8071)
+Completed 200 OK in 33ms (Views: 12.9ms | ActiveRecord: 2.2ms | Allocations: 13651)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2023-05-02 17:53:03 +0200
+Processing by Users::OmniauthCallbacksController#passthru as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 4)
+Completed 404 Not Found in 3ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 188)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2023-05-02 17:53:48 +0200
+Processing by Users::OmniauthCallbacksController#passthru as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 4)
+Completed 404 Not Found in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 546)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-02 17:53:51 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.3ms | Allocations: 246)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 22.9ms | Allocations: 4950)
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 6396)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.0ms | Allocations: 7577)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2023-05-02 17:53:53 +0200
+Started GET "/users/auth/facebook/callback?code=AQDOE2x4fpU0cHThn5IrdzopDnjorOODB6g3DZeRr1O1TKyD7AYslL9dO3q6PQwKRYENhcJOYLk59a4tCseJ0J3UnMfTlPIfK_IWeZH0i7e2W3oNohoVNylNsgn5c_QDcKMgfhPLlKJrfzRxZ7UPlumoR8bemlu8sN91h0sLHCD9uZQIti2Zledlfucb6z4D9P5LmTjYzZTUkcEVS8Q_IaMnhKnT1x0DwE-DhdPlJA9s2iEDEemSsi9RpgxS8UHcon1bhgT7vv4sZoIQfAbXjQnAb6L3WcEy1Z-F0Dt2xi2_ION_VVjffpKBxa5Rb3VGdNl2NpFbWvly3JUuGDOCqhX_buY10LtXjsmLPa0R-93d21fF_Ddm9DtCBh7Iz2c-XUE&state=58853364336136bc32022abfe86a49159e8ed9db64b85c21" for ::1 at 2023-05-02 17:53:53 +0200
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDOE2x4fpU0cHThn5IrdzopDnjorOODB6g3DZeRr1O1TKyD7AYslL9dO3q6PQwKRYENhcJOYLk59a4tCseJ0J3UnMfTlPIfK_IWeZH0i7e2W3oNohoVNylNsgn5c_QDcKMgfhPLlKJrfzRxZ7UPlumoR8bemlu8sN91h0sLHCD9uZQIti2Zledlfucb6z4D9P5LmTjYzZTUkcEVS8Q_IaMnhKnT1x0DwE-DhdPlJA9s2iEDEemSsi9RpgxS8UHcon1bhgT7vv4sZoIQfAbXjQnAb6L3WcEy1Z-F0Dt2xi2_ION_VVjffpKBxa5Rb3VGdNl2NpFbWvly3JUuGDOCqhX_buY10LtXjsmLPa0R-93d21fF_Ddm9DtCBh7Iz2c-XUE", "state"=>"58853364336136bc32022abfe86a49159e8ed9db64b85c21"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "facebook"], ["uid", "2787191678078734"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "palumbosimone80@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "iva", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at", "role_id", "provider", "uid") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["email", "palumbosimone80@gmail.com"], ["encrypted_password", "[FILTERED]"], ["iva", nil], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["created_at", "2023-05-02 15:53:54.367254"], ["updated_at", "2023-05-02 15:53:54.367254"], ["role_id", 9], ["provider", "facebook"], ["uid", "2787191678078734"]]
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2023-05-02 15:53:54.377807"], ["last_sign_in_at", "2023-05-02 15:53:54.377807"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["updated_at", "2023-05-02 15:53:54.377933"], ["id", 3]]
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+Redirected to http://localhost:3000/
+Completed 302 Found in 252ms (ActiveRecord: 12.3ms | Allocations: 11775)
+
+
+Started GET "/" for ::1 at 2023-05-02 17:53:54 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.8ms | Allocations: 5386)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 6606)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.1ms | Allocations: 7301)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-05-02 17:54:13 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 14ms (ActiveRecord: 0.3ms | Allocations: 1749)
+
+
+Started GET "/" for ::1 at 2023-05-02 17:54:13 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3766)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 4974)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 5199)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-02 17:54:17 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.0ms | Allocations: 3769)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 4920)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.0ms | Allocations: 5482)
+
+
