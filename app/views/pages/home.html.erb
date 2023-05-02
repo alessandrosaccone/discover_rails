@@ -1,5 +1,6 @@
-<% content_for :head do %>
-  <%= javascript_import_module_tag "script" %>
+<% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-home"%>
+  <%= stylesheet_link_tag "application" %>
 <% end %>
 <!-- I'm verifying if I'm using a mobile browser // a little different from the js in js/script_responsiveness.js -->
 <script>
@@ -31,10 +32,15 @@ myfunction();
 </div>
 <div class="navheader" id="navbar">
     <nav class="navbar">
-        <a href="home.html">Home</a>
+        <a href="#">Home</a>
         <a href="app.html">Visite</a>
         <a href="guide.html">Guide</a>
-        <a href="login.html">Login</a>
+        <%if !user_signed_in?%>
+            <a href="<%= new_user_session_path() %>">Login</a>
+        <%end%>
+        <%if user_signed_in?%>
+            <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+        <%end%>
         <a href="bacheca.html">Profilo</a>
     </nav>
 </div>
