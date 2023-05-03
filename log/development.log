@@ -7854,3 +7854,613 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.0ms | Allocations: 5482)
 
 
+Started GET "/" for ::1 at 2023-05-02 18:51:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 31.6ms | Allocations: 14248)
+  Rendered layout layouts/application.html.erb (Duration: 36.4ms | Allocations: 19225)
+Completed 200 OK in 44ms (Views: 39.1ms | ActiveRecord: 0.0ms | Allocations: 24123)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-02 18:51:54 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 254)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.6ms | Allocations: 8321)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 9473)
+Completed 200 OK in 33ms (Views: 15.0ms | ActiveRecord: 0.6ms | Allocations: 33250)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2023-05-02 18:51:57 +0200
+Started GET "/users/auth/facebook/callback?code=AQBjj3uDn9V6CJgrlR-Oa7RJcoae3koIrmFF3cpSs2jPsvrx58TUsoaycdYi8K_2MdIMFFg2hpI3Djs3JHQarhB5x7nnmNhpNcCZI1wkQv6Py1Uh3P-ME6K0KOoVV4Yfytwe8wbFSi8ZC4RtQwaHaG8TTkJ3Ctbshri-5yi-gyqauw5qwQdovLmqVYvJmFYXIEiWK2hT3FxmIVG3iCUxi1-jL_1R8H6D2MZvxqTRzrg_n6n_axlXnudrBEvTSBYjW1DBr9VGq9oTdnYmVrSp1L7c_JoqPheHBJ2fQEmfNvVKGADqmDhi76AcKnKnBVq0lOsqtSaZWGu_KiIcK2qwdaNT8i4az-KS3DOAJfNNAargIjwQ-25ax9IFDHvN_0sNrkA&state=bbd9536214889d3e5ebcffe9ccac2cffd64e838ba27d5098" for ::1 at 2023-05-02 18:51:57 +0200
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBjj3uDn9V6CJgrlR-Oa7RJcoae3koIrmFF3cpSs2jPsvrx58TUsoaycdYi8K_2MdIMFFg2hpI3Djs3JHQarhB5x7nnmNhpNcCZI1wkQv6Py1Uh3P-ME6K0KOoVV4Yfytwe8wbFSi8ZC4RtQwaHaG8TTkJ3Ctbshri-5yi-gyqauw5qwQdovLmqVYvJmFYXIEiWK2hT3FxmIVG3iCUxi1-jL_1R8H6D2MZvxqTRzrg_n6n_axlXnudrBEvTSBYjW1DBr9VGq9oTdnYmVrSp1L7c_JoqPheHBJ2fQEmfNvVKGADqmDhi76AcKnKnBVq0lOsqtSaZWGu_KiIcK2qwdaNT8i4az-KS3DOAJfNNAargIjwQ-25ax9IFDHvN_0sNrkA", "state"=>"bbd9536214889d3e5ebcffe9ccac2cffd64e838ba27d5098"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "facebook"], ["uid", "2787191678078734"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 2], ["current_sign_in_at", "2023-05-02 16:51:58.738395"], ["updated_at", "2023-05-02 16:51:58.739239"], ["id", 3]]
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+Redirected to http://localhost:3000/
+Completed 302 Found in 44ms (ActiveRecord: 5.2ms | Allocations: 7645)
+
+
+Started GET "/" for ::1 at 2023-05-02 18:51:58 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.3ms | Allocations: 4554)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 5775)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.2ms | Allocations: 6000)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-05-02 18:52:02 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 3ms (ActiveRecord: 0.1ms | Allocations: 1742)
+
+
+Started GET "/" for ::1 at 2023-05-02 18:52:02 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.4ms | Allocations: 3767)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 4976)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms | Allocations: 5200)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-02 18:52:04 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 3766)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 4907)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms | Allocations: 5480)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2023-05-02 18:52:05 +0200
+Started GET "/users/auth/facebook/callback?code=AQDY1XG6Yg0KPOKrdvU75HOlr01diaQgiY_25RZ-Iatt8QpOW1oqoNI8IztKEp0kst162tocbIRdnAkjPQDDUfjssPOoGEGaT83IOpQMHL2ajnYVZBZXO8qsjnmKG2xU0Lv1bgfpNmAcLhv7emzpiULNjRTfImYQkMOdotesr2gtBPsJYuQX4ZIddLGOKzsMfvGOuwAQfGfSgxC9Vq3N-RhKyOzrJpHz212q4cEFN26e-T2YsXt-w4ImvMIuxxHzj7Ua0w8dXVRTH1Vm0zXkIQ72O1_6b5aGZw7w2aFkHbH5Fe4k4HLWHiUzys58E6PT-TvcUNoXqcDnQP5IBetw3YtJ1q92gsKH_o5gXx6W3QaAzNWhgTiNxEsyYWRs2NuGYGo&state=52f9984187935eca02c04e27f719da4de9f2ba17b1591303" for ::1 at 2023-05-02 18:52:06 +0200
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDY1XG6Yg0KPOKrdvU75HOlr01diaQgiY_25RZ-Iatt8QpOW1oqoNI8IztKEp0kst162tocbIRdnAkjPQDDUfjssPOoGEGaT83IOpQMHL2ajnYVZBZXO8qsjnmKG2xU0Lv1bgfpNmAcLhv7emzpiULNjRTfImYQkMOdotesr2gtBPsJYuQX4ZIddLGOKzsMfvGOuwAQfGfSgxC9Vq3N-RhKyOzrJpHz212q4cEFN26e-T2YsXt-w4ImvMIuxxHzj7Ua0w8dXVRTH1Vm0zXkIQ72O1_6b5aGZw7w2aFkHbH5Fe4k4HLWHiUzys58E6PT-TvcUNoXqcDnQP5IBetw3YtJ1q92gsKH_o5gXx6W3QaAzNWhgTiNxEsyYWRs2NuGYGo", "state"=>"52f9984187935eca02c04e27f719da4de9f2ba17b1591303"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "facebook"], ["uid", "2787191678078734"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 3], ["current_sign_in_at", "2023-05-02 16:52:06.906608"], ["last_sign_in_at", "2023-05-02 16:51:58.738395"], ["updated_at", "2023-05-02 16:52:06.907219"], ["id", 3]]
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms (ActiveRecord: 9.0ms | Allocations: 2860)
+
+
+Started GET "/" for ::1 at 2023-05-02 18:52:06 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 16.1ms | Allocations: 4471)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 5680)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.3ms | Allocations: 5904)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-05-02 18:52:08 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 3ms (ActiveRecord: 0.1ms | Allocations: 1670)
+
+
+Started GET "/" for ::1 at 2023-05-02 18:52:08 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.5ms | Allocations: 3766)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 4974)
+Completed 200 OK in 5ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 5197)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for ::1 at 2023-05-03 09:46:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 22.2ms | Allocations: 14244)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 19221)
+Completed 200 OK in 35ms (Views: 29.1ms | ActiveRecord: 0.0ms | Allocations: 24119)
+
+
+Started GET "/guide.html" for ::1 at 2023-05-03 09:46:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/guide.html"):
+  
+Started GET "/guide.html" for ::1 at 2023-05-03 09:47:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/guide.html"):
+  
+Started GET "/FRONT/guide.html" for 127.0.0.1 at 2023-05-03 09:55:36 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/FRONT/guide.html"):
+  
+Started GET "/" for ::1 at 2023-05-03 10:09:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 48.2ms | Allocations: 30315)
+  Rendered layout layouts/application.html.erb (Duration: 51.8ms | Allocations: 35267)
+Completed 200 OK in 59ms (Views: 54.0ms | ActiveRecord: 0.0ms | Allocations: 40164)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 10:09:10 +0200
+  
+ActionController::RoutingError (uninitialized constant HomeController
+Did you mean?  RolesController):
+  
+Started GET "/guides" for ::1 at 2023-05-03 10:11:04 +0200
+  
+ActionController::RoutingError (uninitialized constant HomeController
+Did you mean?  RolesController):
+  
+Started GET "/guides" for ::1 at 2023-05-03 10:11:08 +0200
+  
+ActionController::RoutingError (uninitialized constant HomeController
+Did you mean?  RolesController):
+  
+Started GET "/guides" for ::1 at 2023-05-03 10:12:35 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2345)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 7116)
+Completed 200 OK in 11ms (Views: 7.7ms | Allocations: 9869)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 10:19:20 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 3.5ms | Allocations: 3030)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 7947)
+Completed 200 OK in 11ms (Views: 8.4ms | Allocations: 10896)
+
+
+Started GET "/image/guida1.webp" for ::1 at 2023-05-03 10:19:21 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/image/guida1.webp"):
+  
+Started GET "/image/guida2.webp" for ::1 at 2023-05-03 10:19:21 +0200
+Started GET "/image/guida3.webp" for ::1 at 2023-05-03 10:19:21 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/image/guida2.webp"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/image/guida3.webp"):
+  
+Started GET "/image/guida4.jpg" for ::1 at 2023-05-03 10:19:21 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/image/guida4.jpg"):
+  
+Started GET "/guides" for ::1 at 2023-05-03 10:23:24 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 14.3ms | Allocations: 3507)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 5018)
+Completed 200 OK in 24ms (Views: 22.2ms | Allocations: 5856)
+
+
+Started GET "/image/guida3.webp" for ::1 at 2023-05-03 10:23:24 +0200
+Started GET "/image/guida4.jpg" for ::1 at 2023-05-03 10:23:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/image/guida3.webp"):
+  
+Started GET "/image/guida2.webp" for ::1 at 2023-05-03 10:23:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/image/guida4.jpg"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/image/guida2.webp"):
+  
+Started GET "/guides" for ::1 at 2023-05-03 10:25:03 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 17.9ms | Allocations: 4970)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 6486)
+Completed 200 OK in 28ms (Views: 26.0ms | Allocations: 7319)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 10:41:18 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 6.0ms | Allocations: 4277)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 5483)
+Completed 200 OK in 8ms (Views: 7.9ms | Allocations: 5720)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-03 10:41:23 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 253)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.6ms | Allocations: 6475)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 7630)
+Completed 200 OK in 49ms (Views: 12.9ms | ActiveRecord: 3.1ms | Allocations: 31428)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 10:42:23 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 14.7ms | Allocations: 4962)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 6473)
+Completed 200 OK in 24ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 7305)
+
+
+Started GET "/pages/home" for ::1 at 2023-05-03 10:42:24 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 12.8ms | Allocations: 4627)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 5845)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms | Allocations: 6121)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 10:42:27 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 15.4ms | Allocations: 4257)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 5463)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.0ms | Allocations: 5701)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-03 10:42:28 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.3ms | Allocations: 246)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 22.4ms | Allocations: 4958)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 6113)
+Completed 200 OK in 31ms (Views: 28.6ms | ActiveRecord: 0.0ms | Allocations: 7157)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 10:42:30 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 16.4ms | Allocations: 4274)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 5494)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.0ms | Allocations: 5731)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 10:47:26 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 20.3ms | Allocations: 4966)
+  Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 6491)
+Completed 200 OK in 30ms (Views: 28.0ms | Allocations: 7324)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 10:47:27 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 11.8ms | Allocations: 4280)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 5490)
+Completed 200 OK in 18ms (Views: 16.8ms | Allocations: 5728)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 10:48:06 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 17.2ms | Allocations: 4970)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 6493)
+Completed 200 OK in 26ms (Views: 24.3ms | Allocations: 7325)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 10:48:10 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 18.0ms | Allocations: 4282)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 5488)
+Completed 200 OK in 23ms (Views: 21.7ms | Allocations: 5725)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 10:51:26 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 9.9ms | Allocations: 5090)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 6612)
+Completed 200 OK in 19ms (Views: 16.8ms | Allocations: 7444)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 10:52:04 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 12.9ms | Allocations: 5104)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 6618)
+Completed 200 OK in 19ms (Views: 18.2ms | Allocations: 7450)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:00:23 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 4.4ms | Allocations: 4396)
+  Rendered layout layouts/application.html.erb (Duration: 32.9ms | Allocations: 27651)
+Completed 200 OK in 36ms (Views: 33.6ms | Allocations: 30346)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:03:03 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 10.6ms | Allocations: 4981)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 6496)
+Completed 200 OK in 16ms (Views: 14.9ms | Allocations: 7331)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:07:55 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 19.4ms | Allocations: 5967)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 7421)
+Completed 200 OK in 29ms (Views: 26.2ms | Allocations: 8256)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:08:04 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 20.4ms | Allocations: 5251)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 6397)
+Completed 200 OK in 25ms (Views: 23.6ms | Allocations: 6637)
+
+
+Started GET "/" for ::1 at 2023-05-03 11:08:35 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 21.9ms | Allocations: 15036)
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | Allocations: 20906)
+Completed 200 OK in 33ms (Views: 28.9ms | ActiveRecord: 0.0ms | Allocations: 25807)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:08:37 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 13.9ms | Allocations: 6054)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 7213)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.0ms | Allocations: 7615)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:08:51 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 16.4ms | Allocations: 5240)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 6387)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.0ms | Allocations: 6636)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:08:53 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 13.0ms | Allocations: 5256)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 6403)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 6651)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:09:10 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 18.7ms | Allocations: 5971)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 7426)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.0ms | Allocations: 8271)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:09:28 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 15.6ms | Allocations: 5950)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 7404)
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 0.0ms | Allocations: 8239)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:12:41 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 15.3ms | Allocations: 5973)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 11456)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.0ms | Allocations: 12294)
+
+
+Started GET "/javascript/swiper.js" for ::1 at 2023-05-03 11:12:41 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/javascript/swiper.js"):
+  
+Started GET "/guides" for ::1 at 2023-05-03 11:12:46 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 18.2ms | Allocations: 5265)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 6411)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.0ms | Allocations: 6654)
+
+
+Started GET "/javascript/swiper.js" for ::1 at 2023-05-03 11:12:46 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/javascript/swiper.js"):
+  
+Started GET "/javascript/swiper.js" for ::1 at 2023-05-03 11:12:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/javascript/swiper.js"):
+  
+Started GET "/javascript/swiper.js" for ::1 at 2023-05-03 11:14:14 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/javascript/swiper.js"):
+  
+Started GET "/guides" for ::1 at 2023-05-03 11:14:16 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 51.3ms | Allocations: 29625)
+  Rendered layout layouts/application.html.erb (Duration: 56.1ms | Allocations: 35779)
+Completed 200 OK in 70ms (Views: 59.5ms | Allocations: 38682)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:15:53 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 8.9ms | Allocations: 7190)
+Importmap skipped missing path: swiper.js
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 13269)
+Completed 200 OK in 19ms (Views: 15.1ms | Allocations: 16215)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:15:54 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 10.2ms | Allocations: 5243)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 6389)
+Completed 200 OK in 14ms (Views: 12.8ms | Allocations: 6629)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:16:43 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 17.2ms | Allocations: 4984)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 6498)
+Completed 200 OK in 25ms (Views: 23.6ms | Allocations: 7333)
+
+
+Started GET "/javascript/script_guide.js" for ::1 at 2023-05-03 11:16:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/javascript/script_guide.js"):
+  
+Started GET "/guides" for ::1 at 2023-05-03 11:18:42 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 18.1ms | Allocations: 4280)
+Importmap skipped missing path: swiper.js
+  Rendered layout layouts/application.html.erb (Duration: 32.2ms | Allocations: 11561)
+Completed 200 OK in 34ms (Views: 33.5ms | Allocations: 11801)
+
+
+Started GET "/javascript/script_guide.js" for ::1 at 2023-05-03 11:18:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/javascript/script_guide.js"):
+  
+Started GET "/guides" for ::1 at 2023-05-03 11:18:51 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 15.3ms | Allocations: 5975)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 7429)
+Completed 200 OK in 23ms (Views: 21.6ms | Allocations: 8265)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:19:16 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 19.7ms | Allocations: 4973)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 6487)
+Completed 200 OK in 28ms (Views: 26.4ms | Allocations: 7322)
+
+
+Started GET "/javascript/script_guide.js" for ::1 at 2023-05-03 11:19:17 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/javascript/script_guide.js"):
+  
+Started GET "/guides" for ::1 at 2023-05-03 11:26:05 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 32.1ms | Allocations: 8982)
+  Rendered layout layouts/application.html.erb (Duration: 32.5ms | Allocations: 9049)
+Completed 500 Internal Server Error in 38ms (Allocations: 9867)
+
+
+  
+ActionView::Template::Error (undefined method `asset_pack_path' for #<ActionView::Base:0x0000000000e600>
+Did you mean?  asset_path):
+    109:     </script>
+    110:     
+    111:   
+    112:     <script src="<%= asset_pack_path 'script_guide.js' %>"></script>
+  
+app/views/pages/guides.html.erb:112
+Started GET "/guides" for ::1 at 2023-05-03 11:26:27 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 20.9ms | Allocations: 7195)
+Importmap skipped missing path: swiper.js
+  Rendered layout layouts/application.html.erb (Duration: 28.0ms | Allocations: 13311)
+Completed 200 OK in 34ms (Views: 31.7ms | Allocations: 14149)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:27:20 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 21.8ms | Allocations: 6450)
+Importmap skipped missing path: swiper.js
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 12232)
+Completed 200 OK in 29ms (Views: 28.4ms | Allocations: 12475)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:27:33 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 11.0ms | Allocations: 6445)
+Importmap skipped missing path: swiper.js
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 12227)
+Completed 200 OK in 18ms (Views: 17.2ms | Allocations: 12469)
+
+
+Started GET "/guides" for ::1 at 2023-05-03 11:29:30 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 8.2ms | Allocations: 4980)
+Importmap skipped missing path: script_guide.js
+Importmap skipped missing path: swiper.js
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 11078)
+Completed 200 OK in 17ms (Views: 13.9ms | Allocations: 14022)
+
+

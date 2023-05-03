@@ -6,4 +6,7 @@ class PagesController < ApplicationController
     def dummypage
     end
 
+    def guides
+        @users = User.all
+    end
 end
