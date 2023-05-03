@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Rails 7.0.4.3
+Ruby version ruby 2.7.2p137

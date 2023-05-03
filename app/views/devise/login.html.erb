@@ -1,0 +1,102 @@
+  <% content_for :for_head do %>
+    <%= stylesheet_link_tag "application-login" %>
+  <% end %>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <a href="<%= home_pages_path %>">Home</a>
+      </nav>
+    </header>
+    <div class="background" style="background: url('<%= image_path('banner_mario.jpg') %>')
+    no-repeat;"></div>
+    <div class="container" style="background: url('<%=image_path('banner_mario.jpg')%>') no-repeat;">
+      <div class="content">
+        <h2 class="logo"><i class="bx bx-world"></i>Discover</h2>
+
+        <div class="text-sci">
+          <h2><b>Benvenuto su Discover!</b><br /><span><b>Go wherever you want</b></span></h2>
+        </div>
+
+        <p>
+          <b>
+            La prima applicazione al mondo che ti permette di visitare le più 
+            belle città in Italia e nel mondo con un semplice click
+          </b>
+        </p>
+
+        <div class="social-icons">
+          <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+          <a href="#"><i class="bx bxl-instagram-alt"></i></a>
+          <a href="#"><i class="bx bxl-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="logreg-box">
+        <div class="form-box login">
+          <form action="#">
+            <h2>Accedi</h2>
+
+            <div class="input-box">
+              <span class="icon"><i class="bx bxs-envelope"></i></span>
+              <input type="email" required />
+              <label>Email</label>
+            </div>
+
+            <div class="input-box">
+              <span class="icon"><i class="bx bxs-lock"></i></span>
+              <input type="password" required />
+              <label>Password</label>
+            </div>
+
+            <div class="remember-forgot">
+              <label><input type="checkbox" />Ricordami</label>
+              <a href="#">Password dimenticata?</a>
+            </div>
+
+            <button type="submit" class="btn">Accedi</button>
+
+            <div class="login-register">
+              <p>
+                Non hai un account?
+                <a href="#" class="register-link">Registrati</a>
+              </p>
+            </div>
+          </form>
+        </div>
+        <div class="form-box register">
+          <form action="#">
+            <h2>Registrati</h2>
+            <div class="input-box">
+              <span class="icon"><i class="bx bxs-user"></i></span>
+              <input type="name" required />
+              <label>Nome</label>
+            </div>
+
+            <div class="input-box">
+              <span class="icon"><i class="bx bxs-envelope"></i></span>
+              <input type="email" required />
+              <label>Email</label>
+            </div>
+
+            <div class="input-box">
+              <span class="icon"><i class="bx bxs-lock"></i></span>
+              <input type="password" required />
+              <label>Password</label>
+            </div>
+            <button type="submit" class="btn">Registrati</button>
+
+            <div class="login-register">
+              <p>
+                Hai già un account?
+                <a href="#" class="login-link">Accedi</a>
+              </p>
+              <p>
+                Sei una guida senza account? 
+                <a href="login_guide.html" class="login-link">Registrati</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%= javascript_include_tag "script_login" %>
