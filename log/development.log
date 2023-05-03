@@ -8464,3 +8464,145 @@ Importmap skipped missing path: swiper.js
 Completed 200 OK in 17ms (Views: 13.9ms | Allocations: 14022)
 
 
+Started GET "/" for ::1 at 2023-05-03 11:37:01 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 28.5ms | Allocations: 19775)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 24786)
+Completed 200 OK in 39ms (Views: 34.8ms | ActiveRecord: 0.0ms | Allocations: 29684)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-03 11:37:06 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 254)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 8327)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 9483)
+Completed 200 OK in 40ms (Views: 15.2ms | ActiveRecord: 1.0ms | Allocations: 33258)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2023-05-03 11:37:08 +0200
+Started GET "/users/auth/facebook/callback?code=AQAkss6WqwWoykbhxfyTlOV_GroSaFp_erhVu6KRhGec5FQjzzLn8_GwhGUNVkozAr7e7cqxJXZuDznHZZDF2_Ns27uIk9yFYvcvMrX5FTQl1-YhtGciXNPWv_exH5954ft2WkZ27VgaiFTapWITdKFzz0CcDg0UQQS3r9mUJ_6byh-GclbYnFA4QozUUZGSb0mPpfO2-5CUGNNNBO39Cu9y03nUBdt9RcJvNHviWinVWB-JVj6ZUSkGl7UfP2RR9oy3CPrULTkkEk33iBH-C7h37zLpZcRE-FG__vLwV5bqQ4enNeMM3GNM3c9ZQ1gaXSUu-NEF8jWO9ghWYdLWfAyfBdvbii0zJCI19Hiwy-cL2gliVT8RVYcJs1Kfcm0q9Jk&state=998cf01294400d3466dc2f7f34d4a2f702085a36552c5b36" for ::1 at 2023-05-03 11:37:08 +0200
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQAkss6WqwWoykbhxfyTlOV_GroSaFp_erhVu6KRhGec5FQjzzLn8_GwhGUNVkozAr7e7cqxJXZuDznHZZDF2_Ns27uIk9yFYvcvMrX5FTQl1-YhtGciXNPWv_exH5954ft2WkZ27VgaiFTapWITdKFzz0CcDg0UQQS3r9mUJ_6byh-GclbYnFA4QozUUZGSb0mPpfO2-5CUGNNNBO39Cu9y03nUBdt9RcJvNHviWinVWB-JVj6ZUSkGl7UfP2RR9oy3CPrULTkkEk33iBH-C7h37zLpZcRE-FG__vLwV5bqQ4enNeMM3GNM3c9ZQ1gaXSUu-NEF8jWO9ghWYdLWfAyfBdvbii0zJCI19Hiwy-cL2gliVT8RVYcJs1Kfcm0q9Jk", "state"=>"998cf01294400d3466dc2f7f34d4a2f702085a36552c5b36"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "facebook"], ["uid", "2787191678078734"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 4], ["current_sign_in_at", "2023-05-03 09:37:09.702439"], ["last_sign_in_at", "2023-05-02 16:52:06.906608"], ["updated_at", "2023-05-03 09:37:09.703546"], ["id", 3]]
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+Redirected to http://localhost:3000/
+Completed 302 Found in 37ms (ActiveRecord: 5.2ms | Allocations: 7664)
+
+
+Started GET "/" for ::1 at 2023-05-03 11:37:09 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.4ms | Allocations: 4589)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 5814)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.1ms | Allocations: 6039)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started DELETE "/users/sign_out" for ::1 at 2023-05-03 11:38:00 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 9ms (ActiveRecord: 0.3ms | Allocations: 1734)
+
+
+Started GET "/" for ::1 at 2023-05-03 11:38:00 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.9ms | Allocations: 3801)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 5013)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 5236)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "palumbosimone80@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for ::1 at 2023-05-03 11:39:25 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 16.7ms | Allocations: 3802)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 5008)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms | Allocations: 5231)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-03 11:39:26 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 15.7ms | Allocations: 3776)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 4922)
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.0ms | Allocations: 5500)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2023-05-03 11:39:28 +0200
+Started GET "/users/auth/facebook/callback?code=AQBvQ7zJs7a3ybSLBJaGYW6J0C0QTy_-Kn8spo4OYJXQV6xI9ydKAAGtz5peCuuKr0whxwiOMuYNyqBzSeoUwNxAwFfjKEj9O4s9pZhL3YBI1sQfDzE_WHgHCgwPZBztaEtY6tl2u4_i9zqXIZUeKnvKlUnFIyhZb4oYeuND8H4rnU-SbGyZ3msOmEHGv9M6j1-2lxrXqlkEpdoat26Akj02noRyLQw3idzSl9l4cYHhbPTOxcCbvMpIfGBEYob3xMWSG6PbEEBHUDV31vXKWRr7h27vEMDNesIQUtUXAkmkXv5YoMrFdBhlPjv7ijp-S2-MOJq1FywV-W3L_SeHujT4v2NmXUy_eaqoBqBKddOay82q7rbiYL2tbvdYIHYGfmQ&state=3bf70b148a64addf9eb5cb8d8496340411e0786eec200d9d" for ::1 at 2023-05-03 11:39:28 +0200
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBvQ7zJs7a3ybSLBJaGYW6J0C0QTy_-Kn8spo4OYJXQV6xI9ydKAAGtz5peCuuKr0whxwiOMuYNyqBzSeoUwNxAwFfjKEj9O4s9pZhL3YBI1sQfDzE_WHgHCgwPZBztaEtY6tl2u4_i9zqXIZUeKnvKlUnFIyhZb4oYeuND8H4rnU-SbGyZ3msOmEHGv9M6j1-2lxrXqlkEpdoat26Akj02noRyLQw3idzSl9l4cYHhbPTOxcCbvMpIfGBEYob3xMWSG6PbEEBHUDV31vXKWRr7h27vEMDNesIQUtUXAkmkXv5YoMrFdBhlPjv7ijp-S2-MOJq1FywV-W3L_SeHujT4v2NmXUy_eaqoBqBKddOay82q7rbiYL2tbvdYIHYGfmQ", "state"=>"3bf70b148a64addf9eb5cb8d8496340411e0786eec200d9d"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "facebook"], ["uid", "2787191678078734"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "palumbosimone80@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "iva", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at", "role_id", "provider", "uid") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Simone Palumbo"], ["email", "palumbosimone80@gmail.com"], ["encrypted_password", "[FILTERED]"], ["iva", nil], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["created_at", "2023-05-03 09:39:30.096952"], ["updated_at", "2023-05-03 09:39:30.096952"], ["role_id", 9], ["provider", "facebook"], ["uid", "2787191678078734"]]
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:22:in `from_omniauth'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2023-05-03 09:39:30.106936"], ["last_sign_in_at", "2023-05-03 09:39:30.106936"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["updated_at", "2023-05-03 09:39:30.107189"], ["id", 4]]
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+Redirected to http://localhost:3000/
+Completed 302 Found in 253ms (ActiveRecord: 10.1ms | Allocations: 7069)
+
+
+Started GET "/" for ::1 at 2023-05-03 11:39:30 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.2ms | Allocations: 4522)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 5735)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.1ms | Allocations: 5958)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started DELETE "/users/sign_out" for ::1 at 2023-05-03 11:39:54 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 11ms (ActiveRecord: 0.4ms | Allocations: 1667)
+
+
+Started GET "/" for ::1 at 2023-05-03 11:39:54 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.1ms | Allocations: 3808)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 5020)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 5243)
+
+
