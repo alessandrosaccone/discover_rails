@@ -7889,3 +7889,13 @@ Migrating to CreatePosts (20230508213408)
   [1m[36mTRANSACTION (12.7ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz"], ["titolo", "Visita al vaticansbro"], ["data", "2023-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Italiano"], ["persone", 10], ["prezzo", 60], ["nomeC", "Roma"], ["regioneC", "Lazio"], ["nomeP", "Roma"], ["created_at", "2023-05-08 21:38:04.827839"], ["updated_at", "2023-05-08 21:38:04.827839"]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro2"], ["data", "2024-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-08 21:39:16.393272"], ["updated_at", "2023-05-08 21:39:16.393272"]]
+  [1m[36mTRANSACTION (11.1ms)[0m  [1m[36mcommit transaction[0m
