@@ -5,10 +5,6 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
   <div class="field">
     <%= f.label :password %>
@@ -53,23 +49,26 @@
                   <label for="nome"><b>Nome</b></label>
                 </div>
 
-                <div class="input-box">
-                    <span class="icon"><i class="bx bxs-envelope"></i></span>
-                    <input type="text" id="nome" name="nome" pattern="[A-Za-z]+" required>
-                    <label for="nome"><b>Cognome</b></label>
-                </div>
     
                 <div class="input-box">
                     <span class="icon"><i class="bx bxs-envelope"></i></span>
-                    <input type="email" required />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
                     <label><b>Email</b></label>
                 </div>
 
                 <div class="input-box">
                     <span class="icon"></span>
-                    <input type="password" required />
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                     <% end %>
+                     <%= f.password_field :password, autocomplete: "new-password" %>
                     <label><b>Password</b></label>
                 </div> 
+                <div class="input box">
+                  <span class='icon'></span>
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>     
+                  
+                </div>
                   
                 <div class="input-box">
                     <span class="icon"></span>
@@ -83,7 +82,7 @@
                 </div>
     
                 <button type="submit" class="btn">Registrati</button>
-              </form>
+              <%end%>
             </div>
         </div>
     </div>
