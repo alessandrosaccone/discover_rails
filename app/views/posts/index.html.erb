@@ -1,14 +1,124 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-post"%>
+  <%= stylesheet_link_tag "application" %>
+<% end %>
 
-<h1>Posts</h1>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="js/script.js"></script>
+    <script src="js/script_app.js"></script>
+    <script src="js/script_responsiveness.js"></script>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
-</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-<%= link_to "New post", new_post_path %>
+    <title>Visite</title>
+  </head>
+  <body>
+    <div class="all_header" id="head">
+      <h1>Discover</h1>
+      <p>Go wherever you want</p>
+    </div>
+    <div class="navheader_general" id="navbar_app">
+      <nav class="navbar">
+        <a href="home.html" id="home">Home</a>
+        <a href="app.html">Visite</a>
+        <a href="guide.html">Guide</a>
+        <a href="bacheca.html">Profilo</a>
+        <a href="logout_trasizione.php" id="login_logout"></a>
+      </nav>
+      <div id="benvenuto" class="benvenuto">
+      </div>
+    </div>
+
+    <!-- deleting the "home" from the navbar while using a mobile device -->
+    <script>
+      myfunction();
+    </script>
+
+    <div class="container">
+      <div class="search_container" id="search">
+        <form method="POST" action="" id="myform">
+          <div class="search-bar_center">
+            <input
+              id="search"
+              type="text"
+              name="search"
+              placeholder="Ricerca un luogo..."
+            />
+            <input type="text" name="lingua" placeholder="Lingua..." />
+          </div>
+        </form>
+      </div>
+
+      <link
+        rel="stylesheet"
+        href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+      />
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script type="text/javascript" src="js/script_app-query.js"></script>
+
+      <div id="zonaDinamica"></div>
+
+      <!-- AJAX -->
+     <!-- <script>
+        window.onload = caricaRisorsa;
+        function caricaRisorsa(e) {
+          var httpRequest = new XMLHttpRequest();
+          httpRequest.onreadystatechange = gestisciResponse;
+          httpRequest.open("GET", "app.php", true);
+          httpRequest.send();
+        }
+        function gestisciResponse(e) {
+          if (
+            e.target.readyState == XMLHttpRequest.DONE &&
+            e.target.status == 200
+          ) {
+            document.getElementById("zonaDinamica").innerHTML =
+              e.target.responseText;
+          }
+        }
+      </script>-->
+
+      <!--JQuery-->
+ <!--     <script>
+        var string = "";
+        $("#search").on("keydown", function () {
+          $("#zonaDinamica").load("app.php", $("#myform").serialize());
+        });
+      </script>-->
+
+      <!--Prevent the form from submitting-->
+  <!--
+      <script>
+        $(window).ready(function () {
+          $("#form").on("keypress", function (event) {
+            var keyPressed = event.keyCode || event.which;
+            if (keyPressed === 13) {
+              event.preventDefault();
+              return false;
+            }
+          });
+        });
+      </script>
+
+      <script>
+        $(window).on("load", function () {
+          $("#login_logout").load("logout.php");
+        });
+      </script>
+      <script>
+        $(window).on("load", function () {
+          $("#benvenuto").load("benvenuto.php");
+        });
+      </script>-->
+    </div>
+  </body>
+</html>
