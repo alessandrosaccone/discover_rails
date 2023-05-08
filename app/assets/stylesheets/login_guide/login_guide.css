@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #020410;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 3%;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 16px;
+  color: #e4e4e4;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: 30px;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #e4e4e4;
+  border-radius: 5px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.navbar a:hover::after {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.background {
+  width: 100%;
+  height: 100vh;
+  background: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 650px;
+  background: rgb(255, 255, 255); /*qui devo modificare l'immagine di*/
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.container-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 590px;
+  height: 640px;
+  background: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin-top: 20px;
+  z-index: 1;
+  filter: blur(5px);
+}
+
+.container-3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 590px;
+  height: 640px;
+  background: transparent;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.logreg-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 58%);
+  height: 100%;
+}
+
+.logreg-box .form-box {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+/*scritta sign in*/
+.form-box h2 {
+  font-size: 35px;
+  text-align: center;
+}
+
+.form-box .input-box {
+  position: relative;
+  width: 340px;
+  height: 50px;
+  border-bottom: 2px solid rgb(255, 255, 255);
+  margin: 30px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  padding-right: 28px;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5s ease;
+}
+
+/*di quanto si alzano i campi*/
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px; /*di quanto si alza*/
+}
+
+.form-box .remember-forgot {
+  font-size: 18px;
+  font-weight: 500;
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember-forgot label input {
+  accent-color: rgb(255, 255, 255);
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+/*bottone sign in*/
+.btn {
+  width: 100%;
+  height: 45px;
+  background: rgb(255, 255, 255);
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}

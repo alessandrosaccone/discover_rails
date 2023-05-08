@@ -1,4 +1,6 @@
-<h2>Sign up</h2>
+<%content_for :for_head do %>
+  <%= stylesheet_link_tag "application-login_guide" %>
+<% end %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -25,5 +27,65 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+
+<header class="header">
+        <nav class="navbar">
+          <a href="<%=home_pages_path%>">Home</a>
+          <a href="login.html">Login</a>
+        </nav>
+    </header>
+    <div class="background" style="background: url(<%=image_path('banner-mario.jpg')%>)"></div>
+
+    <div class="container"></div>
+
+    <div class="container-2" style="background: url(<%=image_path('banner-mario.jpg')%>)"></div>
+
+    <div class="container-3">
+        <div class="logreg-box">
+            <div class="form-box login">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <h2><b>Registrati</b></h2>
+    
+                <div class="input-box">
+                  <span class="icon"><i class="bx bxs-envelope"></i></span>
+                  <%= f.text_field :name, autofocus: true, autocomplete: "nome" %>
+                  <label for="nome"><b>Nome</b></label>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><i class="bx bxs-envelope"></i></span>
+                    <input type="text" id="nome" name="nome" pattern="[A-Za-z]+" required>
+                    <label for="nome"><b>Cognome</b></label>
+                </div>
+    
+                <div class="input-box">
+                    <span class="icon"><i class="bx bxs-envelope"></i></span>
+                    <input type="email" required />
+                    <label><b>Email</b></label>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"></span>
+                    <input type="password" required />
+                    <label><b>Password</b></label>
+                </div> 
+                  
+                <div class="input-box">
+                    <span class="icon"></span>
+                    <input type="text" required />
+                    <label><b>Città</b></label>
+                </div> 
+    
+                <div class="remember-forgot">
+                  <label><input type="checkbox" />Ricordami</label>
+                  <a href="#">Password dimenticata?</a>
+                </div>
+    
+                <button type="submit" class="btn">Registrati</button>
+              </form>
+            </div>
+        </div>
+    </div>
 
 <%= render "devise/shared/links" %>
