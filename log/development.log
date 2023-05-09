@@ -10724,3 +10724,34 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.2ms | Allocations: 5950)
 
 
+Started GET "/" for 127.0.0.1 at 2023-05-09 19:24:51 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 186.7ms | Allocations: 42935)
+  Rendered layout layouts/application.html.erb (Duration: 197.0ms | Allocations: 47885)
+Completed 200 OK in 223ms (Views: 209.7ms | ActiveRecord: 0.0ms | Allocations: 52782)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-05-09 19:24:54 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.4ms | Allocations: 254)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 36.7ms | Allocations: 8285)
+  Rendered layout layouts/application.html.erb (Duration: 40.0ms | Allocations: 9444)
+Completed 200 OK in 87ms (Views: 43.5ms | ActiveRecord: 0.8ms | Allocations: 32365)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-05-09 19:25:00 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 2.0ms | Allocations: 718)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 13.9ms | Allocations: 4188)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 5405)
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 0.0ms | Allocations: 6651)
+
+
