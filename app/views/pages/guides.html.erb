@@ -92,8 +92,7 @@
           navigator.userAgent.match(/iPhone/i) ||
           navigator.userAgent.match(/iPod/i) ||
           navigator.userAgent.match(/BlackBerry/i) ||
-          navigator.userAgent.match(/Windows Phone/i) ||
-          screen.orientation.type("portrait-secondary")
+          navigator.userAgent.match(/Windows Phone/i)
         ) {
           a = true;
           const home = document.getElementById("home");
@@ -107,6 +106,7 @@
       }
       myfunction();
     </script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <%= javascript_include_tag "script_guide" %>
    
    
