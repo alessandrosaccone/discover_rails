@@ -14,10 +14,6 @@ class User < ApplicationRecord
     role.name == 'Guide'
   end
   
-  def default_role
-    role = Role.find(9)
-    self.role << role
-  end
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
