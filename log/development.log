@@ -9074,3 +9074,84 @@ Processing by PagesController#guides as HTML
 Completed 200 OK in 32ms (Views: 30.1ms | Allocations: 11022)
 
 
+Started GET "/guides" for ::1 at 2023-05-09 17:07:36 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 16.5ms | Allocations: 5980)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 7468)
+Completed 200 OK in 23ms (Views: 21.9ms | Allocations: 8303)
+
+
+Started GET "/guides" for ::1 at 2023-05-09 17:10:39 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 13.1ms | Allocations: 5982)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 7470)
+Completed 200 OK in 19ms (Views: 18.2ms | Allocations: 8305)
+
+
+Started GET "/guides" for ::1 at 2023-05-09 17:10:53 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 19.3ms | Allocations: 5977)
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 7465)
+Completed 200 OK in 28ms (Views: 26.1ms | Allocations: 8303)
+
+
+Started GET "/guides" for ::1 at 2023-05-09 17:19:32 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 16.3ms | Allocations: 5977)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 7465)
+Completed 200 OK in 22ms (Views: 21.0ms | Allocations: 8301)
+
+
+Started GET "/guides" for ::1 at 2023-05-09 17:19:42 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 10.8ms | Allocations: 5261)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 6441)
+Completed 200 OK in 18ms (Views: 17.3ms | Allocations: 6681)
+
+
+Started GET "/guides" for ::1 at 2023-05-09 17:21:32 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 9.9ms | Allocations: 5973)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 7461)
+Completed 200 OK in 14ms (Views: 13.6ms | Allocations: 8296)
+
+
+Started GET "/guides" for ::1 at 2023-05-09 17:22:47 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 14.2ms | Allocations: 6023)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 7515)
+Completed 200 OK in 20ms (Views: 19.3ms | Allocations: 8351)
+
+
+Started GET "/guides" for ::1 at 2023-05-09 17:22:56 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 13.0ms | Allocations: 6000)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 7492)
+Completed 200 OK in 21ms (Views: 19.5ms | Allocations: 8328)
+
+
+Started GET "/guides" for ::1 at 2023-05-09 17:24:12 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 11.7ms | Allocations: 5985)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 7473)
+Completed 200 OK in 19ms (Views: 18.0ms | Allocations: 8308)
+
+

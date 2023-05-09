@@ -1,14 +1,14 @@
 <% content_for :for_head do %>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
   <%= stylesheet_link_tag "application-guides"%>
   <%= stylesheet_link_tag "application" %>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 <% end %>
 
 <div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
 <h1>Discover</h1>
 <p>Go ever wherever</p>
 </div>
-<div class="navheader" id="navbar">
+<div class="navheader_general" id="navbar">
     <nav class="navbar">
         <a href="<%= home_pages_path %>">Home</a>
         <a href="app.html">Visite</a>
@@ -28,8 +28,7 @@
   
         <div class="card swiper-slide">
           <div class="card__image">
-            <%= image_tag "guida1.webp", class: 'card image'%>
-            
+            <%= image_tag "guida1.webp", class: 'card__image'%>
           </div>
   
           <div class="card__content">
@@ -42,7 +41,7 @@
   
         <div class="card swiper-slide">
           <div class="card__image">
-          <%= image_tag "guida2.webp", class: 'card image'%>
+          <%= image_tag "guida2.webp", class: 'card__image'%>
             
           </div>
   
@@ -56,7 +55,7 @@
   
         <div class="card swiper-slide">
           <div class="card__image">
-          <%= image_tag "guida3.webp", class: 'card image'%>
+          <%= image_tag "guida3.webp", class: 'card__image'%>
             
           </div>
   
@@ -70,7 +69,7 @@
   
         <div class="card swiper-slide">
           <div class="card__image">
-          <%= image_tag "guida4.jpg", class: 'card image'%>
+          <%= image_tag "guida4.jpg", class: 'card__image'%>
             
           </div>
   
