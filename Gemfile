@@ -34,7 +34,3 @@ gem "importmap-rails", "~> 1.1"
 gem "devise", "~> 4.9"
 
 gem "cancancan", "~> 3.5"
-
-gem 'omniauth-facebook'
-
-gem 'omniauth-rails_csrf_protection'
