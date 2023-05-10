@@ -17037,3 +17037,2677 @@ Started GET "/js/script_responsiveness.js" for 127.0.0.1 at 2023-05-10 15:13:51 
   
 ActionController::RoutingError (No route matches [GET] "/js/script_responsiveness.js"):
   
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:15:31 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 20.5ms | Allocations: 4817)
+  Rendered layout layouts/application.html.erb (Duration: 36.3ms | Allocations: 10126)
+Completed 200 OK in 44ms (Views: 37.8ms | ActiveRecord: 0.4ms | Allocations: 11054)
+
+
+Started GET "/js/script.js" for 127.0.0.1 at 2023-05-10 15:15:31 +0200
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:15:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/js/script_app.js" for 127.0.0.1 at 2023-05-10 15:15:31 +0200
+Started GET "/js/script_responsiveness.js" for 127.0.0.1 at 2023-05-10 15:15:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_responsiveness.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:16:10 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 27.6ms | Allocations: 5897)
+  Rendered layout layouts/application.html.erb (Duration: 35.7ms | Allocations: 7398)
+Completed 200 OK in 47ms (Views: 39.6ms | ActiveRecord: 0.5ms | Allocations: 8924)
+
+
+Started GET "/js/script_app.js" for 127.0.0.1 at 2023-05-10 15:16:10 +0200
+Started GET "/js/script_responsiveness.js" for 127.0.0.1 at 2023-05-10 15:16:10 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_responsiveness.js"):
+  
+Started GET "/js/script.js" for 127.0.0.1 at 2023-05-10 15:16:10 +0200
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:16:10 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:16:52 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 22.2ms | Allocations: 4818)
+  Rendered layout layouts/application.html.erb (Duration: 48.8ms | Allocations: 10142)
+Completed 200 OK in 57ms (Views: 50.6ms | ActiveRecord: 0.5ms | Allocations: 11072)
+
+
+Started GET "/js/script.js" for 127.0.0.1 at 2023-05-10 15:16:52 +0200
+Started GET "/js/script_app.js" for 127.0.0.1 at 2023-05-10 15:16:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script.js"):
+  
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:16:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/js/script_responsiveness.js" for 127.0.0.1 at 2023-05-10 15:16:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_responsiveness.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:17:12 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 189.0ms | Allocations: 32025)
+  Rendered layout layouts/application.html.erb (Duration: 197.1ms | Allocations: 33526)
+Completed 200 OK in 210ms (Views: 201.8ms | ActiveRecord: 0.4ms | Allocations: 35051)
+
+
+Started GET "/js/script_responsiveness.js" for 127.0.0.1 at 2023-05-10 15:17:12 +0200
+Started GET "/js/script.js" for 127.0.0.1 at 2023-05-10 15:17:13 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_responsiveness.js"):
+  
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:17:13 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script.js"):
+  
+Started GET "/js/script_app.js" for 127.0.0.1 at 2023-05-10 15:17:13 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:17:54 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.7ms | Allocations: 6023)
+  Rendered layout layouts/application.html.erb (Duration: 55.2ms | Allocations: 11540)
+Completed 200 OK in 63ms (Views: 56.8ms | ActiveRecord: 0.4ms | Allocations: 12469)
+
+
+Started GET "/js/script.js" for 127.0.0.1 at 2023-05-10 15:17:55 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script.js"):
+  
+Started GET "/js/script_responsiveness.js" for 127.0.0.1 at 2023-05-10 15:17:55 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_responsiveness.js"):
+  
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:17:55 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/js/script_app.js" for 127.0.0.1 at 2023-05-10 15:17:55 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:18:45 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 32.5ms | Allocations: 7084)
+  Rendered layout layouts/application.html.erb (Duration: 53.1ms | Allocations: 12914)
+Completed 200 OK in 63ms (Views: 56.5ms | ActiveRecord: 0.5ms | Allocations: 14439)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:18:45 +0200
+Started GET "/js/script.js" for 127.0.0.1 at 2023-05-10 15:18:45 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/js/script_responsiveness.js" for 127.0.0.1 at 2023-05-10 15:18:45 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_responsiveness.js"):
+  
+Started GET "/js/script_app.js" for 127.0.0.1 at 2023-05-10 15:18:46 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:18:57 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 37.3ms | Allocations: 6009)
+  Rendered layout layouts/application.html.erb (Duration: 57.6ms | Allocations: 11530)
+Completed 200 OK in 66ms (Views: 59.1ms | ActiveRecord: 0.4ms | Allocations: 12460)
+
+
+Started GET "/js/script_responsiveness.js" for 127.0.0.1 at 2023-05-10 15:18:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_responsiveness.js"):
+  
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:18:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/js/script.js" for 127.0.0.1 at 2023-05-10 15:18:57 +0200
+Started GET "/js/script_app.js" for 127.0.0.1 at 2023-05-10 15:18:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:21:23 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 136.5ms | Allocations: 27847)
+  Rendered layout layouts/application.html.erb (Duration: 155.5ms | Allocations: 33484)
+Completed 200 OK in 168ms (Views: 159.3ms | ActiveRecord: 0.5ms | Allocations: 35012)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:21:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:21:48 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 36.0ms | Allocations: 7866)
+  Rendered layout layouts/application.html.erb (Duration: 56.9ms | Allocations: 13161)
+Completed 200 OK in 65ms (Views: 58.9ms | ActiveRecord: 0.4ms | Allocations: 14091)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:21:48 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:22:10 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 40.2ms | Allocations: 7833)
+  Rendered layout layouts/application.html.erb (Duration: 57.7ms | Allocations: 13128)
+Completed 200 OK in 66ms (Views: 59.4ms | ActiveRecord: 0.4ms | Allocations: 14057)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:22:10 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:23:53 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 25.3ms | Allocations: 6662)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 7853)
+Completed 200 OK in 46ms (Views: 32.4ms | ActiveRecord: 0.3ms | Allocations: 8785)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:23:53 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:24:15 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 38.2ms | Allocations: 7777)
+  Rendered layout layouts/application.html.erb (Duration: 47.4ms | Allocations: 9276)
+Completed 200 OK in 61ms (Views: 51.6ms | ActiveRecord: 0.5ms | Allocations: 10803)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:24:15 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:24:35 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 35.3ms | Allocations: 7854)
+  Rendered layout layouts/application.html.erb (Duration: 52.6ms | Allocations: 13164)
+Completed 200 OK in 60ms (Views: 54.2ms | ActiveRecord: 0.4ms | Allocations: 14094)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:24:35 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:25:09 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 39.0ms | Allocations: 7772)
+  Rendered layout layouts/application.html.erb (Duration: 49.7ms | Allocations: 9267)
+Completed 200 OK in 62ms (Views: 53.8ms | ActiveRecord: 0.5ms | Allocations: 10796)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:25:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:25:22 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.1ms | Allocations: 7800)
+  Rendered layout layouts/application.html.erb (Duration: 43.3ms | Allocations: 9300)
+Completed 200 OK in 54ms (Views: 46.9ms | ActiveRecord: 0.3ms | Allocations: 10828)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:25:22 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:25:44 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 32.6ms | Allocations: 7771)
+  Rendered layout layouts/application.html.erb (Duration: 39.7ms | Allocations: 9270)
+Completed 200 OK in 51ms (Views: 43.6ms | ActiveRecord: 0.3ms | Allocations: 10796)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:25:44 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:26:29 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.5ms | Allocations: 7782)
+  Rendered layout layouts/application.html.erb (Duration: 43.4ms | Allocations: 9277)
+Completed 200 OK in 55ms (Views: 47.7ms | ActiveRecord: 0.3ms | Allocations: 10803)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:26:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:28:16 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 20.9ms | Allocations: 4274)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 4341)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.3ms | Allocations: 5845)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+     97:             </span>
+     98:             </a>
+     99:             <script>
+    100:               var id = <%= post.id -1 %>;
+    101:               alert(id);
+    102:             </script>
+    103:         </div>
+  
+app/views/posts/index.html.erb:100
+app/views/posts/index.html.erb:66
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:28:31 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.6ms | Allocations: 7830)
+  Rendered layout layouts/application.html.erb (Duration: 42.5ms | Allocations: 9329)
+Completed 200 OK in 54ms (Views: 46.6ms | ActiveRecord: 0.4ms | Allocations: 10857)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:28:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:30:10 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 31.7ms | Allocations: 7791)
+  Rendered layout layouts/application.html.erb (Duration: 40.1ms | Allocations: 9286)
+Completed 200 OK in 53ms (Views: 44.4ms | ActiveRecord: 0.5ms | Allocations: 10812)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:30:10 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:30:53 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 42.3ms | Allocations: 7810)
+  Rendered layout layouts/application.html.erb (Duration: 50.0ms | Allocations: 9312)
+Completed 200 OK in 63ms (Views: 54.4ms | ActiveRecord: 0.5ms | Allocations: 10839)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:30:53 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:31:05 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 37.9ms | Allocations: 7840)
+  Rendered layout layouts/application.html.erb (Duration: 46.4ms | Allocations: 9339)
+Completed 200 OK in 59ms (Views: 50.3ms | ActiveRecord: 0.6ms | Allocations: 10865)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:31:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:31:24 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 49.1ms | Allocations: 7780)
+  Rendered layout layouts/application.html.erb (Duration: 60.5ms | Allocations: 9275)
+Completed 200 OK in 77ms (Views: 66.7ms | ActiveRecord: 0.4ms | Allocations: 10801)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:31:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:31:54 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 58.9ms | Allocations: 7767)
+  Rendered layout layouts/application.html.erb (Duration: 75.2ms | Allocations: 9262)
+Completed 200 OK in 98ms (Views: 86.4ms | ActiveRecord: 0.4ms | Allocations: 10788)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:31:54 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:32:23 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 30.0ms | Allocations: 7786)
+  Rendered layout layouts/application.html.erb (Duration: 38.9ms | Allocations: 9285)
+Completed 200 OK in 50ms (Views: 42.7ms | ActiveRecord: 0.3ms | Allocations: 10813)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:32:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:32:46 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 38.3ms | Allocations: 7755)
+  Rendered layout layouts/application.html.erb (Duration: 45.2ms | Allocations: 9250)
+Completed 200 OK in 56ms (Views: 49.3ms | ActiveRecord: 0.4ms | Allocations: 10778)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:32:46 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:33:08 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 41.8ms | Allocations: 7779)
+  Rendered layout layouts/application.html.erb (Duration: 50.7ms | Allocations: 9278)
+Completed 200 OK in 64ms (Views: 55.1ms | ActiveRecord: 0.5ms | Allocations: 10804)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:33:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:33:47 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 37.0ms | Allocations: 8303)
+  Rendered layout layouts/application.html.erb (Duration: 37.8ms | Allocations: 8370)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.5ms | Allocations: 9874)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<ActionView::Base:0x00000000053e58>
+Did you mean?  @posts):
+    103:     <% end %>
+    104:     <% end %>
+    105:     <script>
+    106:       var id = <%= post.id -1 %>;
+    107:       $("#js").click(function() {
+    108:           var popup = document.getElementById("myPopup_"+id);
+    109:           popup.classList.toggle("show");
+  
+app/views/posts/index.html.erb:106
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:33:56 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 36.4ms | Allocations: 8300)
+  Rendered layout layouts/application.html.erb (Duration: 37.0ms | Allocations: 8367)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.5ms | Allocations: 9871)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<ActionView::Base:0x00000000053fc0>
+Did you mean?  @posts):
+    103:     <% end %>
+    104:     <% end %>
+    105:     <script>
+    106:       var id = <%= (post.id - 1) %>;
+    107:       $("#js").click(function() {
+    108:           var popup = document.getElementById("myPopup_"+id);
+    109:           popup.classList.toggle("show");
+  
+app/views/posts/index.html.erb:106
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:34:16 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 33.5ms | Allocations: 8303)
+  Rendered layout layouts/application.html.erb (Duration: 34.2ms | Allocations: 8373)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.3ms | Allocations: 9877)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<ActionView::Base:0x00000000054128>
+Did you mean?  @posts):
+    103:     <% end %>
+    104:     <% end %>
+    105:     <script>
+    106:       var id = <%= (post.id-1) %>;
+    107:       $("#js").click(function() {
+    108:           var popup = document.getElementById("myPopup_"+id);
+    109:           popup.classList.toggle("show");
+  
+app/views/posts/index.html.erb:106
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:34:47 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 36.8ms | Allocations: 8301)
+  Rendered layout layouts/application.html.erb (Duration: 37.5ms | Allocations: 8368)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.3ms | Allocations: 9872)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<ActionView::Base:0x000000000542e0>
+Did you mean?  @posts):
+    103:     <% end %>
+    104:     <% end %>
+    105:     <script>
+    106:       var id = <%= ((post.id)-1) %>;
+    107:       $("#js").click(function() {
+    108:           var popup = document.getElementById("myPopup_"+id);
+    109:           popup.classList.toggle("show");
+  
+app/views/posts/index.html.erb:106
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:35:05 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 30.3ms | Allocations: 7819)
+  Rendered layout layouts/application.html.erb (Duration: 37.9ms | Allocations: 9318)
+Completed 200 OK in 49ms (Views: 41.9ms | ActiveRecord: 0.4ms | Allocations: 10846)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:35:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:35:21 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 40.0ms | Allocations: 8279)
+  Rendered layout layouts/application.html.erb (Duration: 40.8ms | Allocations: 8346)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.4ms | Allocations: 9848)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<ActionView::Base:0x00000000054600>
+Did you mean?  @posts):
+    104:     <% end %>
+    105:     <% end %>
+    106:      <script>
+    107:         var id = <%= (post.id - 1) %>;
+    108:         $("#js").click(function() {
+    109:             var popup = document.getElementById("myPopup_");
+    110:             popup.classList.toggle("show");
+  
+app/views/posts/index.html.erb:107
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:35:30 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 47.6ms | Allocations: 7797)
+  Rendered layout layouts/application.html.erb (Duration: 55.4ms | Allocations: 9292)
+Completed 200 OK in 66ms (Views: 59.3ms | ActiveRecord: 0.4ms | Allocations: 10818)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:35:30 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:35:40 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 38.2ms | Allocations: 7768)
+  Rendered layout layouts/application.html.erb (Duration: 45.3ms | Allocations: 9263)
+Completed 200 OK in 57ms (Views: 49.6ms | ActiveRecord: 0.5ms | Allocations: 10789)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:35:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:36:06 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 41.6ms | Allocations: 7806)
+  Rendered layout layouts/application.html.erb (Duration: 49.6ms | Allocations: 9301)
+Completed 200 OK in 62ms (Views: 54.1ms | ActiveRecord: 0.4ms | Allocations: 10827)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:36:06 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:36:11 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 32.9ms | Allocations: 7841)
+  Rendered layout layouts/application.html.erb (Duration: 41.1ms | Allocations: 9340)
+Completed 200 OK in 51ms (Views: 44.8ms | ActiveRecord: 0.3ms | Allocations: 10866)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:36:11 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:36:17 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 33.0ms | Allocations: 7789)
+  Rendered layout layouts/application.html.erb (Duration: 40.9ms | Allocations: 9284)
+Completed 200 OK in 52ms (Views: 44.6ms | ActiveRecord: 0.4ms | Allocations: 10810)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:36:17 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:37:47 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 38.8ms | Allocations: 7806)
+  Rendered layout layouts/application.html.erb (Duration: 49.4ms | Allocations: 9305)
+Completed 200 OK in 60ms (Views: 53.5ms | ActiveRecord: 0.3ms | Allocations: 10831)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:37:47 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:38:41 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.2ms | Allocations: 7772)
+  Rendered layout layouts/application.html.erb (Duration: 42.5ms | Allocations: 9267)
+Completed 200 OK in 55ms (Views: 47.2ms | ActiveRecord: 0.3ms | Allocations: 10795)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:38:41 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:38:54 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 29.8ms | Allocations: 7806)
+  Rendered layout layouts/application.html.erb (Duration: 37.1ms | Allocations: 9301)
+Completed 200 OK in 48ms (Views: 40.7ms | ActiveRecord: 0.5ms | Allocations: 10827)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:38:54 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:39:03 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 37.1ms | Allocations: 7789)
+  Rendered layout layouts/application.html.erb (Duration: 45.0ms | Allocations: 9284)
+Completed 200 OK in 59ms (Views: 50.4ms | ActiveRecord: 0.4ms | Allocations: 10810)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:39:03 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:41:30 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 32.1ms | Allocations: 7811)
+  Rendered layout layouts/application.html.erb (Duration: 38.8ms | Allocations: 9306)
+Completed 200 OK in 51ms (Views: 42.9ms | ActiveRecord: 0.5ms | Allocations: 10834)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:41:30 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:41:56 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 33.1ms | Allocations: 7808)
+  Rendered layout layouts/application.html.erb (Duration: 42.3ms | Allocations: 9303)
+Completed 200 OK in 54ms (Views: 46.4ms | ActiveRecord: 0.4ms | Allocations: 10829)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:41:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:44:16 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 874)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 942)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 3.1ms | Allocations: 8111)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-post"%>
+  <%= stylesheet_link_tag "application" %>
+<% end %>
+
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <title>Visite</title>
+
+    <div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
+<h1>Discover</h1>
+<p>Go ever wherever</p>
+</div>
+<div class="navheader_general" id="navbar">
+    <nav class="navbar">
+        <a href="<%= home_pages_path %>">Home</a>
+        <%= link_to 'Visite', posts_path %>
+        <%= link_to 'Guide', guides_path %>
+        <%if !user_signed_in?%>
+            <a href="<%= new_user_session_path() %>">Login</a>
+        <%end%>
+        <%if user_signed_in?%>
+            <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+        <%end%>
+        <a href="bacheca.html">Profilo</a>
+    </nav>
+</div>
+
+    <!-- deleting the "home" from the navbar while using a mobile device -->
+    <script>
+      myfunction();
+    </script>
+
+    <div class="container">
+      <div class="search_container" id="search">
+        <form method="POST" action="" id="myform">
+          <div class="search-bar_center">
+            <input
+              id="search"
+              type="text"
+              name="search"
+              placeholder="Ricerca un luogo..."
+            />
+            <input type="text" name="lingua" placeholder="Lingua..." />
+          </div>
+        </form>
+      </div>
+
+      <link
+        rel="stylesheet"
+        href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+      />
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script type="text/javascript" src="js/script_app-query.js"></script>
+    
+    <% @posts.each do |post| %>   
+    <% if ((post.id)-1) % 2 == 0 %>
+      <ul class="cards">
+    <% end %>
+    <li class='card'>
+    <div class='card_image'>
+      <%= image_tag "guida4.jpg"%>
+    </div>
+    <h3 class='card-title'>
+        <%= post.titolo %> <br> 
+        <!--<span class='name'> nome cognome </span>-->
+    </h3>
+    <div class='card-content'>
+        <p>
+            <%= post.descrizione%>
+        </p>
+        <hr> 
+        <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+        </div>
+        
+        <div class='card-languages'>
+            <h4>
+                Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+                Data e ora: <span style='font-weight: normal'><%= @data %> <%= @ora %> </span>
+            </h4>
+        </div>
+        <div class='card-link-wrapper'>
+            <a id="js" class='popup card-link'>Prenota (circa <%= @total_price euro%>)
+            <span class='popuptext' id='<%#String.Concat("myPopup_", post.id-1)%>'> 
+                <button class='card-link_2' style='font-weight: bold;'></button>
+                <!--<button class='card-link_2' style='font-weight: bold;'>Prenota singolo: €$price_2</button>-->
+            </span>
+            </a>
+        </div>
+        </li> 
+    <% if ((post.id)-1) % 2 != 0 %>
+      </ul>
+    <% end %>
+    
+    
+    <% end %>
+      <!-- AJAX -->
+     <!--<script>
+        window.onload = caricaRisorsa;
+        function caricaRisorsa(e) {
+          var httpRequest = new XMLHttpRequest();
+          httpRequest.onreadystatechange = gestisciResponse;
+          httpRequest.open("GET", "app.php", true);
+          httpRequest.send();
+        }
+        function gestisciResponse(e) {
+          if (
+            e.target.readyState == XMLHttpRequest.DONE &&
+            e.target.status == 200
+          ) {
+            document.getElementById("zonaDinamica").innerHTML =
+              e.target.responseText;
+          }
+        }
+      </script>-->
+
+      <!--JQuery-->
+ <!--     <script>
+        var string = "";
+        $("#search").on("keydown", function () {
+          $("#zonaDinamica").load("app.php", $("#myform").serialize());
+        });
+      </script>-->
+
+      <!--Prevent the form from submitting-->
+  <!--
+      <script>
+        $(window).ready(function () {
+          $("#form").on("keypress", function (event) {
+            var keyPressed = event.keyCode || event.which;
+            if (keyPressed === 13) {
+              event.preventDefault();
+              return false;
+            }
+          });
+        });
+      </script>
+
+      <script>
+        $(window).on("load", function () {
+          $("#login_logout").load("logout.php");
+        });
+      </script>
+      <script>
+        $(window).on("load", function () {
+          $("#benvenuto").load("benvenuto.php");
+        });
+      </script>-->
+   
+    </div>
+ <%= javascript_include_tag "script_app" %>
+ <%= javascript_include_tag "script" %>
+ <%= javascript_include_tag "script_responsiveness" %>
+
+
+):
+1:    <% content_for :for_head do %>
+2:      <%= stylesheet_link_tag "application-post"%>
+3:      <%= stylesheet_link_tag "application" %>
+4:    <% end %>
+5:    
+6:    
+7:        <meta charset="UTF-8" />
+8:        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+9:        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+10:        <link
+11:          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+12:          rel="stylesheet"
+13:        />
+14:    
+15:        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+16:    
+17:        <title>Visite</title>
+18:    
+19:        <div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
+20:    <h1>Discover</h1>
+21:    <p>Go ever wherever</p>
+22:    </div>
+23:    <div class="navheader_general" id="navbar">
+24:        <nav class="navbar">
+25:            <a href="<%= home_pages_path %>">Home</a>
+26:            <%= link_to 'Visite', posts_path %>
+27:            <%= link_to 'Guide', guides_path %>
+28:            <%if !user_signed_in?%>
+29:                <a href="<%= new_user_session_path() %>">Login</a>
+30:            <%end%>
+31:            <%if user_signed_in?%>
+32:                <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+33:            <%end%>
+34:            <a href="bacheca.html">Profilo</a>
+35:        </nav>
+36:    </div>
+37:    
+38:        <!-- deleting the "home" from the navbar while using a mobile device -->
+39:        <script>
+40:          myfunction();
+41:        </script>
+42:    
+43:        <div class="container">
+44:          <div class="search_container" id="search">
+45:            <form method="POST" action="" id="myform">
+46:              <div class="search-bar_center">
+47:                <input
+48:                  id="search"
+49:                  type="text"
+50:                  name="search"
+51:                  placeholder="Ricerca un luogo..."
+52:                />
+53:                <input type="text" name="lingua" placeholder="Lingua..." />
+54:              </div>
+55:            </form>
+56:          </div>
+57:    
+58:          <link
+59:            rel="stylesheet"
+60:            href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+61:          />
+62:          <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+63:          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+64:          <script type="text/javascript" src="js/script_app-query.js"></script>
+65:        
+66:        <% @posts.each do |post| %>   
+67:        <% if ((post.id)-1) % 2 == 0 %>
+68:          <ul class="cards">
+69:        <% end %>
+70:        <li class='card'>
+71:        <div class='card_image'>
+72:          <%= image_tag "guida4.jpg"%>
+73:        </div>
+74:        <h3 class='card-title'>
+75:            <%= post.titolo %> <br> 
+76:            <!--<span class='name'> nome cognome </span>-->
+77:        </h3>
+78:        <div class='card-content'>
+79:            <p>
+80:                <%= post.descrizione%>
+81:            </p>
+82:            <hr> 
+83:            <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+84:            </div>
+85:            
+86:            <div class='card-languages'>
+87:                <h4>
+88:                    Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+89:                    Data e ora: <span style='font-weight: normal'><%= @data %> <%= @ora %> </span>
+90:                </h4>
+91:            </div>
+92:            <div class='card-link-wrapper'>
+93:                <a id="js" class='popup card-link'>Prenota (circa <%= @total_price euro%>)
+94:                <span class='popuptext' id='<%#String.Concat("myPopup_", post.id-1)%>'> 
+95:                    <button class='card-link_2' style='font-weight: bold;'></button>
+96:                    <!--<button class='card-link_2' style='font-weight: bold;'>Prenota singolo: €$price_2</button>-->
+97:                </span>
+98:                </a>
+99:            </div>
+100:            </li> 
+101:        <% if ((post.id)-1) % 2 != 0 %>
+102:          </ul>
+103:        <% end %>
+104:        
+105:        
+106:        <% end %>
+107:          <!-- AJAX -->
+108:         <!--<script>
+109:            window.onload = caricaRisorsa;
+110:            function caricaRisorsa(e) {
+111:              var httpRequest = new XMLHttpRequest();
+112:              httpRequest.onreadystatechange = gestisciResponse;
+113:              httpRequest.open("GET", "app.php", true);
+114:              httpRequest.send();
+115:            }
+116:            function gestisciResponse(e) {
+117:              if (
+118:                e.target.readyState == XMLHttpRequest.DONE &&
+119:                e.target.status == 200
+120:              ) {
+121:                document.getElementById("zonaDinamica").innerHTML =
+122:                  e.target.responseText;
+123:              }
+124:            }
+125:          </script>-->
+126:    
+127:          <!--JQuery-->
+128:     <!--     <script>
+129:            var string = "";
+130:            $("#search").on("keydown", function () {
+131:              $("#zonaDinamica").load("app.php", $("#myform").serialize());
+132:            });
+133:          </script>-->
+134:    
+135:          <!--Prevent the form from submitting-->
+136:      <!--
+137:          <script>
+138:            $(window).ready(function () {
+139:              $("#form").on("keypress", function (event) {
+140:                var keyPressed = event.keyCode || event.which;
+141:                if (keyPressed === 13) {
+142:                  event.preventDefault();
+143:                  return false;
+144:                }
+145:              });
+146:            });
+147:          </script>
+148:    
+149:          <script>
+150:            $(window).on("load", function () {
+151:              $("#login_logout").load("logout.php");
+152:            });
+153:          </script>
+154:          <script>
+155:            $(window).on("load", function () {
+156:              $("#benvenuto").load("benvenuto.php");
+157:            });
+158:          </script>-->
+159:       
+160:        </div>
+161:     <%= javascript_include_tag "script_app" %>
+162:     <%= javascript_include_tag "script" %>
+163:     <%= javascript_include_tag "script_responsiveness" %>
+  
+app/views/posts/index.html.erb:93: syntax error, unexpected local variable or method, expecting ')'
+app/views/posts/index.html.erb:93: syntax error, unexpected local variable or method, expecting ')'
+app/views/posts/index.html.erb:93: syntax error, unexpected local variable or method, expecting ')'
+app/views/posts/index.html.erb:93: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:44:33 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 30.1ms | Allocations: 7817)
+  Rendered layout layouts/application.html.erb (Duration: 47.9ms | Allocations: 13439)
+Completed 200 OK in 60ms (Views: 51.8ms | ActiveRecord: 0.3ms | Allocations: 14967)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:44:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:44:44 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 32.6ms | Allocations: 7746)
+  Rendered layout layouts/application.html.erb (Duration: 41.4ms | Allocations: 9241)
+Completed 200 OK in 53ms (Views: 45.6ms | ActiveRecord: 0.5ms | Allocations: 10767)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:44:44 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:44:57 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 32.6ms | Allocations: 7742)
+  Rendered layout layouts/application.html.erb (Duration: 40.3ms | Allocations: 9237)
+Completed 200 OK in 52ms (Views: 44.8ms | ActiveRecord: 0.3ms | Allocations: 10763)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:44:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:45:03 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 31.6ms | Allocations: 7751)
+  Rendered layout layouts/application.html.erb (Duration: 38.8ms | Allocations: 9246)
+Completed 200 OK in 50ms (Views: 42.7ms | ActiveRecord: 0.5ms | Allocations: 10772)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:45:04 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:45:39 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 30.5ms | Allocations: 7744)
+  Rendered layout layouts/application.html.erb (Duration: 37.8ms | Allocations: 9239)
+Completed 200 OK in 49ms (Views: 41.8ms | ActiveRecord: 0.4ms | Allocations: 10765)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:45:39 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:45:46 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 32.9ms | Allocations: 7745)
+  Rendered layout layouts/application.html.erb (Duration: 41.6ms | Allocations: 9240)
+Completed 200 OK in 54ms (Views: 46.1ms | ActiveRecord: 0.4ms | Allocations: 10766)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:45:46 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:45:51 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 33.0ms | Allocations: 7745)
+  Rendered layout layouts/application.html.erb (Duration: 40.8ms | Allocations: 9240)
+Completed 200 OK in 52ms (Views: 44.8ms | ActiveRecord: 0.4ms | Allocations: 10766)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:45:51 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:45:54 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.9ms | Allocations: 7802)
+  Rendered layout layouts/application.html.erb (Duration: 42.0ms | Allocations: 9301)
+Completed 200 OK in 53ms (Views: 46.3ms | ActiveRecord: 0.3ms | Allocations: 10829)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:45:54 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:48:01 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 37.9ms | Allocations: 7964)
+  Rendered layout layouts/application.html.erb (Duration: 44.7ms | Allocations: 9459)
+Completed 200 OK in 55ms (Views: 48.8ms | ActiveRecord: 0.3ms | Allocations: 10987)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:48:01 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:48:22 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 35.4ms | Allocations: 7934)
+  Rendered layout layouts/application.html.erb (Duration: 43.9ms | Allocations: 9433)
+Completed 200 OK in 57ms (Views: 48.9ms | ActiveRecord: 0.4ms | Allocations: 10959)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:48:22 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:48:35 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.6ms | Allocations: 7899)
+  Rendered layout layouts/application.html.erb (Duration: 42.5ms | Allocations: 9394)
+Completed 200 OK in 55ms (Views: 46.9ms | ActiveRecord: 0.3ms | Allocations: 10920)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:48:35 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:48:57 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 33.4ms | Allocations: 7912)
+  Rendered layout layouts/application.html.erb (Duration: 41.3ms | Allocations: 9407)
+Completed 200 OK in 52ms (Views: 44.9ms | ActiveRecord: 0.4ms | Allocations: 10933)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:48:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:49:57 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 30.1ms | Allocations: 7949)
+  Rendered layout layouts/application.html.erb (Duration: 36.9ms | Allocations: 9444)
+Completed 200 OK in 49ms (Views: 40.7ms | ActiveRecord: 0.4ms | Allocations: 10970)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:49:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:50:08 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 838)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 906)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.3ms | Allocations: 2409)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-post"%>
+  <%= stylesheet_link_tag "application" %>
+<% end %>
+
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <title>Visite</title>
+
+    <div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
+<h1>Discover</h1>
+<p>Go ever wherever</p>
+</div>
+<div class="navheader_general" id="navbar">
+    <nav class="navbar">
+        <a href="<%= home_pages_path %>">Home</a>
+        <%= link_to 'Visite', posts_path %>
+        <%= link_to 'Guide', guides_path %>
+        <%if !user_signed_in?%>
+            <a href="<%= new_user_session_path() %>">Login</a>
+        <%end%>
+        <%if user_signed_in?%>
+            <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+        <%end%>
+        <a href="bacheca.html">Profilo</a>
+    </nav>
+</div>
+
+    <!-- deleting the "home" from the navbar while using a mobile device -->
+    <script>
+      myfunction();
+    </script>
+
+    <div class="container">
+      <div class="search_container" id="search">
+        <form method="POST" action="" id="myform">
+          <div class="search-bar_center">
+            <input
+              id="search"
+              type="text"
+              name="search"
+              placeholder="Ricerca un luogo..."
+            />
+            <input type="text" name="lingua" placeholder="Lingua..." />
+          </div>
+        </form>
+      </div>
+
+      <link
+        rel="stylesheet"
+        href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+      />
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script type="text/javascript" src="js/script_app-query.js"></script>
+    
+    <% @posts.each do |post| %>   
+    <% if ((post.id)-1) % 2 == 0 %>
+      <ul class="cards">
+    <% end %>
+    <li class='card'>
+    <div class='card_image'>
+      <%= image_tag "guida4.jpg"%>
+    </div>
+    <h3 class='card-title'>
+        <%= post.titolo %> <br> 
+        <!--<span class='name'> nome cognome </span>-->
+    </h3>
+    <div class='card-content'>
+        <p>
+            <%= post.descrizione%>
+        </p>
+        <hr> 
+        <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+        </div>
+        
+        <div class='card-languages'>
+            <h4>
+                Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+                Data e ora: <span style='font-weight: normal'><%= @data %> <%= @ora %> </span>
+            </h4>
+        </div>
+        <div class='card-link-wrapper'>
+            <a id="js" class='popup card-link'> 
+            <%= link_to ' <%=@total_price%>¢', posts_path(@post), class: "card-link" %>
+            </a>
+        </div>
+        </li> 
+    <% if ((post.id)-1) % 2 != 0 %>
+      </ul>
+    <% end %>
+    
+    
+    <% end %>
+      <!-- AJAX -->
+     <!--<script>
+        window.onload = caricaRisorsa;
+        function caricaRisorsa(e) {
+          var httpRequest = new XMLHttpRequest();
+          httpRequest.onreadystatechange = gestisciResponse;
+          httpRequest.open("GET", "app.php", true);
+          httpRequest.send();
+        }
+        function gestisciResponse(e) {
+          if (
+            e.target.readyState == XMLHttpRequest.DONE &&
+            e.target.status == 200
+          ) {
+            document.getElementById("zonaDinamica").innerHTML =
+              e.target.responseText;
+          }
+        }
+      </script>-->
+
+      <!--JQuery-->
+ <!--     <script>
+        var string = "";
+        $("#search").on("keydown", function () {
+          $("#zonaDinamica").load("app.php", $("#myform").serialize());
+        });
+      </script>-->
+
+      <!--Prevent the form from submitting-->
+  <!--
+      <script>
+        $(window).ready(function () {
+          $("#form").on("keypress", function (event) {
+            var keyPressed = event.keyCode || event.which;
+            if (keyPressed === 13) {
+              event.preventDefault();
+              return false;
+            }
+          });
+        });
+      </script>
+
+      <script>
+        $(window).on("load", function () {
+          $("#login_logout").load("logout.php");
+        });
+      </script>
+      <script>
+        $(window).on("load", function () {
+          $("#benvenuto").load("benvenuto.php");
+        });
+      </script>-->
+   
+    </div>
+ <%= javascript_include_tag "script_app" %>
+ <%= javascript_include_tag "script" %>
+ <%= javascript_include_tag "script_responsiveness" %>
+
+
+):
+1:    <% content_for :for_head do %>
+2:      <%= stylesheet_link_tag "application-post"%>
+3:      <%= stylesheet_link_tag "application" %>
+4:    <% end %>
+5:    
+6:    
+7:        <meta charset="UTF-8" />
+8:        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+9:        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+10:        <link
+11:          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+12:          rel="stylesheet"
+13:        />
+14:    
+15:        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+16:    
+17:        <title>Visite</title>
+18:    
+19:        <div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
+20:    <h1>Discover</h1>
+21:    <p>Go ever wherever</p>
+22:    </div>
+23:    <div class="navheader_general" id="navbar">
+24:        <nav class="navbar">
+25:            <a href="<%= home_pages_path %>">Home</a>
+26:            <%= link_to 'Visite', posts_path %>
+27:            <%= link_to 'Guide', guides_path %>
+28:            <%if !user_signed_in?%>
+29:                <a href="<%= new_user_session_path() %>">Login</a>
+30:            <%end%>
+31:            <%if user_signed_in?%>
+32:                <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+33:            <%end%>
+34:            <a href="bacheca.html">Profilo</a>
+35:        </nav>
+36:    </div>
+37:    
+38:        <!-- deleting the "home" from the navbar while using a mobile device -->
+39:        <script>
+40:          myfunction();
+41:        </script>
+42:    
+43:        <div class="container">
+44:          <div class="search_container" id="search">
+45:            <form method="POST" action="" id="myform">
+46:              <div class="search-bar_center">
+47:                <input
+48:                  id="search"
+49:                  type="text"
+50:                  name="search"
+51:                  placeholder="Ricerca un luogo..."
+52:                />
+53:                <input type="text" name="lingua" placeholder="Lingua..." />
+54:              </div>
+55:            </form>
+56:          </div>
+57:    
+58:          <link
+59:            rel="stylesheet"
+60:            href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+61:          />
+62:          <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+63:          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+64:          <script type="text/javascript" src="js/script_app-query.js"></script>
+65:        
+66:        <% @posts.each do |post| %>   
+67:        <% if ((post.id)-1) % 2 == 0 %>
+68:          <ul class="cards">
+69:        <% end %>
+70:        <li class='card'>
+71:        <div class='card_image'>
+72:          <%= image_tag "guida4.jpg"%>
+73:        </div>
+74:        <h3 class='card-title'>
+75:            <%= post.titolo %> <br> 
+76:            <!--<span class='name'> nome cognome </span>-->
+77:        </h3>
+78:        <div class='card-content'>
+79:            <p>
+80:                <%= post.descrizione%>
+81:            </p>
+82:            <hr> 
+83:            <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+84:            </div>
+85:            
+86:            <div class='card-languages'>
+87:                <h4>
+88:                    Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+89:                    Data e ora: <span style='font-weight: normal'><%= @data %> <%= @ora %> </span>
+90:                </h4>
+91:            </div>
+92:            <div class='card-link-wrapper'>
+93:                <a id="js" class='popup card-link'> 
+94:                <%= link_to ' <%=@total_price%>¢', posts_path(@post), class: "card-link" %>
+95:                </a>
+96:            </div>
+97:            </li> 
+98:        <% if ((post.id)-1) % 2 != 0 %>
+99:          </ul>
+100:        <% end %>
+101:        
+102:        
+103:        <% end %>
+104:          <!-- AJAX -->
+105:         <!--<script>
+106:            window.onload = caricaRisorsa;
+107:            function caricaRisorsa(e) {
+108:              var httpRequest = new XMLHttpRequest();
+109:              httpRequest.onreadystatechange = gestisciResponse;
+110:              httpRequest.open("GET", "app.php", true);
+111:              httpRequest.send();
+112:            }
+113:            function gestisciResponse(e) {
+114:              if (
+115:                e.target.readyState == XMLHttpRequest.DONE &&
+116:                e.target.status == 200
+117:              ) {
+118:                document.getElementById("zonaDinamica").innerHTML =
+119:                  e.target.responseText;
+120:              }
+121:            }
+122:          </script>-->
+123:    
+124:          <!--JQuery-->
+125:     <!--     <script>
+126:            var string = "";
+127:            $("#search").on("keydown", function () {
+128:              $("#zonaDinamica").load("app.php", $("#myform").serialize());
+129:            });
+130:          </script>-->
+131:    
+132:          <!--Prevent the form from submitting-->
+133:      <!--
+134:          <script>
+135:            $(window).ready(function () {
+136:              $("#form").on("keypress", function (event) {
+137:                var keyPressed = event.keyCode || event.which;
+138:                if (keyPressed === 13) {
+139:                  event.preventDefault();
+140:                  return false;
+141:                }
+142:              });
+143:            });
+144:          </script>
+145:    
+146:          <script>
+147:            $(window).on("load", function () {
+148:              $("#login_logout").load("logout.php");
+149:            });
+150:          </script>
+151:          <script>
+152:            $(window).on("load", function () {
+153:              $("#benvenuto").load("benvenuto.php");
+154:            });
+155:          </script>-->
+156:       
+157:        </div>
+158:     <%= javascript_include_tag "script_app" %>
+159:     <%= javascript_include_tag "script" %>
+160:     <%= javascript_include_tag "script_responsiveness" %>
+  
+app/views/posts/index.html.erb:94: syntax error, unexpected local variable or method, expecting ')'
+app/views/posts/index.html.erb:103: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:164: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:94: syntax error, unexpected local variable or method, expecting ')'
+app/views/posts/index.html.erb:103: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:164: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:94: syntax error, unexpected local variable or method, expecting ')'
+app/views/posts/index.html.erb:103: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:164: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:94: syntax error, unexpected local variable or method, expecting ')'
+app/views/posts/index.html.erb:103: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:164: syntax error, unexpected `end', expecting ')'
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:50:31 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 829)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 897)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.4ms | Allocations: 2403)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-post"%>
+  <%= stylesheet_link_tag "application" %>
+<% end %>
+
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <title>Visite</title>
+
+    <div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
+<h1>Discover</h1>
+<p>Go ever wherever</p>
+</div>
+<div class="navheader_general" id="navbar">
+    <nav class="navbar">
+        <a href="<%= home_pages_path %>">Home</a>
+        <%= link_to 'Visite', posts_path %>
+        <%= link_to 'Guide', guides_path %>
+        <%if !user_signed_in?%>
+            <a href="<%= new_user_session_path() %>">Login</a>
+        <%end%>
+        <%if user_signed_in?%>
+            <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+        <%end%>
+        <a href="bacheca.html">Profilo</a>
+    </nav>
+</div>
+
+    <!-- deleting the "home" from the navbar while using a mobile device -->
+    <script>
+      myfunction();
+    </script>
+
+    <div class="container">
+      <div class="search_container" id="search">
+        <form method="POST" action="" id="myform">
+          <div class="search-bar_center">
+            <input
+              id="search"
+              type="text"
+              name="search"
+              placeholder="Ricerca un luogo..."
+            />
+            <input type="text" name="lingua" placeholder="Lingua..." />
+          </div>
+        </form>
+      </div>
+
+      <link
+        rel="stylesheet"
+        href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+      />
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script type="text/javascript" src="js/script_app-query.js"></script>
+    
+    <% @posts.each do |post| %>   
+    <% if ((post.id)-1) % 2 == 0 %>
+      <ul class="cards">
+    <% end %>
+    <li class='card'>
+    <div class='card_image'>
+      <%= image_tag "guida4.jpg"%>
+    </div>
+    <h3 class='card-title'>
+        <%= post.titolo %> <br> 
+        <!--<span class='name'> nome cognome </span>-->
+    </h3>
+    <div class='card-content'>
+        <p>
+            <%= post.descrizione%>
+        </p>
+        <hr> 
+        <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+        </div>
+        
+        <div class='card-languages'>
+            <h4>
+                Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+                Data e ora: <span style='font-weight: normal'><%= @data %> <%= @ora %> </span>
+            </h4>
+        </div>
+        <div class='card-link-wrapper'> 
+            <%= link_to <%= @total_price %>¢, posts_path(@post), class: "card-link" %>
+        </div>
+        </li> 
+    <% if ((post.id)-1) % 2 != 0 %>
+      </ul>
+    <% end %>
+    
+    
+    <% end %>
+      <!-- AJAX -->
+     <!--<script>
+        window.onload = caricaRisorsa;
+        function caricaRisorsa(e) {
+          var httpRequest = new XMLHttpRequest();
+          httpRequest.onreadystatechange = gestisciResponse;
+          httpRequest.open("GET", "app.php", true);
+          httpRequest.send();
+        }
+        function gestisciResponse(e) {
+          if (
+            e.target.readyState == XMLHttpRequest.DONE &&
+            e.target.status == 200
+          ) {
+            document.getElementById("zonaDinamica").innerHTML =
+              e.target.responseText;
+          }
+        }
+      </script>-->
+
+      <!--JQuery-->
+ <!--     <script>
+        var string = "";
+        $("#search").on("keydown", function () {
+          $("#zonaDinamica").load("app.php", $("#myform").serialize());
+        });
+      </script>-->
+
+      <!--Prevent the form from submitting-->
+  <!--
+      <script>
+        $(window).ready(function () {
+          $("#form").on("keypress", function (event) {
+            var keyPressed = event.keyCode || event.which;
+            if (keyPressed === 13) {
+              event.preventDefault();
+              return false;
+            }
+          });
+        });
+      </script>
+
+      <script>
+        $(window).on("load", function () {
+          $("#login_logout").load("logout.php");
+        });
+      </script>
+      <script>
+        $(window).on("load", function () {
+          $("#benvenuto").load("benvenuto.php");
+        });
+      </script>-->
+   
+    </div>
+ <%= javascript_include_tag "script_app" %>
+ <%= javascript_include_tag "script" %>
+ <%= javascript_include_tag "script_responsiveness" %>
+
+
+):
+1:    <% content_for :for_head do %>
+2:      <%= stylesheet_link_tag "application-post"%>
+3:      <%= stylesheet_link_tag "application" %>
+4:    <% end %>
+5:    
+6:    
+7:        <meta charset="UTF-8" />
+8:        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+9:        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+10:        <link
+11:          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+12:          rel="stylesheet"
+13:        />
+14:    
+15:        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+16:    
+17:        <title>Visite</title>
+18:    
+19:        <div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
+20:    <h1>Discover</h1>
+21:    <p>Go ever wherever</p>
+22:    </div>
+23:    <div class="navheader_general" id="navbar">
+24:        <nav class="navbar">
+25:            <a href="<%= home_pages_path %>">Home</a>
+26:            <%= link_to 'Visite', posts_path %>
+27:            <%= link_to 'Guide', guides_path %>
+28:            <%if !user_signed_in?%>
+29:                <a href="<%= new_user_session_path() %>">Login</a>
+30:            <%end%>
+31:            <%if user_signed_in?%>
+32:                <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+33:            <%end%>
+34:            <a href="bacheca.html">Profilo</a>
+35:        </nav>
+36:    </div>
+37:    
+38:        <!-- deleting the "home" from the navbar while using a mobile device -->
+39:        <script>
+40:          myfunction();
+41:        </script>
+42:    
+43:        <div class="container">
+44:          <div class="search_container" id="search">
+45:            <form method="POST" action="" id="myform">
+46:              <div class="search-bar_center">
+47:                <input
+48:                  id="search"
+49:                  type="text"
+50:                  name="search"
+51:                  placeholder="Ricerca un luogo..."
+52:                />
+53:                <input type="text" name="lingua" placeholder="Lingua..." />
+54:              </div>
+55:            </form>
+56:          </div>
+57:    
+58:          <link
+59:            rel="stylesheet"
+60:            href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+61:          />
+62:          <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+63:          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+64:          <script type="text/javascript" src="js/script_app-query.js"></script>
+65:        
+66:        <% @posts.each do |post| %>   
+67:        <% if ((post.id)-1) % 2 == 0 %>
+68:          <ul class="cards">
+69:        <% end %>
+70:        <li class='card'>
+71:        <div class='card_image'>
+72:          <%= image_tag "guida4.jpg"%>
+73:        </div>
+74:        <h3 class='card-title'>
+75:            <%= post.titolo %> <br> 
+76:            <!--<span class='name'> nome cognome </span>-->
+77:        </h3>
+78:        <div class='card-content'>
+79:            <p>
+80:                <%= post.descrizione%>
+81:            </p>
+82:            <hr> 
+83:            <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+84:            </div>
+85:            
+86:            <div class='card-languages'>
+87:                <h4>
+88:                    Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+89:                    Data e ora: <span style='font-weight: normal'><%= @data %> <%= @ora %> </span>
+90:                </h4>
+91:            </div>
+92:            <div class='card-link-wrapper'> 
+93:                <%= link_to <%= @total_price %>¢, posts_path(@post), class: "card-link" %>
+94:            </div>
+95:            </li> 
+96:        <% if ((post.id)-1) % 2 != 0 %>
+97:          </ul>
+98:        <% end %>
+99:        
+100:        
+101:        <% end %>
+102:          <!-- AJAX -->
+103:         <!--<script>
+104:            window.onload = caricaRisorsa;
+105:            function caricaRisorsa(e) {
+106:              var httpRequest = new XMLHttpRequest();
+107:              httpRequest.onreadystatechange = gestisciResponse;
+108:              httpRequest.open("GET", "app.php", true);
+109:              httpRequest.send();
+110:            }
+111:            function gestisciResponse(e) {
+112:              if (
+113:                e.target.readyState == XMLHttpRequest.DONE &&
+114:                e.target.status == 200
+115:              ) {
+116:                document.getElementById("zonaDinamica").innerHTML =
+117:                  e.target.responseText;
+118:              }
+119:            }
+120:          </script>-->
+121:    
+122:          <!--JQuery-->
+123:     <!--     <script>
+124:            var string = "";
+125:            $("#search").on("keydown", function () {
+126:              $("#zonaDinamica").load("app.php", $("#myform").serialize());
+127:            });
+128:          </script>-->
+129:    
+130:          <!--Prevent the form from submitting-->
+131:      <!--
+132:          <script>
+133:            $(window).ready(function () {
+134:              $("#form").on("keypress", function (event) {
+135:                var keyPressed = event.keyCode || event.which;
+136:                if (keyPressed === 13) {
+137:                  event.preventDefault();
+138:                  return false;
+139:                }
+140:              });
+141:            });
+142:          </script>
+143:    
+144:          <script>
+145:            $(window).on("load", function () {
+146:              $("#login_logout").load("logout.php");
+147:            });
+148:          </script>
+149:          <script>
+150:            $(window).on("load", function () {
+151:              $("#benvenuto").load("benvenuto.php");
+152:            });
+153:          </script>-->
+154:       
+155:        </div>
+156:     <%= javascript_include_tag "script_app" %>
+157:     <%= javascript_include_tag "script" %>
+158:     <%= javascript_include_tag "script_responsiveness" %>
+  
+app/views/posts/index.html.erb:101: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:162: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:101: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:162: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:101: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:162: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:101: syntax error, unexpected `end', expecting ')'
+app/views/posts/index.html.erb:162: syntax error, unexpected `end', expecting ')'
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:50:46 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 30.9ms | Allocations: 7965)
+  Rendered layout layouts/application.html.erb (Duration: 38.7ms | Allocations: 9464)
+Completed 200 OK in 50ms (Views: 42.7ms | ActiveRecord: 0.5ms | Allocations: 10992)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:50:46 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:50:50 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.1ms | Allocations: 7929)
+  Rendered layout layouts/application.html.erb (Duration: 41.6ms | Allocations: 9424)
+Completed 200 OK in 53ms (Views: 45.9ms | ActiveRecord: 0.4ms | Allocations: 10950)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:50:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:50:55 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 832)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 900)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.4ms | Allocations: 2403)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-post"%>
+  <%= stylesheet_link_tag "application" %>
+<% end %>
+
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <title>Visite</title>
+
+    <div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
+<h1>Discover</h1>
+<p>Go ever wherever</p>
+</div>
+<div class="navheader_general" id="navbar">
+    <nav class="navbar">
+        <a href="<%= home_pages_path %>">Home</a>
+        <%= link_to 'Visite', posts_path %>
+        <%= link_to 'Guide', guides_path %>
+        <%if !user_signed_in?%>
+            <a href="<%= new_user_session_path() %>">Login</a>
+        <%end%>
+        <%if user_signed_in?%>
+            <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+        <%end%>
+        <a href="bacheca.html">Profilo</a>
+    </nav>
+</div>
+
+    <!-- deleting the "home" from the navbar while using a mobile device -->
+    <script>
+      myfunction();
+    </script>
+
+    <div class="container">
+      <div class="search_container" id="search">
+        <form method="POST" action="" id="myform">
+          <div class="search-bar_center">
+            <input
+              id="search"
+              type="text"
+              name="search"
+              placeholder="Ricerca un luogo..."
+            />
+            <input type="text" name="lingua" placeholder="Lingua..." />
+          </div>
+        </form>
+      </div>
+
+      <link
+        rel="stylesheet"
+        href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+      />
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script type="text/javascript" src="js/script_app-query.js"></script>
+    
+    <% @posts.each do |post| %>   
+    <% if ((post.id)-1) % 2 == 0 %>
+      <ul class="cards">
+    <% end %>
+    <li class='card'>
+    <div class='card_image'>
+      <%= image_tag "guida4.jpg"%>
+    </div>
+    <h3 class='card-title'>
+        <%= post.titolo %> <br> 
+        <!--<span class='name'> nome cognome </span>-->
+    </h3>
+    <div class='card-content'>
+        <p>
+            <%= post.descrizione%>
+        </p>
+        <hr> 
+        <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+        </div>
+        
+        <div class='card-languages'>
+            <h4>
+                Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+                Data e ora: <span style='font-weight: normal'><%= @data %> <%= @ora %> </span>
+            </h4>
+        </div>
+        <div class='card-link-wrapper'> 
+            <%= link_to @total_price ¢, posts_path(@post), class: "card-link" %>
+        </div>
+        </li> 
+    <% if ((post.id)-1) % 2 != 0 %>
+      </ul>
+    <% end %>
+    
+    
+    <% end %>
+      <!-- AJAX -->
+     <!--<script>
+        window.onload = caricaRisorsa;
+        function caricaRisorsa(e) {
+          var httpRequest = new XMLHttpRequest();
+          httpRequest.onreadystatechange = gestisciResponse;
+          httpRequest.open("GET", "app.php", true);
+          httpRequest.send();
+        }
+        function gestisciResponse(e) {
+          if (
+            e.target.readyState == XMLHttpRequest.DONE &&
+            e.target.status == 200
+          ) {
+            document.getElementById("zonaDinamica").innerHTML =
+              e.target.responseText;
+          }
+        }
+      </script>-->
+
+      <!--JQuery-->
+ <!--     <script>
+        var string = "";
+        $("#search").on("keydown", function () {
+          $("#zonaDinamica").load("app.php", $("#myform").serialize());
+        });
+      </script>-->
+
+      <!--Prevent the form from submitting-->
+  <!--
+      <script>
+        $(window).ready(function () {
+          $("#form").on("keypress", function (event) {
+            var keyPressed = event.keyCode || event.which;
+            if (keyPressed === 13) {
+              event.preventDefault();
+              return false;
+            }
+          });
+        });
+      </script>
+
+      <script>
+        $(window).on("load", function () {
+          $("#login_logout").load("logout.php");
+        });
+      </script>
+      <script>
+        $(window).on("load", function () {
+          $("#benvenuto").load("benvenuto.php");
+        });
+      </script>-->
+   
+    </div>
+ <%= javascript_include_tag "script_app" %>
+ <%= javascript_include_tag "script" %>
+ <%= javascript_include_tag "script_responsiveness" %>
+
+
+):
+1:    <% content_for :for_head do %>
+2:      <%= stylesheet_link_tag "application-post"%>
+3:      <%= stylesheet_link_tag "application" %>
+4:    <% end %>
+5:    
+6:    
+7:        <meta charset="UTF-8" />
+8:        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+9:        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+10:        <link
+11:          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+12:          rel="stylesheet"
+13:        />
+14:    
+15:        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+16:    
+17:        <title>Visite</title>
+18:    
+19:        <div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
+20:    <h1>Discover</h1>
+21:    <p>Go ever wherever</p>
+22:    </div>
+23:    <div class="navheader_general" id="navbar">
+24:        <nav class="navbar">
+25:            <a href="<%= home_pages_path %>">Home</a>
+26:            <%= link_to 'Visite', posts_path %>
+27:            <%= link_to 'Guide', guides_path %>
+28:            <%if !user_signed_in?%>
+29:                <a href="<%= new_user_session_path() %>">Login</a>
+30:            <%end%>
+31:            <%if user_signed_in?%>
+32:                <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+33:            <%end%>
+34:            <a href="bacheca.html">Profilo</a>
+35:        </nav>
+36:    </div>
+37:    
+38:        <!-- deleting the "home" from the navbar while using a mobile device -->
+39:        <script>
+40:          myfunction();
+41:        </script>
+42:    
+43:        <div class="container">
+44:          <div class="search_container" id="search">
+45:            <form method="POST" action="" id="myform">
+46:              <div class="search-bar_center">
+47:                <input
+48:                  id="search"
+49:                  type="text"
+50:                  name="search"
+51:                  placeholder="Ricerca un luogo..."
+52:                />
+53:                <input type="text" name="lingua" placeholder="Lingua..." />
+54:              </div>
+55:            </form>
+56:          </div>
+57:    
+58:          <link
+59:            rel="stylesheet"
+60:            href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+61:          />
+62:          <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+63:          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+64:          <script type="text/javascript" src="js/script_app-query.js"></script>
+65:        
+66:        <% @posts.each do |post| %>   
+67:        <% if ((post.id)-1) % 2 == 0 %>
+68:          <ul class="cards">
+69:        <% end %>
+70:        <li class='card'>
+71:        <div class='card_image'>
+72:          <%= image_tag "guida4.jpg"%>
+73:        </div>
+74:        <h3 class='card-title'>
+75:            <%= post.titolo %> <br> 
+76:            <!--<span class='name'> nome cognome </span>-->
+77:        </h3>
+78:        <div class='card-content'>
+79:            <p>
+80:                <%= post.descrizione%>
+81:            </p>
+82:            <hr> 
+83:            <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+84:            </div>
+85:            
+86:            <div class='card-languages'>
+87:                <h4>
+88:                    Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+89:                    Data e ora: <span style='font-weight: normal'><%= @data %> <%= @ora %> </span>
+90:                </h4>
+91:            </div>
+92:            <div class='card-link-wrapper'> 
+93:                <%= link_to @total_price ¢, posts_path(@post), class: "card-link" %>
+94:            </div>
+95:            </li> 
+96:        <% if ((post.id)-1) % 2 != 0 %>
+97:          </ul>
+98:        <% end %>
+99:        
+100:        
+101:        <% end %>
+102:          <!-- AJAX -->
+103:         <!--<script>
+104:            window.onload = caricaRisorsa;
+105:            function caricaRisorsa(e) {
+106:              var httpRequest = new XMLHttpRequest();
+107:              httpRequest.onreadystatechange = gestisciResponse;
+108:              httpRequest.open("GET", "app.php", true);
+109:              httpRequest.send();
+110:            }
+111:            function gestisciResponse(e) {
+112:              if (
+113:                e.target.readyState == XMLHttpRequest.DONE &&
+114:                e.target.status == 200
+115:              ) {
+116:                document.getElementById("zonaDinamica").innerHTML =
+117:                  e.target.responseText;
+118:              }
+119:            }
+120:          </script>-->
+121:    
+122:          <!--JQuery-->
+123:     <!--     <script>
+124:            var string = "";
+125:            $("#search").on("keydown", function () {
+126:              $("#zonaDinamica").load("app.php", $("#myform").serialize());
+127:            });
+128:          </script>-->
+129:    
+130:          <!--Prevent the form from submitting-->
+131:      <!--
+132:          <script>
+133:            $(window).ready(function () {
+134:              $("#form").on("keypress", function (event) {
+135:                var keyPressed = event.keyCode || event.which;
+136:                if (keyPressed === 13) {
+137:                  event.preventDefault();
+138:                  return false;
+139:                }
+140:              });
+141:            });
+142:          </script>
+143:    
+144:          <script>
+145:            $(window).on("load", function () {
+146:              $("#login_logout").load("logout.php");
+147:            });
+148:          </script>
+149:          <script>
+150:            $(window).on("load", function () {
+151:              $("#benvenuto").load("benvenuto.php");
+152:            });
+153:          </script>-->
+154:       
+155:        </div>
+156:     <%= javascript_include_tag "script_app" %>
+157:     <%= javascript_include_tag "script" %>
+158:     <%= javascript_include_tag "script_responsiveness" %>
+  
+app/views/posts/index.html.erb:93: syntax error, unexpected local variable or method, expecting ')'
+app/views/posts/index.html.erb:93: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/posts/index.html.erb:93: syntax error, unexpected local variable or method, expecting ')'
+app/views/posts/index.html.erb:93: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/posts/index.html.erb:93: syntax error, unexpected local variable or method, expecting ')'
+app/views/posts/index.html.erb:93: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/posts/index.html.erb:93: syntax error, unexpected local variable or method, expecting ')'
+app/views/posts/index.html.erb:93: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:51:04 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 19.7ms | Allocations: 4189)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 4256)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.3ms | Allocations: 5761)
+
+
+  
+ActionView::Template::Error (String can't be coerced into Integer):
+    90:             </h4>
+    91:         </div>
+    92:         <div class='card-link-wrapper'> 
+    93:             <%= link_to @total_price+'¢', posts_path(@post), class: "card-link" %>
+    94:         </div>
+    95:         </li> 
+    96:     <% if ((post.id)-1) % 2 != 0 %>
+  
+app/views/posts/index.html.erb:93:in `+'
+app/views/posts/index.html.erb:93
+app/views/posts/index.html.erb:66
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:51:08 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 33.9ms | Allocations: 7926)
+  Rendered layout layouts/application.html.erb (Duration: 43.2ms | Allocations: 9425)
+Completed 200 OK in 55ms (Views: 47.0ms | ActiveRecord: 0.3ms | Allocations: 10951)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:51:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:52:18 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 29.0ms | Allocations: 6859)
+  Rendered layout layouts/application.html.erb (Duration: 50.8ms | Allocations: 12182)
+Completed 200 OK in 90ms (Views: 54.2ms | ActiveRecord: 3.6ms | Allocations: 19113)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:52:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:52:22 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 31.0ms | Allocations: 6897)
+  Rendered layout layouts/application.html.erb (Duration: 46.5ms | Allocations: 12228)
+Completed 200 OK in 87ms (Views: 50.1ms | ActiveRecord: 3.3ms | Allocations: 19143)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:52:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:53:39 +0200
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 26ms (Allocations: 5211)
+
+
+  
+NameError (undefined local variable or method `post' for #<PostsController:0x00000000064870>
+Did you mean?  @posts):
+  
+app/controllers/posts_controller.rb:7:in `index'
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:54:09 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 31.9ms | Allocations: 6918)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | Allocations: 6985)
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 3.8ms | Allocations: 14105)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<ActionView::Base:0x00000000067cc8>
+Did you mean?  @posts):
+    64:       <script type="text/javascript" src="js/script_app-query.js"></script>
+    65:     
+    66:     
+    67:     <% if ((post.id)-1) % 2 == 0 %>
+    68:       <ul class="cards">
+    69:     <% end %>
+    70:     <li class='card'>
+  
+app/views/posts/index.html.erb:67
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:54:23 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 32.1ms | Allocations: 7942)
+  Rendered layout layouts/application.html.erb (Duration: 53.6ms | Allocations: 13564)
+Completed 200 OK in 63ms (Views: 57.3ms | ActiveRecord: 0.4ms | Allocations: 15104)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:54:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:55:18 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 3.3ms | Allocations: 9182)
+
+
+  
+NameError (undefined local variable or method `total_price' for #<PostsController:0x0000000006b4e0>):
+  
+app/controllers/posts_controller.rb:12:in `index'
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:56:10 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:10:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 27.7ms | Allocations: 6869)
+  Rendered layout layouts/application.html.erb (Duration: 46.1ms | Allocations: 12176)
+Completed 200 OK in 86ms (Views: 49.3ms | ActiveRecord: 3.3ms | Allocations: 19062)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:56:11 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:56:26 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:10:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 29.4ms | Allocations: 6901)
+  Rendered layout layouts/application.html.erb (Duration: 52.5ms | Allocations: 12227)
+Completed 200 OK in 96ms (Views: 55.6ms | ActiveRecord: 3.9ms | Allocations: 19141)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:56:26 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:59:01 +0200
+  
+SyntaxError (/home/alessandro/Desktop/discover/discover_rails/app/controllers/posts_controller.rb:8: syntax error, unexpected ':', expecting `end'
+      post: total_price = (post.prezzo *...
+          ^
+/home/alessandro/Desktop/discover/discover_rails/app/controllers/posts_controller.rb:63: syntax error, unexpected `end', expecting end-of-input):
+  
+app/controllers/posts_controller.rb:8: syntax error, unexpected ':', expecting `end'
+app/controllers/posts_controller.rb:63: syntax error, unexpected `end', expecting end-of-input
+app/controllers/posts_controller.rb:8: syntax error, unexpected ':', expecting `end'
+app/controllers/posts_controller.rb:63: syntax error, unexpected `end', expecting end-of-input
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:59:09 +0200
+  
+SyntaxError (/home/alessandro/Desktop/discover/discover_rails/app/controllers/posts_controller.rb:8: syntax error, unexpected ':', expecting `end'
+      post :total_price = (post.prezzo * ...
+           ^
+/home/alessandro/Desktop/discover/discover_rails/app/controllers/posts_controller.rb:63: syntax error, unexpected `end', expecting end-of-input):
+  
+app/controllers/posts_controller.rb:8: syntax error, unexpected ':', expecting `end'
+app/controllers/posts_controller.rb:63: syntax error, unexpected `end', expecting end-of-input
+app/controllers/posts_controller.rb:8: syntax error, unexpected ':', expecting `end'
+app/controllers/posts_controller.rb:63: syntax error, unexpected `end', expecting end-of-input
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 15:59:26 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 27.3ms | Allocations: 6899)
+  Rendered layout layouts/application.html.erb (Duration: 56.8ms | Allocations: 12228)
+Completed 200 OK in 99ms (Views: 59.9ms | ActiveRecord: 4.0ms | Allocations: 19123)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 15:59:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 16:01:45 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 3.7ms | Allocations: 9084)
+
+
+  
+NameError (undefined local variable or method `total_price' for #<PostsController:0x0000000007f1c0>
+Did you mean?  @total_price):
+  
+app/controllers/posts_controller.rb:11:in `block in index'
+app/controllers/posts_controller.rb:7:in `index'
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 16:02:13 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 31.9ms | Allocations: 6899)
+  Rendered layout layouts/application.html.erb (Duration: 50.1ms | Allocations: 12225)
+Completed 200 OK in 93ms (Views: 53.2ms | ActiveRecord: 3.5ms | Allocations: 19110)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 16:02:13 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 16:03:34 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 32.8ms | Allocations: 7907)
+  Rendered layout layouts/application.html.erb (Duration: 40.4ms | Allocations: 9403)
+Completed 200 OK in 51ms (Views: 44.1ms | ActiveRecord: 0.4ms | Allocations: 10935)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 16:03:34 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 16:03:56 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 49.1ms | Allocations: 7967)
+  Rendered layout layouts/application.html.erb (Duration: 76.9ms | Allocations: 9469)
+Completed 200 OK in 94ms (Views: 84.6ms | ActiveRecord: 0.5ms | Allocations: 11002)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 16:03:56 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 16:04:31 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 29.0ms | Allocations: 6912)
+  Rendered layout layouts/application.html.erb (Duration: 48.0ms | Allocations: 12234)
+Completed 200 OK in 88ms (Views: 51.1ms | ActiveRecord: 3.4ms | Allocations: 19159)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 16:04:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 16:04:36 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 29.9ms | Allocations: 6873)
+  Rendered layout layouts/application.html.erb (Duration: 47.0ms | Allocations: 12180)
+Completed 200 OK in 86ms (Views: 49.9ms | ActiveRecord: 3.2ms | Allocations: 19065)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 16:04:37 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  

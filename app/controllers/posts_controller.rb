@@ -5,11 +5,14 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @posts.each do |post|
-      @total_price = post.prezzo * post.persone
-      @ora = post.ora.to_s[11,5]
-      @data = post.data.to_s[2,8]
+      total_price = (post.prezzo * post.persone).to_s+'€'
+      ora = post.ora.to_s[11,5]
+      data = post.data.to_s[2,8]
+      post.instance_variable_set(:@total_price, total_price)
+      post.instance_variable_set(:@ora, ora)
+      post.instance_variable_set(:@data, data)
     end
-   
+    
  end
 
   # GET /posts/1
