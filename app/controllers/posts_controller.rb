@@ -1,9 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-
+  skip_before_action :verify_authenticity_token
   # GET /posts
   def index
-    @posts = Post.all
+    if (params[:q].present?)
+      @posts = Post.where("luogo LIKE ?", "%#{params[:q]}%")
+    else 
+      @posts = Post.all
+    end
     @posts.each do |post|
       total_price = (post.prezzo * post.numero_ore / post.persone).to_s+'€'
       ora = post.ora.to_s[11,5]

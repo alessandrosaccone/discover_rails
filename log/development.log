@@ -24162,6 +24162,7 @@ Completed 200 OK in 252ms (Views: 231.3ms | ActiveRecord: 0.0ms | Allocations: 4
 >>>>>>> d1b23b8451ea0eb5dbd5a7e6269998221659c58a
 
 
+<<<<<<< HEAD
   [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Migrating to AddNumeroOreToPosts (20230510141117)
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
@@ -24170,6 +24171,7 @@ Migrating to AddNumeroOreToPosts (20230510141117)
   [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+<<<<<<< HEAD
 >>>>>>> main
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
 Started GET "/" for ::1 at 2023-05-10 18:23:42 +0200
@@ -24793,3 +24795,79 @@ Processing by PagesController#guides as HTML
 Completed 200 OK in 28ms (Views: 22.5ms | ActiveRecord: 0.5ms | Allocations: 7271)
 
 
+=======
+=======
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mPost Delete All (12.4ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (1.1ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz"], ["titolo", "Visita al vaticansbro"], ["data", "2023-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Italiano"], ["persone", 10], ["prezzo", 60], ["nomeC", "Roma"], ["regioneC", "Lazio"], ["nomeP", "Roma"], ["created_at", "2023-05-10 15:44:22.651816"], ["updated_at", "2023-05-10 15:44:22.651816"], ["numero_ore", 3]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro2"], ["data", "2024-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 15:44:22.669637"], ["updated_at", "2023-05-10 15:44:22.669637"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro3"], ["data", "2024-06-11 00:00:00"], ["ora", "2000-01-01 15:00:00"], ["lingua", "Inglese"], ["persone", 8], ["prezzo", 50], ["nomeC", "Napoli"], ["regioneC", "Campania"], ["nomeP", "Napoli"], ["created_at", "2023-05-10 15:44:22.681819"], ["updated_at", "2023-05-10 15:44:22.681819"], ["numero_ore", 2]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (1.0ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 15:44:22.693707"], ["updated_at", "2023-05-10 15:44:22.693707"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 15:44:22.707464"], ["updated_at", "2023-05-10 15:44:22.707464"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Delete All (13.0ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (1.2ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz"], ["titolo", "Visita al vaticansbro"], ["data", "2023-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Italiano"], ["persone", 10], ["prezzo", 60], ["nomeC", "Roma"], ["regioneC", "Lazio"], ["nomeP", "Roma"], ["created_at", "2023-05-10 15:49:03.286597"], ["updated_at", "2023-05-10 15:49:03.286597"], ["numero_ore", 3]]
+  [1m[36mTRANSACTION (12.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro2"], ["data", "2024-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 15:49:03.319255"], ["updated_at", "2023-05-10 15:49:03.319255"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (1.0ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro3"], ["data", "2024-06-11 00:00:00"], ["ora", "2000-01-01 15:00:00"], ["lingua", "Inglese"], ["persone", 8], ["prezzo", 50], ["nomeC", "Napoli"], ["regioneC", "Campania"], ["nomeP", "Napoli"], ["created_at", "2023-05-10 15:49:03.335215"], ["updated_at", "2023-05-10 15:49:03.335215"], ["numero_ore", 2]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 15:49:03.352011"], ["updated_at", "2023-05-10 15:49:03.352011"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 15:49:03.369359"], ["updated_at", "2023-05-10 15:49:03.369359"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Delete All (39.6ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz"], ["titolo", "Visita al vaticansbro"], ["data", "2023-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Italiano"], ["persone", 10], ["prezzo", 60], ["nomeC", "Roma"], ["regioneC", "Lazio"], ["nomeP", "Roma"], ["created_at", "2023-05-10 15:50:01.238266"], ["updated_at", "2023-05-10 15:50:01.238266"], ["numero_ore", 3]]
+  [1m[36mTRANSACTION (12.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro2"], ["data", "2024-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 15:50:01.264844"], ["updated_at", "2023-05-10 15:50:01.264844"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro3"], ["data", "2024-06-11 00:00:00"], ["ora", "2000-01-01 15:00:00"], ["lingua", "Inglese"], ["persone", 8], ["prezzo", 50], ["nomeC", "Napoli"], ["regioneC", "Campania"], ["nomeP", "Napoli"], ["created_at", "2023-05-10 15:50:01.277383"], ["updated_at", "2023-05-10 15:50:01.277383"], ["numero_ore", 2]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 15:50:01.290109"], ["updated_at", "2023-05-10 15:50:01.290109"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 15:50:01.305956"], ["updated_at", "2023-05-10 15:50:01.305956"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Delete All (12.6ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (1.3ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz"], ["titolo", "Visita al vaticansbro"], ["data", "2023-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Italiano"], ["persone", 10], ["prezzo", 60], ["nomeC", "Roma"], ["regioneC", "Lazio"], ["nomeP", "Roma"], ["created_at", "2023-05-10 15:59:56.167583"], ["updated_at", "2023-05-10 15:59:56.167583"], ["numero_ore", 3]]
+  [1m[36mTRANSACTION (14.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (4.8ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro2"], ["data", "2024-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 15:59:56.210691"], ["updated_at", "2023-05-10 15:59:56.210691"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (1.2ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro3"], ["data", "2024-06-11 00:00:00"], ["ora", "2000-01-01 15:00:00"], ["lingua", "Inglese"], ["persone", 8], ["prezzo", 50], ["nomeC", "Napoli"], ["regioneC", "Campania"], ["nomeP", "Napoli"], ["created_at", "2023-05-10 15:59:56.237355"], ["updated_at", "2023-05-10 15:59:56.237355"], ["numero_ore", 2]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (1.4ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 15:59:56.260309"], ["updated_at", "2023-05-10 15:59:56.260309"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (1.0ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 15:59:56.282335"], ["updated_at", "2023-05-10 15:59:56.282335"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> 96fd8a9 (aggiorno)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+>>>>>>> 6fbf02f (aggiorno)

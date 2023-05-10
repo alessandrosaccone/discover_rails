@@ -106,8 +106,8 @@ Feature: Search tabs by towns A
 18)
 Feature: Booking a visit A
     As a user
-    i want to book a tab in guide's tab
-    so that i can visit it
+    i want to book a tab
+    so that i can visit the city descripted with my guide
 19)
 Feature: Delete tabs booking A-M
     As a user

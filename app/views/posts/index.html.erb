@@ -2,7 +2,7 @@
   <%= stylesheet_link_tag "application-post"%>
   <%= stylesheet_link_tag "application" %>
 <% end %>
-
+  
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -44,13 +44,10 @@
       <div class="search_container" id="search">
         <form method="POST" action="" id="myform">
           <div class="search-bar_center">
-            <input
-              id="search"
-              type="text"
-              name="search"
-              placeholder="Ricerca un luogo..."
-            />
-            <input type="text" name="lingua" placeholder="Lingua..." />
+
+           
+
+            <!--<input type="text" name="lingua" placeholder="Lingua..." />-->
           </div>
         </form>
       </div>
@@ -64,7 +61,7 @@
       <script type="text/javascript" src="js/script_app-query.js"></script>
     
     <% @posts.each do |post| %>   
-    <% if ((post.id)-1) % 2 == 0 %>
+    <% if ((post.id)-1) % 2 != 0 %>
       <ul class="cards">
     <% end %>
     <li class='card'>
@@ -93,10 +90,11 @@
              <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
         </div>
         </li> 
-    <% if ((post.id)-1) % 2 != 0 %>
+    <% if ((post.id)-1) % 2 == 0 %>
       </ul>
     <% end %>
     <% end %>
+
       <!-- AJAX -->
      <!--<script>
         window.onload = caricaRisorsa;
