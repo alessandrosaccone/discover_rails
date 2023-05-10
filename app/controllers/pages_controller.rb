@@ -13,10 +13,10 @@ class PagesController < ApplicationController
       
         # Modifica la variabile @guides in base agli input del form (nome e citta)
         if nome.present?
-          @guides = @guides.where(name: nome)
+          @guides = @guides.where("LOWER(name) LIKE ?", "%#{nome.downcase}%")
         end
         if citta.present?
-          @guides = @guides.where(city: citta)
+          @guides = @guides.joins(:city).where("LOWER(cities.name) LIKE ?", "%#{citta.downcase}%")
         end
 
     end
