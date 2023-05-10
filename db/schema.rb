@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_08_213408) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_10_141117) do
   create_table "posts", force: :cascade do |t|
     t.text "descrizione"
     t.string "titolo"
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_213408) do
     t.string "nomeP"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "numero_ore"
   end
 
   create_table "roles", force: :cascade do |t|
