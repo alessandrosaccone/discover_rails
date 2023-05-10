@@ -66,9 +66,8 @@
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script type="text/javascript" src="js/script_app-query.js"></script>
     
-    <div id="zonaDinamica">
-    <% @posts.each do |post| %>
-    <% if post.id % 2 == 0 %>
+    <% @posts.each do |post| %>   
+    <% if ((post.id)-1) % 2 == 0 %>
       <ul class="cards">
     <% end %>
     <li class='card'>
@@ -95,17 +94,17 @@
         </div>
         <div class='card-link-wrapper'>
             <a class='popup card-link' onclick='return funct($i);'>Prenota
-            <span class='popuptext' id='myPopup_<%post.id%>'> 
+            <span class='popuptext' id='myPopup_<%(post.id)-1%>'> 
                 <button class='card-link_2' style='font-weight: bold;'>Prenota tutti i posti: <%= @total_price %></button>
                 <!--<button class='card-link_2' style='font-weight: bold;'>Prenota singolo: €$price_2</button>-->
             </span>
             </a>
         </div>
         </li> 
-    <% if post.id % 2 == 0 %>
+    <% if ((post.id)-1) % 2 != 0 %>
       </ul>
     <% end %>
-    <% end %></div>
+    <% end %>
 
 
       <!-- AJAX -->
