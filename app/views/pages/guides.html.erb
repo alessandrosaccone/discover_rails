@@ -10,95 +10,6 @@
   <p>Go ever wherever</p>
 </div>
 <div class="navheader_general" id="navbar">
-<<<<<<< HEAD
-    <nav class="navbar">
-        <a href="<%= home_pages_path %>">Home</a>
-        <%= link_to 'Visite', posts_path %>
-        <%= link_to 'Guide', guides_path %>
-        <%if !user_signed_in?%>
-            <a href="<%= new_user_session_path() %>">Login</a>
-        <%end%>
-        <%if user_signed_in?%>
-            <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
-        <%end%>
-        <a href="bacheca.html">Profilo</a>
-    </nav>
-    <div id="benvenuto" class="benvenuto"></div>
-</div>
-<div class="container-search">
-      <div class="search_container" id="search">
-        <form method="POST" action="" id="myform">
-          <div class="search-bar_center">
-            <input
-              id="cerca"
-              type="text"
-              name="nome"
-              placeholder="Nome..."
-            />
-            <input id = "cercacitta" type="text" name="citta" placeholder="Città..." />
-          </div>
-        </form>
-      </div>
-    <section class="swiper mySwiper">
-
-      <div class="swiper-wrapper">
-  
-        <div class="card swiper-slide">
-          <div class="card__image">
-            <%= image_tag "guida1.webp", class: 'card__image'%>
-          </div>
-  
-          <div class="card__content">
-            <span class="card__title">Vanessa Martinez</span>
-            <p class="card__text">Città: Roma</p>
-            <p class="card__text">Lingue: Italiano, Inglese</p>
-            <button class="card__btn">Profilo</button>
-          </div>
-        </div>
-  
-        <div class="card swiper-slide">
-          <div class="card__image">
-          <%= image_tag "guida2.webp", class: 'card__image'%>
-            
-          </div>
-  
-          <div class="card__content">
-            <span class="card__title">Sarah Bowen</span>
-            <p class="card__text">Città: Roma</p>
-            <p class="card__text">Lingue: Italiano, Inglese</p>
-            <button class="card__btn">Profilo</button>
-          </div>
-        </div>
-  
-        <div class="card swiper-slide">
-          <div class="card__image">
-          <%= image_tag "guida3.webp", class: 'card__image'%>
-            
-          </div>
-  
-          <div class="card__content">
-            <span class="card__title">David Murphy</span>
-            <p class="card__text">Città: Roma</p>
-            <p class="card__text">Lingue: Italiano, Inglese</p>
-            <button class="card__btn">Profilo</button>
-          </div>
-        </div>
-  
-        <div class="card swiper-slide">
-          <div class="card__image">
-          <%= image_tag "guida4.jpg", class: 'card__image'%>
-            
-          </div>
-  
-          <div class="card__content">
-            <span class="card__title">Kelsey West</span>
-            <p class="card__text">Città: Roma</p>
-            <p class="card__text">Lingue: Italiano, Inglese</p>            
-            <button class="card__btn">Profilo</button>
-          </div>
-        </div>
-  
-=======
   <nav class="navbar">
     <a href="<%= home_pages_path %>">Home</a>
     <%= link_to 'Visite', posts_path %>
@@ -118,7 +29,6 @@
       <div class="search-bar_center">
         <%= text_field_tag(:nome, nil, placeholder: 'Nome...', id: 'cerca') %>
         <%= text_field_tag(:citta, nil, placeholder: 'Città...', id: 'cercacitta') %>
->>>>>>> main
       </div>
       <%= submit_tag 'Cerca' %>
     <% end %>
