@@ -41,16 +41,17 @@
     </script>
 
     <div class="container">
-      <div class="search_container" id="search">
-        <form method="POST" action="" id="myform">
-          <div class="search-bar_center">
-
-           
-
-            <!--<input type="text" name="lingua" placeholder="Lingua..." />-->
-          </div>
-        </form>
+      <div class="container-search">
+  <div class="search_container" id="search">
+    <%= form_tag(url_for(controller: 'posts', action: 'index'), method: 'get', id: 'myform') do %>
+      <div class="search-bar_center">
+        <%= text_field_tag(:citta, nil, placeholder: 'Citta...') %>
+        <%= text_field_tag(:lingua, nil, placeholder: 'Lingua...') %>
       </div>
+      <%= submit_tag '' %>
+    <% end %>
+  </div>
+</div>
 
       <link
         rel="stylesheet"
@@ -60,10 +61,15 @@
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script type="text/javascript" src="js/script_app-query.js"></script>
     
-    <% @posts.each do |post| %>   
-    <% if ((post.id)-1) % 2 != 0 %>
-      <ul class="cards">
-    <% end %>
+    <% @posts.each_with_index do |post, index| %>
+    <% if index.even? %>
+    <ul class="cards">
+  <% end %>
+
+
+   
+    
+  
     <li class='card'>
     <div class='card_image'>
       <%= image_tag "guida4.jpg"%>
@@ -90,10 +96,12 @@
              <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
         </div>
         </li> 
-    <% if ((post.id)-1) % 2 == 0 %>
-      </ul>
+          <% if index.odd? || index == @posts.size - 1 %>
+    </ul>
     <% end %>
+   
     <% end %>
+ 
 
       <!-- AJAX -->
      <!--<script>

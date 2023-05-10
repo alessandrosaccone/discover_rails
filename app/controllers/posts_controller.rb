@@ -3,8 +3,10 @@ class PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
   # GET /posts
   def index
-    if (params[:q].present?)
-      @posts = Post.where("luogo LIKE ?", "%#{params[:q]}%")
+    citta = params[:citta]
+    lingua = params[:lingua]
+    if (citta.present?)
+      @posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%")
     else 
       @posts = Post.all
     end
