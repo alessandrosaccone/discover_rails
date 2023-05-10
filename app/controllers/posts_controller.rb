@@ -4,12 +4,12 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
-    @single_price = 0
+    @id = 0
     @total_price = 0
     @posts.each do |post|
       @total_price = post.prezzo * post.persone
     end
-  end
+ end
 
   # GET /posts/1
   def show
