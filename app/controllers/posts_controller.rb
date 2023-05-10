@@ -17,6 +17,9 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
+    @post = Post.find(params[:id])
+    @ora = @post.ora.to_s[11,5]
+    @data = @post.data.to_s[2,8]
   end
 
   # GET /posts/new

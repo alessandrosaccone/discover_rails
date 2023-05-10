@@ -1,6 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @post %>
+<h1>Titolo: <%= @post.titolo %></h1>
+<h3>Descrizione: <%= @post.descrizione %> </h3>
+<h4>Città: <%= @post.nomeC %></h4>
+<div>Lingua: <%= @post.lingua %></div>
+<div>Data e ora: <%= @data %> <%= @ora %></div>
 
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |

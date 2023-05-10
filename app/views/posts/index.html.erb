@@ -90,7 +90,7 @@
             </h4>
         </div>
         <div class='card-link-wrapper'> 
-             <%= link_to post.instance_variable_get(:@total_price), posts_path(post), class: "card-link" %>
+             <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
         </div>
         </li> 
     <% if ((post.id)-1) % 2 != 0 %>
