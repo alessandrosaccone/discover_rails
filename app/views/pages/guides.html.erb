@@ -11,7 +11,7 @@
 <div class="navheader_general" id="navbar">
     <nav class="navbar">
         <a href="<%= home_pages_path %>">Home</a>
-        <a href="app.html">Visite</a>
+        <%= link_to 'Visite', posts_path %>
         <%= link_to 'Guide', guides_path %>
         <%if !user_signed_in?%>
             <a href="<%= new_user_session_path() %>">Login</a>
@@ -21,7 +21,22 @@
         <%end%>
         <a href="bacheca.html">Profilo</a>
     </nav>
+    <div id="benvenuto" class="benvenuto"></div>
 </div>
+<div class="container-search">
+      <div class="search_container" id="search">
+        <form method="POST" action="" id="myform">
+          <div class="search-bar_center">
+            <input
+              id="cerca"
+              type="text"
+              name="nome"
+              placeholder="Nome..."
+            />
+            <input id = "cercacitta" type="text" name="citta" placeholder="Città..." />
+          </div>
+        </form>
+      </div>
     <section class="swiper mySwiper">
 
       <div class="swiper-wrapper">

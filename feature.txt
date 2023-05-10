@@ -139,7 +139,7 @@ Feature: Search Guide by language S
     i want to find guides by their language
     so that i can find guides that speak my language
 25)
-Feature: Login with API S
+Feature: Login with API S Finito
     As a new or old user
     i want to log in with API
     so that i can avoid memorizing the password

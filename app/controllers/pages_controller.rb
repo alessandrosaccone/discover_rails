@@ -7,6 +7,6 @@ class PagesController < ApplicationController
     end
 
     def guides
-        @users = User.all
+        @users = User.where(role_id: 10)
     end
 end

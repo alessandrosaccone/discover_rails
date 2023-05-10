@@ -9637,3 +9637,193 @@ Migrating to AddOmniauthToUsers (20230502153835)
   [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-05-10 12:28:11 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 70.6ms | Allocations: 49995)
+  Rendered layout layouts/application.html.erb (Duration: 74.8ms | Allocations: 55933)
+Completed 200 OK in 83ms (Views: 77.3ms | ActiveRecord: 0.0ms | Allocations: 60835)
+
+
+Started GET "/guides" for ::1 at 2023-05-10 12:28:14 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  Rendered pages/guides.html.erb within layouts/application (Duration: 17.7ms | Allocations: 6093)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 7293)
+Completed 200 OK in 24ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 7695)
+
+
+Started GET "/" for ::1 at 2023-05-10 12:52:09 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 20.8ms | Allocations: 15986)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 21966)
+Completed 200 OK in 32ms (Views: 28.0ms | ActiveRecord: 0.0ms | Allocations: 26869)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-10 12:52:12 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 254)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 8385)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 9582)
+Completed 200 OK in 40ms (Views: 14.0ms | ActiveRecord: 1.0ms | Allocations: 33460)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2023-05-10 12:52:14 +0200
+Started GET "/users/auth/facebook/callback?code=AQDh2s3NdtLRymKzYSWOtlI7gmX_S-xTNhoDbPcIpUoWIVJaMvSxZB5RwjBhbN7OgxNgRGJmUI7w3vOw0X3EN2SVKrAUZ7WwPiTgeQhvy_aX_UwnsZWRyGa8M4t6h1ZEd-A-14r9WrBpu9oo21CmOZeFlnWmSH8P2PG9hT-PvFnCnvMnErS_soNgb1xPD1195gIvGcG1_Tc7BSYTqWEw8gwg5wkrm1xvuc1CAUnyxGDq_Loi6_i1pdQBHK-ZZ_25poXOXGNFN_xh6BwkHdkiTIUSeVOn6oyV2wVDI5IhtUW38oHzhvoYElNFMntYi1okXMCzvwKVCrSESAW1uSX9xYyWc1DqQM9UWYVKXsnFdfY3PS0a2BZNmp2NDjo6BBEhJOg&state=aad2cc575eacf1c87d905885fffc69f64da87fbbd1dc5863" for ::1 at 2023-05-10 12:52:14 +0200
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDh2s3NdtLRymKzYSWOtlI7gmX_S-xTNhoDbPcIpUoWIVJaMvSxZB5RwjBhbN7OgxNgRGJmUI7w3vOw0X3EN2SVKrAUZ7WwPiTgeQhvy_aX_UwnsZWRyGa8M4t6h1ZEd-A-14r9WrBpu9oo21CmOZeFlnWmSH8P2PG9hT-PvFnCnvMnErS_soNgb1xPD1195gIvGcG1_Tc7BSYTqWEw8gwg5wkrm1xvuc1CAUnyxGDq_Loi6_i1pdQBHK-ZZ_25poXOXGNFN_xh6BwkHdkiTIUSeVOn6oyV2wVDI5IhtUW38oHzhvoYElNFMntYi1okXMCzvwKVCrSESAW1uSX9xYyWc1DqQM9UWYVKXsnFdfY3PS0a2BZNmp2NDjo6BBEhJOg", "state"=>"aad2cc575eacf1c87d905885fffc69f64da87fbbd1dc5863"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "facebook"], ["uid", "2787191678078734"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18:in `from_omniauth'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:18:in `from_omniauth'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "palumbosimone80@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18:in `from_omniauth'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "iva", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at", "role_id", "provider", "uid") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Simone Palumbo"], ["email", "palumbosimone80@gmail.com"], ["encrypted_password", "[FILTERED]"], ["iva", nil], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["created_at", "2023-05-10 10:52:15.755627"], ["updated_at", "2023-05-10 10:52:15.755627"], ["role_id", 9], ["provider", "facebook"], ["uid", "2787191678078734"]]
+  ↳ app/models/user.rb:18:in `from_omniauth'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:18:in `from_omniauth'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2023-05-10 10:52:15.761163"], ["last_sign_in_at", "2023-05-10 10:52:15.761163"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["updated_at", "2023-05-10 10:52:15.761316"], ["id", 3]]
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+Redirected to http://localhost:3000/
+Completed 302 Found in 246ms (ActiveRecord: 5.5ms | Allocations: 11862)
+
+
+Started GET "/" for ::1 at 2023-05-10 12:52:15 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.3ms | Allocations: 4669)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 5936)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.2ms | Allocations: 6164)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-05-10 12:52:21 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 11ms (ActiveRecord: 0.5ms | Allocations: 1738)
+
+
+Started GET "/" for ::1 at 2023-05-10 12:52:21 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.5ms | Allocations: 3863)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 5116)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 5342)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-10 12:52:42 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.6ms | Allocations: 3812)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 4999)
+Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 0.0ms | Allocations: 5612)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-05-10 12:52:47 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 3388)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 4644)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 5790)
+
+
+Started POST "/users" for ::1 at 2023-05-10 12:53:20 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Mario Reda", "email"=>"sue@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "iva"=>"123456", "remember_me"=>"0", "role_id"=>"10"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 955)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 4044)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 5290)
+Completed 422 Unprocessable Entity in 217ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 9127)
+
+
+Started POST "/users" for ::1 at 2023-05-10 12:54:36 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Mario Reda", "email"=>"mario_reda@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "iva"=>"123456", "remember_me"=>"0", "role_id"=>"10"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mario_reda@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "iva", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at", "role_id", "provider", "uid") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mario Reda"], ["email", "mario_reda@example.com"], ["encrypted_password", "[FILTERED]"], ["iva", "123456"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["created_at", "2023-05-10 10:54:36.628986"], ["updated_at", "2023-05-10 10:54:36.628986"], ["role_id", 10], ["provider", nil], ["uid", nil]]
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_created_at", "2023-05-10 10:54:36.637818"], ["updated_at", "2023-05-10 10:54:36.638039"], ["id", 4]]
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2023-05-10 10:54:36.643030"], ["last_sign_in_at", "2023-05-10 10:54:36.643030"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["updated_at", "2023-05-10 10:54:36.643162"], ["id", 4]]
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/registrations_controller.rb:15:in `create'
+Redirected to http://localhost:3000/
+Completed 303 See Other in 224ms (ActiveRecord: 12.4ms | Allocations: 7315)
+
+
+Started GET "/" for ::1 at 2023-05-10 12:54:36 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.0ms | Allocations: 4592)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 5854)
+Completed 200 OK in 5ms (Views: 5.1ms | ActiveRecord: 0.1ms | Allocations: 6081)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-05-10 12:54:42 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/sessions_controller.rb:19:in `destroy'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_created_at", nil], ["updated_at", "2023-05-10 10:54:42.317581"], ["id", 4]]
+  ↳ app/controllers/users/sessions_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/sessions_controller.rb:19:in `destroy'
+Redirected to http://localhost:3000/
+Completed 303 See Other in 21ms (ActiveRecord: 9.2ms | Allocations: 3377)
+
+
+Started GET "/" for ::1 at 2023-05-10 12:54:42 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3875)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 5128)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 5354)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
