@@ -1,0 +1,22 @@
+<%@guides.each do |guida| %>
+  <div class="card swiper-slide">
+    <div class="card__image">
+      <%= image_tag "guida1.webp", class: 'card__image' %>
+    </div>
+  
+    <div class="card__content">
+      <span class="card__title"><%= guida.name %></span>
+      <p class="card__text">Città: <%= guida.city.name if guida.city.present? %></p>
+      <p class="card__text">Lingue:
+        <% if guida.languages.present? %>
+          <% guida.languages.each do |linguaggio| %>
+            <%= linguaggio.name %>
+          <% end %>
+        <% else %>
+          Nessuna lingua specificata
+        <% end %>
+      </p>
+      <button class="card__btn">Profilo</button>
+    </div>
+  </div>
+  <% end %>
