@@ -7899,3 +7899,34 @@ Migrating to CreatePosts (20230508213408)
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
   [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro2"], ["data", "2024-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-08 21:39:16.393272"], ["updated_at", "2023-05-08 21:39:16.393272"]]
   [1m[36mTRANSACTION (11.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-05-10 10:40:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 198.4ms | Allocations: 32294)
+  Rendered layout layouts/application.html.erb (Duration: 213.8ms | Allocations: 37285)
+Completed 200 OK in 254ms (Views: 227.1ms | ActiveRecord: 0.0ms | Allocations: 42184)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 10:40:52 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 57.4ms | Allocations: 7110)
+  Rendered layout layouts/application.html.erb (Duration: 58.3ms | Allocations: 7178)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms | Allocations: 8118)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `guides_path' for #<ActionView::Base:0x00000000008368>
+Did you mean?  video_path):
+    27:     <nav class="navbar">
+    28:         <a href="<%= home_pages_path %>">Home</a>
+    29:         <%= link_to 'Visite', posts_path %>
+    30:         <%= link_to 'Guide', guides_path %>
+    31:         <%if !user_signed_in?%>
+    32:             <a href="<%= new_user_session_path() %>">Login</a>
+    33:         <%end%>
+  
+app/views/posts/index.html.erb:30
