@@ -65,8 +65,45 @@
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script type="text/javascript" src="js/script_app-query.js"></script>
+    
+    <div id="zonaDinamica">
+    <% @posts.each do |post| %>
 
-      <div id="zonaDinamica"></div>
+    <ul class="cards">
+    <li class='card'>
+    <div class='card_image'>
+      <%= image_tag "guida4.jpg"%>
+    </div>
+    <h3 class='card-title'>
+        <%= post.titolo %> <br> 
+        <!--<span class='name'> nome cognome </span>-->
+    </h3>
+    <div class='card-content'>
+        <p>
+            <%= post.descrizione%>
+        </p>
+        <hr> 
+        <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+        </div>
+        
+        <div class='card-languages'>
+            <h4>
+                Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+                Data e ora: <span style='font-weight: normal'><%= post.data %> <%= post.ora %> </span>
+            </h4>
+        </div>
+        <div class='card-link-wrapper'>
+            <a class='popup card-link' onclick='return funct($i);'>Prenota
+            <span class='popuptext' id='myPopup_$i'> 
+                <button class='card-link_2' style='font-weight: bold;'>Prenota tutti i posti: <%= @total_price %></button>
+                <!--<button class='card-link_2' style='font-weight: bold;'>Prenota singolo: €$price_2</button>-->
+            </span>
+            </a>
+        </div>
+        </li>
+    </ul>
+    <% end %></div>
+
 
       <!-- AJAX -->
      <!--<script>
@@ -120,4 +157,5 @@
           $("#benvenuto").load("benvenuto.php");
         });
       </script>-->
+    <%= javascript_include_tag "script_guide" %>
     </div>
