@@ -11,9 +11,6 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <script src="js/script.js"></script>
-    <script src="js/script_app.js"></script>
-    <script src="js/script_responsiveness.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
@@ -65,11 +62,43 @@
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script type="text/javascript" src="js/script_app-query.js"></script>
-
-      <div id="zonaDinamica"></div>
-
+    
+    <% @posts.each do |post| %>   
+    <% if ((post.id)-1) % 2 == 0 %>
+      <ul class="cards">
+    <% end %>
+    <li class='card'>
+    <div class='card_image'>
+      <%= image_tag "guida4.jpg"%>
+    </div>
+    <h3 class='card-title'>
+        <%= post.titolo %> <br> 
+        <!--<span class='name'> nome cognome </span>-->
+    </h3>
+    <div class='card-content'>
+        <p>
+            <%= post.descrizione%>
+        </p>
+        <hr> 
+        <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+        </div>
+        
+        <div class='card-languages'>
+            <h4>
+                Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+                Data e ora: <span style='font-weight: normal'><%= post.instance_variable_get(:@data) %> <%= post.instance_variable_get(:@ora) %></span>
+            </h4>
+        </div>
+        <div class='card-link-wrapper'> 
+             <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
+        </div>
+        </li> 
+    <% if ((post.id)-1) % 2 != 0 %>
+      </ul>
+    <% end %>
+    <% end %>
       <!-- AJAX -->
-     <!-- <script>
+     <!--<script>
         window.onload = caricaRisorsa;
         function caricaRisorsa(e) {
           var httpRequest = new XMLHttpRequest();
@@ -120,4 +149,9 @@
           $("#benvenuto").load("benvenuto.php");
         });
       </script>-->
+   
     </div>
+ <%= javascript_include_tag "script_app" %>
+ <%= javascript_include_tag "script" %>
+ <%= javascript_include_tag "script_responsiveness" %>
+

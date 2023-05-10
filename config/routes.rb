@@ -12,10 +12,10 @@ Rails.application.routes.draw do
  
   root "pages#home"
   get '/guides', to: 'pages#guides'
+  post '/guides', to: 'pages#guides'
   resources :pages do
     collection do
       get :home
     end
   end
-
 end

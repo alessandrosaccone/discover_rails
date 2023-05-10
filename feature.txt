@@ -250,6 +250,12 @@ Feature: Following A-M-S-G
     i want to follow another user or guide
     so i can see their tabs in homepage
 
+48) 
+Feature: See all tabs A ==================FATTA================
+    As a user 
+    i want to see all the tabs 
+    so i can decide what tabs book
+
 M:26
 S: 11
 A: 22
