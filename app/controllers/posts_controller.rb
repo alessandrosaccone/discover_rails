@@ -5,7 +5,12 @@ class PostsController < ApplicationController
   def index
     citta = params[:citta]
     lingua = params[:lingua]
-    if (citta.present?)
+    if (citta.present? && lingua.present?)
+      @posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%")
+      @posts = @posts.where("lingua LIKE ?", "%#{params[:lingua]}%")
+    elsif (!citta.present? && lingua.present?)
+      @posts = Post.where("lingua LIKE ?", "%#{params[:lingua]}%")
+    elsif (citta.present? && !lingua.present?)
       @posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%")
     else 
       @posts = Post.all

@@ -24892,3 +24892,408 @@ Completed 200 OK in 28ms (Views: 22.5ms | ActiveRecord: 0.5ms | Allocations: 727
   [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 16:44:28.770928"], ["updated_at", "2023-05-10 16:44:28.770928"], ["numero_ore", 4]]
   [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
 >>>>>>> 4e6ed57 (aggiorno)
+Started GET "/" for 127.0.0.1 at 2023-05-10 20:27:39 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 119.7ms | Allocations: 16459)
+  Rendered layout layouts/application.html.erb (Duration: 146.2ms | Allocations: 22482)
+Completed 200 OK in 188ms (Views: 162.4ms | ActiveRecord: 0.0ms | Allocations: 27391)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 20:27:42 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 2.8ms | Allocations: 21013)
+
+
+  
+TypeError (nil can't be coerced into Integer):
+  
+app/controllers/posts_controller.rb:14:in `*'
+app/controllers/posts_controller.rb:14:in `block in index'
+app/controllers/posts_controller.rb:13:in `index'
+  [1m[36mPost Delete All (12.8ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz"], ["titolo", "Visita al vaticansbro"], ["data", "2023-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Italiano"], ["persone", 10], ["prezzo", 60], ["nomeC", "Roma"], ["regioneC", "Lazio"], ["nomeP", "Roma"], ["created_at", "2023-05-10 18:28:43.282088"], ["updated_at", "2023-05-10 18:28:43.282088"], ["numero_ore", 3]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro2"], ["data", "2024-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 18:28:43.292122"], ["updated_at", "2023-05-10 18:28:43.292122"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro3"], ["data", "2024-06-11 00:00:00"], ["ora", "2000-01-01 15:00:00"], ["lingua", "Inglese"], ["persone", 8], ["prezzo", 50], ["nomeC", "Napoli"], ["regioneC", "Campania"], ["nomeP", "Napoli"], ["created_at", "2023-05-10 18:28:43.299871"], ["updated_at", "2023-05-10 18:28:43.299871"], ["numero_ore", 2]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 18:28:43.307740"], ["updated_at", "2023-05-10 18:28:43.307740"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-10 18:28:43.316852"], ["updated_at", "2023-05-10 18:28:43.316852"], ["numero_ore", 4]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 20:28:47 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 39.8ms | Allocations: 9085)
+  Rendered layout layouts/application.html.erb (Duration: 45.6ms | Allocations: 10285)
+Completed 200 OK in 60ms (Views: 50.1ms | ActiveRecord: 0.5ms | Allocations: 11745)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:28:47 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=Roma&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:28:51 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Roma", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Roma%')[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 24.6ms | Allocations: 6108)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 7295)
+Completed 200 OK in 37ms (Views: 30.9ms | ActiveRecord: 0.5ms | Allocations: 8149)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:28:51 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=Formia&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:28:54 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Formia", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Formia%')[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 29.8ms | Allocations: 6772)
+  Rendered layout layouts/application.html.erb (Duration: 35.3ms | Allocations: 7963)
+Completed 200 OK in 43ms (Views: 36.7ms | ActiveRecord: 0.9ms | Allocations: 8923)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:28:54 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=Formia&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:29:04 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Formia", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Formia%')[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 37.7ms | Allocations: 6741)
+  Rendered layout layouts/application.html.erb (Duration: 46.3ms | Allocations: 7929)
+Completed 200 OK in 56ms (Views: 48.6ms | ActiveRecord: 0.7ms | Allocations: 8905)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:29:04 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=Formia&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:30:08 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Formia", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Formia%')[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 39.4ms | Allocations: 7997)
+  Rendered layout layouts/application.html.erb (Duration: 46.8ms | Allocations: 9496)
+Completed 200 OK in 59ms (Views: 50.5ms | ActiveRecord: 0.8ms | Allocations: 11053)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:30:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=Formia&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:30:09 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Formia", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Formia%')[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 54.5ms | Allocations: 6745)
+  Rendered layout layouts/application.html.erb (Duration: 69.4ms | Allocations: 7932)
+Completed 200 OK in 83ms (Views: 74.0ms | ActiveRecord: 1.6ms | Allocations: 8892)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:30:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=Formia&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:30:18 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Formia", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Formia%')[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 40.8ms | Allocations: 7976)
+  Rendered layout layouts/application.html.erb (Duration: 48.5ms | Allocations: 9471)
+Completed 200 OK in 61ms (Views: 52.8ms | ActiveRecord: 0.6ms | Allocations: 11027)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:30:18 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=Formia&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:30:19 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Formia", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Formia%')[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 43.9ms | Allocations: 6740)
+  Rendered layout layouts/application.html.erb (Duration: 57.0ms | Allocations: 7927)
+Completed 200 OK in 72ms (Views: 61.6ms | ActiveRecord: 1.1ms | Allocations: 8887)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:30:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=Formia&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:30:28 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Formia", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Formia%')[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 30.8ms | Allocations: 8038)
+  Rendered layout layouts/application.html.erb (Duration: 36.8ms | Allocations: 9538)
+Completed 200 OK in 49ms (Views: 41.0ms | ActiveRecord: 0.7ms | Allocations: 11113)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:30:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=Formia&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:30:29 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Formia", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Formia%')[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.2ms | Allocations: 6791)
+  Rendered layout layouts/application.html.erb (Duration: 42.9ms | Allocations: 7982)
+Completed 200 OK in 52ms (Views: 44.7ms | ActiveRecord: 0.5ms | Allocations: 8942)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:30:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=Formia&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:31:08 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Formia", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Formia%')[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 33.1ms | Allocations: 7967)
+  Rendered layout layouts/application.html.erb (Duration: 41.1ms | Allocations: 9462)
+Completed 200 OK in 54ms (Views: 45.6ms | ActiveRecord: 0.7ms | Allocations: 11018)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:31:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=Formia&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:31:09 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Formia", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Formia%')[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 36.7ms | Allocations: 6746)
+  Rendered layout layouts/application.html.erb (Duration: 41.8ms | Allocations: 7933)
+Completed 200 OK in 52ms (Views: 43.8ms | ActiveRecord: 0.5ms | Allocations: 8893)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:31:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/guides" for 127.0.0.1 at 2023-05-10 20:31:14 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/guides.html.erb:39
+  [1m[36mLanguage Load (0.5ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/guides.html.erb:49
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/guides.html.erb:49
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/guides.html.erb:47
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/guides.html.erb:49
+  Rendered pages/guides.html.erb within layouts/application (Duration: 253.4ms | Allocations: 63082)
+  Rendered layout layouts/application.html.erb (Duration: 258.3ms | Allocations: 64282)
+Completed 200 OK in 272ms (Views: 255.0ms | ActiveRecord: 8.1ms | Allocations: 65854)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 20:31:17 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 25.7ms | Allocations: 7405)
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 8605)
+Completed 200 OK in 37ms (Views: 31.4ms | ActiveRecord: 0.5ms | Allocations: 9604)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:31:17 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 20:32:30 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 31.6ms | Allocations: 8635)
+  Rendered layout layouts/application.html.erb (Duration: 40.2ms | Allocations: 10134)
+Completed 200 OK in 52ms (Views: 44.6ms | ActiveRecord: 0.5ms | Allocations: 11728)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:32:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 20:32:32 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 41.9ms | Allocations: 7358)
+  Rendered layout layouts/application.html.erb (Duration: 49.4ms | Allocations: 8545)
+Completed 200 OK in 65ms (Views: 51.3ms | ActiveRecord: 0.5ms | Allocations: 9543)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:32:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 20:32:50 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:13:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 29.6ms | Allocations: 7364)
+  Rendered layout layouts/application.html.erb (Duration: 35.1ms | Allocations: 8551)
+Completed 200 OK in 44ms (Views: 36.9ms | ActiveRecord: 0.4ms | Allocations: 9548)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:32:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 20:36:21 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 35.3ms | Allocations: 9086)
+  Rendered layout layouts/application.html.erb (Duration: 53.4ms | Allocations: 14717)
+Completed 200 OK in 112ms (Views: 57.0ms | ActiveRecord: 3.5ms | Allocations: 22142)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:36:21 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=&lingua=Italiano&commit=" for 127.0.0.1 at 2023-05-10 20:36:25 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"Italiano", "commit"=>""}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (lingua LIKE '%Italiano%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 25.1ms | Allocations: 6155)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 7343)
+Completed 200 OK in 37ms (Views: 31.5ms | ActiveRecord: 0.5ms | Allocations: 8180)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:36:25 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=&lingua=italiano&commit=" for 127.0.0.1 at 2023-05-10 20:36:29 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"italiano", "commit"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (lingua LIKE '%italiano%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 24.2ms | Allocations: 6141)
+  Rendered layout layouts/application.html.erb (Duration: 29.1ms | Allocations: 7332)
+Completed 200 OK in 37ms (Views: 30.6ms | ActiveRecord: 0.6ms | Allocations: 8168)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:36:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=&lingua=tedesco&commit=" for 127.0.0.1 at 2023-05-10 20:36:33 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"tedesco", "commit"=>""}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (lingua LIKE '%tedesco%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 25.7ms | Allocations: 6732)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 7919)
+Completed 200 OK in 38ms (Views: 31.2ms | ActiveRecord: 0.7ms | Allocations: 8878)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:36:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=milano&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:36:36 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"milano", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%milano%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 22.7ms | Allocations: 5607)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 6794)
+Completed 200 OK in 34ms (Views: 28.9ms | ActiveRecord: 0.6ms | Allocations: 7560)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:36:36 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/posts?citta=na&lingua=&commit=" for 127.0.0.1 at 2023-05-10 20:36:39 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"na", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%na%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 24.7ms | Allocations: 6144)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 7335)
+Completed 200 OK in 37ms (Views: 31.1ms | ActiveRecord: 0.5ms | Allocations: 8171)
+
+
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 20:36:39 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  

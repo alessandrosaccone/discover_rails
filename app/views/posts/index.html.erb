@@ -16,7 +16,8 @@
 
     <title>Visite</title>
 
-    <div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
+    <div id="home" class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
+
 <h1>Discover</h1>
 <p>Go ever wherever</p>
 </div>
@@ -36,9 +37,29 @@
 </div>
 
     <!-- deleting the "home" from the navbar while using a mobile device -->
-    <script>
-      myfunction();
-    </script>
+   
+<script>
+  var a;
+  function myfunction() {
+    if (
+      navigator.userAgent.match(/webOS/i) ||
+      navigator.userAgent.match(/iPhone/i) ||
+      navigator.userAgent.match(/iPod/i) ||
+      navigator.userAgent.match(/BlackBerry/i) ||
+      navigator.userAgent.match(/Windows Phone/i)
+    ) {
+      a = true;
+      const home = document.getElementById("home");
+      home.remove();
+      const search = document.getElementById("searchbar");
+      search.remove();
+    } else {
+      a = false;
+    }
+    //alert(a);
+  }
+  myfunction();
+</script>
 
     <div class="container">
       <div class="container-search">
@@ -76,7 +97,6 @@
     </div>
     <h3 class='card-title'>
         <%= post.titolo %> <br> 
-        <!--<span class='name'> nome cognome </span>-->
     </h3>
     <div class='card-content'>
         <p>
@@ -157,7 +177,7 @@
       </script>-->
    
     </div>
+    
  <%= javascript_include_tag "script_app" %>
  <%= javascript_include_tag "script" %>
  <%= javascript_include_tag "script_responsiveness" %>
-
