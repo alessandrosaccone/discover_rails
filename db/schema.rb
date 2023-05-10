@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_10_133133) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_10_141117) do
   create_table "cities", force: :cascade do |t|
     t.string "region"
     t.string "name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_133133) do
     t.string "nomeP"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "numero_ore"
   end
 
   create_table "roles", force: :cascade do |t|
