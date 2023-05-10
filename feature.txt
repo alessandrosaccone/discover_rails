@@ -84,9 +84,9 @@ Feature: Search guides tabs by my position S-A
     i want to find guides tabs by my position
     so that i can find them faster
 16 b)
-Feature: Search guides tabs by his position M-S-A
+Feature: Search guides  by his position M-S-A
     As a user
-    i want to find guides tabs by his position
+    i want to find guides by his position
     so that i can find them faster
 16 c)
 Feature: Search guides tabs by his position S-A-M
@@ -94,7 +94,7 @@ Feature: Search guides tabs by his position S-A-M
     i want to find guides tabs by my position
     so that i can find them faster
 17)
-Feature: Search guides by towns S
+Feature: Search guides by towns S Finito
     As a user
     i want to find guides by towns
     so that i can find them faster
@@ -133,8 +133,13 @@ Feature: Search Guide by reviews S
     As a user
     i want to find guides by their reviews
     so that i can find good guides
+23-a)
+Feature: Search Guide by their name S Finito
+    As a user
+    i want to find guides by their name
+    so that i can find guides that i know
 24)
-Feature: Search Guide by language S
+Feature: Search Guide by language S Finito
     As a user
     i want to find guides by their language
     so that i can find guides that speak my language
@@ -257,6 +262,6 @@ Feature: See all tabs A ==================FATTA================
     so i can decide what tabs book
 
 M:26
-S: 11
+S: 12
 A: 22
 G: 14

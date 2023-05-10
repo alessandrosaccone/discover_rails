@@ -25,10 +25,11 @@
 </div>
 <div class="container-search">
   <div class="search_container" id="search">
-    <%= form_tag(url_for(controller: 'pages', action: 'guides'), method: 'post', id: 'myform') do %>
+    <%= form_with(url: url_for(controller: 'pages', action: 'guides'), method: 'post', id: 'myform', data: { remote: true }) do |form| %>
       <div class="search-bar_center">
         <%= text_field_tag(:nome, nil, placeholder: 'Nome...', id: 'cerca') %>
         <%= text_field_tag(:citta, nil, placeholder: 'Città...', id: 'cercacitta') %>
+        <%= text_field_tag(:linguaggio, nil, placeholder: 'Lingua...', id: 'cercalingua') %>
       </div>
       <%= submit_tag 'Cerca' %>
     <% end %>
@@ -36,28 +37,8 @@
 </div>
 <section class="swiper mySwiper">
   <div class="swiper-wrapper" id="guides-wrapper">
-  <%@guides.each do |guida| %>
-  <div class="card swiper-slide">
-    <div class="card__image">
-      <%= image_tag "guida1.webp", class: 'card__image' %>
-    </div>
+  <%= render 'guides_results', guides: @guides %>
   
-    <div class="card__content">
-      <span class="card__title"><%= guida.name %></span>
-      <p class="card__text">Città: <%= guida.city.name if guida.city.present? %></p>
-      <p class="card__text">Lingue:
-        <% if guida.languages.present? %>
-          <% guida.languages.each do |linguaggio| %>
-            <%= linguaggio.name %>
-          <% end %>
-        <% else %>
-          Nessuna lingua specificata
-        <% end %>
-      </p>
-      <button class="card__btn">Profilo</button>
-    </div>
-  </div>
-  <% end %>
   
   </div>
 </section>
@@ -86,7 +67,46 @@
 </script>
 
 
+<script>
+$(document).ready(function() {
+  var cercaValue = '';
+  var cercacittaValue = '';
+  var cercaLinguaValue='';
 
+  $('#cerca').on('input', function() {
+    cercaValue = $(this).val();
+    $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cerca"
+  });
+    $('#cercalingua').on('input', function() {
+    cercaLinguaValue = $(this).val();
+    $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cerca"
+  });
+  $('#cercacitta').on('input', function() {
+    cercacittaValue = $(this).val();
+    $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
+  });
+
+  $('#myform').on('submit', function(event) {
+    event.preventDefault(); // Evita il comportamento predefinito del browser di sottomissione del modulo
+    var form = $(this);
+    
+    $.ajax({
+      url: form.attr('action'),
+      method: form.attr('method'),
+      data: form.serialize(),
+      success: function(response) {
+        $('#guides-wrapper').html(response);
+        $('#cerca').val(cercaValue);
+        $('#cercacitta').val(cercacittaValue);
+        $('#cercalingua').val(cercaLinguaValue);
+      }
+    });
+  });
+});
+
+
+
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <%= javascript_include_tag "script_guide" %>
