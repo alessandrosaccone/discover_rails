@@ -1,110 +1,93 @@
 <% content_for :for_head do %>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-  <%= stylesheet_link_tag "application-guides"%>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <%= stylesheet_link_tag "application-guides" %>
   <%= stylesheet_link_tag "application" %>
 <% end %>
 
-<div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
-<h1>Discover</h1>
-<p>Go ever wherever</p>
+<div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg') %>')">
+  <h1>Discover</h1>
+  <p>Go ever wherever</p>
 </div>
 <div class="navheader_general" id="navbar">
-    <nav class="navbar">
-        <a href="<%= home_pages_path %>">Home</a>
-        <a href="app.html">Visite</a>
-        <%= link_to 'Guide', guides_path %>
-        <%if !user_signed_in?%>
-            <a href="<%= new_user_session_path() %>">Login</a>
-        <%end%>
-        <%if user_signed_in?%>
-            <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
-        <%end%>
-        <a href="bacheca.html">Profilo</a>
-    </nav>
+  <nav class="navbar">
+    <a href="<%= home_pages_path %>">Home</a>
+    <%= link_to 'Visite', posts_path %>
+    <%= link_to 'Guide', guides_path %>
+    <% if !user_signed_in? %>
+      <a href="<%= new_user_session_path() %>">Login</a>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+    <% end %>
+    <a href="bacheca.html">Profilo</a>
+  </nav>
 </div>
-    <section class="swiper mySwiper">
-
-      <div class="swiper-wrapper">
-  
-        <div class="card swiper-slide">
-          <div class="card__image">
-            <%= image_tag "guida1.webp", class: 'card__image'%>
-          </div>
-  
-          <div class="card__content">
-            <span class="card__title">Vanessa Martinez</span>
-            <p class="card__text">Città: Roma</p>
-            <p class="card__text">Lingue: Italiano, Inglese</p>
-            <button class="card__btn">Profilo</button>
-          </div>
-        </div>
-  
-        <div class="card swiper-slide">
-          <div class="card__image">
-          <%= image_tag "guida2.webp", class: 'card__image'%>
-            
-          </div>
-  
-          <div class="card__content">
-            <span class="card__title">Sarah Bowen</span>
-            <p class="card__text">Città: Roma</p>
-            <p class="card__text">Lingue: Italiano, Inglese</p>
-            <button class="card__btn">Profilo</button>
-          </div>
-        </div>
-  
-        <div class="card swiper-slide">
-          <div class="card__image">
-          <%= image_tag "guida3.webp", class: 'card__image'%>
-            
-          </div>
-  
-          <div class="card__content">
-            <span class="card__title">David Murphy</span>
-            <p class="card__text">Città: Roma</p>
-            <p class="card__text">Lingue: Italiano, Inglese</p>
-            <button class="card__btn">Profilo</button>
-          </div>
-        </div>
-  
-        <div class="card swiper-slide">
-          <div class="card__image">
-          <%= image_tag "guida4.jpg", class: 'card__image'%>
-            
-          </div>
-  
-          <div class="card__content">
-            <span class="card__title">Kelsey West</span>
-            <p class="card__text">Città: Roma</p>
-            <p class="card__text">Lingue: Italiano, Inglese</p>            
-            <button class="card__btn">Profilo</button>
-          </div>
-        </div>
-  
+<div class="container-search">
+  <div class="search_container" id="search">
+    <%= form_tag(url_for(controller: 'pages', action: 'guides'), method: 'post', id: 'myform') do %>
+      <div class="search-bar_center">
+        <%= text_field_tag(:nome, nil, placeholder: 'Nome...', id: 'cerca') %>
+        <%= text_field_tag(:citta, nil, placeholder: 'Città...', id: 'cercacitta') %>
       </div>
-    </section>
-        <script>
-      var a;
-      function myfunction() {
-        if (
-          navigator.userAgent.match(/webOS/i) ||
-          navigator.userAgent.match(/iPhone/i) ||
-          navigator.userAgent.match(/iPod/i) ||
-          navigator.userAgent.match(/BlackBerry/i) ||
-          navigator.userAgent.match(/Windows Phone/i)
-        ) {
-          a = true;
-          const home = document.getElementById("home");
-          home.remove();
-          const search = document.getElementById("searchbar");
-          search.remove();
-        } else {
-          a = false;
-        }
-        //alert(a);
-      }
-      myfunction();
-    </script>
+      <%= submit_tag 'Cerca' %>
+    <% end %>
+  </div>
+</div>
+<section class="swiper mySwiper">
+  <div class="swiper-wrapper" id="guides-wrapper">
+  <%@guides.each do |guida| %>
+  <div class="card swiper-slide">
+    <div class="card__image">
+      <%= image_tag "guida1.webp", class: 'card__image' %>
+    </div>
+  
+    <div class="card__content">
+      <span class="card__title"><%= guida.name %></span>
+      <p class="card__text">Città: <%= guida.city.name if guida.city.present? %></p>
+      <p class="card__text">Lingue:
+        <% if guida.languages.present? %>
+          <% guida.languages.each do |linguaggio| %>
+            <%= linguaggio.name %>
+          <% end %>
+        <% else %>
+          Nessuna lingua specificata
+        <% end %>
+      </p>
+      <button class="card__btn">Profilo</button>
+    </div>
+  </div>
+  <% end %>
+  
+  </div>
+</section>
+
+<script>
+  var a;
+  function myfunction() {
+    if (
+      navigator.userAgent.match(/webOS/i) ||
+      navigator.userAgent.match(/iPhone/i) ||
+      navigator.userAgent.match(/iPod/i) ||
+      navigator.userAgent.match(/BlackBerry/i) ||
+      navigator.userAgent.match(/Windows Phone/i)
+    ) {
+      a = true;
+      const home = document.getElementById("home");
+      home.remove();
+      const search = document.getElementById("searchbar");
+      search.remove();
+    } else {
+      a = false;
+    }
+    //alert(a);
+  }
+  myfunction();
+</script>
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <%= javascript_include_tag "script_guide" %>
    

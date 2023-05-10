@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable,
          :timeoutable,:omniauthable, :omniauth_providers => [:facebook]
   belongs_to :role, :optional => true
+  belongs_to :city, optional: true
+  has_and_belongs_to_many :languages, optional:true
 
   def tourist?
     role.name == 'Tourist'

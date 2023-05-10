@@ -7,6 +7,18 @@ class PagesController < ApplicationController
     end
 
     def guides
-        @users = User.all
+        @guides = User.where(role_id: 10)
+        nome = params[:nome]
+        citta = params[:citta]
+      
+        # Modifica la variabile @guides in base agli input del form (nome e citta)
+        if nome.present?
+          @guides = @guides.where(name: nome)
+        end
+        if citta.present?
+          @guides = @guides.where(city: citta)
+        end
+
     end
+      
 end
