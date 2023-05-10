@@ -9637,3 +9637,151 @@ Migrating to AddOmniauthToUsers (20230502153835)
   [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-05-10 10:51:49 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 298.8ms | Allocations: 49975)
+  Rendered layout layouts/application.html.erb (Duration: 315.5ms | Allocations: 55899)
+Completed 200 OK in 350ms (Views: 328.9ms | ActiveRecord: 0.0ms | Allocations: 60801)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-05-10 10:51:53 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.6ms | Allocations: 254)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 60.3ms | Allocations: 8371)
+  Rendered layout layouts/application.html.erb (Duration: 66.5ms | Allocations: 9568)
+Completed 200 OK in 157ms (Views: 71.6ms | ActiveRecord: 3.0ms | Allocations: 33456)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 10:51:57 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 17.5ms | Allocations: 3203)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 4463)
+Completed 200 OK in 32ms (Views: 26.8ms | ActiveRecord: 0.0ms | Allocations: 5417)
+
+
+Started GET "/js/script.js" for 127.0.0.1 at 2023-05-10 10:51:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script.js"):
+  
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 10:51:57 +0200
+Started GET "/js/script_responsiveness.js" for 127.0.0.1 at 2023-05-10 10:51:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/js/script_app.js" for 127.0.0.1 at 2023-05-10 10:51:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_responsiveness.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app.js"):
+  
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 10:52:23 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 18.1ms | Allocations: 3216)
+  Rendered layout layouts/application.html.erb (Duration: 40.4ms | Allocations: 9105)
+Completed 200 OK in 57ms (Views: 43.7ms | Allocations: 12193)
+
+
+Started GET "/js/script.js" for 127.0.0.1 at 2023-05-10 10:52:23 +0200
+Started GET "/js/script_app.js" for 127.0.0.1 at 2023-05-10 10:52:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script.js"):
+  
+Started GET "/js/script_responsiveness.js" for 127.0.0.1 at 2023-05-10 10:52:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app.js"):
+  
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 10:52:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_responsiveness.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+Started GET "/pages/home" for 127.0.0.1 at 2023-05-10 10:52:44 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 29.5ms | Allocations: 4732)
+  Rendered layout layouts/application.html.erb (Duration: 40.5ms | Allocations: 5993)
+Completed 200 OK in 47ms (Views: 44.8ms | Allocations: 6694)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 10:52:45 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 16.6ms | Allocations: 2521)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 3780)
+Completed 200 OK in 33ms (Views: 31.4ms | Allocations: 4021)
+
+
+Started GET "/js/script.js" for 127.0.0.1 at 2023-05-10 10:52:45 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script.js"):
+  
+Started GET "/js/script_app.js" for 127.0.0.1 at 2023-05-10 10:52:45 +0200
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 10:52:45 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app.js"):
+  
+Started GET "/js/script_responsiveness.js" for 127.0.0.1 at 2023-05-10 10:52:46 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_responsiveness.js"):
+  
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-05-10 10:52:47 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.0ms | Allocations: 246)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 29.8ms | Allocations: 5044)
+  Rendered layout layouts/application.html.erb (Duration: 37.3ms | Allocations: 6244)
+Completed 200 OK in 79ms (Views: 41.9ms | ActiveRecord: 4.4ms | Allocations: 12087)
+
+
+Started GET "/pages/home" for 127.0.0.1 at 2023-05-10 10:52:49 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 23.7ms | Allocations: 3901)
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | Allocations: 5160)
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.0ms | Allocations: 5387)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-05-10 10:53:24 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.8ms | Allocations: 2508)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 3767)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.0ms | Allocations: 4007)
+
+
+Started GET "/js/script.js" for 127.0.0.1 at 2023-05-10 10:53:24 +0200
+Started GET "/js/script_responsiveness.js" for 127.0.0.1 at 2023-05-10 10:53:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script.js"):
+  
+Started GET "/js/script_app.js" for 127.0.0.1 at 2023-05-10 10:53:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_responsiveness.js"):
+  
+Started GET "/js/script_app-query.js" for 127.0.0.1 at 2023-05-10 10:53:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app-query.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/js/script_app.js"):
+  
