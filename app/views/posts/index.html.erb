@@ -68,9 +68,9 @@
     
     <div id="zonaDinamica">
     <% @posts.each do |post| %>
-
-    <ul class="cards">
-
+    <% if post.id % 2 == 0 %>
+      <ul class="cards">
+    <% end %>
     <li class='card'>
     <div class='card_image'>
       <%= image_tag "guida4.jpg"%>
@@ -95,14 +95,16 @@
         </div>
         <div class='card-link-wrapper'>
             <a class='popup card-link' onclick='return funct($i);'>Prenota
-            <span class='popuptext' id='myPopup_$i'> 
+            <span class='popuptext' id='myPopup_<%post.id%>'> 
                 <button class='card-link_2' style='font-weight: bold;'>Prenota tutti i posti: <%= @total_price %></button>
                 <!--<button class='card-link_2' style='font-weight: bold;'>Prenota singolo: €$price_2</button>-->
             </span>
             </a>
         </div>
-        </li>
-    </ul>
+        </li> 
+    <% if post.id % 2 == 0 %>
+      </ul>
+    <% end %>
     <% end %></div>
 
 
