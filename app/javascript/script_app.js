@@ -1,9 +1,11 @@
-/*function funct(i) {
-  alert(i);
-  var popup = document.getElementById("myPopup_" + i);
-  popup.classList.toggle("show");
+function init_map() {
+  var map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 37.7749, lng: -122.4194 },
+    zoom: 8,
+  });
 }
 
+/*
 function delete_s(titolo, nome, cognome, data, ora, lingua, citta) {
   $.ajax({
     type: "POST",
