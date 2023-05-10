@@ -1,40 +1,19 @@
+
 <%content_for :for_head do %>
   <%= stylesheet_link_tag "application-login_guide" %>
-<% end %>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
 <% end %>
 
 <header class="header">
         <nav class="navbar">
           <a href="<%=home_pages_path%>">Home</a>
-          <a href="login.html">Login</a>
+          <a href="<%= new_user_session_path() %>">Login</a>
         </nav>
     </header>
-    <div class="background" style="background: url(<%=image_path('banner-mario.jpg')%>)"></div>
+    <div class="background" style="background: url(<%=image_path('banner_mario.jpg')%>)"></div>
 
     <div class="container"></div>
 
-    <div class="container-2" style="background: url(<%=image_path('banner-mario.jpg')%>)"></div>
+    <div class="container-2" style="background: url(<%=image_path('banner_mario.jpg')%>)"></div>
 
     <div class="container-3">
         <div class="logreg-box">
@@ -44,42 +23,52 @@
                 <h2><b>Registrati</b></h2>
     
                 <div class="input-box">
-                  <span class="icon"><i class="bx bxs-envelope"></i></span>
+                  <span class="icon"></span>
                   <%= f.text_field :name, autofocus: true, autocomplete: "nome" %>
                   <label for="nome"><b>Nome</b></label>
                 </div>
 
     
                 <div class="input-box">
-                    <span class="icon"><i class="bx bxs-envelope"></i></span>
+                    <span class="icon"></span>
                     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
                     <label><b>Email</b></label>
                 </div>
-
+                
                 <div class="input-box">
                     <span class="icon"></span>
-                    <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> characters minimum)</em>
-                     <% end %>
                      <%= f.password_field :password, autocomplete: "new-password" %>
+                      
                     <label><b>Password</b></label>
+    
                 </div> 
-                <div class="input box">
+                <div class="input-box">
                   <span class='icon'></span>
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>     
-                  
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>    
+                  <label><b>Conferma Password</b></label> 
                 </div>
+
+                <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
                   
                 <div class="input-box">
                     <span class="icon"></span>
-                    <input type="text" required />
-                    <label><b>Città</b></label>
+                     <%= f.text_field :iva, autofocus: true, autocomplete: "iva" %>
+                    <label><b>Partita Iva</b></label>
                 </div> 
     
                 <div class="remember-forgot">
-                  <label><input type="checkbox" />Ricordami</label>
+                  <% if devise_mapping.rememberable? %>
+                    <label>
+                    <%= f.check_box :remember_me %>
+                    Ricordami
+                    </label>
+                  <% end %>
                   <a href="#">Password dimenticata?</a>
                 </div>
+
+                <%=f.hidden_field :role_id, value: 10, readonly: true%>
     
                 <button type="submit" class="btn">Registrati</button>
               <%end%>
@@ -87,4 +76,3 @@
         </div>
     </div>
 
-<%= render "devise/shared/links" %>

@@ -34,7 +34,7 @@ myfunction();
     <nav class="navbar">
         <a href="#">Home</a>
         <%=link_to "Visite", posts_path%>
-        <a href="guide.html">Guide</a>
+        <%= link_to 'Guide', guides_path %>
         <%if !user_signed_in?%>
             <a href="<%= new_user_session_path() %>">Login</a>
         <%end%>
