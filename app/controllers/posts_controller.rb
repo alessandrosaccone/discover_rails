@@ -23,6 +23,13 @@ class PostsController < ApplicationController
       post.instance_variable_set(:@ora, ora)
       post.instance_variable_set(:@data, data)
     end
+    if request.xhr?
+      render partial: 'posts_results', locals: { guides: @guides }
+    else
+      respond_to do |format|
+        format.html { render 'index' }
+      end
+    end
     
  end
 

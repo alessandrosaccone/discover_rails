@@ -1,27 +1,21 @@
 <% content_for :for_head do %>
   <%= stylesheet_link_tag "application-post"%>
   <%= stylesheet_link_tag "application" %>
+       
 <% end %>   
 <%= javascript_include_tag "script_app" %>
 <%= javascript_include_tag "script" %>
 <%= javascript_include_tag "script_responsiveness" %>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfEUXv0zmiilh5Ficmkv8is6txN5NUJXI" async defer></script>
-
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-     <link
+ <link
         rel="stylesheet"
         href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
       />
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfEUXv0zmiilh5Ficmkv8is6txN5NUJXI" async defer></script>
+    
+
 
     <title>Visite</title>
 
@@ -70,13 +64,13 @@
       myfunction();
     </script>
 
-    <div class="container">
+    
       <div class="container-search">
         <div class="search_container" id="search">
-          <%= form_tag(url_for(controller: 'posts', action: 'index'), method: 'get', id: 'myform') do %>
+        <%= form_with(url: url_for(controller: 'posts', action: 'index'), method: 'get', id: 'myform', data: { remote: true }) do |form| %>
             <div class="search-bar_center">
-              <%= text_field_tag(:citta, nil, placeholder: 'Citta...') %>
-              <%= text_field_tag(:lingua, nil, placeholder: 'Lingua...') %>
+              <%= text_field_tag(:citta, nil, placeholder: 'Citta...',id: 'cercacitta') %>
+              <%= text_field_tag(:lingua, nil, placeholder: 'Lingua...',id: 'cercalingua') %>
             </div>
             <%= submit_tag '' %>
           <% end %>
@@ -87,40 +81,44 @@
         <script>
           init_map();
         </script>
+    <div class="container" id="wrapper_post">
+     <%= render 'posts_results', posts: @posts %>
+    </div>
     
-    <% @posts.each_with_index do |post, index| %>
-    <% if index.even? %>
-      <ul class="cards">
-    <% end %> 
-    <li class='card'>
-    <div class='card_image'>
-      <%= image_tag "guida4.jpg"%>
-    </div>
-    <h3 class='card-title'>
-        <%= post.titolo %> <br> 
-    </h3>
-    <div class='card-content'>
-        <p>
-            <%= post.descrizione%>
-        </p>
-        <hr> 
-        <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
-        </div>
-        
-        <div class='card-languages'>
-            <h4>
-                Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
-                Data e ora: <span style='font-weight: normal'><%= post.instance_variable_get(:@data) %> <%= post.instance_variable_get(:@ora) %></span>
-            </h4>
-        </div>
-        <div class='card-link-wrapper'> 
-             <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
-        </div>
-        </li> 
-          <% if index.odd? || index == @posts.size - 1 %>
-    </ul>
-    <% end %>
-    <% end %>
-    </div>
     <script>bar_color()</script>
+    <script>
+    
+$(document).ready(function() {
+  var cercacittaValue = '';
+  var cercaLinguaValue='';
+
+    $('#cercalingua').on('input', function() {
+    cercaLinguaValue = $(this).val();
+    $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cerca"
+  });
+  $('#cercacitta').on('input', function() {
+    cercacittaValue = $(this).val();
+    $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
+  });
+
+  $('#myform').on('submit', function(event) {
+    event.preventDefault(); // Evita il comportamento predefinito del browser di sottomissione del modulo
+    var form = $(this);
+    
+    $.ajax({
+      url: form.attr('action'),
+      method: form.attr('method'),
+      data: form.serialize(),
+      success: function(response) {
+        $('#wrapper_post').html(response);
+        $('#cercacitta').val(cercacittaValue);
+        $('#cercalingua').val(cercaLinguaValue);
+      }
+    });
+  });
+});
+
+
+
+</script>
  

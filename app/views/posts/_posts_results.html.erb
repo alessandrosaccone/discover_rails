@@ -1,0 +1,33 @@
+<% @posts.each_with_index do |post, index| %>
+    <% if index.even? %>
+      <ul class="cards">
+    <% end %> 
+    <li class='card'>
+    <div class='card_image'>
+      <%= image_tag "guida4.jpg"%>
+    </div>
+    <h3 class='card-title'>
+        <%= post.titolo %> <br> 
+    </h3>
+    <div class='card-content'>
+        <p>
+            <%= post.descrizione%>
+        </p>
+        <hr> 
+        <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+        </div>
+        
+        <div class='card-languages'>
+            <h4>
+                Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+                Data e ora: <span style='font-weight: normal'><%= post.instance_variable_get(:@data) %> <%= post.instance_variable_get(:@ora) %></span>
+            </h4>
+        </div>
+        <div class='card-link-wrapper'> 
+             <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
+        </div>
+        </li> 
+          <% if index.odd? || index == @posts.size - 1 %>
+    </ul>
+    <% end %>
+    <% end %>

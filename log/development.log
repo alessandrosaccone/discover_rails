@@ -29055,3 +29055,307 @@ Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.9ms | Allocations: 101
 
 
 >>>>>>> Simone
+Started GET "/" for ::1 at 2023-05-11 20:31:00 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 106.9ms | Allocations: 34540)
+  Rendered layout layouts/application.html.erb (Duration: 116.7ms | Allocations: 40507)
+Completed 200 OK in 129ms (Views: 120.0ms | ActiveRecord: 0.0ms | Allocations: 45415)
+
+
+Started GET "/posts" for ::1 at 2023-05-11 20:31:05 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 18.3ms | Allocations: 8892)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 10092)
+Completed 200 OK in 57ms (Views: 21.7ms | ActiveRecord: 1.7ms | Allocations: 31914)
+
+
+Started GET "/posts?citta=Roma&lingua=&commit=" for ::1 at 2023-05-11 20:31:15 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Roma", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Roma%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 17.6ms | Allocations: 6081)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 7269)
+Completed 200 OK in 26ms (Views: 21.1ms | ActiveRecord: 0.4ms | Allocations: 8140)
+
+
+Started GET "/posts?citta=Roma&lingua=Ita&commit=" for ::1 at 2023-05-11 20:31:25 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"Roma", "lingua"=>"Ita", "commit"=>""}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Roma%') AND (lingua LIKE '%Ita%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 13.9ms | Allocations: 6080)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 7268)
+Completed 200 OK in 22ms (Views: 16.9ms | ActiveRecord: 0.4ms | Allocations: 8156)
+
+
+Started GET "/posts?citta=&lingua=&commit=" for ::1 at 2023-05-11 20:31:28 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 7321)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 8508)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.2ms | Allocations: 9502)
+
+
+Started GET "/posts?citta=&lingua=&commit=" for ::1 at 2023-05-11 20:47:25 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 2.1ms | Allocations: 2189)
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 9291)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 14894)
+Completed 200 OK in 24ms (Views: 14.4ms | ActiveRecord: 0.4ms | Allocations: 21720)
+
+
+Started GET "/posts?citta=R&lingua=" for ::1 at 2023-05-11 20:47:30 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"R", "lingua"=>""}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%R%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.1ms | Allocations: 2017)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.2ms | Allocations: 3081)
+
+
+Started GET "/posts?citta=&lingua=&commit=" for ::1 at 2023-05-11 20:48:00 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 3.1ms | Allocations: 2184)
+  Rendered posts/index.html.erb within layouts/application (Duration: 16.0ms | Allocations: 8823)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 10318)
+Completed 200 OK in 28ms (Views: 21.9ms | ActiveRecord: 0.5ms | Allocations: 11924)
+
+
+Started GET "/posts?citta=&lingua=&commit=" for ::1 at 2023-05-11 20:48:45 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 2.6ms | Allocations: 2183)
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.8ms | Allocations: 8821)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 10316)
+Completed 200 OK in 23ms (Views: 17.0ms | ActiveRecord: 0.3ms | Allocations: 11922)
+
+
+Started GET "/posts?citta=E&lingua=" for ::1 at 2023-05-11 20:48:49 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"E", "lingua"=>""}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%E%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 0.8ms | Allocations: 439)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1231)
+
+
+Started GET "/posts?citta=&lingua=" for ::1 at 2023-05-11 20:48:50 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>""}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.1ms | Allocations: 1899)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.1ms | Allocations: 2827)
+
+
+Started GET "/posts?citta=E&lingua=" for ::1 at 2023-05-11 20:48:50 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"E", "lingua"=>""}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%E%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 0.0ms | Allocations: 12)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 712)
+
+
+Started GET "/posts?citta=&lingua=" for ::1 at 2023-05-11 20:48:51 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>""}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 8.3ms | Allocations: 1894)
+Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 0.3ms | Allocations: 2821)
+
+
+Started GET "/posts?citta=R&lingua=" for ::1 at 2023-05-11 20:48:52 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"R", "lingua"=>""}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%R%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 2.5ms | Allocations: 1583)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.2ms | Allocations: 2539)
+
+
+Started GET "/posts?citta=&lingua=" for ::1 at 2023-05-11 20:48:54 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>""}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.1ms | Allocations: 1894)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.2ms | Allocations: 2821)
+
+
+Started GET "/posts?citta=F&lingua=" for ::1 at 2023-05-11 20:48:55 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"F", "lingua"=>""}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%F%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 1.8ms | Allocations: 1272)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 2165)
+
+
+Started GET "/posts?citta=&lingua=" for ::1 at 2023-05-11 20:48:56 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>""}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 2.2ms | Allocations: 1894)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 2821)
+
+
+Started GET "/posts?citta=&lingua=&commit=" for ::1 at 2023-05-11 20:49:01 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 3.4ms | Allocations: 1751)
+  Rendered posts/index.html.erb within layouts/application (Duration: 19.7ms | Allocations: 7429)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 8628)
+Completed 200 OK in 29ms (Views: 22.9ms | ActiveRecord: 0.3ms | Allocations: 9634)
+
+
+Started GET "/posts?citta=&lingua=&commit=" for ::1 at 2023-05-11 20:53:28 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 9.6ms | Allocations: 2187)
+  Rendered posts/index.html.erb within layouts/application (Duration: 19.4ms | Allocations: 8823)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 10326)
+Completed 200 OK in 27ms (Views: 23.6ms | ActiveRecord: 0.2ms | Allocations: 11929)
+
+
+Started GET "/posts?citta=&lingua=&commit=" for ::1 at 2023-05-11 20:53:52 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 1.5ms | Allocations: 1752)
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 7461)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 8648)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.2ms | Allocations: 9656)
+
+
+Started GET "/posts?citta=&lingua=&commit=" for ::1 at 2023-05-11 20:53:53 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 2.3ms | Allocations: 1751)
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.7ms | Allocations: 7422)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 8609)
+Completed 200 OK in 23ms (Views: 17.7ms | ActiveRecord: 0.3ms | Allocations: 9617)
+
+
+Started GET "/posts?citta=&lingua=&commit=" for ::1 at 2023-05-11 20:55:05 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 3.3ms | Allocations: 2183)
+  Rendered posts/index.html.erb within layouts/application (Duration: 17.9ms | Allocations: 8829)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 10324)
+Completed 200 OK in 30ms (Views: 24.1ms | ActiveRecord: 0.3ms | Allocations: 11929)
+
+
+Started GET "/posts?citta=&lingua=&commit=" for ::1 at 2023-05-11 20:55:33 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 2.5ms | Allocations: 2183)
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 8819)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 10314)
+Completed 200 OK in 20ms (Views: 15.9ms | ActiveRecord: 0.3ms | Allocations: 11917)
+
+
+Started GET "/posts?citta=&lingua=&commit=" for ::1 at 2023-05-11 20:55:36 +0200
+Processing by PostsController#index as HTML
+  Parameters: {"citta"=>"", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 2.8ms | Allocations: 1752)
+  Rendered posts/index.html.erb within layouts/application (Duration: 19.5ms | Allocations: 7434)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 8621)
+Completed 200 OK in 30ms (Views: 22.7ms | ActiveRecord: 0.6ms | Allocations: 9628)
+
+
+Started GET "/posts?citta=R&lingua=" for ::1 at 2023-05-11 20:55:39 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"R", "lingua"=>""}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%R%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.1ms | Allocations: 2015)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.2ms | Allocations: 3062)
+
+
+Started GET "/posts?citta=Ro&lingua=" for ::1 at 2023-05-11 20:55:44 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"Ro", "lingua"=>""}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Ro%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 1.3ms | Allocations: 650)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 1420)
+
+
+Started GET "/posts?citta=R&lingua=" for ::1 at 2023-05-11 20:55:45 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"R", "lingua"=>""}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%R%')[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 2.1ms | Allocations: 1583)
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 2539)
+
+
+Started GET "/posts?citta=&lingua=" for ::1 at 2023-05-11 20:55:45 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>""}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:18:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.0ms | Allocations: 1894)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.1ms | Allocations: 2821)
+
+
