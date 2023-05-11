@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+
   skip_before_action :verify_authenticity_token
   # GET /posts
   def index
@@ -62,10 +63,16 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-    if @post.update(post_params)
-      redirect_to @post, notice: "Post was successfully updated."
+    persone_to_subtract = params[:post][:persone].to_i
+    if @post.persone_rimanenti >= persone_to_subtract
+      @post.persone_rimanenti -= persone_to_subtract
+      if @post.save
+        redirect_to @post, notice: "Post was successfully updated."
+      else
+        render :edit, status: :unprocessable_entity
+      end
     else
-      render :edit, status: :unprocessable_entity
+      redirect_to edit_post_path(@post), alert: "Cannot subtract more than available."
     end
   end
 
@@ -83,6 +90,8 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.fetch(:post, {})
+    
+      params.require(:post).permit(:title, :body, :published_at, :persone)
     end
+
 end

@@ -1,11 +1,34 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-post"%>
+  <%= stylesheet_link_tag "application" %>
+       
+<% end %>   
+<%= javascript_include_tag "script_app" %>
+<%= javascript_include_tag "script" %>
+<%= javascript_include_tag "script_responsiveness" %>
 
 <%= render @post %>
-<h1>Titolo: <%= @post.titolo %></h1>
-<h3>Descrizione: <%= @post.descrizione %> </h3>
-<h4>Città: <%= @post.nomeC %></h4>
-<div>Lingua: <%= @post.lingua %></div>
-<div>Data e ora: <%= @data %> <%= @ora %></div>
+<h1>Titolo: <%= @post.titolo %></h1> <br>
+<h3>Descrizione: <%= @post.descrizione %> </h3><br>
+<h3>Città: <%= @post.nomeC %></h3><br>
+<h3>Lingua: <%= @post.lingua %></h3><br>
+<h3>Data e ora: <%= @data %> <%= @ora %></h3><br>
+<h3>Numero di persone: <%= @post.persone_rimanenti %></h3><br>
+<%= form_for @post, id: dom_id(@post, :edit) do |f| %>
+  <%= f.label :persone %>
+  <%= f.number_field :persone, step: 1 %>
+  <%= f.submit %>
+<% end %>
+
+<% if @post.persone_rimanenti == @post.persone %>
+  <button id="fill-form-button">Prenota una visita privata</button>
+  <%= javascript_tag do %>
+      document.getElementById('fill-form-button').addEventListener('click', function() {
+      document.getElementById('post_persone').value = <%= @post.persone_rimanenti %>; 
+      document.getElementById('<%=dom_id(@post, :edit)%>').submit();
+      });
+  <% end %>
+<% end %>
 
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
