@@ -3,19 +3,16 @@
   <%= stylesheet_link_tag "application" %>
        
 <% end %>   
-<%= javascript_include_tag "script_app" %>
+
 <%= javascript_include_tag "script" %>
 <%= javascript_include_tag "script_responsiveness" %>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpIv_CVPFs86IkihMlENY8NALFHelElZk" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0&callback=init_map" async defer></script>
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+
      <link
         rel="stylesheet"
         href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
@@ -84,11 +81,11 @@
           <% end %>
         </div>
       </div>
+      <button id="see_map" onclick="return see_map();">Let me see the map</button>
 
-        <div id="map"></div>
-        <script>
-          init_map();
-        </script>
+      <div id="map_container" class="map_container">
+        <div id="mapDiv" class="map_class"></div>
+      </div>
     <div class="container" id="wrapper_post">
      <%= render 'posts_results', posts: @posts %>
     </div>
@@ -129,4 +126,4 @@ $(document).ready(function() {
 
 
 </script>
- 
+<%= javascript_include_tag "script_app" %>

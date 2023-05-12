@@ -7,6 +7,21 @@
   --thumb: #edf2f4;
 }
 
+.map_class {
+  display: none;
+  width: 100%;
+  height: 500px;
+  border: black;
+}
+
+.map_container {
+  display: none;
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid black;
+  text-align: center;
+}
+
 .con {
   padding: 0 8%;
 }
