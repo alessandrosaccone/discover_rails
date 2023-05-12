@@ -28,7 +28,7 @@ Ruby version ruby 2.7.2p137
 
 # Google Maps API Key
 
-AIzaSyCpIv_CVPFs86IkihMlENY8NALFHelElZk
+AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0
 
 # Mail
 
