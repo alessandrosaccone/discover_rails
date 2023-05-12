@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_11_214132) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_12_120427) do
   create_table "cities", force: :cascade do |t|
     t.string "region"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "country_id"
+    t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -78,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_214132) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "cities", "countries"
   add_foreign_key "users", "cities"
   add_foreign_key "users", "roles"
 end

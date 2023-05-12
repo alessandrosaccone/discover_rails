@@ -33618,3 +33618,1540 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 47ms (Views: 39.6ms | ActiveRecord: 0.4ms | Allocations: 8029)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCountries (20230512115849)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "countries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230512115849"]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddCountryToCities (20230512120234)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acities" ("id" integer NOT NULL PRIMARY KEY, "region" varchar DEFAULT NULL, "name" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acities" ("id","region","name","created_at","updated_at")
+                     SELECT "id","region","name","created_at","updated_at" FROM "cities"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "cities"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer NOT NULL PRIMARY KEY, "region" varchar DEFAULT NULL, "name" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "country_id" integer NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("id","region","name","created_at","updated_at")
+                     SELECT "id","region","name","created_at","updated_at" FROM "acities"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddCountryToCities (20230512120427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cities" ADD "country_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_cities_on_country_id" ON "cities" ("country_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acities" ("id" integer NOT NULL PRIMARY KEY, "region" varchar DEFAULT NULL, "name" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "country_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acities_on_country_id" ON "acities" ("country_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acities" ("id","region","name","created_at","updated_at","country_id")
+                     SELECT "id","region","name","created_at","updated_at","country_id" FROM "cities"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "cities"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer NOT NULL PRIMARY KEY, "region" varchar DEFAULT NULL, "name" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "country_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_996e05be41"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_cities_on_country_id" ON "cities" ("country_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("id","region","name","created_at","updated_at","country_id")
+                     SELECT "id","region","name","created_at","updated_at","country_id" FROM "acities"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "acities"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230512120427"]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT "countries".* FROM "countries"[0m
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCountry Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "countries" WHERE "countries"."name" = ? LIMIT ?[0m  [["name", "Italia"], ["LIMIT", 1]]
+  [1m[36mCountry Create (0.5ms)[0m  [1m[32mINSERT INTO "countries" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Italia"], ["created_at", "2023-05-12 12:19:39.237758"], ["updated_at", "2023-05-12 12:19:39.237758"]]
+  [1m[36mTRANSACTION (9.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  [1m[36mCountry Load (0.4ms)[0m  [1m[34mSELECT "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "cities" WHERE "cities"."name" = ? AND "cities"."id" != ? AND "cities"."region" = ? LIMIT ?[0m  [["name", "Roma"], ["id", 1], ["region", "Lazio"], ["LIMIT", 1]]
+  [1m[36mCity Update (0.3ms)[0m  [1m[33mUPDATE "cities" SET "updated_at" = ?, "country_id" = ? WHERE "cities"."id" = ?[0m  [["updated_at", "2023-05-12 12:27:22.992020"], ["country_id", 1], ["id", 1]]
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."country_id" = ?[0m  [["country_id", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.7ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cities" WHERE "cities"."name" = ? AND "cities"."id" != ? AND "cities"."region" = ? LIMIT ?[0m  [["name", "Frosinone"], ["id", 2], ["region", "Lazio"], ["LIMIT", 1]]
+  [1m[36mCity Update (0.2ms)[0m  [1m[33mUPDATE "cities" SET "updated_at" = ?, "country_id" = ? WHERE "cities"."id" = ?[0m  [["updated_at", "2023-05-12 12:29:02.633794"], ["country_id", 1], ["id", 2]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."country_id" = ?[0m  [["country_id", 1]]
+Started GET "/" for ::1 at 2023-05-12 14:39:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 109.2ms | Allocations: 24750)
+  Rendered layout layouts/application.html.erb (Duration: 118.0ms | Allocations: 30759)
+Completed 200 OK in 131ms (Views: 122.0ms | ActiveRecord: 0.0ms | Allocations: 35668)
+
+
+Started GET "/guides" for ::1 at 2023-05-12 14:39:12 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 130.5ms | Allocations: 61684)
+  Rendered pages/guides.html.erb within layouts/application (Duration: 146.6ms | Allocations: 67173)
+  Rendered layout layouts/application.html.erb (Duration: 150.6ms | Allocations: 68372)
+Completed 200 OK in 159ms (Views: 147.6ms | ActiveRecord: 5.3ms | Allocations: 69696)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:19 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"M", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%m%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 4.5ms | Allocations: 2001)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.4ms | Allocations: 2544)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:20 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 25.8ms | Allocations: 4672)
+Completed 200 OK in 29ms (Views: 25.2ms | ActiveRecord: 1.2ms | Allocations: 5090)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:24 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"R", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%r%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 14.1ms | Allocations: 3572)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.5ms | Allocations: 3995)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:25 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 10.6ms | Allocations: 4672)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.6ms | Allocations: 5086)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:28 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"J", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%j%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 8.5ms | Allocations: 3667)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.6ms | Allocations: 4092)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:31 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"J", "citta"=>"R", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%j%') AND (LOWER(cities.name) LIKE '%r%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 7.0ms | Allocations: 2694)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.6ms | Allocations: 3160)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:33 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"J", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%j%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 11.8ms | Allocations: 3667)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.8ms | Allocations: 4088)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:36 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 10.7ms | Allocations: 4661)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.7ms | Allocations: 5055)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:40 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"I"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%i%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 11.0ms | Allocations: 4302)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.8ms | Allocations: 4743)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:44 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"It"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%it%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 6.1ms | Allocations: 2761)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.6ms | Allocations: 3196)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:44 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"Ita"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%ita%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 15.2ms | Allocations: 2761)
+Completed 200 OK in 18ms (Views: 14.8ms | ActiveRecord: 1.3ms | Allocations: 3194)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:45 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"Ital"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%ital%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.4ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 8.9ms | Allocations: 2761)
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.8ms | Allocations: 3194)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:46 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"Itali"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%itali%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 12.3ms | Allocations: 2761)
+Completed 200 OK in 16ms (Views: 12.4ms | ActiveRecord: 1.0ms | Allocations: 3192)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:46 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"Ital"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%ital%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 12.6ms | Allocations: 2761)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 1.1ms | Allocations: 3200)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:47 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"Ita"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%ita%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 16.4ms | Allocations: 2761)
+Completed 200 OK in 20ms (Views: 16.1ms | ActiveRecord: 1.4ms | Allocations: 3206)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:47 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"It"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%it%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+Started POST "/guides" for ::1 at 2023-05-12 14:39:47 +0200
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 28.1ms | Allocations: 3315)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 1.4ms | Allocations: 3738)
+
+
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"I"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%i%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 28.1ms | Allocations: 3282)
+Completed 200 OK in 32ms (Views: 27.6ms | ActiveRecord: 1.4ms | Allocations: 3705)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:47 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 19.2ms | Allocations: 4661)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.9ms | Allocations: 5069)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:47 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"l"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%l%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 16.7ms | Allocations: 2761)
+Completed 200 OK in 21ms (Views: 16.5ms | ActiveRecord: 1.2ms | Allocations: 3192)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:49 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"la"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%la%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 1.5ms | Allocations: 749)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 1184)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:50 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"laz"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%laz%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.2ms | Allocations: 749)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.5ms | Allocations: 1180)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:51 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"la"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%la%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.5ms | Allocations: 749)
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 0.6ms | Allocations: 1182)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:51 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"l"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%l%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 4.2ms | Allocations: 2761)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.4ms | Allocations: 3194)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:52 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 16.8ms | Allocations: 4661)
+Completed 200 OK in 21ms (Views: 17.1ms | ActiveRecord: 0.9ms | Allocations: 5069)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:53 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"l"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%l%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 5.8ms | Allocations: 2761)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.5ms | Allocations: 3196)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:59 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 14.0ms | Allocations: 4661)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.7ms | Allocations: 5065)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:39:59 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"a"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%a%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 10.1ms | Allocations: 2761)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.8ms | Allocations: 3196)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:02 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 9.4ms | Allocations: 4661)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.5ms | Allocations: 5059)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:03 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"s"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%s%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 1.7ms | Allocations: 749)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 1178)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:03 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"sm"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%sm%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 17.0ms | Allocations: 749)
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.3ms | Allocations: 1175)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:03 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"smo"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%smo%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 2.5ms | Allocations: 749)
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 0.7ms | Allocations: 1178)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:03 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"smor"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%smor%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 1.9ms | Allocations: 749)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 1170)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:04 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"smo"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%smo%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 5.2ms | Allocations: 749)
+Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 0.8ms | Allocations: 1188)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:04 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"sm"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%sm%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 1.6ms | Allocations: 749)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 1184)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:04 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"s"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%s%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 2.3ms | Allocations: 749)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1174)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:04 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 13.0ms | Allocations: 4666)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.6ms | Allocations: 5076)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:05 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"a"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%a%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 13.8ms | Allocations: 2761)
+Completed 200 OK in 17ms (Views: 13.5ms | ActiveRecord: 1.1ms | Allocations: 3198)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:05 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"am"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%am%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.2ms | Allocations: 749)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 1178)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:05 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"amo"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%amo%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 1.7ms | Allocations: 749)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 1174)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:06 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"am"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%am%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.6ms | Allocations: 749)
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 0.7ms | Allocations: 1192)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:06 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"a"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%a%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 6.7ms | Allocations: 2761)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.5ms | Allocations: 3188)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:07 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"am"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%am%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.1ms | Allocations: 749)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 1192)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:08 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"a"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%a%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 5.7ms | Allocations: 2761)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.5ms | Allocations: 3190)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:10 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 10.6ms | Allocations: 4661)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.7ms | Allocations: 5079)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:11 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"a"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%a%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 13.6ms | Allocations: 2761)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 1.1ms | Allocations: 3198)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:11 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"am"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%am%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 1.3ms | Allocations: 749)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1184)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:11 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"amo"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%amo%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 2.0ms | Allocations: 749)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 1194)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:11 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"amor"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%amor%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 1.1ms | Allocations: 749)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1178)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:13 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"amo"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%amo%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.1ms | Allocations: 749)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.5ms | Allocations: 1178)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:13 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"am"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%am%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 1.1ms | Allocations: 749)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1180)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:14 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"a"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" INNER JOIN "countries" ON "countries"."id" = "cities"."country_id" WHERE "users"."role_id" = ? AND (LOWER(countries.name) LIKE '%a%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 7.4ms | Allocations: 2761)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.6ms | Allocations: 3192)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:14 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 13.1ms | Allocations: 4661)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.9ms | Allocations: 5065)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:16 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"a", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%a%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.4ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 14.9ms | Allocations: 2690)
+Completed 200 OK in 19ms (Views: 14.6ms | ActiveRecord: 1.5ms | Allocations: 3124)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:16 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"am", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%am%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 2.0ms | Allocations: 678)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 1108)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:16 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"amo", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%amo%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 2.7ms | Allocations: 678)
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.5ms | Allocations: 1114)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:16 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"amor", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%amor%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 4.0ms | Allocations: 678)
+Completed 200 OK in 8ms (Views: 4.4ms | ActiveRecord: 0.6ms | Allocations: 1118)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:17 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"amo", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%amo%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.8ms | Allocations: 678)
+Completed 200 OK in 7ms (Views: 4.0ms | ActiveRecord: 0.6ms | Allocations: 1106)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:17 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"am", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%am%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 2.5ms | Allocations: 678)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1114)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:17 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"a", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%a%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 5.4ms | Allocations: 2690)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.6ms | Allocations: 3118)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:17 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 13.5ms | Allocations: 4661)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.8ms | Allocations: 5065)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:20 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"n", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%n%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 13.6ms | Allocations: 2805)
+Completed 200 OK in 17ms (Views: 13.3ms | ActiveRecord: 1.0ms | Allocations: 3234)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:20 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"ne", "nazione"=>""}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%ne%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 2.8ms | Allocations: 793)
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.5ms | Allocations: 1224)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:20 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"nes", "nazione"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%nes%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 1.8ms | Allocations: 793)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1232)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:20 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"ness", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%ness%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.8ms | Allocations: 793)
+Completed 200 OK in 7ms (Views: 4.0ms | ActiveRecord: 0.6ms | Allocations: 1220)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:20 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"nessu", "nazione"=>""}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%nessu%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.1ms | Allocations: 793)
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 0.5ms | Allocations: 1220)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:20 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"nessun", "nazione"=>""}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%nessun%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 4.8ms | Allocations: 793)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.7ms | Allocations: 1236)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:20 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"nessuna", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%nessuna%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 5.0ms | Allocations: 793)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.6ms | Allocations: 1222)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:21 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"nessun", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%nessun%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 4.0ms | Allocations: 793)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.6ms | Allocations: 1228)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:21 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"nessu", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%nessu%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 4.1ms | Allocations: 793)
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 0.6ms | Allocations: 1232)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:21 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"ness", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%ness%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.9ms | Allocations: 793)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.6ms | Allocations: 1228)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:21 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"nes", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%nes%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.5ms | Allocations: 793)
+Completed 200 OK in 7ms (Views: 3.9ms | ActiveRecord: 0.6ms | Allocations: 1224)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:21 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"ne", "nazione"=>""}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%ne%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.7ms | Allocations: 793)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.7ms | Allocations: 1226)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:21 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"n", "nazione"=>""}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%n%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 9.5ms | Allocations: 2807)
+Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.8ms | Allocations: 3236)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:21 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 14.2ms | Allocations: 4661)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.7ms | Allocations: 5059)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:21 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"f", "nazione"=>""}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%f%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 16.3ms | Allocations: 2805)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 1.2ms | Allocations: 3230)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:22 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"fr", "nazione"=>""}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%fr%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 15.3ms | Allocations: 2805)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 1.1ms | Allocations: 3246)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:22 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"fra", "nazione"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%fra%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 11.5ms | Allocations: 2806)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.8ms | Allocations: 3247)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:22 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"fr", "nazione"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%fr%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 7.9ms | Allocations: 2805)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.6ms | Allocations: 3248)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:23 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"f", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "languages_users" ON "languages_users"."user_id" = "users"."id" INNER JOIN "languages" ON "languages"."id" = "languages_users"."language_id" WHERE "users"."role_id" = ? AND (languages.name LIKE '%f%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 9.3ms | Allocations: 2806)
+Completed 200 OK in 12ms (Views: 8.9ms | ActiveRecord: 0.9ms | Allocations: 3233)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:23 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 27.6ms | Allocations: 4661)
+Completed 200 OK in 30ms (Views: 27.1ms | ActiveRecord: 1.3ms | Allocations: 5061)
+
+
+Started POST "/guides" for ::1 at 2023-05-12 14:40:25 +0200
+Started POST "/guides" for ::1 at 2023-05-12 14:40:25 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+Processing by PagesController#guides as JS
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>"", "commit"=>"Cerca"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 27.9ms | Allocations: 6760)
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.8ms | Allocations: 7194)
+
+
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.1ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 26.6ms | Allocations: 9137)
+Completed 200 OK in 29ms (Views: 25.1ms | ActiveRecord: 2.1ms | Allocations: 9629)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-12 14:40:26 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.5ms | Allocations: 254)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 38.5ms | Allocations: 8384)
+  Rendered layout layouts/application.html.erb (Duration: 40.8ms | Allocations: 9584)
+Completed 200 OK in 48ms (Views: 44.8ms | ActiveRecord: 0.0ms | Allocations: 11330)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2023-05-12 14:40:33 +0200
+Started GET "/users/auth/facebook/callback?code=AQANowHgdMECV0L_VWJHGqdrzImOm8fXlv_weau2hCz5PhSOJyFBYs8lv03KVp3_Nx96NovH09p223XzvNdcZJ-HyvwLFz_F6NVOGwrdjKOEh3BsQTspUPvJFt2TJA7cLmv0HkzzvYw__5D_szR2EcNurhKxRV3wr5WRfftaaqjoZMWfrI_uJVftao0XovIMWRpAG7oEovBBlb4Sm2c_l2sUkrrW9VnKJ87z3VSXN0HJP-xRqitEVFW1fen-49zNIS_5TiBX0_LbQ9L_MU5bRMcN0X0fkmxV5kYyNzTtl1HrnwgjqAWzEQzjLYDkFHw4jcnnCyp0SSkX-DMpCdCBclKbFBXlv5gbAV6frWJnbKdENsZ52VAgTpu7OB3HWTf5oXw&state=1f07526d206d239ca80e0c68dd3a7fcab49f2d7726af6d44" for ::1 at 2023-05-12 14:40:33 +0200
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQANowHgdMECV0L_VWJHGqdrzImOm8fXlv_weau2hCz5PhSOJyFBYs8lv03KVp3_Nx96NovH09p223XzvNdcZJ-HyvwLFz_F6NVOGwrdjKOEh3BsQTspUPvJFt2TJA7cLmv0HkzzvYw__5D_szR2EcNurhKxRV3wr5WRfftaaqjoZMWfrI_uJVftao0XovIMWRpAG7oEovBBlb4Sm2c_l2sUkrrW9VnKJ87z3VSXN0HJP-xRqitEVFW1fen-49zNIS_5TiBX0_LbQ9L_MU5bRMcN0X0fkmxV5kYyNzTtl1HrnwgjqAWzEQzjLYDkFHw4jcnnCyp0SSkX-DMpCdCBclKbFBXlv5gbAV6frWJnbKdENsZ52VAgTpu7OB3HWTf5oXw", "state"=>"1f07526d206d239ca80e0c68dd3a7fcab49f2d7726af6d44"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "facebook"], ["uid", "2787191678078734"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `from_omniauth'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 2], ["current_sign_in_at", "2023-05-12 12:40:34.803139"], ["updated_at", "2023-05-12 12:40:34.804342"], ["id", 3]]
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+Redirected to http://localhost:3000/
+Completed 302 Found in 44ms (ActiveRecord: 7.8ms | Allocations: 7027)
+
+
+Started GET "/" for ::1 at 2023-05-12 14:40:34 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 16.7ms | Allocations: 4698)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 5970)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.2ms | Allocations: 6204)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-05-12 14:40:38 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 7ms (ActiveRecord: 0.3ms | Allocations: 1766)
+
+
+Started GET "/" for ::1 at 2023-05-12 14:40:39 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3893)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 5146)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 5378)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-12 14:40:42 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.6ms | Allocations: 3836)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 5022)
+Completed 200 OK in 20ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 5624)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2023-05-12 14:40:51 +0200
+Started GET "/users/auth/facebook/callback?code=AQCIQMNeU9HLXy4Fa_UT_iRz8Sc2XPzsFIjC3tIqsgX-jkFQxk_ctkMWdKKTwEX0P2uOgKJKQAycOkQBuXiFUeeohpJRTb5uTX4SCXBcuCl96csOeHp1w6_5Fhb79VFmgD55r-ovu2MhsVgzQYuuhCcTwa8YSKN19XVjoKbtCQgrsroDtcDs62T7BzuDNecMa13l5A3uOj-qxrBogGlzTfxrTiMOQEbgbuNOzjb_L4R3x-2-Ux4X8zHFI_ZC7r1Et8WHfZtwWqbBabmhvAmj46GiIZfdE8QPKEkDB3o_9VxHrozrXnARJtRoKrjVbv9YB7VfL5GvPpUbLf6cV0mkPmyYTQ8mmErc0V8D8MHKvzpZvUqUOU7g3zPSo9BUHcD_hA0&state=4ae15baf678a0f4b4982c4840ad395b5542b3a1a795d5cec" for ::1 at 2023-05-12 14:40:51 +0200
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQCIQMNeU9HLXy4Fa_UT_iRz8Sc2XPzsFIjC3tIqsgX-jkFQxk_ctkMWdKKTwEX0P2uOgKJKQAycOkQBuXiFUeeohpJRTb5uTX4SCXBcuCl96csOeHp1w6_5Fhb79VFmgD55r-ovu2MhsVgzQYuuhCcTwa8YSKN19XVjoKbtCQgrsroDtcDs62T7BzuDNecMa13l5A3uOj-qxrBogGlzTfxrTiMOQEbgbuNOzjb_L4R3x-2-Ux4X8zHFI_ZC7r1Et8WHfZtwWqbBabmhvAmj46GiIZfdE8QPKEkDB3o_9VxHrozrXnARJtRoKrjVbv9YB7VfL5GvPpUbLf6cV0mkPmyYTQ8mmErc0V8D8MHKvzpZvUqUOU7g3zPSo9BUHcD_hA0", "state"=>"4ae15baf678a0f4b4982c4840ad395b5542b3a1a795d5cec"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "facebook"], ["uid", "2787191678078734"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `from_omniauth'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 3], ["current_sign_in_at", "2023-05-12 12:40:52.110859"], ["last_sign_in_at", "2023-05-12 12:40:34.803139"], ["updated_at", "2023-05-12 12:40:52.111071"], ["id", 3]]
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 9.3ms | Allocations: 2900)
+
+
+Started GET "/" for ::1 at 2023-05-12 14:40:52 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 13.0ms | Allocations: 4550)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 5803)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.2ms | Allocations: 6035)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-05-12 14:40:59 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 13ms (ActiveRecord: 0.4ms | Allocations: 1692)
+
+
+Started GET "/" for ::1 at 2023-05-12 14:40:59 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.4ms | Allocations: 3872)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 5125)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 5357)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-12 14:41:03 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3810)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4996)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 5590)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2023-05-12 14:41:04 +0200
+Started GET "/users/auth/facebook/callback?code=AQDy6rhDr9WmXpfksXjp_NqUanUECAXWpIvlsLUfY2dgAjBTTP7LzTRbLkJ5JBo5DhdXX8eyNJs6Q1eqAbGuu5wTJSAYFy9IakzNIanD2FudK3OnHefNEDN3edWkbVwetJyIcu-E4htCn6igiL_lTojl9WNjSb3hfWgUbJxPlW0g4247wQkcBQU5Vrzi8-IdS12ZEK82XERM5AN2VaLNXMXqHDW2P301qME89c7zRoKfyLAsUNSm4JDtfVJKJ2nsiuoZMvhAJLi5TiZIE7I0vVxWSaPXU_ROpvRp56qLkf0X38eZYEjKb4zGfhbE0jI7yTinWQQ-4brvka7lIcQ4jc4C_M0qF8BkyjzA_HY79-VXUBxaRa3eciyrJbQnAUfexs8&state=fb03b429250b7a6e5e2c94c728905f96e99bbdbba3fa16fb" for ::1 at 2023-05-12 14:41:04 +0200
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDy6rhDr9WmXpfksXjp_NqUanUECAXWpIvlsLUfY2dgAjBTTP7LzTRbLkJ5JBo5DhdXX8eyNJs6Q1eqAbGuu5wTJSAYFy9IakzNIanD2FudK3OnHefNEDN3edWkbVwetJyIcu-E4htCn6igiL_lTojl9WNjSb3hfWgUbJxPlW0g4247wQkcBQU5Vrzi8-IdS12ZEK82XERM5AN2VaLNXMXqHDW2P301qME89c7zRoKfyLAsUNSm4JDtfVJKJ2nsiuoZMvhAJLi5TiZIE7I0vVxWSaPXU_ROpvRp56qLkf0X38eZYEjKb4zGfhbE0jI7yTinWQQ-4brvka7lIcQ4jc4C_M0qF8BkyjzA_HY79-VXUBxaRa3eciyrJbQnAUfexs8", "state"=>"fb03b429250b7a6e5e2c94c728905f96e99bbdbba3fa16fb"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "facebook"], ["uid", "2787191678078734"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `from_omniauth'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 4], ["current_sign_in_at", "2023-05-12 12:41:05.319710"], ["last_sign_in_at", "2023-05-12 12:40:52.110859"], ["updated_at", "2023-05-12 12:41:05.320054"], ["id", 3]]
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 8.7ms | Allocations: 2902)
+
+
+Started GET "/" for ::1 at 2023-05-12 14:41:05 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 10.4ms | Allocations: 4554)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 5807)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.1ms | Allocations: 6039)
+
+
+Started GET "/guides" for ::1 at 2023-05-12 14:41:07 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/guides.html.erb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.4ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 19.2ms | Allocations: 4674)
+  Rendered pages/guides.html.erb within layouts/application (Duration: 32.9ms | Allocations: 9405)
+  Rendered layout layouts/application.html.erb (Duration: 37.0ms | Allocations: 10591)
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 1.5ms | Allocations: 10900)
+
+
+Started GET "/posts" for ::1 at 2023-05-12 14:41:08 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:40
+  Rendered posts/_posts_results.html.erb (Duration: 3.4ms | Allocations: 2219)
+  Rendered posts/index.html.erb within layouts/application (Duration: 16.7ms | Allocations: 9658)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 10857)
+Completed 200 OK in 48ms (Views: 21.0ms | ActiveRecord: 1.3ms | Allocations: 31926)
+
+
+Started GET "/login.html" for ::1 at 2023-05-12 14:41:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/login.html"):
+  
+Started GET "/login" for ::1 at 2023-05-12 14:41:21 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started DELETE "/users/sign_out" for ::1 at 2023-05-12 14:41:26 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 5ms (ActiveRecord: 0.2ms | Allocations: 1673)
+
+
+Started GET "/" for ::1 at 2023-05-12 14:41:26 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 8.7ms | Allocations: 3870)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 5135)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 5368)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-12 14:41:27 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3825)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 5021)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 5630)
+
+
+Started GET "/pages/home" for ::1 at 2023-05-12 14:41:34 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 12.8ms | Allocations: 3860)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 5107)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms | Allocations: 5339)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-12 14:41:36 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.0ms | Allocations: 3829)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 5019)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 0.0ms | Allocations: 5627)
+
+
+Started POST "/users/auth/facebook" for ::1 at 2023-05-12 14:41:37 +0200
+Started GET "/users/auth/facebook/callback?code=AQANTsJrJ2l1YVkwGLL5YJVcsatbsm6NgIAHkBUDDdQ5iBDzll0AB3T26Cjlf0OhgLyrRtiZC2ay2LyFZa-C42h5_z-mq2cXj-MIVXUMChA6vD58lyqik3pi6vdRPELQNFjNyiNT7wN0bpO9s3zgcB9oPnRZh9NSCZo1QqGqT4-i6iAIpg0pmu2o1IUMiKv62-amgxWWXoDljEsu4rC0veVE5A8WSMP9G9_Jhf1raFaOrF9s-7AzV657K07qb0sOTpWmnJ4-H1NcjYtRslOGQBZHb5EazUQx2xPYK40uFeNdZkHW8IEmyrNKgK5Sq7W1PlzwZX-zTxAxzX_gUGp28BPTq2CjIjU6_AyKIpcgBPV5Qy-_Bh4pJT6vRWSErqr70v0&state=60afcecc84bc83b338a81adab8b8ef9c73ae2d8d628db24b" for ::1 at 2023-05-12 14:41:38 +0200
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQANTsJrJ2l1YVkwGLL5YJVcsatbsm6NgIAHkBUDDdQ5iBDzll0AB3T26Cjlf0OhgLyrRtiZC2ay2LyFZa-C42h5_z-mq2cXj-MIVXUMChA6vD58lyqik3pi6vdRPELQNFjNyiNT7wN0bpO9s3zgcB9oPnRZh9NSCZo1QqGqT4-i6iAIpg0pmu2o1IUMiKv62-amgxWWXoDljEsu4rC0veVE5A8WSMP9G9_Jhf1raFaOrF9s-7AzV657K07qb0sOTpWmnJ4-H1NcjYtRslOGQBZHb5EazUQx2xPYK40uFeNdZkHW8IEmyrNKgK5Sq7W1PlzwZX-zTxAxzX_gUGp28BPTq2CjIjU6_AyKIpcgBPV5Qy-_Bh4pJT6vRWSErqr70v0", "state"=>"60afcecc84bc83b338a81adab8b8ef9c73ae2d8d628db24b"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "facebook"], ["uid", "2787191678078734"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `from_omniauth'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 5], ["current_sign_in_at", "2023-05-12 12:41:39.043920"], ["last_sign_in_at", "2023-05-12 12:41:05.319710"], ["updated_at", "2023-05-12 12:41:39.044706"], ["id", 3]]
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+  [1m[36mTRANSACTION (9.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/omniauth_callbacks_controller.rb:6:in `facebook'
+Redirected to http://localhost:3000/
+Completed 302 Found in 31ms (ActiveRecord: 11.0ms | Allocations: 2896)
+
+
+Started GET "/" for ::1 at 2023-05-12 14:41:39 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 19.5ms | Allocations: 4579)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 5837)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.2ms | Allocations: 6070)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-12 14:41:45 +0200
+Processing by Users::SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms | Allocations: 1345)
+
+
+Started GET "/" for ::1 at 2023-05-12 14:41:45 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 12.1ms | Allocations: 4601)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 5855)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.2ms | Allocations: 6087)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2023-05-12 14:42:00 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 9ms (ActiveRecord: 0.2ms | Allocations: 1701)
+
+
+Started GET "/" for ::1 at 2023-05-12 14:42:00 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 14.1ms | Allocations: 3876)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 5129)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 5361)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-05-12 14:42:01 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 3826)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 5012)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.0ms | Allocations: 5630)
+
+
+Started GET "/pages/home" for ::1 at 2023-05-12 14:42:43 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 40.6ms | Allocations: 16576)
+  Rendered layout layouts/application.html.erb (Duration: 46.0ms | Allocations: 22585)
+Completed 200 OK in 57ms (Views: 49.8ms | ActiveRecord: 0.0ms | Allocations: 27494)
+
+
+Started GET "/posts" for ::1 at 2023-05-12 14:42:47 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 4.0ms | Allocations: 2219)
+  Rendered posts/index.html.erb within layouts/application (Duration: 17.5ms | Allocations: 9422)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 10622)
+Completed 200 OK in 57ms (Views: 22.6ms | ActiveRecord: 2.2ms | Allocations: 33095)
+
+
+Started GET "/posts/1" for ::1 at 2023-05-12 14:42:51 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 1.1ms | Allocations: 148)
+  Rendered posts/show.html.erb within layouts/application (Duration: 31.8ms | Allocations: 12403)
+  Rendered layout layouts/application.html.erb (Duration: 33.9ms | Allocations: 13600)
+Completed 200 OK in 44ms (Views: 34.9ms | ActiveRecord: 0.3ms | Allocations: 15588)
+
+
+Started GET "/posts/1" for ::1 at 2023-05-12 14:43:36 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 15)
+  Rendered posts/show.html.erb within layouts/application (Duration: 14.2ms | Allocations: 5740)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 6926)
+Completed 200 OK in 24ms (Views: 18.4ms | ActiveRecord: 0.2ms | Allocations: 8012)
+
+
+Started DELETE "/posts/1" for ::1 at 2023-05-12 14:44:06 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:81:in `destroy'
+  [1m[36mPost Destroy (0.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/posts_controller.rb:81:in `destroy'
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:81:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 18ms (ActiveRecord: 9.1ms | Allocations: 2140)
+
+
+Started GET "/posts" for ::1 at 2023-05-12 14:44:06 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 1.8ms | Allocations: 1440)
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 7121)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 8311)
+Completed 200 OK in 17ms (Views: 13.6ms | ActiveRecord: 0.2ms | Allocations: 9265)
+
+
+Started GET "/posts/2" for ::1 at 2023-05-12 14:44:10 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered posts/show.html.erb within layouts/application (Duration: 17.6ms | Allocations: 5734)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 6921)
+Completed 200 OK in 28ms (Views: 22.2ms | ActiveRecord: 0.3ms | Allocations: 8022)
+
+
+Started DELETE "/posts/2" for ::1 at 2023-05-12 14:44:11 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:81:in `destroy'
+  [1m[36mPost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/posts_controller.rb:81:in `destroy'
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:81:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 21ms (ActiveRecord: 11.4ms | Allocations: 2063)
+
+
+Started GET "/posts" for ::1 at 2023-05-12 14:44:11 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 1.6ms | Allocations: 1129)
+  Rendered posts/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 6815)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 8004)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.2ms | Allocations: 8891)
+
+
+Started GET "/posts" for ::1 at 2023-05-12 14:44:14 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 2.6ms | Allocations: 1129)
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.4ms | Allocations: 6787)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 7974)
+Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 0.3ms | Allocations: 8861)
+
+

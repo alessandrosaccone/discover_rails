@@ -30,6 +30,7 @@
         <%= text_field_tag(:nome, nil, placeholder: 'Nome...', id: 'cerca') %>
         <%= text_field_tag(:citta, nil, placeholder: 'Città...', id: 'cercacitta') %>
         <%= text_field_tag(:linguaggio, nil, placeholder: 'Lingua...', id: 'cercalingua') %>
+        <%= text_field_tag(:nazione, nil, placeholder: 'Nazione...', id: 'cercanazione') %>
       </div>
       <%= submit_tag 'Cerca' %>
     <% end %>
@@ -72,7 +73,7 @@ $(document).ready(function() {
   var cercaValue = '';
   var cercacittaValue = '';
   var cercaLinguaValue='';
-
+  var cercaNazioneValue='';
   $('#cerca').on('input', function() {
     cercaValue = $(this).val();
     $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cerca"
@@ -83,6 +84,10 @@ $(document).ready(function() {
   });
   $('#cercacitta').on('input', function() {
     cercacittaValue = $(this).val();
+    $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
+  });
+    $('#cercanazione').on('input', function() {
+    cercaNazioneValue = $(this).val();
     $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
   });
 
@@ -99,6 +104,7 @@ $(document).ready(function() {
         $('#cerca').val(cercaValue);
         $('#cercacitta').val(cercacittaValue);
         $('#cercalingua').val(cercaLinguaValue);
+        $('#cercanazione').val(cercaNazioneValue);
       }
     });
   });

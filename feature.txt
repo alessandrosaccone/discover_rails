@@ -173,7 +173,7 @@ Feature: Search posts by nations A
     i want to find guides by nation
     so that i can find them faster
 30)
-Feature: Search guides by nations S
+Feature: Search guides by nations S Finito
     As a user
     i want to find guides by nation
     so that i can find them faster
