@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_12_140139) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_12_152900) do
   create_table "cities", force: :cascade do |t|
     t.string "region"
     t.string "name"
@@ -81,6 +81,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_140139) do
     t.string "provider"
     t.string "uid"
     t.integer "city_id"
+    t.string "lat"
+    t.string "long"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

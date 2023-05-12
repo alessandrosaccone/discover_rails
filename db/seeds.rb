@@ -13,6 +13,7 @@
 #u3 = User.create({ name: 'Kev', email: 'kev@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', user_role: r2.id })
 #u4 = User.create({ name: 'Jack', email: 'jack@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 10})
 #u4 = User.create({ name: 'Jacke', email: 'jacke@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 10})
+#u5 = User.create({ name: 'Jackel', email: 'jackel@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 10, lat: 41.9079616, long: 12.514760})
 #l1=Language.create(name: "Francese")
 #l2=Language.create(name:"Italiano")
 #l3=Language.create(name:"Inglese")
@@ -30,3 +31,4 @@
 #p5 = Post.create({ descrizione: 'Evviva la vita regaz2', titolo: 'Visita al vaticansbro4', data: '8/11/2024', ora: '10:00',
 #    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'sue@example.com'})
 
+ 

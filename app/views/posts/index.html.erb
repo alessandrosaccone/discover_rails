@@ -1,9 +1,14 @@
 <% content_for :for_head do %>
   <%= stylesheet_link_tag "application-post"%>
   <%= stylesheet_link_tag "application" %>
-       
 <% end %>   
 
+<link
+  rel="stylesheet"
+  href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+/>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <%= javascript_include_tag "script" %>
 <%= javascript_include_tag "script_responsiveness" %>
 
@@ -13,13 +18,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-     <link
-        rel="stylesheet"
-        href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-      />
-      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
     <title>Visite</title>
@@ -122,8 +120,32 @@ $(document).ready(function() {
     });
   });
 });
-
-
-
 </script>
+
+<script>
+/*da togliere da qua */
+function init_position() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
+
+      $.ajax({
+        type: "GET",
+        url: "<%= update_location_guide_users_path %>",
+        data: { lat: pos.lat, lng: pos.lng },
+        success: function () {
+          console.log("Location saved successfully");
+        },
+        error: function () {
+          console.log("Error saving location");
+        },
+      });
+    });
+  }
+} 
+</script>
+
 <%= javascript_include_tag "script_app" %>

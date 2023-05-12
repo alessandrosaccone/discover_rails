@@ -27,6 +27,7 @@ function init_map() {
         var marker = new google.maps.Marker({
           position: pos,
           map: map,
+          icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
           title: "Your location",
         });
 
@@ -37,6 +38,17 @@ function init_map() {
       }
     );
   }
+
+  $.get("/guide_users.json", function (guides) {
+    $.each(guides, function (index, guide) {
+      var marker = new google.maps.Marker({
+        position: { lat: parseFloat(guide.lat), lng: parseFloat(guide.long) },
+        map: map,
+        icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+        title: guide.nome,
+      });
+    });
+  });
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -62,22 +74,4 @@ function see_map() {
 }
 
 init_map();
-
-/*
-function delete_s(titolo, nome, cognome, data, ora, lingua, citta) {
-  $.ajax({
-    type: "POST",
-    url: "delete_schede.php",
-    beforeSend: function () {},
-    data: {
-      title_p: titolo,
-      nome_p: nome,
-      cognome_p: cognome,
-      data_p: data,
-      ora_p: ora,
-      lingua_p: lingua,
-      citta_p: citta,
-    },
-  });
-  location.reload();
-}*/
+init_position();

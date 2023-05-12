@@ -29,3 +29,32 @@ Ruby version ruby 2.7.2p137
 # Google Maps API Key
 
 AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0
+
+# Per gabriele
+
+Mi servirebbe che tu leggessi in script_guide.js il commento prima dell'ultima funzione. Sai tu dove implementare
+un js che controlli se sei loggato: appena lo sei fai partire quella funzione (copia tutto il codice da sotto il
+commento in poi là)
+
+# Per alessandro
+
+togli da script_app.js
+
+# user controller
+
+class UsersController < ApplicationController
+def index
+@users = User.all
+
+      respond_to do |format|
+        format.html # render the index.html.erb view
+        format.json { render json: @users } # return the user data in JSON format
+      end
+    end
+
+    def update_location
+      current_user.update(latitude: params[:lat], longitude: params[:lng])
+      render json: { success: true }
+    end
+
+end
