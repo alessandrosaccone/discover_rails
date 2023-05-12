@@ -29,8 +29,3 @@ Ruby version ruby 2.7.2p137
 # Google Maps API Key
 
 AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0
-
-# Mail
-
-discover.rails@gmail.com
-psw: discover90+

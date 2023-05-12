@@ -35155,3 +35155,1425 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 0.3ms | Allocations: 8861)
 
 
+Started GET "/" for 127.0.0.1 at 2023-05-12 15:51:42 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 134.4ms | Allocations: 16485)
+  Rendered layout layouts/application.html.erb (Duration: 156.6ms | Allocations: 22508)
+Completed 200 OK in 200ms (Views: 172.7ms | ActiveRecord: 0.0ms | Allocations: 27417)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-05-12 15:51:46 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 8.9ms | Allocations: 1597)
+  Rendered posts/index.html.erb within layouts/application (Duration: 43.8ms | Allocations: 8811)
+  Rendered layout layouts/application.html.erb (Duration: 51.2ms | Allocations: 10010)
+Completed 200 OK in 147ms (Views: 55.8ms | ActiveRecord: 3.7ms | Allocations: 32339)
+
+
+Started GET "/posts?citta=R&lingua=" for 127.0.0.1 at 2023-05-12 15:51:51 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"R", "lingua"=>""}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%R%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 6.0ms | Allocations: 1395)
+Completed 200 OK in 13ms (Views: 7.1ms | ActiveRecord: 0.4ms | Allocations: 2356)
+
+
+Started GET "/posts?citta=Ro&lingua=" for 127.0.0.1 at 2023-05-12 15:51:52 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"Ro", "lingua"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Ro%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 0.2ms | Allocations: 13)
+Completed 200 OK in 7ms (Views: 1.4ms | ActiveRecord: 0.6ms | Allocations: 733)
+
+
+Started GET "/posts?citta=R&lingua=" for 127.0.0.1 at 2023-05-12 15:51:52 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"R", "lingua"=>""}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%R%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 4.3ms | Allocations: 962)
+Completed 200 OK in 12ms (Views: 5.4ms | ActiveRecord: 0.7ms | Allocations: 1813)
+
+
+Started GET "/posts?citta=&lingua=" for 127.0.0.1 at 2023-05-12 15:51:53 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>""}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 5.8ms | Allocations: 1273)
+Completed 200 OK in 12ms (Views: 6.8ms | ActiveRecord: 0.3ms | Allocations: 2091)
+
+
+Started GET "/guides" for 127.0.0.1 at 2023-05-12 15:51:55 +0200
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.6ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 201.3ms | Allocations: 60346)
+  Rendered pages/guides.html.erb within layouts/application (Duration: 229.8ms | Allocations: 65387)
+  Rendered layout layouts/application.html.erb (Duration: 235.5ms | Allocations: 66585)
+Completed 200 OK in 246ms (Views: 230.4ms | ActiveRecord: 8.3ms | Allocations: 67797)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:51:58 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"M", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%m%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.4ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 15.2ms | Allocations: 1988)
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 1.2ms | Allocations: 2444)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:51:59 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"Ma", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%ma%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.4ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 15.5ms | Allocations: 1984)
+Completed 200 OK in 21ms (Views: 16.1ms | ActiveRecord: 1.1ms | Allocations: 2431)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:51:59 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"Mar", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%mar%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 11.9ms | Allocations: 1984)
+Completed 200 OK in 16ms (Views: 12.1ms | ActiveRecord: 0.9ms | Allocations: 2427)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:51:59 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"Mari", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%mari%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 13.3ms | Allocations: 1984)
+Completed 200 OK in 18ms (Views: 13.3ms | ActiveRecord: 1.1ms | Allocations: 2425)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:51:59 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"Mario", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%mario%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 11.7ms | Allocations: 1984)
+Completed 200 OK in 16ms (Views: 11.9ms | ActiveRecord: 0.9ms | Allocations: 2423)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:51:59 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"Mari", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%mari%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 10.0ms | Allocations: 1986)
+Completed 200 OK in 14ms (Views: 10.2ms | ActiveRecord: 0.8ms | Allocations: 2421)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:52:00 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"Mar", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%mar%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 11.8ms | Allocations: 1984)
+Completed 200 OK in 17ms (Views: 12.2ms | ActiveRecord: 0.9ms | Allocations: 2429)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:52:00 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"Ma", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%ma%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.4ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 13.2ms | Allocations: 1984)
+Completed 200 OK in 18ms (Views: 13.5ms | ActiveRecord: 1.0ms | Allocations: 2417)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:52:00 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"M", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ? AND (LOWER(users.name) LIKE '%m%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 12.0ms | Allocations: 1984)
+Completed 200 OK in 17ms (Views: 12.3ms | ActiveRecord: 0.9ms | Allocations: 2427)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:52:00 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.4ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 28.9ms | Allocations: 4661)
+Completed 200 OK in 33ms (Views: 28.5ms | ActiveRecord: 1.5ms | Allocations: 5079)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:52:01 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"F", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%f%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 24.7ms | Allocations: 1560)
+Completed 200 OK in 29ms (Views: 25.3ms | ActiveRecord: 0.6ms | Allocations: 2003)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:52:01 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"Fo", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%fo%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.4ms | Allocations: 678)
+Completed 200 OK in 8ms (Views: 3.7ms | ActiveRecord: 0.6ms | Allocations: 1120)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:52:01 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"For", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%for%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.6ms | Allocations: 678)
+Completed 200 OK in 8ms (Views: 4.1ms | ActiveRecord: 0.6ms | Allocations: 1112)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:52:02 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"Fo", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%fo%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 4.1ms | Allocations: 678)
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 0.6ms | Allocations: 1128)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:52:02 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"Fom", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%fom%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.7ms | Allocations: 678)
+Completed 200 OK in 8ms (Views: 4.2ms | ActiveRecord: 0.6ms | Allocations: 1130)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:52:02 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"Fo", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%fo%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 4.2ms | Allocations: 678)
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 0.7ms | Allocations: 1120)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:52:02 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"F", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%f%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  Rendered pages/_guides_results.html.erb (Duration: 3.6ms | Allocations: 678)
+Completed 200 OK in 8ms (Views: 4.3ms | ActiveRecord: 0.6ms | Allocations: 1126)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:52:02 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.2ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.5ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 32.0ms | Allocations: 4662)
+Completed 200 OK in 36ms (Views: 31.4ms | ActiveRecord: 1.9ms | Allocations: 5082)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:55:00 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"R", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%r%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 17.0ms | Allocations: 2692)
+Completed 200 OK in 22ms (Views: 16.8ms | ActiveRecord: 1.4ms | Allocations: 3132)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:55:00 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"Ro", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%ro%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.4ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 21.5ms | Allocations: 2690)
+Completed 200 OK in 26ms (Views: 21.2ms | ActiveRecord: 1.6ms | Allocations: 3140)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:55:00 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"Rom", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%rom%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.6ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 19.5ms | Allocations: 2690)
+Completed 200 OK in 25ms (Views: 19.3ms | ActiveRecord: 1.6ms | Allocations: 3128)
+
+
+Started POST "/guides" for 127.0.0.1 at 2023-05-12 15:55:00 +0200
+Processing by PagesController#guides as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nome"=>"", "citta"=>"Roma", "linguaggio"=>"", "nazione"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "cities" ON "cities"."id" = "users"."city_id" WHERE "users"."role_id" = ? AND (LOWER(cities.name) LIKE '%roma%')[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 16.6ms | Allocations: 2690)
+Completed 200 OK in 21ms (Views: 16.6ms | ActiveRecord: 1.2ms | Allocations: 3134)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserEmailToPosts (20230512140139)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "posts" ADD "user_email" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer NOT NULL PRIMARY KEY, "descrizione" text DEFAULT NULL, "titolo" varchar DEFAULT NULL, "data" datetime DEFAULT NULL, "ora" time DEFAULT NULL, "lingua" varchar DEFAULT NULL, "persone" integer DEFAULT NULL, "prezzo" integer DEFAULT NULL, "nomeC" varchar DEFAULT NULL, "regioneC" varchar DEFAULT NULL, "nomeP" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "numero_ore" integer DEFAULT NULL, "persone_rimanenti" integer DEFAULT NULL, "user_email" varchar DEFAULT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "aposts" ("id","descrizione","titolo","data","ora","lingua","persone","prezzo","nomeC","regioneC","nomeP","created_at","updated_at","numero_ore","persone_rimanenti","user_email")
+                     SELECT "id","descrizione","titolo","data","ora","lingua","persone","prezzo","nomeC","regioneC","nomeP","created_at","updated_at","numero_ore","persone_rimanenti","user_email" FROM "posts"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer NOT NULL PRIMARY KEY, "descrizione" text DEFAULT NULL, "titolo" varchar DEFAULT NULL, "data" datetime DEFAULT NULL, "ora" time DEFAULT NULL, "lingua" varchar DEFAULT NULL, "persone" integer DEFAULT NULL, "prezzo" integer DEFAULT NULL, "nomeC" varchar DEFAULT NULL, "regioneC" varchar DEFAULT NULL, "nomeP" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "numero_ore" integer DEFAULT NULL, "persone_rimanenti" integer DEFAULT NULL, "user_email" varchar DEFAULT NULL, CONSTRAINT "fk_rails_beb7f93be7"
+FOREIGN KEY ("user_email")
+  REFERENCES "users" ("email")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("id","descrizione","titolo","data","ora","lingua","persone","prezzo","nomeC","regioneC","nomeP","created_at","updated_at","numero_ore","persone_rimanenti","user_email")
+                     SELECT "id","descrizione","titolo","data","ora","lingua","persone","prezzo","nomeC","regioneC","nomeP","created_at","updated_at","numero_ore","persone_rimanenti","user_email" FROM "aposts"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230512140139"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/guides" for 127.0.0.1 at 2023-05-12 16:04:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#guides as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/guides.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = ?[0m  [["role_id", 10]]
+  ↳ app/views/pages/_guides_results.html.erb:1
+  [1m[36mLanguage Load (0.5ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mLanguage Load (0.3ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/_guides_results.html.erb:9
+  [1m[36mLanguage Load (0.4ms)[0m  [1m[34mSELECT "languages".* FROM "languages" INNER JOIN "languages_users" ON "languages"."id" = "languages_users"."language_id" WHERE "languages_users"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/views/pages/_guides_results.html.erb:11
+  Rendered pages/_guides_results.html.erb (Duration: 100.6ms | Allocations: 22224)
+  Rendered pages/guides.html.erb within layouts/application (Duration: 126.0ms | Allocations: 27713)
+  Rendered layout layouts/application.html.erb (Duration: 146.0ms | Allocations: 33339)
+Completed 200 OK in 164ms (Views: 148.4ms | ActiveRecord: 2.2ms | Allocations: 36544)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-05-12 16:04:12 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 7.9ms | Allocations: 1569)
+  Rendered posts/index.html.erb within layouts/application (Duration: 33.4ms | Allocations: 8278)
+  Rendered layout layouts/application.html.erb (Duration: 39.0ms | Allocations: 9477)
+Completed 200 OK in 71ms (Views: 42.8ms | ActiveRecord: 0.6ms | Allocations: 15329)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2023-05-12 16:04:15 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 2.0ms | Allocations: 148)
+  Rendered posts/show.html.erb within layouts/application (Duration: 33.0ms | Allocations: 7284)
+  Rendered layout layouts/application.html.erb (Duration: 33.7ms | Allocations: 7351)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.9ms | Allocations: 8646)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+     8: <%= javascript_include_tag "script_responsiveness" %>
+     9: 
+    10: <%= render @post %>
+    11: <h1>Nome della guida: <%= @post.user.name %>
+    12: <h1>Titolo: <%= @post.titolo %></h1> <br>
+    13: <h3>Descrizione: <%= @post.descrizione %> </h3><br>
+    14: <h3>Città: <%= @post.nomeC %></h3><br>
+  
+app/views/posts/show.html.erb:11
+  [1m[36mPost Delete All (12.2ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sally@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore", "persone_rimanenti", "user_email") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro2"], ["data", "2024-11-11 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-12 14:06:22.743833"], ["updated_at", "2023-05-12 14:06:22.743833"], ["numero_ore", 4], ["persone_rimanenti", 15], ["user_email", "sue@example.com"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jacke@example.com"], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore", "persone_rimanenti", "user_email") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro3"], ["data", "2024-06-11 00:00:00"], ["ora", "2000-01-01 15:00:00"], ["lingua", "Inglese"], ["persone", 8], ["prezzo", 50], ["nomeC", "Napoli"], ["regioneC", "Campania"], ["nomeP", "Napoli"], ["created_at", "2023-05-12 14:06:22.755171"], ["updated_at", "2023-05-12 14:06:22.755171"], ["numero_ore", 2], ["persone_rimanenti", 8], ["user_email", "jacke@example.com"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jacke@example.com"], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore", "persone_rimanenti", "user_email") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-12 14:06:22.765334"], ["updated_at", "2023-05-12 14:06:22.765334"], ["numero_ore", 4], ["persone_rimanenti", 15], ["user_email", "jacke@example.com"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore", "persone_rimanenti", "user_email") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["descrizione", "Evviva la vita regaz2"], ["titolo", "Visita al vaticansbro4"], ["data", "2024-11-08 00:00:00"], ["ora", "2000-01-01 10:00:00"], ["lingua", "Tedesco"], ["persone", 15], ["prezzo", 80], ["nomeC", "Formia"], ["regioneC", "Lazio"], ["nomeP", "Latina"], ["created_at", "2023-05-12 14:06:22.775410"], ["updated_at", "2023-05-12 14:06:22.775410"], ["numero_ore", 4], ["persone_rimanenti", 15], ["user_email", "sue@example.com"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/posts/3" for 127.0.0.1 at 2023-05-12 16:06:26 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 15)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jacke@example.com"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (Duration: 77.1ms | Allocations: 12047)
+  Rendered layout layouts/application.html.erb (Duration: 83.3ms | Allocations: 13247)
+Completed 200 OK in 96ms (Views: 84.6ms | ActiveRecord: 1.3ms | Allocations: 14332)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-12 16:18:23 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 24.3ms | Allocations: 4625)
+  Rendered layout layouts/application.html.erb (Duration: 50.7ms | Allocations: 10544)
+Completed 200 OK in 68ms (Views: 54.7ms | Allocations: 13394)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-05-12 16:18:25 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 14.0ms | Allocations: 1880)
+  Rendered posts/index.html.erb within layouts/application (Duration: 77.8ms | Allocations: 8998)
+  Rendered layout layouts/application.html.erb (Duration: 86.3ms | Allocations: 10197)
+Completed 200 OK in 133ms (Views: 91.8ms | ActiveRecord: 2.4ms | Allocations: 16268)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2023-05-12 16:18:28 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 3.2ms | Allocations: 139)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (Duration: 101.6ms | Allocations: 13637)
+  Rendered layout layouts/application.html.erb (Duration: 102.4ms | Allocations: 13705)
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 1.1ms | Allocations: 14992)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<ActionView::Base:0x0000000000ff50>
+Did you mean?  @post):
+     9: 
+    10: <%= render @post %>
+    11: <h1>Nome della guida: <%= @post.user.name %> </h1> <br>
+    12: <%= link_to post.user_email, guide_path(email: post.user_email) %>
+    13: <h1>Titolo: <%= @post.titolo %></h1> <br>
+    14: <h3>Descrizione: <%= @post.descrizione %> </h3><br>
+    15: <h3>Città: <%= @post.nomeC %></h3><br>
+  
+app/views/posts/show.html.erb:12
+Started GET "/posts/1" for 127.0.0.1 at 2023-05-12 16:18:46 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 2.5ms | Allocations: 139)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (Duration: 45.2ms | Allocations: 7165)
+  Rendered layout layouts/application.html.erb (Duration: 55.1ms | Allocations: 8663)
+Completed 200 OK in 72ms (Views: 59.7ms | ActiveRecord: 1.0ms | Allocations: 10345)
+
+
+Started GET "/guides/sue@example.com" for 127.0.0.1 at 2023-05-12 16:18:49 +0200
+  
+ActionController::RoutingError (uninitialized constant GuidesController
+Did you mean?  PagesController):
+  
+Started GET "/guides/sue@example.com" for 127.0.0.1 at 2023-05-12 16:19:23 +0200
+  
+ActionController::RoutingError (uninitialized constant GuidesController
+Did you mean?  PagesController):
+  
+Started GET "/guides/sue@example.com" for 127.0.0.1 at 2023-05-12 16:19:29 +0200
+  
+ActionController::RoutingError (uninitialized constant GuidesController
+Did you mean?  PagesController):
+  
+Started GET "/guides/sue@example.com" for 127.0.0.1 at 2023-05-12 16:21:29 +0200
+Processing by GuidesController#show as */*
+  Parameters: {"email"=>"sue@example"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example"], ["LIMIT", 1]]
+  ↳ app/controllers/guides_controller.rb:3:in `show'
+No template found for GuidesController#show, rendering head :no_content
+Completed 204 No Content in 24ms (ActiveRecord: 2.6ms | Allocations: 3891)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2023-05-12 16:21:32 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 1.4ms | Allocations: 139)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (Duration: 54.9ms | Allocations: 11163)
+  Rendered layout layouts/application.html.erb (Duration: 74.8ms | Allocations: 16787)
+Completed 200 OK in 135ms (Views: 77.4ms | ActiveRecord: 3.7ms | Allocations: 36183)
+
+
+Started GET "/guides/sue@example.com" for 127.0.0.1 at 2023-05-12 16:21:34 +0200
+Processing by GuidesController#show as */*
+  Parameters: {"email"=>"sue@example"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example"], ["LIMIT", 1]]
+  ↳ app/controllers/guides_controller.rb:3:in `show'
+No template found for GuidesController#show, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 0.4ms | Allocations: 537)
+
+
+Started GET "/guides/sue@example.com" for 127.0.0.1 at 2023-05-12 16:21:35 +0200
+Processing by GuidesController#show as */*
+  Parameters: {"email"=>"sue@example"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example"], ["LIMIT", 1]]
+  ↳ app/controllers/guides_controller.rb:3:in `show'
+No template found for GuidesController#show, rendering head :no_content
+Completed 204 No Content in 5ms (ActiveRecord: 0.3ms | Allocations: 537)
+
+
+Started GET "/guides/sue@example.com" for 127.0.0.1 at 2023-05-12 16:21:36 +0200
+Processing by GuidesController#show as */*
+  Parameters: {"email"=>"sue@example"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example"], ["LIMIT", 1]]
+  ↳ app/controllers/guides_controller.rb:3:in `show'
+No template found for GuidesController#show, rendering head :no_content
+Completed 204 No Content in 4ms (ActiveRecord: 0.3ms | Allocations: 537)
+
+
+Started GET "/guides/sue@example.com" for 127.0.0.1 at 2023-05-12 16:21:49 +0200
+Processing by GuidesController#show as */*
+  Parameters: {"email"=>"sue@example"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example"], ["LIMIT", 1]]
+  ↳ app/controllers/guides_controller.rb:3:in `show'
+No template found for GuidesController#show, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 0.3ms | Allocations: 537)
+
+
+Started GET "/guides/sue@example.com" for 127.0.0.1 at 2023-05-12 16:21:50 +0200
+Processing by GuidesController#show as */*
+  Parameters: {"email"=>"sue@example"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example"], ["LIMIT", 1]]
+  ↳ app/controllers/guides_controller.rb:3:in `show'
+No template found for GuidesController#show, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 0.4ms | Allocations: 537)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2023-05-12 16:23:33 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 1.4ms | Allocations: 139)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (Duration: 62.8ms | Allocations: 12081)
+  Rendered layout layouts/application.html.erb (Duration: 80.7ms | Allocations: 17705)
+Completed 200 OK in 132ms (Views: 82.0ms | ActiveRecord: 6.6ms | Allocations: 27046)
+
+
+Started GET "/pages?email=sue%40example.com" for 127.0.0.1 at 2023-05-12 16:23:34 +0200
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for PagesController):
+  
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.4.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+omniauth (2.1.1) lib/omniauth/strategy.rb:202:in `call!'
+omniauth (2.1.1) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.7) lib/rack/etag.rb:27:in `call'
+rack (2.2.7) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.7) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.7) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.7) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/method_override.rb:24:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/pages?email=sue%40example.com" for 127.0.0.1 at 2023-05-12 16:24:11 +0200
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for PagesController):
+  
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.4.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+omniauth (2.1.1) lib/omniauth/strategy.rb:202:in `call!'
+omniauth (2.1.1) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.7) lib/rack/etag.rb:27:in `call'
+rack (2.2.7) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.7) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.7) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.7) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/method_override.rb:24:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/pages?email=sue%40example.com" for 127.0.0.1 at 2023-05-12 16:24:16 +0200
+Processing by PagesController#index as HTML
+  Parameters: {"email"=>"sue@example.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:10:in `index'
+Completed 406 Not Acceptable in 41ms (ActiveRecord: 3.6ms | Allocations: 7724)
+
+
+  
+ActionController::MissingExactTemplate (PagesController#index is missing a template for request formats: text/html):
+  
+actionpack (7.0.4.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:107:in `run_callbacks'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.4.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+omniauth (2.1.1) lib/omniauth/strategy.rb:202:in `call!'
+omniauth (2.1.1) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.7) lib/rack/etag.rb:27:in `call'
+rack (2.2.7) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.7) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.7) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.7) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/method_override.rb:24:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/pages?email=sue%40example.com" for 127.0.0.1 at 2023-05-12 16:25:45 +0200
+Processing by PagesController#index as HTML
+  Parameters: {"email"=>"sue@example.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:10:in `index'
+Completed 406 Not Acceptable in 6ms (ActiveRecord: 0.3ms | Allocations: 802)
+
+
+  
+ActionController::MissingExactTemplate (PagesController#index is missing a template for request formats: text/html):
+  
+actionpack (7.0.4.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:107:in `run_callbacks'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.4.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+omniauth (2.1.1) lib/omniauth/strategy.rb:202:in `call!'
+omniauth (2.1.1) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.7) lib/rack/etag.rb:27:in `call'
+rack (2.2.7) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.7) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.7) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.7) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/method_override.rb:24:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/posts/1" for 127.0.0.1 at 2023-05-12 16:25:48 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 1.5ms | Allocations: 139)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (Duration: 31.1ms | Allocations: 6525)
+  Rendered layout layouts/application.html.erb (Duration: 31.9ms | Allocations: 6592)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 2.5ms | Allocations: 13722)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x00007f4eb81f6040>::Profilo):
+     9: 
+    10: <%= render @post %>
+    11: <h1>Nome della guida: <%= @post.user.name %> </h1> <br>
+    12: <%= link_to Profilo, pages_path(email: @post.user_email) %>
+    13: <h1>Titolo: <%= @post.titolo %></h1> <br>
+    14: <h3>Descrizione: <%= @post.descrizione %> </h3><br>
+    15: <h3>Città: <%= @post.nomeC %></h3><br>
+  
+app/views/posts/show.html.erb:12
+Started GET "/posts/1" for 127.0.0.1 at 2023-05-12 16:25:56 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 2.0ms | Allocations: 139)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (Duration: 34.9ms | Allocations: 7135)
+  Rendered layout layouts/application.html.erb (Duration: 52.8ms | Allocations: 12772)
+Completed 200 OK in 65ms (Views: 56.0ms | ActiveRecord: 0.7ms | Allocations: 14455)
+
+
+Started GET "/pages?email=sue%40example.com" for 127.0.0.1 at 2023-05-12 16:25:58 +0200
+Processing by PagesController#index as HTML
+  Parameters: {"email"=>"sue@example.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:10:in `index'
+Completed 406 Not Acceptable in 6ms (ActiveRecord: 0.3ms | Allocations: 758)
+
+
+  
+ActionController::MissingExactTemplate (PagesController#index is missing a template for request formats: text/html):
+  
+actionpack (7.0.4.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (7.0.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:107:in `run_callbacks'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.4.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+omniauth (2.1.1) lib/omniauth/strategy.rb:202:in `call!'
+omniauth (2.1.1) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.7) lib/rack/etag.rb:27:in `call'
+rack (2.2.7) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.7) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.7) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.7) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/method_override.rb:24:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2023-05-12 16:28:55 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 18.7ms | Allocations: 4615)
+  Rendered layout layouts/application.html.erb (Duration: 39.4ms | Allocations: 10221)
+Completed 200 OK in 53ms (Views: 42.4ms | Allocations: 12905)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-12 16:30:02 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 22.5ms | Allocations: 4706)
+  Rendered layout layouts/application.html.erb (Duration: 44.3ms | Allocations: 10627)
+Completed 200 OK in 60ms (Views: 48.0ms | Allocations: 13480)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-05-12 16:30:03 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 8.7ms | Allocations: 1880)
+  Rendered posts/index.html.erb within layouts/application (Duration: 37.9ms | Allocations: 9042)
+  Rendered layout layouts/application.html.erb (Duration: 43.9ms | Allocations: 10241)
+Completed 200 OK in 86ms (Views: 47.7ms | ActiveRecord: 3.9ms | Allocations: 17230)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2023-05-12 16:30:06 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:88:in `set_post'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:39:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 2.1ms | Allocations: 139)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (Duration: 59.1ms | Allocations: 12040)
+  Rendered layout layouts/application.html.erb (Duration: 65.1ms | Allocations: 13236)
+Completed 200 OK in 78ms (Views: 64.0ms | ActiveRecord: 3.2ms | Allocations: 14539)
+
+
+Started GET "/posts?citta=&lingua=" for 127.0.0.1 at 2023-05-12 16:30:18 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>""}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 8.9ms | Allocations: 2061)
+Completed 200 OK in 16ms (Views: 10.4ms | ActiveRecord: 0.4ms | Allocations: 3040)
+
+
+Started GET "/posts?citta=&lingua=&commit=" for 127.0.0.1 at 2023-05-12 16:30:18 +0200
+Processing by PostsController#index as JS
+  Parameters: {"citta"=>"", "lingua"=>"", "commit"=>""}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 8.5ms | Allocations: 1583)
+Completed 200 OK in 15ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 2531)
+
+
+Started GET "/posts?citta=R&lingua=" for 127.0.0.1 at 2023-05-12 16:30:20 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"R", "lingua"=>""}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%R%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 5.7ms | Allocations: 1272)
+Completed 200 OK in 14ms (Views: 6.9ms | ActiveRecord: 0.7ms | Allocations: 2176)
+
+
+Started GET "/posts?citta=Ro&lingua=" for 127.0.0.1 at 2023-05-12 16:30:20 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"Ro", "lingua"=>""}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Ro%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 0.1ms | Allocations: 12)
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.5ms | Allocations: 720)
+
+
+Started GET "/posts?citta=Rom&lingua=" for 127.0.0.1 at 2023-05-12 16:30:20 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"Rom", "lingua"=>""}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Rom%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 0.1ms | Allocations: 12)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 720)
+
+
+Started GET "/posts?citta=Roma&lingua=" for 127.0.0.1 at 2023-05-12 16:30:21 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"Roma", "lingua"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Roma%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 0.1ms | Allocations: 12)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.6ms | Allocations: 720)
+
+
+Started GET "/posts?citta=Rom&lingua=" for 127.0.0.1 at 2023-05-12 16:30:21 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"Rom", "lingua"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Rom%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 0.2ms | Allocations: 12)
+Completed 200 OK in 6ms (Views: 1.5ms | ActiveRecord: 0.6ms | Allocations: 720)
+
+
+Started GET "/posts?citta=Ro&lingua=" for 127.0.0.1 at 2023-05-12 16:30:21 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"Ro", "lingua"=>""}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Ro%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 0.1ms | Allocations: 12)
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.7ms | Allocations: 720)
+
+
+Started GET "/posts?citta=R&lingua=" for 127.0.0.1 at 2023-05-12 16:30:21 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"R", "lingua"=>""}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%R%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 5.7ms | Allocations: 1272)
+Completed 200 OK in 13ms (Views: 6.7ms | ActiveRecord: 0.8ms | Allocations: 2176)
+
+
+Started GET "/posts?citta=&lingua=" for 127.0.0.1 at 2023-05-12 16:30:21 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>""}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 7.4ms | Allocations: 1583)
+Completed 200 OK in 14ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 2452)
+
+
+Started GET "/posts?citta=F&lingua=" for 127.0.0.1 at 2023-05-12 16:30:22 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"F", "lingua"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%F%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 5.3ms | Allocations: 1272)
+Completed 200 OK in 11ms (Views: 6.3ms | ActiveRecord: 0.6ms | Allocations: 2176)
+
+
+Started GET "/posts?citta=Fo&lingua=" for 127.0.0.1 at 2023-05-12 16:30:22 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"Fo", "lingua"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Fo%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 7.0ms | Allocations: 1272)
+Completed 200 OK in 14ms (Views: 8.4ms | ActiveRecord: 0.6ms | Allocations: 2176)
+
+
+Started GET "/posts?citta=For&lingua=" for 127.0.0.1 at 2023-05-12 16:30:22 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"For", "lingua"=>""}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%For%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 5.9ms | Allocations: 1272)
+Completed 200 OK in 15ms (Views: 7.2ms | ActiveRecord: 0.8ms | Allocations: 2176)
+
+
+Started GET "/posts?citta=Fo&lingua=" for 127.0.0.1 at 2023-05-12 16:30:23 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"Fo", "lingua"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Fo%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 5.5ms | Allocations: 1272)
+Completed 200 OK in 13ms (Views: 6.5ms | ActiveRecord: 0.6ms | Allocations: 2176)
+
+
+Started GET "/posts?citta=F&lingua=" for 127.0.0.1 at 2023-05-12 16:30:23 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"F", "lingua"=>""}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%F%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 5.3ms | Allocations: 1272)
+Completed 200 OK in 12ms (Views: 6.3ms | ActiveRecord: 0.7ms | Allocations: 2176)
+
+
+Started GET "/posts?citta=&lingua=" for 127.0.0.1 at 2023-05-12 16:30:23 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>""}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 7.1ms | Allocations: 1583)
+Completed 200 OK in 14ms (Views: 8.1ms | ActiveRecord: 0.4ms | Allocations: 2452)
+
+
+Started GET "/posts?citta=L&lingua=" for 127.0.0.1 at 2023-05-12 16:30:24 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"L", "lingua"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%L%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.8ms | Allocations: 650)
+Completed 200 OK in 11ms (Views: 5.1ms | ActiveRecord: 0.6ms | Allocations: 1428)
+
+
+Started GET "/posts?citta=La&lingua=" for 127.0.0.1 at 2023-05-12 16:30:24 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"La", "lingua"=>""}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%La%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 0.2ms | Allocations: 12)
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.5ms | Allocations: 720)
+
+
+Started GET "/posts?citta=Lat&lingua=" for 127.0.0.1 at 2023-05-12 16:30:24 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"Lat", "lingua"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%Lat%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 0.1ms | Allocations: 12)
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.6ms | Allocations: 721)
+
+
+Started GET "/posts?citta=La&lingua=" for 127.0.0.1 at 2023-05-12 16:30:24 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"La", "lingua"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%La%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 0.1ms | Allocations: 12)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.6ms | Allocations: 720)
+
+
+Started GET "/posts?citta=L&lingua=" for 127.0.0.1 at 2023-05-12 16:30:25 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"L", "lingua"=>""}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%L%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.3ms | Allocations: 655)
+Completed 200 OK in 10ms (Views: 4.4ms | ActiveRecord: 0.6ms | Allocations: 1433)
+
+
+Started GET "/posts?citta=&lingua=" for 127.0.0.1 at 2023-05-12 16:30:25 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>""}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 6.6ms | Allocations: 1583)
+Completed 200 OK in 13ms (Views: 7.6ms | ActiveRecord: 0.5ms | Allocations: 2452)
+
+
+Started GET "/posts?citta=&lingua=I" for 127.0.0.1 at 2023-05-12 16:30:26 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>"I"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (lingua LIKE '%I%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.7ms | Allocations: 650)
+Completed 200 OK in 11ms (Views: 5.0ms | ActiveRecord: 0.8ms | Allocations: 1428)
+
+
+Started GET "/posts?citta=&lingua=In" for 127.0.0.1 at 2023-05-12 16:30:26 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>"In"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (lingua LIKE '%In%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.5ms | Allocations: 650)
+Completed 200 OK in 10ms (Views: 4.6ms | ActiveRecord: 0.6ms | Allocations: 1428)
+
+
+Started GET "/posts?citta=&lingua=Ing" for 127.0.0.1 at 2023-05-12 16:30:26 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>"Ing"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (lingua LIKE '%Ing%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.5ms | Allocations: 650)
+Completed 200 OK in 10ms (Views: 4.8ms | ActiveRecord: 0.6ms | Allocations: 1428)
+
+
+Started GET "/posts?citta=%20&lingua=Ing" for 127.0.0.1 at 2023-05-12 16:30:29 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>" ", "lingua"=>"Ing"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (lingua LIKE '%Ing%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.4ms | Allocations: 651)
+Completed 200 OK in 10ms (Views: 4.4ms | ActiveRecord: 0.6ms | Allocations: 1429)
+
+
+Started GET "/posts?citta=&lingua=Ing" for 127.0.0.1 at 2023-05-12 16:30:29 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>"Ing"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (lingua LIKE '%Ing%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 4.5ms | Allocations: 650)
+Completed 200 OK in 13ms (Views: 5.9ms | ActiveRecord: 0.7ms | Allocations: 1428)
+
+
+Started GET "/posts?citta=N&lingua=Ing" for 127.0.0.1 at 2023-05-12 16:30:29 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"N", "lingua"=>"Ing"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%N%') AND (lingua LIKE '%Ing%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 4.7ms | Allocations: 650)
+Completed 200 OK in 13ms (Views: 6.1ms | ActiveRecord: 0.7ms | Allocations: 1460)
+
+
+Started GET "/posts?citta=&lingua=Ing" for 127.0.0.1 at 2023-05-12 16:30:30 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>"Ing"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (lingua LIKE '%Ing%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.4ms | Allocations: 650)
+Completed 200 OK in 9ms (Views: 4.4ms | ActiveRecord: 0.6ms | Allocations: 1428)
+
+
+Started GET "/posts?citta=l&lingua=Ing" for 127.0.0.1 at 2023-05-12 16:30:30 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"l", "lingua"=>"Ing"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%l%') AND (lingua LIKE '%Ing%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.1ms | Allocations: 650)
+Completed 200 OK in 10ms (Views: 4.2ms | ActiveRecord: 0.5ms | Allocations: 1460)
+
+
+Started GET "/posts?citta=&lingua=Ing" for 127.0.0.1 at 2023-05-12 16:30:32 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>"Ing"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (lingua LIKE '%Ing%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.3ms | Allocations: 652)
+Completed 200 OK in 10ms (Views: 4.4ms | ActiveRecord: 0.6ms | Allocations: 1430)
+
+
+Started GET "/posts?citta=p&lingua=Ing" for 127.0.0.1 at 2023-05-12 16:30:32 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"p", "lingua"=>"Ing"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%p%') AND (lingua LIKE '%Ing%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.4ms | Allocations: 650)
+Completed 200 OK in 10ms (Views: 4.6ms | ActiveRecord: 0.6ms | Allocations: 1460)
+
+
+Started GET "/posts?citta=&lingua=Ing" for 127.0.0.1 at 2023-05-12 16:30:33 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>"Ing"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (lingua LIKE '%Ing%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.5ms | Allocations: 650)
+Completed 200 OK in 10ms (Views: 4.6ms | ActiveRecord: 0.5ms | Allocations: 1428)
+
+
+Started GET "/posts?citta=q&lingua=Ing" for 127.0.0.1 at 2023-05-12 16:30:34 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"q", "lingua"=>"Ing"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (nomeC LIKE '%q%') AND (lingua LIKE '%Ing%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 0.2ms | Allocations: 12)
+Completed 200 OK in 6ms (Views: 1.5ms | ActiveRecord: 0.5ms | Allocations: 753)
+
+
+Started GET "/posts?citta=&lingua=Ing" for 127.0.0.1 at 2023-05-12 16:30:34 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>"Ing"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (lingua LIKE '%Ing%')[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 3.6ms | Allocations: 650)
+Completed 200 OK in 9ms (Views: 4.8ms | ActiveRecord: 0.6ms | Allocations: 1428)
+
+
+Started GET "/posts?citta=&lingua=" for 127.0.0.1 at 2023-05-12 16:30:36 +0200
+Processing by PostsController#index as */*
+  Parameters: {"citta"=>"", "lingua"=>""}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendered posts/_posts_results.html.erb (Duration: 6.5ms | Allocations: 1583)
+Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 0.3ms | Allocations: 2452)
+
+

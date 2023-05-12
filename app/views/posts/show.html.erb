@@ -8,6 +8,8 @@
 <%= javascript_include_tag "script_responsiveness" %>
 
 <%= render @post %>
+<h1>Nome della guida: <%= @post.user.name %> </h1> <br>
+<!--<%= link_to "Profilo", pages_path(email: @post.user_email) %>-->
 <h1>Titolo: <%= @post.titolo %></h1> <br>
 <h3>Descrizione: <%= @post.descrizione %> </h3><br>
 <h3>Città: <%= @post.nomeC %></h3><br>

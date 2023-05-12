@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :timeoutable,:omniauthable, :omniauth_providers => [:facebook]
   belongs_to :role, :optional => true
   belongs_to :city, optional: true
+  has_many :posts, foreign_key: 'user_email', primary_key: 'email'
   has_and_belongs_to_many :languages, optional:true
 
   def tourist?
