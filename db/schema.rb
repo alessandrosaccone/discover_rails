@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_05_12_222428) do
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -21,9 +20,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_222428) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-=======
-ActiveRecord::Schema[7.0].define(version: 2023_05_12_152900) do
->>>>>>> main
   create_table "cities", force: :cascade do |t|
     t.string "region"
     t.string "name"
