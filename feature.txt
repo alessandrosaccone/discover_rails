@@ -274,6 +274,12 @@ Feature: See all tabs A ==================FATTA================
     i want to see all the tabs 
     so i can decide what tabs book
 
+49)
+Feature: See the price I will pay for my booking A ==================FATTA=================
+    As a user
+    i want to see dinamically the price of my booking
+    so i can see how much to pay for a certain amount of reservation I'm asking for
+
 M:26
 S: 12
 A: 22

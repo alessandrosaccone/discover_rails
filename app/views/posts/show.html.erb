@@ -3,9 +3,10 @@
   <%= stylesheet_link_tag "application" %>
        
 <% end %>   
-<%= javascript_include_tag "script_app" %>
 <%= javascript_include_tag "script" %>
 <%= javascript_include_tag "script_responsiveness" %>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <%= render @post %>
 <h1>Nome della guida: <%= @post.user.name %> </h1> <br>
@@ -18,10 +19,10 @@
 <h3>Numero di persone: <%= @post.persone_rimanenti %></h3><br>
 <%= form_for @post, id: dom_id(@post, :edit) do |f| %>
   <%= f.label :persone %>
-  <%= f.number_field :persone, step: 1 %>
+  <%= f.number_field :persone, step: 1, max: @post.persone_rimanenti, min: 0 %>
   <%= f.submit %>
 <% end %>
-
+<br>
 <% if @post.persone_rimanenti == @post.persone %>
   <button id="fill-form-button">Prenota una visita privata</button>
   <%= javascript_tag do %>
@@ -31,9 +32,38 @@
       });
   <% end %>
 <% end %>
+<br> <br>
+<h3 style="color: green">Prezzo: <div id="price"></div> <%=@price%> </h3>
+<br>
+<button>Checkout</button>
+<br> <br>
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    var personeInput = $('#post_persone');
+    console.log(personeInput);
+    personeInput.on('input', function() {
+      var selectedValue = personeInput.val();
+      console.log(personeInput.val());
+      $.ajax({
+        url: '<%= get_price_post_path(@post) %>',
+        method: 'GET',
+        data: { persone: selectedValue },
+        success: function(response) {
+          var priceInput = $('#price');
+          priceInput.text(response.price + ' Euro');
+          console.log("Success with changing price");
+        },
+        error: function () {
+          var priceInput = $('#price');
+          priceInput.text('Numero inprocessabile di persone');
+          console.log("Error changing the price");
+        }
+      });
+    });
+  });
+<% end %>
 
 <div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
   <%= link_to "Back to posts", posts_path %>
 
 </div>
