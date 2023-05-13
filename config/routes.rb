@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   resources :guide_users do
     get 'update_location', on: :collection
   end
-
+  resources :bookings do
+    member do
+      post 'refund'
+    end
+  end
 
 
   devise_for :users, :controllers => 
