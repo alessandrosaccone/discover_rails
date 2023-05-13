@@ -20,7 +20,7 @@
 <%= form_tag(new_booking_path, method: :get, html: { id: "pay_form" }) do %>
   <div class="field">
     <%= label_tag :persone, "Persone" %>
-    <%= number_field_tag :persone , value=@post.persone_rimanenti, step: 1, id: "post_persone" %>
+    <%= number_field_tag :persone , value=@post.persone_rimanenti, step: 1, id: "post_persone", max: @post.persone_rimanenti, min: 0 %>
   </div>
   <div class="field">
     <%= hidden_field_tag :post_id,value=@post.id %>
