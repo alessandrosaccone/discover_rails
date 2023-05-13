@@ -85,7 +85,7 @@ class PostsController < ApplicationController
   def get_price
     @post = Post.find(params[:id])
     @price = ((@post.prezzo * @post.numero_ore) / @post.persone).to_i * params[:persone].to_i
-    if (@price.to_i < 0) 
+    if (@price.to_i <= 0) 
       render json: { error: "Inserisci un numero positivo di persone" }, status: :unprocessable_entity
     elsif (params[:persone].to_i>@post.persone_rimanenti)
       render json: { error: "Inserisci un numero entro il limite di persone" }, status: :unprocessable_entity
