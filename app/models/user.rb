@@ -7,7 +7,11 @@ class User < ApplicationRecord
   belongs_to :role, :optional => true
   belongs_to :city, optional: true
   has_many :posts, foreign_key: 'user_email', primary_key: 'email'
+  has_many :messages
+  has_and_belongs_to_many :conversations, dependent: :destroy
   has_and_belongs_to_many :languages, optional:true
+  
+
 
   def tourist?
     role.name == 'Tourist'

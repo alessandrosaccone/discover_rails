@@ -28,6 +28,9 @@ group :development do
   # gem "spring"
 end
 
+# Use Redis adapter to run Action Cable in production
+gem "redis", "~> 4.0"
+
 
 gem "importmap-rails", "~> 1.1"
 
@@ -38,3 +41,6 @@ gem "cancancan", "~> 3.5"
 gem 'omniauth-facebook'
 
 gem 'omniauth-rails_csrf_protection'
+
+gem 'rack-cors'
+gem "actioncable", "~> 7.0"

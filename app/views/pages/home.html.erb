@@ -40,8 +40,9 @@ myfunction();
         <%end%>
         <%if user_signed_in?%>
             <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+            <%=link_to "Profilo", :method => :get%>
         <%end%>
-        <a href="bacheca.html">Profilo</a>
+
     </nav>
 </div>
 

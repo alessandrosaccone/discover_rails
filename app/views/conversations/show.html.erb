@@ -1,0 +1,29 @@
+<% content_for :for_head do %>
+    <% stylesheet_link_tag "application-messages" %>
+    
+    <style>
+    .my-message{
+        justify-content: right;
+        background-color: green;
+    }
+    .not-my-message{
+        justify-content: left;
+        background-color: gray;
+    }
+    </style>
+<% end %>
+<%= render user %>
+
+
+<div>
+    <%= @messages.each do |message|%>
+        <div class="message-box">
+            <p class='msg-content'><%= message.body %></p>
+            <p><%= message.created_at %></p>
+        </div>
+    <%end%>
+</div>
+
+<div>
+    <%= render new_message_form %>
+</div>

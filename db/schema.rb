@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_12_152900) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_173941) do
   create_table "cities", force: :cascade do |t|
     t.string "region"
     t.string "name"
@@ -18,6 +18,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_152900) do
     t.datetime "updated_at", null: false
     t.integer "country_id"
     t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "countries", force: :cascade do |t|
@@ -35,6 +40,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_152900) do
   create_table "languages_users", id: false, force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "language_id", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "conversation_id", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "conversation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_participants_on_conversation_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -90,6 +114,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_152900) do
   end
 
   add_foreign_key "cities", "countries"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
+  add_foreign_key "participants", "conversations"
+  add_foreign_key "participants", "users"
   add_foreign_key "posts", "users", column: "user_email", primary_key: "email"
   add_foreign_key "users", "cities"
   add_foreign_key "users", "roles"

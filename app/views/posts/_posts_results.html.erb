@@ -1,6 +1,5 @@
 <% @posts.each_with_index do |post, index| %>
   <% if (Time.now.strftime("%Y-%d-%m") < post.data.strftime("%Y-%d-%m")) %>
-    <% if (Time.now.strftime("%H:%M:%S") < post.ora.strftime("%H:%M:%S"))  %>
       <% if index.even? %>
         <ul class="cards">
       <% end %> 
@@ -26,6 +25,10 @@
               </h4>
           </div>
           <div class='card-link-wrapper'> 
+              <%@guide_user = User.where(email: post.user_email)%>
+              <%@room_id = Participant.where(user_id: current_user.id).or(Participant.where(user_id: @guide_user)).group(:room_id).having("COUNT(*)=2").pluck(:room_id)%>
+              <%@single_room = Room.find_or_create_by(id: @room_id.first)%>
+              <%= link_to 'Chatta', room_path(@single_room), class: "card-link"%>
               <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
           </div>
           </li> 
@@ -33,5 +36,5 @@
       </ul>
       <% end %>
     <% end %>
-  <% end %>
+
 <% end %>

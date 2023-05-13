@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+
   resources :posts
+  resources :conversations do
+    resources :messages
+  end
+  
   resources :posts do 
     member do
       get 'get_price'
     end
   end
-
-
-  resources :roles
 
   resources :guide_users do
     get 'update_location', on: :collection
