@@ -99,7 +99,7 @@ Feature: Search guides by towns S Finito
     i want to find guides by towns
     so that i can find them faster
 17-a)
-Feature: Search tabs by towns A
+Feature: Search tabs by towns A  ===============FATTA================
     As a user
     i want to find guides by towns
     so that i can find them faster
@@ -167,13 +167,26 @@ Feature: Change Profile Image M
 Feature: Analisi Contenuti Testuali dei post A-M
     As user
     i want to see guides tabs that aren't vulgar
+
+29 a) 
+Feature: See the guide near by your position in maps A ==============FATTA=============
+    As a user
+    i want to find guides by me
+    so that i can see their names
+
+29 b)
+Feature: Have my position saved as a guide A ==================FATTA===============
+    As a guide
+    i want to have my position automatically saved
+    so that people can see where I am working
+
 29)
 Feature: Search posts by nations A
     As a user
     i want to find guides by nation
     so that i can find them faster
 30)
-Feature: Search guides by nations S
+Feature: Search guides by nations S Finito
     As a user
     i want to find guides by nation
     so that i can find them faster
@@ -188,7 +201,7 @@ Feature: forgotten email G
     I want to recuperate my email
     so that I can log in
 33)
-Feature: Search posts by Google Maps A
+Feature: Search posts by Google Maps A 
     As a user
     i want to find guides using Google Maps
     so that i can find them faster
@@ -203,12 +216,12 @@ Feature: Report Users M
     I want to be able to report other users
     so I can warn other guides
 37)
-Feature: Booking all seats A
+Feature: Booking all seats A-S 
     As a user
     i want to book all seats for guide's tab
     so that i can go there with only my friends or alone
 38)
-Feature: Booking a number of seats A
+Feature: Booking a number of seats S-A Finito
     As a user
     i want to book a number of seat for guide's tab
     so that i can go there with a group of friends
@@ -223,7 +236,7 @@ Feature: Users Bookings M
     I want to see all my reservations
     so that i can find them faster
 41)
-Feature: Online Payment A-G
+Feature: Online Payment S Finito
     as a user
     i want to pay my reservations with credit card
     so that i can't pay in cash
@@ -260,6 +273,22 @@ Feature: See all tabs A ==================FATTA================
     As a user 
     i want to see all the tabs 
     so i can decide what tabs book
+49)
+Feauture: No Reservation S Finito
+    As a guide
+    i want that my tabs cannot be booked after their seats ended
+    so that users don't pay
+50)
+Feature: No Reservation for guide S Finito
+    As a guide
+    i want that only user can book my tabs
+    so that another guide cannot copy me
+
+51)
+Feature: See the price I will pay for my booking A ==================FATTA=================
+    As a user
+    i want to see dinamically the price of my booking
+    so i can see how much to pay for a certain amount of reservation I'm asking for
 
 M:26
 S: 12

@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_11_214132) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_12_222428) do
+  create_table "bookings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_bookings_on_post_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "region"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "country_id"
+    t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,6 +61,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_214132) do
     t.datetime "updated_at", null: false
     t.integer "numero_ore"
     t.integer "persone_rimanenti"
+    t.string "user_email"
+    t.integer "user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -72,12 +91,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_214132) do
     t.string "provider"
     t.string "uid"
     t.integer "city_id"
+    t.string "stripe_account_id"
+    t.string "lat"
+    t.string "long"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "bookings", "posts"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "cities", "countries"
+  add_foreign_key "posts", "users", column: "user_email", primary_key: "email"
   add_foreign_key "users", "cities"
   add_foreign_key "users", "roles"
 end
