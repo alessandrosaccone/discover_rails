@@ -1,8 +1,6 @@
-#require "google/cloud/translate"
-
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ], except: [:all]
-  before_action :authenticate_user!
+
   
   skip_before_action :verify_authenticity_token
   # GET /posts
@@ -101,18 +99,6 @@ class PostsController < ApplicationController
     @posts = Post.all
     render json: @posts 
   end 
-
-def translate_html 
-  html_file = File.read("posts.html") #params[:referred]
-
-  translate = Google::Cloud::Translate.new(project_id: "your-project-id",
-                                           credentials: "path/to/your/credentials.json")
-
-  target_language = params[:to]
-  translated_html = translate.translate(html_file, to: target_language) # Replace "fr" with the target language code
-
-  render html: translated_html
-end
 
   private
     # Use callbacks to share common setup or constraints between actions.
