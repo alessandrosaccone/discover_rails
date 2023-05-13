@@ -29055,3 +29055,70 @@ Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.9ms | Allocations: 101
 
 
 >>>>>>> Simone
+Started GET "/" for 127.0.0.1 at 2023-05-12 22:30:30 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:38
+  Rendered pages/home.html.erb within layouts/application (Duration: 384.1ms | Allocations: 49061)
+Importmap skipped missing path: actioncable.esm.js
+  Rendered layout layouts/application.html.erb (Duration: 405.5ms | Allocations: 59590)
+Completed 200 OK in 427ms (Views: 410.7ms | ActiveRecord: 1.6ms | Allocations: 64506)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/rooms_channel"):
+  
+Started GET "/" for 127.0.0.1 at 2023-05-12 22:31:39 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 19.6ms | Allocations: 3872)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 5119)
+Completed 200 OK in 29ms (Views: 28.2ms | ActiveRecord: 0.0ms | Allocations: 5361)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/rooms_channel"):
+  
+Started GET "/" for 127.0.0.1 at 2023-05-12 22:33:00 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3854)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 5101)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 5343)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/rooms_channel"):
+  
+Started GET "/" for 127.0.0.1 at 2023-05-12 22:33:22 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.4ms | Allocations: 3881)
+Importmap skipped missing path: actioncable.esm.js
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 15265)
+Completed 200 OK in 37ms (Views: 36.9ms | ActiveRecord: 0.0ms | Allocations: 15511)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/rooms_channel"):
+  
+Started GET "/" for 127.0.0.1 at 2023-05-12 22:34:14 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 89.3ms | Allocations: 24488)
+Importmap skipped missing path: actioncable.esm.js
+  Rendered layout layouts/application.html.erb (Duration: 107.2ms | Allocations: 35120)
+Completed 200 OK in 121ms (Views: 113.3ms | ActiveRecord: 0.0ms | Allocations: 40037)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/rooms_channel"):
+  

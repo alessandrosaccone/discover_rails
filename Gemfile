@@ -38,3 +38,9 @@ gem "cancancan", "~> 3.5"
 gem 'omniauth-facebook'
 
 gem 'omniauth-rails_csrf_protection'
+
+gem "redis", "~> 5.0"
+
+gem "cors", "~> 1.0"
+
+gem "websocket-driver", "~> 0.7.5"
