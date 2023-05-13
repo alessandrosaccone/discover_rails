@@ -289,8 +289,12 @@ Feature: See the price I will pay for my booking A ==================FATTA======
     As a user
     i want to see dinamically the price of my booking
     so i can see how much to pay for a certain amount of reservation I'm asking for
-
+52)
+Feature: Control Credit card S
+    As a user
+    i want that my payment form is correct
+    so that i don't send payment with wrong data
 M:26
-S: 12
+S: 12 
 A: 22
 G: 14

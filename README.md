@@ -30,7 +30,7 @@ Ruby version ruby 2.7.2p137
 
 AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0
 
-#Stripe
+# Stripe
 Email:palumbosimone80@gmail.com
 password:AleSimMarGab123
 Per creare account guide si deve essere in test mode e lo si fa in connect. Si devono dare molte informazioni.
