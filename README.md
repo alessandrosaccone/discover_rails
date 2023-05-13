@@ -45,9 +45,9 @@ commento in poi là)
 
 togli da script_app.js
 
-# Per simone
+# Per alessandro
 
-c'è una riga di codice commentata in posts/show.html.erb
+c'è una riga di codice commentata in posts/show.html.erb--> Ho visto il commento. Che devo fare?
 
 # Per Mario
 
