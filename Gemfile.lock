@@ -70,9 +70,6 @@ GEM
     builder (3.2.4)
     cancancan (3.5.0)
     concurrent-ruby (1.2.2)
-    connection_pool (2.4.0)
-    cors (1.0.1)
-      multi_json
     crass (1.0.6)
     date (3.3.3)
     debug (1.7.2)
@@ -119,7 +116,6 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.8.1)
     minitest (5.18.0)
-    multi_json (1.15.0)
     multi_xml (0.6.0)
     net-imap (0.3.4)
       date
@@ -229,7 +225,6 @@ PLATFORMS
 DEPENDENCIES
   actioncable (~> 7.0)
   cancancan (~> 3.5)
-  cors (~> 1.0)
   debug
   devise (~> 4.9)
   figaro
@@ -240,11 +235,11 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4, >= 7.0.4.3)
+  redis (~> 4.0)
   sprockets-rails
   sqlite3 (~> 1.4)
   stripe
   tzinfo-data
-  websocket-driver (~> 0.7.5)
 
 RUBY VERSION
    ruby 2.7.2p137
