@@ -17,10 +17,10 @@
 <h3>Lingua: <%= @post.lingua %></h3><br>
 <h3>Data e ora: <%= @data %> <%= @ora %></h3><br>
 <h3>Numero di persone: <%= @post.persone_rimanenti %></h3><br>
-<%= form_tag(new_booking_path, method: :get) do %>
+<%= form_tag(new_booking_path, method: :get, html: { id: "pay_form" }) do %>
   <div class="field">
     <%= label_tag :persone, "Persone" %>
-    <%= number_field_tag :persone , value=@post.persone_rimanenti, step: 1 %>
+    <%= number_field_tag :persone , value=@post.persone_rimanenti, step: 1, id: "post_persone" %>
   </div>
   <div class="field">
     <%= hidden_field_tag :post_id,value=@post.id %>
@@ -34,30 +34,17 @@
   <%end%>
 <% end %>
 
-
-
-
-<!--
-Ma a che cosa serve se qui devi prenotare? Non capisco.
- <%= form_for @post, id: dom_id(@post, :edit) do |f| %>
-  <%= f.label :persone %>
-  <%= f.number_field :persone, step: 1, max: @post.persone_rimanenti, min: 0 %>
-  <%= f.submit %>
-<% end %> -->
-
 <% if @post.persone_rimanenti == @post.persone %>
   <button id="fill-form-button">Prenota una visita privata</button>
   <%= javascript_tag do %>
       document.getElementById('fill-form-button').addEventListener('click', function() {
       document.getElementById('post_persone').value = <%= @post.persone_rimanenti %>; 
-      document.getElementById('<%=dom_id(@post, :edit)%>').submit();
+      document.getElementById('pay_form').submit();
       });
   <% end %>
 <% end %>
 <br> <br>
 <h3 style="color: green">Prezzo: <div id="price"></div> <%=@price%> </h3>
-<br>
-<button>Checkout</button>
 <br> <br>
 <%= javascript_tag do %>
   $(document).ready(function() {
@@ -73,6 +60,7 @@ Ma a che cosa serve se qui devi prenotare? Non capisco.
         success: function(response) {
           var priceInput = $('#price');
           priceInput.text(response.price + ' Euro');
+          console.log(priceInput);
           console.log("Success with changing price");
         },
         error: function () {
