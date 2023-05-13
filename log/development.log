@@ -36602,6 +36602,7 @@ Migrating to AddLongToUsers (20230512152900)
   [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jackel@example.com"], ["LIMIT", 1]]
   [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "iva", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at", "role_id", "provider", "uid", "city_id", "lat", "long") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jackel"], ["email", "jackel@example.com"], ["encrypted_password", "[FILTERED]"], ["iva", nil], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["sign_in_count", 0], ["current_sign_in_at", nil], ["last_sign_in_at", nil], ["current_sign_in_ip", nil], ["last_sign_in_ip", nil], ["created_at", "2023-05-12 17:09:57.787684"], ["updated_at", "2023-05-12 17:09:57.787684"], ["role_id", 10], ["provider", nil], ["uid", nil], ["city_id", nil], ["lat", "41.9079616"], ["long", "12.51476"]]
   [1m[36mTRANSACTION (10.8ms)[0m  [1m[36mcommit transaction[0m
+<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2023-05-12 19:35:29 +0200
   [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by PagesController#home as HTML
@@ -36698,3 +36699,51 @@ Processing by GuideUsersController#index as JSON
 Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 2380)
 
 
+=======
+Started GET "/" for 127.0.0.1 at 2023-05-12 19:37:46 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 74.1ms | Allocations: 36597)
+  Rendered layout layouts/application.html.erb (Duration: 79.8ms | Allocations: 42560)
+Completed 200 OK in 88ms (Views: 82.4ms | ActiveRecord: 0.0ms | Allocations: 47476)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-05-12 19:37:56 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:19:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 2.8ms | Allocations: 1894)
+  Rendered posts/index.html.erb within layouts/application (Duration: 13.4ms | Allocations: 9204)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 10404)
+Completed 200 OK in 49ms (Views: 17.8ms | ActiveRecord: 1.6ms | Allocations: 34551)
+
+
+Started GET "/guide_users.json" for 127.0.0.1 at 2023-05-12 19:37:56 +0200
+Processing by GuideUsersController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/guide_users_controller.rb:6:in `block (2 levels) in index'
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.8ms | Allocations: 24706)
+
+
+Started GET "/guide_users.json" for 127.0.0.1 at 2023-05-12 19:37:57 +0200
+Processing by GuideUsersController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/guide_users_controller.rb:6:in `block (2 levels) in index'
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.4ms | Allocations: 2202)
+
+
+Started GET "/guide_users/update_location?lat=41.9080084&lng=12.5147483" for 127.0.0.1 at 2023-05-12 19:37:58 +0200
+Processing by GuideUsersController#update_location as */*
+  Parameters: {"lat"=>"41.9080084", "lng"=>"12.5147483"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 869)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/guide_users_controller.rb:11:in `update_location'
+>>>>>>> 9059541 (aggiorno)
