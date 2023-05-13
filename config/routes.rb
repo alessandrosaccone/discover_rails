@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
   resources :posts
+  resources :posts do 
+    member do
+      get 'get_price'
+    end
+  end
+
+
   resources :roles
   resources :bookings
+
+  resources :guide_users do
+    get 'update_location', on: :collection
+  end
+
+
+
   devise_for :users, :controllers => 
   { :omniauth_callbacks => "users/omniauth_callbacks",
     sessions: 'users/sessions',

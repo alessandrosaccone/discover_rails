@@ -42,3 +42,4 @@ gem 'omniauth-rails_csrf_protection'
 gem 'stripe'
 
 gem 'figaro'
+gem 'google-cloud-translate'

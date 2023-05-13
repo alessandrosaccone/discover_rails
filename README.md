@@ -35,3 +35,12 @@ Email:palumbosimone80@gmail.com
 password:AleSimMarGab123
 Per creare account guide si deve essere in test mode e lo si fa in connect. Si devono dare molte informazioni.
 Per ora solo Jacke Jacke va. Non so se con la commit cambierà.
+# Per gabriele
+
+Mi servirebbe che tu leggessi in script_guide.js il commento prima dell'ultima funzione. Sai tu dove implementare
+un js che controlli se sei loggato: appena lo sei fai partire quella funzione (copia tutto il codice da sotto il
+commento in poi là)
+
+# Per alessandro
+
+togli da script_app.js

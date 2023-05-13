@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     def dummypage
     end
 
+
     def guides
         @guides = User.where(role_id: 10)
         nome = params[:nome]
