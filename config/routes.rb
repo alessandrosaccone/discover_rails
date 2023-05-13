@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do 
+    collection do
+      get 'all', to: 'posts#all'
+    end
+  end
   resources :posts do 
     member do
       get 'get_price'
     end
   end
+  resources :posts
 
 
   resources :roles

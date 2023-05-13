@@ -66,7 +66,6 @@
       myfunction();
     </script>
 
-    
       <div class="container-search">
         <div class="search_container" id="search">
         <%= form_with(url: url_for(controller: 'posts', action: 'index'), method: 'get', id: 'myform', data: { remote: true }) do |form| %>
@@ -83,46 +82,49 @@
       <div id="map_container" class="map_container">
         <div id="mapDiv" class="map_class"></div>
       </div>
+
     <div class="container" id="wrapper_post">
      <%= render 'posts_results', posts: @posts %>
     </div>
     
     <script>bar_color()</script>
+    
     <script>
-    
-$(document).ready(function() {
-  var cercacittaValue = '';
-  var cercaLinguaValue='';
+    $(document).ready(function() {
+      var cercacittaValue = '';
+      var cercaLinguaValue='';
 
-    $('#cercalingua').on('input', function() {
-    cercaLinguaValue = $(this).val();
-    $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cerca"
-  });
-  $('#cercacitta').on('input', function() {
-    cercacittaValue = $(this).val();
-    $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
-  });
+        $('#cercalingua').on('input', function() {
+        cercaLinguaValue = $(this).val();
+        $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cerca"
+      });
+      $('#cercacitta').on('input', function() {
+        cercacittaValue = $(this).val();
+        $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
+      });
 
-  $('#myform').on('submit', function(event) {
-    event.preventDefault(); // Evita il comportamento predefinito del browser di sottomissione del modulo
-    var form = $(this);
-    
-    $.ajax({
-      url: form.attr('action'),
-      method: form.attr('method'),
-      data: form.serialize(),
-      success: function(response) {
-        $('#wrapper_post').html(response);
-        $('#cercacitta').val(cercacittaValue);
-        $('#cercalingua').val(cercaLinguaValue);
-      }
+      $('#myform').on('submit', function(event) {
+        event.preventDefault(); // Evita il comportamento predefinito del browser di sottomissione del modulo
+        var form = $(this);
+        
+        $.ajax({
+          url: form.attr('action'),
+          method: form.attr('method'),
+          data: form.serialize(),
+          success: function(response) {
+            $('#wrapper_post').html(response);
+            $('#cercacitta').val(cercacittaValue);
+            $('#cercalingua').val(cercaLinguaValue);
+          }
+        });
+      });
     });
-  });
-});
-</script>
+    </script>
 
+
+<!-- PRELEVO LA POSIZIONE ATTUALE DELLA GUIDA -->
+<!-- Da togliere -->
 <script>
-/*da togliere da qua */
 function init_position() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {

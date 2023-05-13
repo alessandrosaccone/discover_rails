@@ -74,22 +74,22 @@ Feature: Modify user reviews A-M
     i want to modify my review Guide tabs
     so that ???
 16)
-Feature: Search guides by my position S-A
+Feature: Search guides by my position S-A =============FATTO============
     As a user
     i want to find guides by my position
     so that i can find them faster
 16 a)
-Feature: Search guides tabs by my position S-A
+Feature: Search guides tabs by my position S-A  ================FATTO===============
     As a user
     i want to find guides tabs by my position
     so that i can find them faster
 16 b)
-Feature: Search guides  by his position M-S-A
+Feature: Search guides  by his position M-S-A  ===================FATTO===============
     As a user
     i want to find guides by his position
     so that i can find them faster
 16 c)
-Feature: Search guides tabs by his position S-A-M
+Feature: Search guides tabs by his position S-A-M ================FATTO===============
     As a user
     i want to find guides tabs by my position
     so that i can find them faster
@@ -104,7 +104,7 @@ Feature: Search tabs by towns A  ===============FATTA================
     i want to find guides by towns
     so that i can find them faster
 18)
-Feature: Booking a visit A
+Feature: Booking a visit A 
     As a user
     i want to book a tab
     so that i can visit the city descripted with my guide
@@ -201,10 +201,10 @@ Feature: forgotten email G
     I want to recuperate my email
     so that I can log in
 33)
-Feature: Search posts by Google Maps A 
+Feature: Search posts by Google Maps A ================FATTO===============
     As a user
-    i want to find guides using Google Maps
-    so that i can find them faster
+    i want to find posts using Google Maps
+    so that i can find the ones near to me and see them 
 35)
 Feature: Report Guides M
     as a user
@@ -216,7 +216,7 @@ Feature: Report Users M
     I want to be able to report other users
     so I can warn other guides
 37)
-Feature: Booking all seats A-S 
+Feature: Booking all seats A-S ===============FATTO=============
     As a user
     i want to book all seats for guide's tab
     so that i can go there with only my friends or alone

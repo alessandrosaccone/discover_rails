@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[ show edit update destroy ], except: [:all]
 
+  
   skip_before_action :verify_authenticity_token
   # GET /posts
   def index
@@ -93,6 +94,11 @@ class PostsController < ApplicationController
       render json: { price: @price }
     end
   end
+
+  def all
+    @posts = Post.all
+    render json: @posts 
+  end 
 
   private
     # Use callbacks to share common setup or constraints between actions.
