@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_173941) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_162026) do
+  create_table "bookings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "stripe_charge_id"
+    t.boolean "refunded", default: false, null: false
+    t.integer "num_pers"
+    t.index ["post_id"], name: "index_bookings_on_post_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "region"
     t.string "name"
@@ -77,6 +89,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_173941) do
     t.integer "numero_ore"
     t.integer "persone_rimanenti"
     t.string "user_email"
+    t.integer "user_id"
+    t.string "address"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -105,6 +119,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_173941) do
     t.string "provider"
     t.string "uid"
     t.integer "city_id"
+    t.string "stripe_account_id"
     t.string "lat"
     t.string "long"
     t.index ["city_id"], name: "index_users_on_city_id"
@@ -113,6 +128,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_173941) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "bookings", "posts"
+  add_foreign_key "bookings", "users"
   add_foreign_key "cities", "countries"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"

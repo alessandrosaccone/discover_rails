@@ -6,6 +6,7 @@ class Ability
   def initialize(user)
     if user.tourist?
       can :read, :all
+      can :create, Booking
     end
     # Define abilities for the user here. For example:
     #

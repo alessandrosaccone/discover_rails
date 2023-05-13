@@ -6,13 +6,16 @@ class User < ApplicationRecord
          :timeoutable,:omniauthable, :omniauth_providers => [:facebook]
   belongs_to :role, :optional => true
   belongs_to :city, optional: true
-  has_many :posts, foreign_key: 'user_email', primary_key: 'email'
+  has_many :user_posts, foreign_key: 'user_email', primary_key: 'email', class_name: 'Post'
   has_many :messages
   has_and_belongs_to_many :conversations, dependent: :destroy
   has_and_belongs_to_many :languages, optional:true
   
 
-
+  has_many :bookings
+  has_many :booked_posts, through: :bookings, source: :post
+  
+  
   def tourist?
     role.name == 'Tourist'
   end
