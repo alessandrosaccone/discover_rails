@@ -1,6 +1,5 @@
 <% @posts.each_with_index do |post, index| %>
-  <% if (Time.now.strftime("%Y-%d-%m") < post.data.strftime("%Y-%d-%m")) %>
-    <% if (Time.now.strftime("%H:%M:%S") < post.ora.strftime("%H:%M:%S"))  %>
+  <% if ((Time.now.strftime("%Y-%d-%m") < post.data.strftime("%Y-%d-%m")) || ((Time.now.strftime("%H:%M:%S") < post.ora.strftime("%H:%M:%S")) && (Time.now.strftime("%Y-%d-%m") == post.data.strftime("%Y-%d-%m")))) %>
       <% if index.even? %>
         <ul class="cards">
       <% end %> 
@@ -33,5 +32,4 @@
       </ul>
       <% end %>
     <% end %>
-  <% end %>
 <% end %>
