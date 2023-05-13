@@ -6,8 +6,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts
-
  get 'conversations/show', to: 'conversations#show', as: 'conversation'
   resources :conversations do
     end
