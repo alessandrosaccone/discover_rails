@@ -35,6 +35,7 @@ Email:palumbosimone80@gmail.com
 password:AleSimMarGab123
 Per creare account guide si deve essere in test mode e lo si fa in connect. Si devono dare molte informazioni.
 Per ora solo Jacke Jacke va. Non so se con la commit cambierà.
+
 # Per gabriele
 
 Mi servirebbe che tu leggessi in script_guide.js il commento prima dell'ultima funzione. Sai tu dove implementare
@@ -44,3 +45,12 @@ commento in poi là)
 # Per alessandro
 
 togli da script_app.js
+
+# Per simone
+
+c'è una riga di codice commentata in posts/show.html.erb
+
+# Per Mario
+
+quando la guida compila la form per un post nella via ci deve essere un controllo che la viq esista di
+google maps

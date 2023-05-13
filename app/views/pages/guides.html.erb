@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag "application" %>
 <% end %>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0&callback=init_map" async defer></script>
+
+
 <div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg') %>')">
   <h1>Discover</h1>
   <p>Go ever wherever</p>
@@ -36,6 +39,13 @@
     <% end %>
   </div>
 </div>
+<button id="see_map" onclick="return see_map();">Let me see the map</button>
+
+  <div id="map_container" class="map_container">
+    <div id="mapDiv" class="map_class"></div>
+  </div>
+
+
 <section class="swiper mySwiper">
   <div class="swiper-wrapper" id="guides-wrapper">
   <%= render 'guides_results', guides: @guides %>
@@ -66,8 +76,7 @@
   }
   myfunction();
 </script>
-
-
+  
 <script>
 $(document).ready(function() {
   var cercaValue = '';

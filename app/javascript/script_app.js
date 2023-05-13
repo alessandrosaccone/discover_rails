@@ -1,3 +1,16 @@
+function geocodeAddress(address, callback) {
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({ address: address }, function (results, status) {
+    if (status === "OK") {
+      callback(results[0].geometry.location);
+    } else {
+      console.log(
+        "Geocode was not successful for the following reason: " + status
+      );
+    }
+  });
+}
+
 function init_map() {
   if (typeof google === "undefined") {
     setTimeout(init_map, 1000); // try again in 1 second
@@ -31,6 +44,13 @@ function init_map() {
           title: "Your location",
         });
 
+        marker.addListener("click", function () {
+          var infowindow = new google.maps.InfoWindow({
+            content: "Qui sei tu!",
+          });
+          infowindow.open(map, marker);
+        });
+
         map.setCenter(pos);
       },
       function (error) {
@@ -39,13 +59,39 @@ function init_map() {
     );
   }
 
-  $.get("/guide_users.json", function (guides) {
-    $.each(guides, function (index, guide) {
-      var marker = new google.maps.Marker({
-        position: { lat: parseFloat(guide.lat), lng: parseFloat(guide.long) },
-        map: map,
-        icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
-        title: guide.nome,
+  $.getJSON("/posts/all", function (posts) {
+    $.each(posts, function (index, post) {
+      var address = post.address;
+      geocodeAddress(address, function (location) {
+        console.log("location: " + location.lat());
+        console.log("location: " + location.lng());
+        var marker = new google.maps.Marker({
+          position: {
+            lat: parseFloat(location.lat()),
+            lng: parseFloat(location.lng()),
+          },
+          map: map,
+          icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+          title: post.titolo,
+        });
+
+        google.maps.event.addListener(marker, "click", function () {
+          var contentString =
+            '<div id="content">' +
+            "<h3>" +
+            post.titolo +
+            "</h3>" +
+            '<div id="bodyContent">' +
+            '<p><a href="/posts/' +
+            post.id +
+            '">See post</a></p>' +
+            "</div>" +
+            "</div>";
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString,
+          });
+          infowindow.open(map, marker);
+        });
       });
     });
   });
