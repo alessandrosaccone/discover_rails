@@ -38,3 +38,7 @@ gem "cancancan", "~> 3.5"
 gem 'omniauth-facebook'
 
 gem 'omniauth-rails_csrf_protection'
+
+gem 'stripe'
+
+gem 'figaro'

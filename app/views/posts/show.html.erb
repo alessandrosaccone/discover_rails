@@ -16,11 +16,33 @@
 <h3>Lingua: <%= @post.lingua %></h3><br>
 <h3>Data e ora: <%= @data %> <%= @ora %></h3><br>
 <h3>Numero di persone: <%= @post.persone_rimanenti %></h3><br>
-<%= form_for @post, id: dom_id(@post, :edit) do |f| %>
+<%= form_tag(new_booking_path, method: :get) do %>
+  <div class="field">
+    <%= label_tag :persone, "Persone" %>
+    <%= number_field_tag :persone , value=@post.persone_rimanenti, step: 1 %>
+  </div>
+  <div class="field">
+    <%= hidden_field_tag :post_id,value=@post.id %>
+  </div>
+  <% if can?(:create, Booking) %>
+  <% if @post.persone_rimanenti > 0 %>
+    <%= submit_tag "Prenota" %>
+  <% else %>
+    <span class="text-danger">Posti esauriti</span>
+    <% end %>
+  <%end%>
+<% end %>
+
+
+
+
+<!--
+Ma a che cosa serve se qui devi prenotare? Non capisco.
+ <%= form_for @post, id: dom_id(@post, :edit) do |f| %>
   <%= f.label :persone %>
   <%= f.number_field :persone, step: 1 %>
   <%= f.submit %>
-<% end %>
+<% end %> -->
 
 <% if @post.persone_rimanenti == @post.persone %>
   <button id="fill-form-button">Prenota una visita privata</button>
@@ -37,3 +59,5 @@
   <%= link_to "Back to posts", posts_path %>
 
 </div>
+
+
