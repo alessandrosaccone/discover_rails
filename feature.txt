@@ -201,7 +201,7 @@ Feature: forgotten email G
     I want to recuperate my email
     so that I can log in
 33)
-Feature: Search posts by Google Maps A
+Feature: Search posts by Google Maps A 
     As a user
     i want to find guides using Google Maps
     so that i can find them faster
