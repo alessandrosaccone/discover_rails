@@ -49378,6 +49378,9 @@ Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.2ms | Allocations: 2375)
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 20ac660 (aggiorno)
 Started GET "/app.html" for ::1 at 2023-05-13 12:34:38 +0200
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   
@@ -49429,6 +49432,7 @@ NoMethodError (undefined method `update' for nil:NilClass):
   
 app/controllers/guide_users_controller.rb:11:in `update_location'
 Started GET "/posts/1" for ::1 at 2023-05-13 12:35:26 +0200
+<<<<<<< HEAD
 =======
 Started GET "/posts/3" for ::1 at 2023-05-13 15:21:21 +0200
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
@@ -49472,6 +49476,8 @@ Completed 200 OK in 17ms (Views: 14.0ms | ActiveRecord: 0.7ms | Allocations: 223
 
 Started GET "/posts/1" for ::1 at 2023-05-13 15:21:31 +0200
 >>>>>>> Simone
+=======
+>>>>>>> 20ac660 (aggiorno)
 Processing by PostsController#show as HTML
   Parameters: {"id"=>"1"}
   [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
@@ -49481,6 +49487,9 @@ Processing by PostsController#show as HTML
   Rendering layout layouts/application.html.erb
   Rendering posts/show.html.erb within layouts/application
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 20ac660 (aggiorno)
   Rendered posts/_post.html.erb (Duration: 0.4ms | Allocations: 148)
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
   ↳ app/views/posts/show.html.erb:12
@@ -49608,6 +49617,7 @@ Started GET "/posts/1" for ::1 at 2023-05-13 12:36:17 +0200
 Processing by PostsController#show as HTML
   Parameters: {"id"=>"1"}
   [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+<<<<<<< HEAD
 =======
   Rendered posts/_post.html.erb (Duration: 0.1ms | Allocations: 15)
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
@@ -49637,6 +49647,8 @@ Processing by PostsController#show as HTML
   Parameters: {"id"=>"1"}
   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
 >>>>>>> Simone
+=======
+>>>>>>> 20ac660 (aggiorno)
   ↳ app/controllers/posts_controller.rb:100:in `set_post'
   [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   ↳ app/controllers/posts_controller.rb:39:in `show'
@@ -49646,6 +49658,9 @@ Processing by PostsController#show as HTML
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
   ↳ app/views/posts/show.html.erb:12
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 20ac660 (aggiorno)
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
   ↳ app/views/posts/show.html.erb:28
   [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
@@ -49780,6 +49795,7 @@ Started GET "/posts/3" for 127.0.0.1 at 2023-05-13 12:43:21 +0200
 Processing by PostsController#show as HTML
   Parameters: {"id"=>"3"}
   [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+<<<<<<< HEAD
 =======
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
   ↳ app/views/posts/show.html.erb:28
@@ -49802,12 +49818,17 @@ Processing by PostsController#show as HTML
   Parameters: {"id"=>"3"}
   [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
 >>>>>>> Simone
+=======
+>>>>>>> 20ac660 (aggiorno)
   ↳ app/controllers/posts_controller.rb:100:in `set_post'
   [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
   ↳ app/controllers/posts_controller.rb:39:in `show'
   Rendering layout layouts/application.html.erb
   Rendering posts/show.html.erb within layouts/application
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 20ac660 (aggiorno)
   Rendered posts/_post.html.erb (Duration: 2.3ms | Allocations: 148)
   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jacke@example.com"], ["LIMIT", 1]]
   ↳ app/views/posts/show.html.erb:12
@@ -50129,6 +50150,7 @@ Started GET "/posts/3" for 127.0.0.1 at 2023-05-13 12:46:09 +0200
 Processing by PostsController#show as HTML
   Parameters: {"id"=>"3"}
   [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+<<<<<<< HEAD
 =======
   Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 15)
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jacke@example.com"], ["LIMIT", 1]]
@@ -50273,12 +50295,17 @@ Processing by PostsController#show as HTML
   Parameters: {"id"=>"3"}
   [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
 >>>>>>> Simone
+=======
+>>>>>>> 20ac660 (aggiorno)
   ↳ app/controllers/posts_controller.rb:100:in `set_post'
   [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
   ↳ app/controllers/posts_controller.rb:39:in `show'
   Rendering layout layouts/application.html.erb
   Rendering posts/show.html.erb within layouts/application
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 20ac660 (aggiorno)
   Rendered posts/_post.html.erb (Duration: 1.4ms | Allocations: 139)
   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jacke@example.com"], ["LIMIT", 1]]
   ↳ app/views/posts/show.html.erb:12
@@ -50294,6 +50321,7 @@ Completed 200 OK in 60ms (Views: 49.3ms | ActiveRecord: 2.1ms | Allocations: 100
 Started GET "/posts/3/get_price?persone=1" for 127.0.0.1 at 2023-05-13 12:46:13 +0200
 Processing by PostsController#get_price as */*
   Parameters: {"persone"=>"1", "id"=>"3"}
+<<<<<<< HEAD
 =======
   Rendered posts/_post.html.erb (Duration: 0.5ms | Allocations: 139)
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jacke@example.com"], ["LIMIT", 1]]
@@ -50654,12 +50682,17 @@ Started GET "/posts/3/get_price?persone=11" for ::1 at 2023-05-13 15:46:53 +0200
 Processing by PostsController#get_price as */*
   Parameters: {"persone"=>"11", "id"=>"3"}
 >>>>>>> Simone
+=======
+>>>>>>> 20ac660 (aggiorno)
   [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
   ↳ app/controllers/posts_controller.rb:86:in `get_price'
 Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 541)
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 20ac660 (aggiorno)
 Started GET "/posts/3/get_price?persone=13" for 127.0.0.1 at 2023-05-13 12:46:13 +0200
 Processing by PostsController#get_price as */*
   Parameters: {"persone"=>"13", "id"=>"3"}
@@ -50669,6 +50702,7 @@ Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 542)
 
 
 Started GET "/posts/3/get_price?persone=1" for 127.0.0.1 at 2023-05-13 12:46:13 +0200
+<<<<<<< HEAD
 =======
 Started GET "/posts/3/get_price?persone=10" for ::1 at 2023-05-13 15:46:54 +0200
 Processing by PostsController#get_price as */*
@@ -50744,6 +50778,8 @@ Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 541)
 
 Started GET "/posts/3/get_price?persone=1" for ::1 at 2023-05-13 15:46:56 +0200
 >>>>>>> Simone
+=======
+>>>>>>> 20ac660 (aggiorno)
 Processing by PostsController#get_price as */*
   Parameters: {"persone"=>"1", "id"=>"3"}
   [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
@@ -50752,6 +50788,9 @@ Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 541)
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 20ac660 (aggiorno)
 Started GET "/bookings/new?persone=1&post_id=3&commit=Prenota" for 127.0.0.1 at 2023-05-13 12:46:15 +0200
 Processing by BookingsController#new as HTML
   Parameters: {"persone"=>"1", "post_id"=>"3", "commit"=>"Prenota"}
@@ -50768,6 +50807,7 @@ Completed 200 OK in 72ms (Views: 27.3ms | ActiveRecord: 2.5ms | Allocations: 206
 
 
 Started GET "/posts/3" for 127.0.0.1 at 2023-05-13 12:46:37 +0200
+<<<<<<< HEAD
 =======
 Started GET "/bookings/new?persone=1&post_id=3&commit=Prenota" for ::1 at 2023-05-13 15:46:58 +0200
 Processing by BookingsController#new as HTML
@@ -51919,6 +51959,8 @@ Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 541)
 
 Started GET "/posts/3" for ::1 at 2023-05-13 16:18:15 +0200
 >>>>>>> Simone
+=======
+>>>>>>> 20ac660 (aggiorno)
 Processing by PostsController#show as HTML
   Parameters: {"id"=>"3"}
   [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
@@ -51928,6 +51970,9 @@ Processing by PostsController#show as HTML
   Rendering layout layouts/application.html.erb
   Rendering posts/show.html.erb within layouts/application
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 20ac660 (aggiorno)
   Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 15)
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jacke@example.com"], ["LIMIT", 1]]
   ↳ app/views/posts/show.html.erb:12
@@ -52001,6 +52046,7 @@ Started GET "/posts/4/get_price?persone=1" for 127.0.0.1 at 2023-05-13 12:49:22 
 Processing by PostsController#get_price as */*
   Parameters: {"persone"=>"1", "id"=>"4"}
   [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+<<<<<<< HEAD
 =======
   Rendered posts/_post.html.erb (Duration: 0.7ms | Allocations: 139)
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jacke@example.com"], ["LIMIT", 1]]
@@ -52043,11 +52089,16 @@ Processing by PostsController#get_price as */*
   Parameters: {"persone"=>"8", "id"=>"3"}
   [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
 >>>>>>> Simone
+=======
+>>>>>>> 20ac660 (aggiorno)
   ↳ app/controllers/posts_controller.rb:86:in `get_price'
 Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 541)
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 20ac660 (aggiorno)
 Started GET "/posts/4/get_price?persone=13" for 127.0.0.1 at 2023-05-13 12:49:22 +0200
 Processing by PostsController#get_price as */*
   Parameters: {"persone"=>"13", "id"=>"4"}
@@ -52068,17 +52119,23 @@ Started GET "/posts/4/get_price?persone=14" for 127.0.0.1 at 2023-05-13 12:49:23
 Processing by PostsController#get_price as */*
   Parameters: {"persone"=>"14", "id"=>"4"}
   [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+<<<<<<< HEAD
 =======
 Started GET "/posts/3/get_price?persone=7" for ::1 at 2023-05-13 16:18:18 +0200
 Processing by PostsController#get_price as */*
   Parameters: {"persone"=>"7", "id"=>"3"}
   [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
 >>>>>>> Simone
+=======
+>>>>>>> 20ac660 (aggiorno)
   ↳ app/controllers/posts_controller.rb:86:in `get_price'
 Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 541)
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 20ac660 (aggiorno)
 Started GET "/posts" for 127.0.0.1 at 2023-05-13 12:50:22 +0200
 Processing by PostsController#index as HTML
   [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
@@ -55612,6 +55669,7 @@ Processing by PostsController#show as HTML
   Rendered posts/show.html.erb within layouts/application (Duration: 26.3ms | Allocations: 5486)
   Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 5556)
 Completed 500 Internal Server Error in 37ms (ActiveRecord: 1.0ms | Allocations: 6625)
+<<<<<<< HEAD
 =======
 Started GET "/posts/3/get_price?persone=6" for ::1 at 2023-05-13 16:18:18 +0200
 Processing by PostsController#get_price as */*
@@ -57225,6 +57283,8 @@ Processing by PostsController#show as HTML
   Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 6482)
 Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms | Allocations: 7558)
 >>>>>>> Simone
+=======
+>>>>>>> 20ac660 (aggiorno)
 
 
   
@@ -57241,6 +57301,9 @@ app/models/ability.rb:7:in `initialize'
 app/views/posts/show.html.erb:28
 app/views/posts/show.html.erb:20
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 20ac660 (aggiorno)
 Started GET "/users/sign_in" for 127.0.0.1 at 2023-05-13 16:50:08 +0200
 Processing by Users::SessionsController#new as HTML
   Rendering layout layouts/application.html.erb
@@ -58467,6 +58530,7 @@ Processing by BookingsController#new as HTML
   Rendered bookings/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1707)
   Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 3087)
 Completed 200 OK in 35ms (Views: 18.1ms | ActiveRecord: 0.9ms | Allocations: 6051)
+<<<<<<< HEAD
 =======
 Started GET "/bookings/new?persone=1&post_id=3&commit=Prenota" for ::1 at 2023-05-13 18:23:53 +0200
 Processing by BookingsController#new as HTML
@@ -62283,3 +62347,7 @@ Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-a
   ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
 An unauthorized connection attempt was rejected
 Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-13 22:13:55 +0200
+=======
+
+
+>>>>>>> 20ac660 (aggiorno)

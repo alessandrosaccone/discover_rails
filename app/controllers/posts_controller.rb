@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[ show edit update destroy ], except: [:all]
   before_action :authenticate_user!
-
+  
   skip_before_action :verify_authenticity_token
   # GET /posts
   def index
