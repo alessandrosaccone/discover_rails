@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_122337) do
-=======
 ActiveRecord::Schema[7.0].define(version: 2023_05_13_162026) do
->>>>>>> Simone
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
