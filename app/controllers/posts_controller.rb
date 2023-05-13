@@ -82,18 +82,6 @@ class PostsController < ApplicationController
     redirect_to posts_url, notice: "Post was successfully destroyed."
   end
 
-  def get_price
-    @post = Post.find(params[:id])
-    @price = ((@post.prezzo * @post.numero_ore) / @post.persone).to_i * params[:persone].to_i
-    if (@price.to_i <= 0) 
-      render json: { error: "Inserisci un numero positivo di persone" }, status: :unprocessable_entity
-    elsif (params[:persone].to_i>@post.persone_rimanenti)
-      render json: { error: "Inserisci un numero entro il limite di persone" }, status: :unprocessable_entity
-    else 
-      render json: { price: @price }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -102,6 +90,7 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
+    
       params.require(:post).permit(:title, :body, :published_at, :persone)
     end
 

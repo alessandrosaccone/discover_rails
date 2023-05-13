@@ -13,7 +13,6 @@
 #u3 = User.create({ name: 'Kev', email: 'kev@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', user_role: r2.id })
 #u4 = User.create({ name: 'Jack', email: 'jack@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 10})
 #u4 = User.create({ name: 'Jacke', email: 'jacke@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 10})
-#u5 = User.create({ name: 'Jackel', email: 'jackel@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 10, lat: 41.9079616, long: 12.514760})
 #l1=Language.create(name: "Francese")
 #l2=Language.create(name:"Italiano")
 #l3=Language.create(name:"Inglese")
@@ -21,14 +20,13 @@
 #c2=City.create(name: "Frosinone", region: "Lazio")
 
 #p1 = Post.create({ descrizione: 'Evviva la vita regaz', titolo: 'Visita al vaticansbro', data: '11/11/2023', ora: '10:00',
-#    lingua: 'Italiano', persone: '10', prezzo: '60', nomeC: 'Roma', regioneC: 'Lazio', nomeP: 'Roma', numero_ore: 3, user_email: 'sally@example.com'})
+#    lingua: 'Italiano', persone: '10', prezzo: '60', nomeC: 'Roma', regioneC: 'Lazio', nomeP: 'Roma', numero_ore: 3})
 #p2 = Post.create({ descrizione: 'Evviva la vita regaz2', titolo: 'Visita al vaticansbro2', data: '11/11/2024', ora: '10:00',
-#    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'sue@example.com'})
+#    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4})
 #p3 = Post.create({ descrizione: 'Evviva la vita regaz2', titolo: 'Visita al vaticansbro3', data: '11/06/2024', ora: '15:00',
-#    lingua: 'Inglese', persone: '8', prezzo: '50', nomeC: 'Napoli', regioneC: 'Campania', nomeP: 'Napoli', numero_ore: 2, user_email: 'jacke@example.com'})
+#    lingua: 'Inglese', persone: '8', prezzo: '50', nomeC: 'Napoli', regioneC: 'Campania', nomeP: 'Napoli', numero_ore: 2})
 #p4 = Post.create({ descrizione: 'Evviva la vita regaz2', titolo: 'Visita al vaticansbro4', data: '8/11/2024', ora: '10:00',
-#    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'jacke@example.com'})
+#    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4})
 #p5 = Post.create({ descrizione: 'Evviva la vita regaz2', titolo: 'Visita al vaticansbro4', data: '8/11/2024', ora: '10:00',
-#    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'sue@example.com'})
+#    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4})#
 
- 
