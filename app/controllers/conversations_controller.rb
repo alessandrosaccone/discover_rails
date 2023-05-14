@@ -7,9 +7,18 @@ class ConversationsController < ApplicationController
 
 
         #Controlliamo se tale conversazione già esiste
-        @conversation = Conversation.joins(:participants).where(
-            participants: { user_id: [@current_user.id, @guide_user.id]}
-        ).group("conversations.id").having("count(*) = 2").first_or_initialize
+        @participant = Participant.joins("JOIN participants as p2 on p2.conversation_id = participants.conversation_id").where(
+            :participants => {:user_id => current_user.id}).where(
+            :p2 => {:user_id => @guide_user.id}
+            ).first
+
+        #se non c'è si crea, altrimenti si prende il record dal db
+        if !@participant
+            @conversation = Conversation.new
+        else
+            @conversation = Conversation.find(@participant.conversation_id)
+        end
+        
         
         #mettiamo i partecipanti nel db se non ci sono già
         if @conversation.new_record?
