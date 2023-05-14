@@ -53,13 +53,15 @@ commento in poi là)
 
 togli da script_app.js
 
-# Per alessandro
-
-c'è una riga di codice commentata in posts/show.html.erb--> Ho visto il commento. Che devo fare?
-
 # Per simone
 
-c'è una riga di codice commentata in posts/show.html.erb
+1. c'è una riga di codice commentata in posts/show.html.erb
+   c'è una riga di codice commentata in posts/show.html.erb--> Ho visto il commento. Che devo fare?
+   Sai perché? Dicevo a te perché la form è tua, ed il mio submit non ha effetto... verifica se trovi il problema
+
+2. Per il price devi chiamare l'action "get_price" che sta in posts_controller.rb. Dovrebbe restituire in json il valore
+   di price. Se hai problemi copia la formula e crea un'action come "get_price_variable", così la ritorni sotto forma
+   di variabile.
 
 # Per Mario
 
