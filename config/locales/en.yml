@@ -30,4 +30,34 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  language_name:
+    english: "English"
+    italian: "Italian"
+    spanish: "Spanish"
+  one: |
+    Discover is an app that allows users to find a travel guide for the place they are staying or are planning to stay.
+    You can choose the place and find the most suitable expert, itinerary and price for you. Everything, in a more than simple way!
+    Thanks to the simplicity of the site and the rapid management of requests, finding the most suitable guide for you becomes very easy!
+    Start looking for the best route for your next experience right away!
+    We collaborate with industry experts and provide tools to allow a safe and fast result.
+    To begin you could log in or click on the "Visits" section at the top of the site. If you are interested in discovering our potential, however, keep scrolling!
+    You will be able to find out what makes us unique and therefore why choose us!
+    So, what do you think?
+
+  two: |
+    To start, you can choose to Login by clicking on "Login" above or go directly to the "Visits" section and search using the search bar or by searching for the alternatives automatically proposed by the site based on your current position. <br /> In front of you will have many cards published by tourist guides with title, description, date and time. As soon as you have found the card that best suits you, you can choose to book it by pressing the "Book" button at the bottom right of the card. <br /> You will be offered two types of price: the total price not yet divided by the number of components and an estimate of the price to pay if the visit reaches the maximum number of tourists. <br /> If you are the first to book, you can choose to have the service offered privately, completely covering the cost, which can be divided according to whether you are alone or in company! <br /> Otherwise you will be able to get to know the estimated price which could undergo small positive or negative variations depending on the availability of the group. <br /> Payment will be made only one day before the visit, within which limit it will no longer be possible to cancel the reservation. If, on the other hand, you are booking for the day itself, then you are sure you want to embark on your journey! So what are you waiting for to get started?
+
+  three: |
+    Our algorithm allows us to identify in the best possible way the best price currently on the market. We are also able to estimate possible short-term changes that could occur within a few hours, so as to warn you in time if the price of a flight is decreasing! <br /> What do you think, is that enough to start an adventure with us? Our algorithm allows us to identify in the best possible way the best price currently on the market. We are also able to estimate possible short-term changes that could occur within a few hours, so as to warn you in time if the price of a flight is decreasing! <br /> What do you think, is that enough to start an adventure with us?
+
+  visite: "Visits"
+
+  guide: "Guides"
+
+  logout: "Logout"
+
+  profilo: "Profile"
+
+  come_funziona: "How does it work"
+
+  soluzioni_moderne: "Modern solutions"
