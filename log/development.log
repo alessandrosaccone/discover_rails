@@ -62510,3 +62510,4 @@ Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.4ms | Allocations: 269
 =======
 >>>>>>> a4a38c1 (aggiorno)
 >>>>>>> main
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
