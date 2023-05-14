@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_14_121258) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_14_215423) do
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
@@ -33,6 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_14_121258) do
   end
 
   create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id", null: false
+    t.integer "recipient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -62,15 +64,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_14_121258) do
     t.datetime "updated_at", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
-  create_table "participants", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "conversation_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["conversation_id"], name: "index_participants_on_conversation_id"
-    t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -133,8 +126,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_14_121258) do
   add_foreign_key "cities", "countries"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
-  add_foreign_key "participants", "conversations"
-  add_foreign_key "participants", "users"
   add_foreign_key "posts", "users", column: "user_email", primary_key: "email"
   add_foreign_key "users", "cities"
   add_foreign_key "users", "roles"
