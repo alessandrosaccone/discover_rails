@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ], except: [:all]
 
-  
-  skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!, only: [:show]
   # GET /posts
   def index
     @posts = Post.where('data>= ?', Date.today)
