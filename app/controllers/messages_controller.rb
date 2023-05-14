@@ -23,6 +23,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user = current_user
+    @message.conversation_id = session[:current_conversation]
 
     if @message.save
       redirect_to request.referrer
