@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
     @post = Post.find(params[:post_id])
     @booking = Booking.new(post: @post)
     @num_pers = params[:persone].to_i
+    @price = ((@post.prezzo * @post.numero_ore) / @post.persone).to_i * params[:persone].to_i
   end
 
   #da finire-aspetto Mario Reda

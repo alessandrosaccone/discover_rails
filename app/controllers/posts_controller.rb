@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   # GET /posts
   def index
+    @posts = Post.where('data>= ?', Date.today)
+    @posts=@posts.where('persone_rimanenti>0')
     citta = params[:citta]
     lingua = params[:lingua]
     if (citta.present? && lingua.present?)
