@@ -29,8 +29,8 @@
     <div class="navheader_general" id="navbar_app">
         <nav class="navbar">
             <a href="<%= home_pages_path %>">Home</a>
-            <%= link_to 'Visite', posts_path %>
-            <%= link_to 'Guide', guides_path %>
+            <%= link_to t('visite'), posts_path %>
+            <%= link_to t('guide'), guides_path %>
             <%if !user_signed_in?%>
                 <a href="<%= new_user_session_path() %>">Login</a>
             <%end%>
@@ -77,8 +77,8 @@
         <div class="search_container" id="search">
         <%= form_with(url: url_for(controller: 'posts', action: 'index'), method: 'get', id: 'myform', data: { remote: true }) do |form| %>
             <div class="search-bar_center">
-              <%= text_field_tag(:citta, nil, placeholder: 'Citta...',id: 'cercacitta') %>
-              <%= text_field_tag(:lingua, nil, placeholder: 'Lingua...',id: 'cercalingua') %>
+              <%= text_field_tag(:citta, nil, placeholder: t('citta'),id: 'cercacitta') %>
+              <%= text_field_tag(:lingua, nil, placeholder: t('lingua'),id: 'cercalingua') %>
             </div>
             <%= submit_tag '' %>
           <% end %>

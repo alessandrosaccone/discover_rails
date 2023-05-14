@@ -1,7 +1,7 @@
 <% @posts.each_with_index do |post, index| %>
   <% if post.persone_rimanenti != 0 %>
   <% if ((Time.now.strftime("%Y-%d-%m") < post.data.strftime("%Y-%d-%m")) || ((Time.now.strftime("%H:%M:%S") < post.ora.strftime("%H:%M:%S")) && (Time.now.strftime("%Y-%d-%m") == post.data.strftime("%Y-%d-%m")))) %>
-      <% if index.odd? %>
+      <% if index.even? %>
         <ul class="cards">
       <% end %> 
       <li class='card'>
@@ -31,7 +31,7 @@
               <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
           </div>
           </li> 
-            <% if index.even? || index == @posts.size - 1 %>
+            <% if index.odd? || index == @posts.size - 1 %>
       </ul>
       <% end %>
     <% end %>

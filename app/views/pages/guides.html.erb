@@ -15,8 +15,8 @@
 <div class="navheader_general" id="navbar">
   <nav class="navbar">
     <a href="<%= home_pages_path %>">Home</a>
-    <%= link_to 'Visite', posts_path %>
-    <%= link_to 'Guide', guides_path %>
+    <%= link_to t('visite'), posts_path %>
+    <%= link_to t('guide'), guides_path %>
     <% if !user_signed_in? %>
       <a href="<%= new_user_session_path() %>">Login</a>
     <% end %>
@@ -24,16 +24,20 @@
       <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
     <% end %>
     <a href="bacheca.html">Profilo</a>
+    <%= form_tag switch_language_path, method: :post do %>
+    <%= select_tag :language, options_for_select(language_options, I18n.locale.to_s) %>
+    <%= submit_tag 'Switch Language' %>
+    <% end %>
   </nav>
 </div>
 <div class="container-search">
   <div class="search_container" id="search">
     <%= form_with(url: url_for(controller: 'pages', action: 'guides'), method: 'post', id: 'myform', data: { remote: true }) do |form| %>
       <div class="search-bar_center">
-        <%= text_field_tag(:nome, nil, placeholder: 'Nome...', id: 'cerca') %>
-        <%= text_field_tag(:citta, nil, placeholder: 'Città...', id: 'cercacitta') %>
-        <%= text_field_tag(:linguaggio, nil, placeholder: 'Lingua...', id: 'cercalingua') %>
-        <%= text_field_tag(:nazione, nil, placeholder: 'Nazione...', id: 'cercanazione') %>
+        <%= text_field_tag(:nome, nil, placeholder: t('nome'), id: 'cerca') %>
+        <%= text_field_tag(:citta, nil, placeholder: t('città'), id: 'cercacitta') %>
+        <%= text_field_tag(:linguaggio, nil, placeholder: t('lingua'), id: 'cercalingua') %>
+        <%= text_field_tag(:nazione, nil, placeholder: t('nazione'), id: 'cercanazione') %>
       </div>
       
     <% end %>
