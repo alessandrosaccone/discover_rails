@@ -104,7 +104,7 @@ Feature: Search tabs by towns A  ===============FATTA================
     i want to find guides by towns
     so that i can find them faster
 18)
-Feature: Booking a visit A 
+Feature: Booking a visit A ================FATTA==============
     As a user
     i want to book a tab
     so that i can visit the city descripted with my guide
@@ -124,7 +124,7 @@ Feature: Delete message in Chat system G
     i want to delete my messages
     so that they cannot be seen
 22)
-Feature: Change language S-G-M-A
+Feature: Change language S-G-M-A ================FINITO=================
     As a user or guide
     i want to change language
     so that I can understand what is written on the site
