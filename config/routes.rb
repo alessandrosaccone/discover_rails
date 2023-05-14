@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   resources :roles
   resources :bookings
 
-  get 'send_email', to: 'email#send_email'
+  post '/send_email', to: 'email#send_email', as: 'send_email'
+
 
   resources :guide_users do
     get 'update_location', on: :collection
