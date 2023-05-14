@@ -2,6 +2,26 @@
   position: fixed;
   bottom: 0;
   width: 90%;
+  padding: 15px;
+}
+
+form textarea {
+  height: 41px;
+  width: calc(100%-15px);
+  resize: none;
+}
+
+.data-msg {
+  font-size: x-small;
+}
+
+.btn-form {
+  background-color: blue;
+  color: white;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  padding: 15px;
+  position: absolute;
 }
 
 .col-md-10 {
@@ -12,6 +32,10 @@
 .msg-content {
   width: 80%;
   margin-right: 5px;
+}
+
+.msgs-container {
+  display: flex;
 }
 
 .message-box {

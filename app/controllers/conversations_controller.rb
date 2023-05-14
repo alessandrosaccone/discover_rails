@@ -3,22 +3,25 @@ class ConversationsController < ApplicationController
     def show
         #Cerchiamo gli utenti della conversazione
         @current_user = current_user
-        @guide_user = params[:guide_user]
+        @guide_user = User.find_by(email: params[:guide_email])
+
 
         #Controlliamo se tale conversazione già esiste
-        @conversation = Conversation.join(:participants).where(
+        @conversation = Conversation.joins(:participants).where(
             participants: { user_id: [@current_user.id, @guide_user.id]}
         ).group("conversations.id").having("count(*) = 2").first_or_initialize
         
         #mettiamo i partecipanti nel db se non ci sono già
-        if conversation.new_record?
-            conversation.save
+        if @conversation.new_record?
+            @conversation.save
             [@current_user.id, @guide_user.id].each do |user|
-                conversation.participants.create(user: user)
+                @conversation.participants.create(user_id: user)
             end
         end
 
-        @messages = conversation.messages
+        @messages = @conversation.messages
+
+        
 
     end
 end

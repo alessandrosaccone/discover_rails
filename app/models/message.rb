@@ -1,8 +1,4 @@
 class Message < ApplicationRecord
+  belongs_to :user
   belongs_to :conversation
-  belongs_to :sender, class_name: :User, foreign_key: 'sender_email'
-
-  validates_presence_of :content
-
-  after_create_commit { MessageBroadcastJob.perform_later(self) }
 end
