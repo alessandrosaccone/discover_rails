@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
   # GET /posts
   def index
+    @posts = Post.where('data>= ?', Date.today)
+    @posts=@posts.where('persone_rimanenti>0')
     citta = params[:citta]
     lingua = params[:lingua]
     if (citta.present? && lingua.present?)

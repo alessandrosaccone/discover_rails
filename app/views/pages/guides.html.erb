@@ -35,7 +35,7 @@
     <%= form_with(url: url_for(controller: 'pages', action: 'guides'), method: 'post', id: 'myform', data: { remote: true }) do |form| %>
       <div class="search-bar_center">
         <%= text_field_tag(:nome, nil, placeholder: t('nome'), id: 'cerca') %>
-        <%= text_field_tag(:citta, nil, placeholder: t('città'), id: 'cercacitta') %>
+        <%= text_field_tag(:citta, nil, placeholder: t('citta'), id: 'cercacitta') %>
         <%= text_field_tag(:linguaggio, nil, placeholder: t('lingua'), id: 'cercalingua') %>
         <%= text_field_tag(:nazione, nil, placeholder: t('nazione'), id: 'cercanazione') %>
       </div>
