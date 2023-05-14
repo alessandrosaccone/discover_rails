@@ -1,7 +1,0 @@
-
-<div class="msg-form">
-<%=form_with(model: message,class: "d-flex", remote: true) do |f|%>
-    <%=f.text_field :content, id: 'chat-text', class: "form-control msg-content", autocomplete: 'off' %>
-    <%=f.submit data: {disable_with :false}, class: 'btn btn-primary'%>
-<%end%>
-</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_173941) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_14_121258) do
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
@@ -55,9 +55,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_173941) do
   end
 
   create_table "messages", force: :cascade do |t|
+    t.text "body"
     t.integer "user_id", null: false
     t.integer "conversation_id", null: false
-    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"

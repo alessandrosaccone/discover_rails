@@ -1,0 +1,14 @@
+<div id="<%= dom_id message %>">
+  <% if message.user_id == current_user.id %>
+    <div class="message-box my-message">
+      <p class='msg-content'><%= message.body %></p>
+      <p class='data-msg'><%= message.created_at %></p>
+    </div>
+  <% else %>
+    <div class="message-box not-my-message">
+      <p class='msg-content'><%= message.body %></p>
+      <p class='data-msg'><%= message.created_at %></p>
+    </div>
+  <% end %>
+
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   resources :posts do 
     collection do
       get 'all', to: 'posts#all'
@@ -6,9 +7,10 @@ Rails.application.routes.draw do
   end
 
   resources :posts
+
+ get 'conversations/show', to: 'conversations#show', as: 'conversation'
   resources :conversations do
-    resources :messages
-  end
+    end
   
   resources :posts do 
     member do
