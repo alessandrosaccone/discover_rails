@@ -4,6 +4,12 @@ Rails.application.routes.draw do
       get 'all', to: 'posts#all'
     end
   end
+
+  resources :posts
+  resources :conversations do
+    resources :messages
+  end
+  
   resources :posts do 
     member do
       get 'get_price'
@@ -19,7 +25,11 @@ Rails.application.routes.draw do
   resources :guide_users do
     get 'update_location', on: :collection
   end
-
+  resources :bookings do
+    member do
+      post 'refund'
+    end
+  end
 
 
   devise_for :users, :controllers => 

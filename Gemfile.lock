@@ -154,6 +154,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.7)
+    rack-cors (2.0.1)
+      rack (>= 2.0.0)
     rack-protection (3.0.6)
       rack
     rack-test (2.1.0)
@@ -185,6 +187,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.8.1)
     reline (0.3.3)
       io-console (~> 0.5)
     responders (3.1.0)
@@ -220,6 +223,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actioncable (~> 7.0)
   cancancan (~> 3.5)
   debug
   devise (~> 4.9)
@@ -229,7 +233,9 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-rails_csrf_protection
   puma (~> 5.0)
+  rack-cors
   rails (~> 7.0.4, >= 7.0.4.3)
+  redis (~> 4.0)
   sprockets-rails
   sqlite3 (~> 1.4)
   stripe

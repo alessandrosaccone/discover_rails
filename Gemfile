@@ -28,6 +28,9 @@ group :development do
   # gem "spring"
 end
 
+# Use Redis adapter to run Action Cable in production
+gem "redis", "~> 4.0"
+
 
 gem "importmap-rails", "~> 1.1"
 
@@ -43,3 +46,7 @@ gem 'stripe'
 
 gem 'figaro'
 gem 'google-cloud-translate'
+
+
+gem 'rack-cors'
+gem "actioncable", "~> 7.0"

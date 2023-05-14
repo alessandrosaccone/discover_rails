@@ -11,6 +11,7 @@ class GuideUsersController < ApplicationController
         current_user.update(lat: params[:lat], long: params[:lng])
         render json: { success: true }
     end
-        
+
+   
 end
         

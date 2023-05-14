@@ -10,12 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_122337) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_173941) do
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "stripe_charge_id"
+    t.boolean "refunded", default: false, null: false
+    t.integer "num_pers"
     t.index ["post_id"], name: "index_bookings_on_post_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -27,6 +30,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_122337) do
     t.datetime "updated_at", null: false
     t.integer "country_id"
     t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "countries", force: :cascade do |t|
@@ -44,6 +52,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_122337) do
   create_table "languages_users", id: false, force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "language_id", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "conversation_id", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "conversation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_participants_on_conversation_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -92,9 +119,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_122337) do
     t.string "provider"
     t.string "uid"
     t.integer "city_id"
-    t.string "stripe_account_id"
     t.string "lat"
     t.string "long"
+    t.string "stripe_account_id"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -104,6 +131,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_122337) do
   add_foreign_key "bookings", "posts"
   add_foreign_key "bookings", "users"
   add_foreign_key "cities", "countries"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
+  add_foreign_key "participants", "conversations"
+  add_foreign_key "participants", "users"
   add_foreign_key "posts", "users", column: "user_email", primary_key: "email"
   add_foreign_key "users", "cities"
   add_foreign_key "users", "roles"

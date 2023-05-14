@@ -9,3 +9,5 @@ pin "swiper",to: "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js", pre
 pin "script_guide",to:"script_guide.js"
 
 
+pin "@rails/actioncable", to: "actioncable.esm.js"
+pin_all_from "app/javascript/channels", under: "channels"

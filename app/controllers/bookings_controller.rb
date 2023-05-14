@@ -5,22 +5,36 @@ class BookingsController < ApplicationController
     authorize! :create, Booking
     @post = Post.find(params[:post_id])
     @booking = Booking.new(post: @post)
-    @num_pers=params[:persone].to_i
+    @num_pers = params[:persone].to_i
   end
-  
+
+  #da finire-aspetto Mario Reda
+  def refund
+    @booking = Booking.find(params[:id])
+    if @booking.refund_payment
+      post = Post.find(@booking.post_id)
+      num_pers = @booking.num_pers
+      redirect_to @booking.post, notice: 'Prenotazione cancellata con successo e rimborso effettuato.'
+    else
+      redirect_to @booking.post, notice: 'Impossibile elaborare il rimborso.'
+    end
+  end
+
   def create
     @booking = current_user.bookings.build(booking_params)
-    num_pers=params[:booking][:num_pers].to_i
+    num_pers = params[:booking][:num_pers].to_i
+    @booking.num_pers=num_pers
     post = Post.find(@booking.post_id)
-    if post.persone_rimanenti >0
+    
+    if post.persone_rimanenti > 0
       if @booking.save_with_payment
         post.update(persone_rimanenti: post.persone_rimanenti - num_pers)
         redirect_to @booking.post, notice: 'Prenotazione effettuata con successo.'
       else
-        render 'posts/show'
+        redirect_to @booking.post,notice: @booking.errors.full_messages.join('. ')
       end
     else
-      render 'posts/show', alert: 'Posti esauriti per questa prenotazione.'
+      redirect_to @booking.post, notice: 'Posti Esauriti.'
     end
   end
 
