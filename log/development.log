@@ -54973,3 +54973,153 @@ Processing by BookingsController#new as HTML
 Completed 200 OK in 35ms (Views: 18.1ms | ActiveRecord: 0.9ms | Allocations: 6051)
 
 
+Started GET "/" for 127.0.0.1 at 2023-05-14 15:08:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 254.8ms | Allocations: 38438)
+  Rendered layout layouts/application.html.erb (Duration: 275.3ms | Allocations: 44401)
+Completed 200 OK in 309ms (Views: 288.3ms | ActiveRecord: 0.0ms | Allocations: 49316)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-05-14 15:08:08 +0200
+  
+LoadError (cannot load such file -- signet/oauth_2/client):
+  
+app/controllers/posts_controller.rb:103:in `<class:PostsController>'
+app/controllers/posts_controller.rb:1:in `<top (required)>'
+Started GET "/posts" for 127.0.0.1 at 2023-05-14 15:08:34 +0200
+  
+LoadError (cannot load such file -- signet/oauth_2/client):
+  
+app/controllers/posts_controller.rb:1:in `<top (required)>'
+Started GET "/app.html" for ::1 at 2023-05-14 15:14:47 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/app.html"):
+  
+Started GET "/" for ::1 at 2023-05-14 15:14:50 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 21.0ms | Allocations: 4626)
+  Rendered layout layouts/application.html.erb (Duration: 40.3ms | Allocations: 10551)
+Completed 200 OK in 55ms (Views: 43.5ms | Allocations: 13372)
+
+
+Started GET "/posts" for ::1 at 2023-05-14 15:14:51 +0200
+  
+LoadError (cannot load such file -- signet/oauth_2/client):
+  
+app/controllers/posts_controller.rb:1:in `<top (required)>'
+Started GET "/posts" for ::1 at 2023-05-14 15:15:01 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:22:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 59.5ms | Allocations: 7196)
+  Rendered layout layouts/application.html.erb (Duration: 60.3ms | Allocations: 7264)
+Completed 500 Internal Server Error in 171ms (ActiveRecord: 5.6ms | Allocations: 36997)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `translate_path' for #<ActionView::Base:0x0000000001ad60>
+Did you mean?  translate):
+    47:     </div>
+    48: 
+    49:     <!-- Translation: 
+    50:       <%= form_with url: translate_path do |f| %>
+    51:       <%= f.hidden_field :referrer, value: request.referrer %>
+    52:       <%= f.submit "Translate" %>
+    53:       <% end %>
+  
+app/views/posts/index.html.erb:50
+app/controllers/posts_controller.rb:34:in `block (2 levels) in index'
+app/controllers/posts_controller.rb:33:in `index'
+Started GET "/posts" for ::1 at 2023-05-14 15:15:20 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:22:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 54.3ms | Allocations: 7130)
+  Rendered layout layouts/application.html.erb (Duration: 55.0ms | Allocations: 7197)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.4ms | Allocations: 9008)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `translate_path' for #<ActionView::Base:0x0000000001aef0>
+Did you mean?  translate):
+    47:     </div>
+    48: 
+    49:     <!-- Translation: 
+    50:       <%= form_with url: translate_path do |f| %>
+    51:       <%= f.hidden_field :referrer, value: request.referrer %>
+    52:       <%= f.submit "Translate" %>
+    53:       <% end %>-->
+  
+app/views/posts/index.html.erb:50
+app/controllers/posts_controller.rb:34:in `block (2 levels) in index'
+app/controllers/posts_controller.rb:33:in `index'
+Started GET "/posts" for ::1 at 2023-05-14 15:15:36 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:22:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 54.5ms | Allocations: 7095)
+  Rendered layout layouts/application.html.erb (Duration: 55.4ms | Allocations: 7162)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.5ms | Allocations: 8976)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `translate_path' for #<ActionView::Base:0x0000000001b058>
+Did you mean?  translate):
+    46:         </nav>
+    47:     </div>
+    48: 
+    49:     <!-- Translation:  <%= form_with url: translate_path do |f| %><%= f.hidden_field :referrer, value: request.referrer %><%= f.submit "Translate" %><% end %>-->
+    50: 
+    51:     <!-- deleting the "home" from the navbar while using a mobile device -->
+    52:    
+  
+app/views/posts/index.html.erb:49
+app/controllers/posts_controller.rb:34:in `block (2 levels) in index'
+app/controllers/posts_controller.rb:33:in `index'
+Started GET "/posts" for ::1 at 2023-05-14 15:15:53 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:22:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_posts_results.html.erb (Duration: 12.7ms | Allocations: 2963)
+  Rendered posts/index.html.erb within layouts/application (Duration: 45.2ms | Allocations: 10629)
+  Rendered layout layouts/application.html.erb (Duration: 65.1ms | Allocations: 16247)
+Completed 200 OK in 118ms (Views: 70.4ms | ActiveRecord: 3.1ms | Allocations: 28262)
+
+
+Started GET "/guide_users/update_location?lat=41.2589005&lng=13.6015576" for ::1 at 2023-05-14 15:15:54 +0200
+Processing by GuideUsersController#update_location as */*
+  Parameters: {"lat"=>"41.2589005", "lng"=>"13.6015576"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 907)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/guide_users_controller.rb:11:in `update_location'
+Started GET "/posts/all" for ::1 at 2023-05-14 15:15:54 +0200
+Processing by PostsController#all as JSON
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:102:in `all'
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.4ms | Allocations: 3186)
+
+
+Started GET "/posts/all" for ::1 at 2023-05-14 15:15:54 +0200
+Processing by PostsController#all as JSON
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:102:in `all'
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.4ms | Allocations: 2699)
+
+
