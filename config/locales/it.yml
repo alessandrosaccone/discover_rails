@@ -1,0 +1,28 @@
+it:
+  one: |
+    Discover è un'app che consente agli utenti di trovare una guida turistica per il posto in cui soggiornano o in cui avranno intenzione di farlo.
+    Puoi scegliere il luogo e trovare l'esperto, l'itinerario ed il prezzo più adatti per te. Tutto, in maniera più che semplice!
+    Grazie alla semplicità del sito ed alla gestione rapida delle richieste trovare la guida più adatta a te diventa facilissimo!
+    Inizia subito a cercare il miglior percorso per vivere la tua prossima esperienza!
+    Collaboriamo con esperti del settore e provvediamo strumenti per permettere un risultato sicuro e veloce.
+    Per cominciare potresti effettuare il Login oppure cliccare sulla sezione "Visite" presente in alto nel sito. Se sei interessato a scoprire le nostre potenzialità, invece, continua a scorrere!
+    Potrai scoprire cosa ci rende unici e quindi il motivo per cui sceglierci!
+    Allora, che ne dici?
+
+  two: |
+    Per iniziare, puoi scegliere di effettuare il Login cliccando su "Login" in alto oppure andare direttamente nella sezione "Visite" ed effettuare la ricerca mediante la barra di ricerca posta oppure cercando le alternative proposte automaticamente dal sito in base alla tua attuale posizione. <br /> Davanti a te avrai molte schede pubblicate da guide turistiche con titolo, descrizione, data ed orario. Appena avrai trovato la scheda più adatta a te potrai scegliere di prenotarla premendo il bottone "Prenota" in basso a destra della scheda. <br /> Ti saranno proposti due tipologie di prezzo: il prezzo totale non ancora diviso per il numero di componenti ed una stima del prezzo da pagare nel caso la visita raggiunga il tetto massimo di turisti. <br /> Se sei il primo a prenotarti potrai scegliere di avere il servizio offerto privatamente ricoprendone completamente il costo, divisibile a seconda che sei solo o in compagnia! <br /> Altrimenti potrai venire a conoscenza del prezzo stimato che potrebbe subire piccole variazioni in positivo o in negativo a seconda della disponibilità del gruppo. <br /> Il pagamento avverrà solo un giorno prima della visita, limite entro cui non sarà più possibile annullare la prenotazione. Se invece ti stai prenotando per il giorno stesso, allora sei sicuro di voler intraprendere il tuo viaggio! Allora che aspetti per iniziare?
+
+  three: |
+    Il nostro algoritmo ci permette di identificare nel miglior modo possibile il miglior prezzo attualmente presente sul mercato. Siamo anche in grado di stimare nel breve termine possibili variazioni che potrebbero sopraggiungere nel giro di qualche ora, così da avvisarti in tempo nel caso il prezzo di un volo stia diminuendo! <br /> Che dici, è abbastanza per cominiciare un'avventura con noi? Il nostro algoritmo ci permette di identificare nel miglior modo possibile il miglior prezzo attualmente presente sul mercato. Siamo anche in grado di stimare nel breve termine possibili variazioni che potrebbero sopraggiungere nel giro di qualche ora, così da avvisarti in tempo nel caso il prezzo di un volo stia diminuendo! <br /> Che dici, è abbastanza per cominiciare un'avventura con noi?
+
+  visite: "Visite"
+
+  guide: "Guide"
+
+  logout: "Logout"
+
+  profilo: "Profilo"
+
+  come_funziona: "Come funziona"
+
+  soluzioni_moderne: "Soluzioni moderne"

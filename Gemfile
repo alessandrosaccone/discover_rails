@@ -45,8 +45,6 @@ gem 'omniauth-rails_csrf_protection'
 gem 'stripe'
 
 gem 'figaro'
-gem 'google-cloud-translate'
-
 
 gem 'rack-cors'
 gem "actioncable", "~> 7.0"

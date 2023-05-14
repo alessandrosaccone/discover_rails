@@ -33,23 +33,26 @@ myfunction();
 <div class="navheader" id="navbar">
     <nav class="navbar">
         <a href="#">Home</a>
-        <%=link_to "Visite", posts_path%>
-        <%= link_to 'Guide', guides_path %>
+        <%=link_to t('visite'), posts_path%>
+        <%= link_to t('guide'), guides_path %>
         <%if !user_signed_in?%>
             <a href="<%= new_user_session_path() %>">Login</a>
         <%end%>
         <%if user_signed_in?%>
-            <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
-            <%=link_to "Profilo", :method => :get%>
+            <%=link_to t('logout'), destroy_user_session_path, :method => :delete %>
+            <%=link_to t('profilo'), :method => :get%>
         <%end%>
-
+        <%= form_tag switch_language_path, method: :post do %>
+        <%= select_tag :language, options_for_select(language_options, I18n.locale.to_s) %>
+        <%= submit_tag 'Switch Language' %>
+        <% end %>
     </nav>
 </div>
 
 <div class="container">
 <div class="sec2 sections">
 <div class="image1">
-    ì<%= image_tag "ROMA.png", class: 'image' %>ì
+    <%= image_tag "ROMA.png", class: 'image' %>
     <div class="middle">
     <div class="text1">Castel Sant'Angelo</div>
     </div>
@@ -58,23 +61,7 @@ myfunction();
     <div class="text">
     <p class="title">Discover</p>
     <p class="description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Nunc molestie purus eu maximus laoreet. Praesent tempor lectus ac pretium consequat. 
-        Pellentesque sit amet feugiat augue. Cras iaculis ipsum sed augue rutrum tempor. 
-        Vestibulum mauris nunc, lobortis blandit ornare et, ornare in elit. 
-        Ut pharetra ex lectus, id ultricies purus iaculis at. 
-        Aenean laoreet gravida ex, non volutpat magna condimentum at. 
-        Nam mi dolor, laoreet id laoreet eget, ultricies sit amet odio. Sed euismod auctor mi vel iaculis. 
-        Etiam non diam sed eros facilisis ullamcorper vel ut orci. 
-        Pellentesque augue leo, commodo vitae fermentum sed, pulvinar et sem. 
-        Cras luctus lorem fringilla enim ultricies commodo. Suspendisse potenti. 
-        Nulla a nibh viverra, venenatis enim nec, iaculis urna.
-        Aenean laoreet gravida ex, non volutpat magna condimentum at. 
-        Nam mi dolor, laoreet id laoreet eget, ultricies sit amet odio. Sed euismod auctor mi vel iaculis. 
-        Etiam non diam sed eros facilisis ullamcorper vel ut orci. 
-        Pellentesque augue leo, commodo vitae fermentum sed, pulvinar et sem. 
-        Cras luctus lorem fringilla enim ultricies commodo. Suspendisse potenti. 
-        Nulla a nibh viverra, venenatis enim nec, iaculis urna.
+       <%= t('one') %>
     </p>
     </div>
 </div>
@@ -83,32 +70,9 @@ myfunction();
 <div class="sec1 sections">
 <div class="section_container reveal">
     <div class="text">
-    <p class="title">Come funziona</p>
+    <p class="title"><%=t('come_funziona')%></p>
     <p class="description">
-        Per iniziare, puoi scegliere di effettuare il Login cliccando su
-        "Login" in alto oppure andare direttamente nella sezione "Visite"
-        ed effettuare la ricerca mediante la barra di ricerca posta oppure
-        cercando le alternative proposte automaticamente dal sito in base
-        alla tua attuale posizione. <br />
-        Davanti a te avrai molte schede pubblicate da guide turistiche con
-        titolo, descrizione, data ed orario. Appena avrai trovato la
-        scheda più adatta a te potrai scegliere di prenotarla premendo il
-        bottone "Prenota" in basso a destra della scheda. <br />
-        Ti saranno proposti due tipologie di prezzo: il prezzo totale non
-        ancora diviso per il numero di componenti ed una stima del prezzo
-        da pagare nel caso la visita raggiunga il tetto massimo di
-        turisti. <br />
-        Se sei il primo a prenotarti potrai scegliere di avere il servizio
-        offerto privatamente ricoprendone completamente il costo,
-        divisibile a seconda che sei solo o in compagnia! <br />
-        Altrimenti potrai venire a conoscenza del prezzo stimato che
-        potrebbe subire piccole variazioni in positivo o in negativo a
-        seconda della disponibilità del gruppo. <br />
-        Il pagamento avverrà solo un giorno prima della visita, limite
-        entro cui non sarà più possibile annullare la prenotazione. Se
-        invece ti stai prenotando per il giorno stesso, allora sei sicuro
-        di voler intraprendere il tuo viaggio! Allora che aspetti per
-        iniziare?
+       <%= t('two') %>
     </p>
     </div>
 </div>
@@ -128,22 +92,9 @@ myfunction();
 </div>
 <div class="section_container reveal">
     <div class="text">
-    <p class="title">Soluzioni Moderne</p>
+    <p class="title"><%=t('soluzioni_moderne')%></p>
     <p class="description">
-        Il nostro algoritmo ci permette di identificare nel miglior modo
-        possibile il miglior prezzo attualmente presente sul mercato.
-        Siamo anche in grado di stimare nel breve termine possibili
-        variazioni che potrebbero sopraggiungere nel giro di qualche ora,
-        così da avvisarti in tempo nel caso il prezzo di un volo stia
-        diminuendo! <br />
-        Che dici, è abbastanza per cominiciare un'avventura con noi? Il
-        nostro algoritmo ci permette di identificare nel miglior modo
-        possibile il miglior prezzo attualmente presente sul mercato.
-        Siamo anche in grado di stimare nel breve termine possibili
-        variazioni che potrebbero sopraggiungere nel giro di qualche ora,
-        così da avvisarti in tempo nel caso il prezzo di un volo stia
-        diminuendo! <br />
-        Che dici, è abbastanza per cominiciare un'avventura con noi?
+        <%= t('three') %>
     </p>
     </div>
 </div>
