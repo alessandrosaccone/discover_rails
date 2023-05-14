@@ -1,0 +1,6 @@
+# config/sidekiq.yml
+:schedule:
+  check_date_job:
+    cron: "0 0 * * *"
+    class: "CheckDateJob"
+    queue: default
