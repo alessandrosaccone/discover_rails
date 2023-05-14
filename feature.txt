@@ -74,22 +74,22 @@ Feature: Modify user reviews A-M
     i want to modify my review Guide tabs
     so that ???
 16)
-Feature: Search guides by my position A =============FATTO============
+Feature: Search guides by my position S-A =============FATTO============
     As a user
     i want to find guides by my position
     so that i can find them faster
 16 a)
-Feature: Search guides tabs by my position A  ================FATTO===============
+Feature: Search guides tabs by my position S-A  ================FATTO===============
     As a user
     i want to find guides tabs by my position
     so that i can find them faster
 16 b)
-Feature: Search guides  by his position A  ===================FATTO===============
+Feature: Search guides  by his position M-S-A  ===================FATTO===============
     As a user
     i want to find guides by his position
     so that i can find them faster
 16 c)
-Feature: Search guides tabs by his position A ================FATTO===============
+Feature: Search guides tabs by his position S-A-M ================FATTO===============
     As a user
     i want to find guides tabs by my position
     so that i can find them faster

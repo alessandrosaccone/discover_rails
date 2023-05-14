@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
   resources :posts
 
+  get "/translate_html", to: "posts#translate_html"
 
   resources :roles
   resources :bookings

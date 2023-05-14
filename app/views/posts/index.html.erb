@@ -38,6 +38,11 @@
                 <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
             <%end%>
             <a href="bacheca.html">Profilo</a>
+            <!--
+            <p>
+            <%= link_to "Translate to French", translate_html_path(to: "fr"), method: :post, class: "btn btn-primary" %>
+            </p> 
+            --> 
         </nav>
     </div>
 
