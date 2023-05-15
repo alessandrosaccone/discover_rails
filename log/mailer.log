@@ -652,6 +652,7 @@ Content-Transfer-Encoding: 7bit
   </body>
 </html>
 
+<<<<<<< HEAD
 D, [2023-05-15T18:21:48.586441 #6296] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 355.3ms
 I, [2023-05-15T18:21:48.692861 #6296]  INFO -- : Delivered mail 64625c1c91c07_189834087266@alessandro-KLVC-WXX9.mail (106.0ms)
 D, [2023-05-15T18:21:48.693014 #6296] DEBUG -- : Date: Mon, 15 May 2023 18:21:48 +0200
@@ -1276,3 +1277,5 @@ Content-Transfer-Encoding: 7bit
   </body>
 </html>
 
+=======
+>>>>>>> main

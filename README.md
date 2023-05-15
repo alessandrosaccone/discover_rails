@@ -39,8 +39,8 @@ Jacke non va più. Aggiungete l'id che trovate sul sito alle guide.
 
 # Email
 
-email: discover.railsproject@gmail.com
-psw: Abcdefg1\*
+email: discover.railsprojec@libero.it
+psw: Abcdefg1!
 
 # Per gabriele
 
