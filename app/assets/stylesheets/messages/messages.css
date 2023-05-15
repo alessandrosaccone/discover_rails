@@ -36,6 +36,9 @@ form textarea {
 
 .msgs-container {
   display: flex;
+  .my-message {
+    float: right;
+  }
 }
 
 .message-box {
