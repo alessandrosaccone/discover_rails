@@ -53,3 +53,5 @@ gem "actioncable", "~> 7.0"
 gem 'sidekiq'
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'mailcatcher'

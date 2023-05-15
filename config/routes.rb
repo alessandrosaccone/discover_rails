@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :roles
   resources :bookings
 
-  post '/send_email', to: 'email#send_email', as: 'send_email'
+  get '/send_email', to: 'email#send_email', as: 'send_email'
 
 
   resources :guide_users do

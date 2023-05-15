@@ -652,3 +652,627 @@ Content-Transfer-Encoding: 7bit
   </body>
 </html>
 
+D, [2023-05-15T18:21:48.586441 #6296] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 355.3ms
+I, [2023-05-15T18:21:48.692861 #6296]  INFO -- : Delivered mail 64625c1c91c07_189834087266@alessandro-KLVC-WXX9.mail (106.0ms)
+D, [2023-05-15T18:21:48.693014 #6296] DEBUG -- : Date: Mon, 15 May 2023 18:21:48 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64625c1c91c07_189834087266@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T18:24:16.724814 #6296] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 6.9ms
+I, [2023-05-15T18:24:16.729307 #6296]  INFO -- : Delivered mail 64625cb0b1464_18983408727a5@alessandro-KLVC-WXX9.mail (4.1ms)
+D, [2023-05-15T18:24:16.729455 #6296] DEBUG -- : Date: Mon, 15 May 2023 18:24:16 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64625cb0b1464_18983408727a5@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T18:27:24.010528 #6296] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 10.2ms
+I, [2023-05-15T18:27:24.017080 #6296]  INFO -- : Delivered mail 64625d6c2f2a_18983444728e8@alessandro-KLVC-WXX9.mail (6.0ms)
+D, [2023-05-15T18:27:24.017376 #6296] DEBUG -- : Date: Mon, 15 May 2023 18:27:24 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64625d6c2f2a_18983444728e8@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T18:30:45.482722 #6296] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 7.6ms
+I, [2023-05-15T18:30:45.489215 #6296]  INFO -- : Delivered mail 64625e3576463_18983458729e7@alessandro-KLVC-WXX9.mail (5.9ms)
+D, [2023-05-15T18:30:45.489374 #6296] DEBUG -- : Date: Mon, 15 May 2023 18:30:45 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64625e3576463_18983458729e7@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T18:30:57.094232 #6296] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 5.9ms
+I, [2023-05-15T18:30:57.099133 #6296]  INFO -- : Delivered mail 64625e411753b_1898344473079@alessandro-KLVC-WXX9.mail (4.5ms)
+D, [2023-05-15T18:30:57.099300 #6296] DEBUG -- : Date: Mon, 15 May 2023 18:30:57 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64625e411753b_1898344473079@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T18:32:29.464414 #6296] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 5.5ms
+I, [2023-05-15T18:32:29.470127 #6296]  INFO -- : Delivered mail 64625e9d71b9b_189834307318a@alessandro-KLVC-WXX9.mail (5.3ms)
+D, [2023-05-15T18:32:29.470360 #6296] DEBUG -- : Date: Mon, 15 May 2023 18:32:29 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64625e9d71b9b_189834307318a@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T18:32:44.319210 #6296] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 5.0ms
+I, [2023-05-15T18:32:44.323424 #6296]  INFO -- : Delivered mail 64625eac4e2cc_18983458732b1@alessandro-KLVC-WXX9.mail (3.9ms)
+D, [2023-05-15T18:32:44.323572 #6296] DEBUG -- : Date: Mon, 15 May 2023 18:32:44 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64625eac4e2cc_18983458732b1@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T18:46:19.528407 #8824] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 426.5ms
+I, [2023-05-15T18:46:19.616485 #8824]  INFO -- : Delivered mail 646261db8530d_22783458376e7@alessandro-KLVC-WXX9.mail (87.7ms)
+D, [2023-05-15T18:46:19.616641 #8824] DEBUG -- : Date: Mon, 15 May 2023 18:46:19 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <646261db8530d_22783458376e7@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T18:48:19.733078 #9176] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 424.9ms
+I, [2023-05-15T18:48:19.830041 #9176]  INFO -- : Delivered mail 64626253b6f97_23d8341c187cd@alessandro-KLVC-WXX9.mail (96.5ms)
+D, [2023-05-15T18:48:19.830211 #9176] DEBUG -- : Date: Mon, 15 May 2023 18:48:19 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64626253b6f97_23d8341c187cd@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T18:56:04.398055 #9176] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 6.8ms
+I, [2023-05-15T18:56:04.403254 #9176]  INFO -- : Delivered mail 6462642461663_23d834581888b@alessandro-KLVC-WXX9.mail (4.9ms)
+D, [2023-05-15T18:56:04.403456 #9176] DEBUG -- : Date: Mon, 15 May 2023 18:56:04 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <6462642461663_23d834581888b@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T18:56:17.286830 #9176] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 6.0ms
+I, [2023-05-15T18:56:17.294285 #9176]  INFO -- : Delivered mail 64626431466d1_23d83430189bd@alessandro-KLVC-WXX9.mail (7.0ms)
+D, [2023-05-15T18:56:17.294911 #9176] DEBUG -- : Date: Mon, 15 May 2023 18:56:17 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64626431466d1_23d83430189bd@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:05:01.602751 #11080] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 407.4ms
+I, [2023-05-15T19:05:02.272083 #11080]  INFO -- : Delivered mail 6462663d962f4_2b48345858086@alessandro-KLVC-WXX9.mail (668.8ms)
+D, [2023-05-15T19:05:02.272314 #11080] DEBUG -- : Date: Mon, 15 May 2023 19:05:01 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <6462663d962f4_2b48345858086@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:05:17.250406 #11080] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 5.2ms
+I, [2023-05-15T19:05:17.599086 #11080]  INFO -- : Delivered mail 6462664d3d5fc_2b483430581c3@alessandro-KLVC-WXX9.mail (348.3ms)
+D, [2023-05-15T19:05:17.599264 #11080] DEBUG -- : Date: Mon, 15 May 2023 19:05:17 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <6462664d3d5fc_2b483430581c3@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:06:46.413294 #11464] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 395.8ms
+I, [2023-05-15T19:06:46.851798 #11464]  INFO -- : Delivered mail 646266a669ec3_2cc834087349d@alessandro-KLVC-WXX9.mail (438.0ms)
+D, [2023-05-15T19:06:46.851972 #11464] DEBUG -- : Date: Mon, 15 May 2023 19:06:46 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <646266a669ec3_2cc834087349d@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:10:58.648843 #11464] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 6.9ms
+I, [2023-05-15T19:10:58.980048 #11464]  INFO -- : Delivered mail 646267a29ea6d_2cc8341c735eb@alessandro-KLVC-WXX9.mail (330.8ms)
+D, [2023-05-15T19:10:58.980237 #11464] DEBUG -- : Date: Mon, 15 May 2023 19:10:58 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <646267a29ea6d_2cc8341c735eb@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:34:04.924873 #13472] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 439.8ms
+I, [2023-05-15T19:34:05.351192 #13472]  INFO -- : Delivered mail 64626d0ce5823_34a03458346@alessandro-KLVC-WXX9.mail (425.8ms)
+D, [2023-05-15T19:34:05.351403 #13472] DEBUG -- : Date: Mon, 15 May 2023 19:34:04 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64626d0ce5823_34a03458346@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:37:55.774254 #13472] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 398.9ms
+I, [2023-05-15T19:37:56.238200 #13472]  INFO -- : Delivered mail 64626df3c0520_34a036389806@alessandro-KLVC-WXX9.mail (463.5ms)
+D, [2023-05-15T19:37:56.238365 #13472] DEBUG -- : Date: Mon, 15 May 2023 19:37:55 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64626df3c0520_34a036389806@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:38:19.222656 #13472] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 12.8ms
+I, [2023-05-15T19:38:19.566918 #13472]  INFO -- : Delivered mail 64626e0b36a77_34a036109814d@alessandro-KLVC-WXX9.mail (343.8ms)
+D, [2023-05-15T19:38:19.567112 #13472] DEBUG -- : Date: Mon, 15 May 2023 19:38:19 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64626e0b36a77_34a036109814d@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:38:22.676107 #13472] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 5.5ms
+I, [2023-05-15T19:38:23.027598 #13472]  INFO -- : Delivered mail 64626e0ea568e_34a0363898215@alessandro-KLVC-WXX9.mail (351.0ms)
+D, [2023-05-15T19:38:23.027771 #13472] DEBUG -- : Date: Mon, 15 May 2023 19:38:22 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64626e0ea568e_34a0363898215@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:39:21.878392 #13472] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 5.4ms
+I, [2023-05-15T19:39:22.242289 #13472]  INFO -- : Delivered mail 64626e49d6bb9_34a03638983b5@alessandro-KLVC-WXX9.mail (363.5ms)
+D, [2023-05-15T19:39:22.242470 #13472] DEBUG -- : Date: Mon, 15 May 2023 19:39:21 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64626e49d6bb9_34a03638983b5@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:40:05.107312 #13472] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 4.4ms
+I, [2023-05-15T19:40:05.436586 #13472]  INFO -- : Delivered mail 64626e751a7af_34a03624984ea@alessandro-KLVC-WXX9.mail (328.9ms)
+D, [2023-05-15T19:40:05.436773 #13472] DEBUG -- : Date: Mon, 15 May 2023 19:40:05 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64626e751a7af_34a03624984ea@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:40:51.545183 #13472] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 5.6ms
+I, [2023-05-15T19:40:51.892456 #13472]  INFO -- : Delivered mail 64626ea385711_34a036249854c@alessandro-KLVC-WXX9.mail (346.8ms)
+D, [2023-05-15T19:40:51.892629 #13472] DEBUG -- : Date: Mon, 15 May 2023 19:40:51 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64626ea385711_34a036249854c@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:42:19.215345 #13472] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 4.5ms
+I, [2023-05-15T19:42:19.544063 #13472]  INFO -- : Delivered mail 64626efb34f14_34a035e8986b8@alessandro-KLVC-WXX9.mail (328.1ms)
+D, [2023-05-15T19:42:19.544240 #13472] DEBUG -- : Date: Mon, 15 May 2023 19:42:19 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64626efb34f14_34a035e8986b8@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
+D, [2023-05-15T19:43:15.880913 #13472] DEBUG -- : UserMailer#welcome_email: processed outbound mail in 4.6ms
+I, [2023-05-15T19:43:16.349855 #13472]  INFO -- : Delivered mail 64626f33d754f_34a0363898751@alessandro-KLVC-WXX9.mail (468.5ms)
+D, [2023-05-15T19:43:16.350033 #13472] DEBUG -- : Date: Mon, 15 May 2023 19:43:15 +0200
+From: discover.railsproject@gmail.com
+To: alessandrosaccone96@gmail.com
+Message-ID: <64626f33d754f_34a0363898751@alessandro-KLVC-WXX9.mail>
+Subject: Welcome to My App
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Invia quesot coglions</h1>
+  </body>
+</html>
+
