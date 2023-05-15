@@ -27,19 +27,19 @@ class BookingsController < ApplicationController
     @booking.num_pers=num_pers
     post = Post.find(@booking.post_id)
     
-    redirect_to url_for(controller: 'email', action: 'send_email'), notice: 'Prenotazione effettuata con successo'
+    #redirect_to url_for(controller: 'email', action: 'send_email'), notice: 'Prenotazione effettuata con successo'
     
-    #if post.persone_rimanenti > 0
-    #  if @booking.save_with_payment
-    #    post.update(persone_rimanenti: post.persone_rimanenti - num_pers)
-    #    #redirect_to url_for(controller: 'email', action: 'send_email'), notice: 'Prenotazione effettuata con successo'
-    #    redirect_to @booking.post, notice: 'Prenotazione effettuata con successo.' 
-    #  else
-    #    redirect_to @booking.post,notice: @booking.errors.full_messages.join('. ')
-    #  end
-    #else
-    #  redirect_to @booking.post, notice: 'Posti Esauriti.'
-    #end
+    if post.persone_rimanenti > 0
+      if @booking.save_with_payment
+        post.update(persone_rimanenti: post.persone_rimanenti - num_pers)
+        #redirect_to url_for(controller: 'email', action: 'send_email'), notice: 'Prenotazione effettuata con successo'
+        redirect_to @booking.post, notice: 'Prenotazione effettuata con successo.' 
+      else
+        redirect_to @booking.post,notice: @booking.errors.full_messages.join('. ')
+      end
+    else
+      redirect_to @booking.post, notice: 'Posti Esauriti.'
+    end
   end
 
   private

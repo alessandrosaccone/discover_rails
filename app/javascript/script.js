@@ -20,7 +20,7 @@ function reveal() {
 
 function bar_color() {
   var myNav = document.getElementById("navbar_app");
-  if(!myNav){
+  if (!myNav) {
     return;
   }
   window.onscroll = function () {

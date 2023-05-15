@@ -1,8 +1,11 @@
 class ConversationsController < ApplicationController
     before_action :authenticate_user!
+    include Devise::Controllers::Helpers
     def show
         #Controlliamo se tale conversazione già esiste
-        @conversation = Conversation.find(session[:current_conversation])
+        if session[:current_conversation]
+            @conversation = Conversation.find(session[:current_conversation])
+        end
         #Cerchiamo gli utenti della conversazione
         @current_user = current_user
         @guide_user = User.find_by(email: params[:guide_email])
