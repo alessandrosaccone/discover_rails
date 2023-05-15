@@ -55,3 +55,5 @@ gem 'sidekiq'
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'mailcatcher'
+
+gem "bcrypt", "~> 3.1"

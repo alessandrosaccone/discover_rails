@@ -2,6 +2,8 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  after_action :set_user_online, only: [:create]
+  before_action :set_user_offline, only: [:destroy]
 
   # GET /resource/sign_in
     def new
@@ -20,7 +22,14 @@ class Users::SessionsController < Devise::SessionsController
     end
     
 
-  # protected
+  protected
+  def set_user_online
+    current_user.update(online: true)
+  end
+
+  def set_user_offline
+    current_user.update(offline: true)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
