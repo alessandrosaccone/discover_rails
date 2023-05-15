@@ -29,6 +29,7 @@ p3 = Post.create({ descrizione: 'Evviva la vita regaz2', titolo: 'Visita al vati
 p4 = Post.create({ descrizione: 'Evviva la vita regaz2', titolo: 'Visita al vaticansbro4', data: '8/11/2024', ora: '10:00',
     lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'jacke@example.com', address: 'Via della Minerva 10'})
 p5 = Post.create({ descrizione: 'Evviva la vita regaz2', titolo: 'Visita al vaticansbro4', data: '8/11/2024', ora: '10:00',
+#    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'sue@example.com'})
+#p6 = Post.create({ descrizione: 'Evviva la vita 3', titolo: 'Visita al tomba', data: '15/05/2023', ora: '21:35',
    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'sue@example.com'})
-
  
