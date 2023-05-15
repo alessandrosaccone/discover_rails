@@ -24,12 +24,31 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.user = current_user
     @message.conversation_id = session[:current_conversation]
+    @message.save
 
-    if @message.save
-      redirect_to request.referrer
-    else
-      render :new, status: :unprocessable_entity
-    end
+
+    ActionCable.server.broadcast "room_channel_#{@message.conversation_id}", html:  render_message
+    redirect_back(fallback_location: root_path)
+
+
+  end
+
+  def render_message
+    ApplicationController.renderer.instance_variable_set(
+      :@env, {
+        "HTTP_HOST"=>"localhost:3000",
+        "HTTPS"=>'off',
+        "REQUEST_METHOD"=>"GET",
+        "SCRIPT_NAME"=>"",
+        "warden"=>warden
+      }
+    )
+    ApplicationController.render(
+      partial: 'messages/message',
+      locals: {
+        message: @message
+      }
+    )
   end
 
   # PATCH/PUT /messages/1

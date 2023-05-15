@@ -1,6 +1,6 @@
 class CreateMessages < ActiveRecord::Migration[7.0]
   def change
-    drop_table :messages
+
     create_table :messages do |t|
       t.text :body
       t.references :user, null: false, foreign_key: true

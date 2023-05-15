@@ -37,7 +37,10 @@ password:AleSimMarGab123
 Per creare account guide si deve essere in test mode e lo si fa in connect. Si devono dare molte informazioni.
 Jacke non va più. Aggiungete l'id che trovate sul sito alle guide.
 
+# Email
 
+email: discover.railsprojec@libero.it
+psw: Abcdefg1!
 
 # Per gabriele
 
@@ -51,7 +54,6 @@ togli da script_app.js
 
 Non riesco a creare dei post. Nemmeno col seed. Volevo testare il codice che ho scritto nel controller index di post in quanto deve mostrare solo
 post prenotabili perciò ho aggiunto un controllo sui numeri di posti e la data di scadenza.
-
 
 # Per Mario
 
