@@ -65,5 +65,7 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
+  #config.action_mailer.logger = Logger.new(Rails.root.join("log", "mailer.log"))
+  #config.action_mailer.logger.level = Logger::DEBUG
 
 end
