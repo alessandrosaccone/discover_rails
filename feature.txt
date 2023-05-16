@@ -1,25 +1,25 @@
 1) 
-Feature: Login for user  G 
+Feature: Login for user  G Finito
     As a registered user
     i want to log in 
     so that i can access other features of the site
 2)
-Feature: Login for tourist guide G 
+Feature: Login for tourist guide G Finito
     As a registered tourist guide
     i want to log in 
     so that i can post new tabs
 3)
-Feature: Registration for new user G 
+Feature: Registration for new user G Finito
     As a new user
     i want to register my account
     so that i can access other features of the site
 4)
-Feature: Registration for new guide G
+Feature: Registration for new guide G Finito
     As a new guide
     i want to register my account
     so that i can post my tabs
 5)
-Feature: Loggout G
+Feature: Loggout G Finito
     As a user or guide
     I want the ability to logout of the system 
     so that I can view login page
@@ -114,7 +114,7 @@ Feature: Delete tabs booking S Da testare quando Mario fa l'interfaccia.
     i want to delete my tabs booking
     so i can get a refund
 20)
-Feature: Chat system G
+Feature: Chat system G Finito
     As a user or guide
     i want to write to other users
     so i can ask for information
@@ -300,8 +300,12 @@ Feature: Only posts that can be booked S Finito
     As a user
     I view the list of posts
     so I should only see posts that can be booked
-
-
+54)
+Feature: Tracking user online presence G Finito
+    As a user 
+    when I chat with another user I can see 
+    in real time whether they are online or not  
+    
 M:26
 S: 12
 A: 22

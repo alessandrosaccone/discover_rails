@@ -68,4 +68,6 @@ Rails.application.configure do
   #config.action_mailer.logger = Logger.new(Rails.root.join("log", "mailer.log"))
   #config.action_mailer.logger.level = Logger::DEBUG
 
+  config.cache_store = :redis_cache_store, { url: 'redis://localhost:6379/0' }
+
 end

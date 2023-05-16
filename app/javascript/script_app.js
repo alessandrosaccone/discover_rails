@@ -11,11 +11,12 @@ function geocodeAddress(address, callback) {
   });
 }
 
-function init_map() {
+async function init_map() {
   if (typeof google === "undefined") {
     setTimeout(init_map, 1000); // try again in 1 second
     return;
   } else {
+    
     var map = new google.maps.Map(document.getElementById("mapDiv"), {
       center: { lat: 41.902782, lng: 12.496366 },
       zoom: 12,
