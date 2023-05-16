@@ -1,7 +1,7 @@
 require 'date'
 
 class CheckDateJob < ApplicationJob
-  queue_as :default
+  sidekiq_options queue: 'default', priority: 10
 
   def perform
     bookings = Booking.all
@@ -11,8 +11,9 @@ class CheckDateJob < ApplicationJob
     puts booking.post.data.strftime("%e %b %Y")
     puts booking.post.ora.strftime("%H:%M")
       if (Date.today.strftime("%e %b %Y") == booking.post.data.strftime("%e %b %Y") &&
-        DateTime.now.strftime("%H:%M") > booking.post.ora.strftime("%H:%M"))
+        DateTime.now.strftime("%H:%M") > booking.post.ora.strftime("%H:%M") && booking.expired==false)
         UserMailer.date_exceeded_email(booking.user).deliver_now
+        booking.expired=true
       end
     end
   end

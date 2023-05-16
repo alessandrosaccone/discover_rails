@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
     else
       redirect_to @booking.post, notice: 'Posti Esauriti.'
     end
-  end
+  end 
 
   private
 
