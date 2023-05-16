@@ -1,4 +1,7 @@
-check_date_job:
-  cron: "0 53 9,15,18,21 * * *"
-  class: "CheckDateJob"
-  queue: "default"
+sidekiq_scheduler:
+  check_date_job:
+    cron: "0 9/6 * * *"
+    class: "CheckDateJob"
+    queue: "default"
+    description: "Check date every six hours"
+  #bundle exec sidekiq -r ./config/environment.rb

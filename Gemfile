@@ -50,10 +50,12 @@ gem 'rack-cors'
 
 gem "actioncable", "~> 7.0"
 
-gem 'sidekiq'
-
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'mailcatcher'
 
+gem 'sidekiq'
+
 gem 'sidekiq-scheduler'
+
+gem 'sidekiq-cron'
