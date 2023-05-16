@@ -1,6 +1,11 @@
-# config/sidekiq.yml
-:schedule:
-  check_date_job:
-    cron: "0 25 9,15,16,21 * * *"
-    class: "CheckDateJob"
-    queue: default
+---
+:concurrency: 25
+:queues:
+  - default
+
+production:
+  :concurrency: 50
+  :queues:
+    - default
+    - mailers
+  :logfile: ./log/sidekiq.log

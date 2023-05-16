@@ -2,6 +2,7 @@ require 'date'
 
 class CheckDateJob < ApplicationJob
   #sidekiq_options queue: 'default', priority: 10
+  include Sidekiq::Worker
 
   def perform
     bookings = Booking.all
@@ -17,4 +18,5 @@ class CheckDateJob < ApplicationJob
       end
     end
   end
+
 end
