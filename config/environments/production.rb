@@ -89,5 +89,5 @@ Rails.application.configure do
   #enable_starttls_auto: true
   #tls: false,
   #openssl_verify_mode: "none",
-}
+#}
 end

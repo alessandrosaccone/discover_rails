@@ -7,16 +7,19 @@
 ##   Character.create(name: "Luke", movie: movies.first)
 #r1 = Role.create({ id: 9, name: 'Tourist', description: 'Can search for guides, normal user' })
 #r2 = Role.create({ id: 10, name: 'Guide', description: 'Can post tour announcements and do his job on the platform' })
-##
+#
 #u1 = User.create({ name: 'Sally', email: 'sally@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r1.id })
 #u2 = User.create({ name: 'Sue', email: 'sue@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r2.id })
 #u3 = User.create({ name: 'Kev', email: 'kev@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r2.id })
 #u4 = User.create({ name: 'Jack', email: 'jack@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r1.id})
 #u4 = User.create({ name: 'Jacke', email: 'jacke@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r2.id})
-#u5 = User.create({ name: 'Jackel', email: 'jackel@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r1.id, lat: 41.9079616, long: 12.514760})
+#u5 = User.create({ name: 'Jackel', email: 'jackel@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r1.id, lat: 41.9079616, long: 12.514760, stripe_account_id: 'acct_1N74unPLkNCoVoUm'})
+#u5 = User.create({ name: 'Alesacco', email: 'alessandrosaccone96@gmail.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r1.id})
+
 #l1=Language.create(name: "Francese")
 #l2=Language.create(name:"Italiano")
 #l3=Language.create(name:"Inglese")
+#
 #c1=City.create(name: "Roma", region: "Lazio")
 #c2=City.create(name: "Frosinone", region: "Lazio")
 #
@@ -30,6 +33,6 @@
 #    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'jacke@example.com', address: 'Via della Minerva 10'})
 #p5 = Post.create({ descrizione: 'Evviva la vita regaz2', titolo: 'Visita al vaticansbro4', data: '8/11/2024', ora: '10:00',
 #    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'sue@example.com'})
-#p6 = Post.create({ descrizione: 'Evviva la vita 3', titolo: 'Visita al tomba', data: '15/05/2023', ora: '22:15',
-#   lingua: 'Inglese', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'sue@example.com'})
+#p6 = Post.create({ descrizione: 'Evviva la vita 3', titolo: 'Visita al tomba', data: '16/05/2023', ora: '13:15',
+#   lingua: 'Inglese', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'jackel@example.com'})
  
