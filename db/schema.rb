@@ -115,7 +115,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_113723) do
     t.integer "city_id"
     t.string "lat"
     t.string "long"
-    t.string "stripe_account_id"
+    t.string "stripe_account_id", default: nil 
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

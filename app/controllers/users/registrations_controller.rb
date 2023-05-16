@@ -14,6 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     #serve per i test, nella realtà la guida deve darci tramite form il suo stripe_account_id. più semplice crearli così che a mano
     super do |resource|
+      if resource.guide?
       stripe_account = Stripe::Account.create({
         type: 'custom',
         country: 'IT',
@@ -57,9 +58,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
         {tos_acceptance: {date: 1609798905, ip: '8.8.8.8'}},
       )
     stripe_account.id
-      resource.stripe_account_id = 
+      resource.stripe_account_id = stripe_account.id
       resource.save
     end
+  end
   end
   
 

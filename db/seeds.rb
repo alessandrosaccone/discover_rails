@@ -18,7 +18,7 @@
 
 #l1=Language.create(name: "Francese")
 #l2=Language.create(name:"Italiano")
-#l3=Language.create(name:"Inglese")
+#l3=Language.cgreate(name:"Inglese")
 #
 #c1=City.create(name: "Roma", region: "Lazio")
 #c2=City.create(name: "Frosinone", region: "Lazio")
