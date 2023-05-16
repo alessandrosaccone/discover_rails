@@ -1,0 +1,4 @@
+check_date_job:
+  cron: "0 53 9,15,18,21 * * *"
+  class: "CheckDateJob"
+  queue: "default"
