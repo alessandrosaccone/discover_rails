@@ -109,7 +109,7 @@ Feature: Booking a tab A-S ================FATTA==============
     i want to book a tab
     so that i can visit the city descripted with my guide
 19)
-Feature: Delete tabs booking S Da testare quando Mario fa l'interfaccia.
+Feature: Delete tabs booking S Finito
     As a user
     i want to delete my tabs booking
     so i can get a refund
@@ -305,7 +305,21 @@ Feature: Tracking user online presence G Finito
     As a user 
     when I chat with another user I can see 
     in real time whether they are online or not  
-    
+55)
+Feature: Payment Proof S Finito
+    As guide
+    i want that my tourists have a ticket
+    so that i am sure that these people have payed
+56)
+Feature: Download Payment proof S
+    As user
+    i want to download the ticket of my payment
+    so that i can show it at the guide even if i don't have wifi
+57)
+Feature: Email Payment proof S-A
+    as a guide 
+    I want people who have bought tickets to receive them by email
+    so I'm sure they can't lose it
 M:26
 S: 12
 A: 22

@@ -32,6 +32,9 @@ Rails.application.routes.draw do
     member do
       post 'refund'
     end
+    member do
+      get 'download_invoice'
+    end
   end
 
 

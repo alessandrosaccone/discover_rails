@@ -54,6 +54,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'mailcatcher'
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 gem 'sidekiq'
 
 gem 'sidekiq-scheduler'
