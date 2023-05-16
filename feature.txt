@@ -109,7 +109,7 @@ Feature: Booking a tab A-S ================FATTA==============
     i want to book a tab
     so that i can visit the city descripted with my guide
 19)
-Feature: Delete tabs booking A-M-S
+Feature: Delete tabs booking S Da testare quando Mario fa l'interfaccia.
     As a user
     i want to delete my tabs booking
     so i can get a refund
@@ -164,9 +164,10 @@ Feature: Change Profile Image M
     i want to change my profile image
     so that i can change it
 28)
-Feature: Analisi Contenuti Testuali dei post A-M
+Feature: Analisi Contenuti Testuali dei post S-M
     As user
     i want to see guides tabs that aren't vulgar
+    so i can choose them
 
 29 a) 
 Feature: See the guide near by your position in maps A ==============FATTA=============
