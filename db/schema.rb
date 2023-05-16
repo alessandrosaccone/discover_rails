@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_16_113723) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_16_200121) do
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_113723) do
     t.boolean "refunded", default: false, null: false
     t.integer "num_pers"
     t.boolean "expired", default: false
+    t.decimal "amount"
     t.index ["post_id"], name: "index_bookings_on_post_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -115,7 +116,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_113723) do
     t.integer "city_id"
     t.string "lat"
     t.string "long"
-    t.string "stripe_account_id", default: nil 
+    t.string "stripe_account_id"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

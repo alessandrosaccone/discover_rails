@@ -12,7 +12,7 @@
 
   <div class="field">
     <%= form.label :amount %>
-    <%= form.text_field :amount, value:(@price), readonly: true %>
+    <%= form.text_field :amount, value:@price, readonly: true %>
   </div>
   <%= form.hidden_field :num_pers, value: @num_pers %>
 
