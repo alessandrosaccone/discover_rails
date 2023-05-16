@@ -66,9 +66,9 @@ class Booking < ApplicationRecord
       errors.add :base, "Errore durante l'elaborazione della carta di credito. Si prega di riprovare più tardi."
     end
     false
-  #rescue Stripe::StripeError => e
-    #errors.add :base, "Errore."
-    #false
+  rescue Stripe::StripeError => e
+    errors.add :base, "Errore."
+    false
   end
   
   
