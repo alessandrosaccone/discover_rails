@@ -13,6 +13,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
 require "rails/test_unit/railtie"
+require 'sidekiq'
 require 'sidekiq/scheduler'
 
 
@@ -37,6 +38,8 @@ module Discover
     config.generators.system_tests = nil
     config.i18n.default_locale = :it
 
+    config.autoload_paths += %W(#{config.root}/app/jobs)
+    
     Dotenv::Railtie.load
   end
 end
