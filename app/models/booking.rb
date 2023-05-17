@@ -4,7 +4,7 @@ class Booking < ApplicationRecord
 
   after_create :generate_invoice_pdf
 
-  attr_accessor  :card_number, :exp_month, :exp_year, :cvc
+  attr_accessor  :card_number, :exp_month, :exp_year, :cvc,:name
 
   def refundable?
     # Verifica le condizioni che rendono la prenotazione rimborsabile
@@ -71,7 +71,8 @@ class Booking < ApplicationRecord
         number: card_number,
         exp_month: exp_month,
         exp_year: exp_year,
-        cvc: cvc
+        cvc: cvc,
+        name: name
       }
     )
     #Non so come indirizzare le application fee

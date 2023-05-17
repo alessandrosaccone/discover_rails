@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_booking, only: [:show]
   
   #corretta ma non è finita
   def download_invoice
@@ -20,6 +21,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(post: @post)
     @num_pers = params[:persone].to_i
     @price = ((@post.prezzo * @post.numero_ore) / @post.persone).to_i * params[:persone].to_i
+    if @price==0
+      redirect_to @booking.post, alert: 'Non hai inserito alcun posto'
+    end
   end
   # si può cancellare ma credo di lasciarla per il momento, in caso cancellare anche la view
   def show
@@ -63,7 +67,14 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:amount, :card_number, :exp_month, :exp_year, :cvc, :post_id, :num_pers)
+    params.require(:booking).permit(:amount, :card_number, :exp_month, :exp_year, :cvc, :post_id, :num_pers,:name)
+  end
+
+  def authorize_booking
+    @booking = Booking.find(params[:id])
+    unless @booking.user == current_user
+      redirect_to root_path, alert: "You don't have access to view this booking."
+    end
   end
 end
   
