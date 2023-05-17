@@ -311,7 +311,7 @@ Feature: Payment Proof S Finito
     i want that my tourists have a ticket
     so that i am sure that these people have payed
 56)
-Feature: Download Payment proof S
+Feature: Download Payment proof S Finito
     As user
     i want to download the ticket of my payment
     so that i can show it at the guide even if i don't have wifi

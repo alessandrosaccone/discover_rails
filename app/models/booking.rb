@@ -4,7 +4,7 @@ class Booking < ApplicationRecord
 
   after_create :generate_invoice_pdf
 
-  attr_accessor :amount, :card_number, :exp_month, :exp_year, :cvc
+  attr_accessor  :card_number, :exp_month, :exp_year, :cvc
 
   def refundable?
     # Verifica le condizioni che rendono la prenotazione rimborsabile
@@ -88,8 +88,8 @@ class Booking < ApplicationRecord
     )
     
     self.stripe_charge_id = charge.id
-    self.amount = amount.to_d # Assicurati che il valore di amount sia correttamente assegnato
-    save(validate: false)
+    self.amount = amount.to_i 
+    save!
     
   rescue Stripe::CardError => e
     puts "Stripe::CardError - Code: #{e.code}" # Stampa il valore del codice di errore

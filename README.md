@@ -52,10 +52,13 @@ commento in poi là)
 
 togli da script_app.js
 
-Non riesco a creare dei post. Nemmeno col seed. Volevo testare il codice che ho scritto nel controller index di post in quanto deve mostrare solo
-post prenotabili perciò ho aggiunto un controllo sui numeri di posti e la data di scadenza.
+ guarda la feature con numero 57. Voglio mandare via email il biglietto. Per generarlo basta chiamare la funzione generate_invoice_pdf
+sul booking in questo modo:booking.generate_invoice_pdf
 
 # Per Mario
 
 quando la guida compila la form per un post nella via ci deve essere un controllo che la viq esista di
 google maps
+
+fai in modo che le guide dal loro profilo possono andare ai loro post e i turisti dal loro profilo possono andare alle loro prenotazioni. I show
+di entrambi sono già stati fatti.
