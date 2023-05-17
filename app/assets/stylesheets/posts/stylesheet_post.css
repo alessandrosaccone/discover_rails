@@ -33,7 +33,7 @@
   color: white;
   background: rgba(202, 9, 9, 0.666);
   padding: 6px 25px;
-  border-radius: 8px;
+  /*border-radius: 8px;*/
 }
 
 .name {
@@ -208,7 +208,7 @@
     background: var(--darkorange);
   }
 
-  img {
+  .img {
     padding: 7px;
     border-radius: 80px;
     width: 100px;
@@ -445,7 +445,7 @@
     background: var(--darkorange);
   }
 
-  img {
+  .img {
     padding: 7px;
     border-radius: 80px;
     width: 70px;
@@ -645,7 +645,7 @@
     background: var(--darkorange);
   }
 
-  img {
+  .img {
     padding: 7px;
     border-radius: 80px;
     width: 100px;
@@ -658,7 +658,7 @@
 
   .cards::-webkit-scrollbar-thumb,
   .cards::-webkit-scrollbar-track {
-    border-radius: 92px;
+    /*border-radius: 8px;*/
   }
 
   .cards::-webkit-scrollbar-thumb {

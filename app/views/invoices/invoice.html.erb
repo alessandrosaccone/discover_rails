@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>Fattura</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .invoice-details {
+      margin-bottom: 40px;
+    }
+
+    .invoice-details ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .invoice-details li {
+      margin-bottom: 10px;
+    }
+
+    .invoice-details li span {
+      font-weight: bold;
+    }
+
+    .invoice-items {
+      margin-bottom: 40px;
+    }
+
+    .invoice-items table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .invoice-items th,
+    .invoice-items td {
+      padding: 8px;
+      border: 1px solid #000;
+    }
+
+    .invoice-items th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    .invoice-items td.quantity,
+    .invoice-items td.price {
+      text-align: right;
+    }
+
+    .invoice-total {
+      text-align: right;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Biglietto</h1>
+  <div class="invoice-details">
+    <ul>
+      <li><span>Prenotato:</span> <%= booking.user.name %></li>
+      <li><span>Guida:</span> <%= booking.post.user.name %></li>
+      <li><span>Numero Biglietto:</span> <%= booking.id %></li>
+      <li><span>Data Pagamento:</span> <%= booking.created_at %></li>
+      <li><span>Data Visita:</span> <%= booking.post.data %></li>
+      <!-- Aggiungi altri dettagli della fattura come necessario -->
+    </ul>
+  </div>
+  <div class="invoice-items">
+    <table>
+      <thead>
+        <tr>
+          <th>Descrizione</th>
+          <th>Quantità</th>
+          <th>Prezzo unitario</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td><%= booking.post.descrizione %></td>
+            <td class="quantity"><%= booking.num_pers%></td>
+            
+           <td class="price"><%= booking.amount.to_i / booking.num_pers.to_i %></td>
+
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  <div class="invoice-total">
+    <p>Totale: <%= booking.amount %></p> 
+  </div>
+</body>
+</html>

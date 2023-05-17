@@ -50,8 +50,6 @@ gem 'rack-cors'
 
 gem "actioncable", "~> 7.0"
 
-gem 'sidekiq'
-
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'mailcatcher'
@@ -59,3 +57,11 @@ gem 'mailcatcher'
 gem "bcrypt", "~> 3.1"
 
 gem "jquery-rails", "~> 4.5"
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'sidekiq'
+
+gem 'sidekiq-scheduler'
+
+gem 'sidekiq-cron'

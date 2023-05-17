@@ -1,45 +1,68 @@
-<%= form_with(model: @booking, url: bookings_path, local: true) do |form| %>
-  <% if @booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@booking.errors.count, "errore") %> ha impedito di effettuare la prenotazione:</h2>
-      <ul>
-        <% @booking.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+<% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-bookings"%>
+<% end %>   
+
+<div class="container">
+  <%= form_with(model: @booking, url: bookings_path, local: true) do |form| %>
+    <% if @booking.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@booking.errors.count, "errore") %> ha impedito di effettuare la prenotazione:</h2>
+        <ul>
+          <% @booking.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <div class="row">
+          <div class="col">
+              <h3 class="title">payment</h3>
+               <div class="input">
+                  <span>amount :</span>
+                  <%= form.text_field :amount, value:@price, readonly: true %>
+              </div>
+              <div class="input">
+                  <span>name on card :</span>
+                  <%= form.text_field :name,  placeholder: 'Enter your name' %>
+              </div>
+              <div class="input">
+                  <span>credit card number :</span>
+                  <%= form.text_field :card_number, placeholder: 'Enter card number' %>
+                  
+              </div>
+              <div class="input">
+                  <span>exp month :</span>
+                  <%= form.text_field :exp_month, placeholder: 'Enter expiration month' %>
+              </div>
+              <div class="flex">
+                  <div class="input">
+                      <span>exp year :</span>
+                      <%= form.text_field :exp_year, placeholder: 'Enter expiration year' %>
+                  </div>
+                  <div class="input">
+                      <span>CVV :</span>
+                      <%= form.text_field :cvc, placeholder: 'Enter CVC' %>
+                  </div>
+              </div>
+          </div>
+      </div>
+       <%= form.hidden_field :post_id %>
+      <%= form.hidden_field :num_pers, value: @num_pers %>
+    <input type="submit" value="proceed to checkout" class="submit-btn">
   <% end %>
+</div>    
+</body>
+</html>
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount, value:(@price), readonly: true %>
-  </div>
-  <%= form.hidden_field :num_pers, value: @num_pers %>
 
-  <div class="field">
-    <%= form.label :card_number, 'Card Number' %>
-    <%= form.text_field :card_number, placeholder: 'Enter card number' %>
-  </div>
 
-  <div class="field">
-    <%= form.label :exp_month, 'Expiration Month' %>
-    <%= form.text_field :exp_month, placeholder: 'Enter expiration month' %>
-  </div>
 
-  <div class="field">
-    <%= form.label :exp_year, 'Expiration Year' %>
-    <%= form.text_field :exp_year, placeholder: 'Enter expiration year' %>
-  </div>
 
-  <div class="field">
-    <%= form.label :cvc, 'CVC' %>
-    <%= form.text_field :cvc, placeholder: 'Enter CVC' %>
-  </div>
+  
 
-  <%= form.hidden_field :post_id %>
 
-  <div class="actions">
-    <%= form.submit 'Prenota e Paga' %>
-  </div>
-<% end %>
+
+
+
+
 

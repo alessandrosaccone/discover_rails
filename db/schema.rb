@@ -47,6 +47,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_194139) do
     t.string "stripe_charge_id"
     t.boolean "refunded", default: false, null: false
     t.integer "num_pers"
+    t.boolean "expired", default: false
+    t.decimal "amount"
     t.index ["post_id"], name: "index_bookings_on_post_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

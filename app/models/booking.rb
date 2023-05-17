@@ -2,25 +2,63 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :post
 
-  validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  after_create :generate_invoice_pdf
 
-  attr_accessor :amount, :card_number, :exp_month, :exp_year, :cvc
+  attr_accessor  :card_number, :exp_month, :exp_year, :cvc,:name
+
+  def refundable?
+    # Verifica le condizioni che rendono la prenotazione rimborsabile
+    # Ad esempio, potresti controllare se la prenotazione non è già stata cancellata o se la data di inizio è nel futuro
+    # Puoi personalizzare le condizioni in base alle tue esigenze
+
+    # Esempio: La prenotazione può essere rimborsata solo se non è già stata cancellata
+    if self.refunded==true
+      return false
+    else
+      if self.expired==true
+        return false
+      else
+        return true
+      end
+    end
+  end
   def refund_payment
     return false unless stripe_charge_id.present?
-
-    refund = Stripe::Refund.create(
-      charge: stripe_charge_id,
-      reverse_transfer: true
-    )
-
-    # Aggiorna lo stato della prenotazione o esegui altre operazioni necessarie
-    # ad esempio, segna la prenotazione come rimborsata nel database
-    update(refunded: true)
-
+  
+    charge = Stripe::Charge.retrieve(stripe_charge_id, { stripe_account: post.user.stripe_account_id })
+    
+    if charge
+      puts charge
+      refund = Stripe::Refund.create({
+        charge: charge.id,
+        refund_application_fee: true,},
+        stripe_account: post.user.stripe_account_id
+      )
+      
+      update(refunded: true)
+      
+    else
+      errors.add :base, "The charge was not found in the Connect account."
+      return false
+    end
   rescue Stripe::StripeError => e
-    # Gestisci eventuali errori nell'elaborazione del rimborso
     errors.add :base, e.message
     false
+  end
+  
+  
+  def generate_invoice_pdf
+    template = ERB.new(File.read("#{Rails.root}/app/views/invoices/invoice.html.erb"))
+    result = template.result_with_hash(booking: self)
+    pdf = WickedPdf.new.pdf_from_string(result)
+
+    # Salva il file PDF
+    file_path = "#{Rails.root}/public/invoices/booking_#{self.id}_invoice.pdf"
+    File.open(file_path, 'wb') do |file|
+      file << pdf
+    end
+
+    file_path
   end
 
   def save_with_payment
@@ -33,7 +71,8 @@ class Booking < ApplicationRecord
         number: card_number,
         exp_month: exp_month,
         exp_year: exp_year,
-        cvc: cvc
+        cvc: cvc,
+        name: name
       }
     )
     #Non so come indirizzare le application fee
@@ -48,9 +87,11 @@ class Booking < ApplicationRecord
       },
       stripe_account: post.user.stripe_account_id # Imposta l'ID dell'account collegato della guida come destinatario del pagamento
     )
-
+    
     self.stripe_charge_id = charge.id
+    self.amount = amount.to_i 
     save!
+    
   rescue Stripe::CardError => e
     puts "Stripe::CardError - Code: #{e.code}" # Stampa il valore del codice di errore
     case e.code

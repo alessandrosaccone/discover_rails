@@ -11,9 +11,61 @@ class Users::RegistrationsController < Devise::RegistrationsController
    end
 
   # POST /resource
-   def create
-     super
-   end
+  def create
+    #serve per i test, nella realtà la guida deve darci tramite form il suo stripe_account_id. più semplice crearli così che a mano
+    super do |resource|
+      if resource.guide?
+      stripe_account = Stripe::Account.create({
+        type: 'custom',
+        country: 'IT',
+        email: resource.email,
+        business_type: 'individual',
+        individual: {
+          email: resource.email,
+          first_name: resource.name,
+          last_name: resource.name,
+          address: {
+            line1: "Via dei Campi Flegrei",
+            city: "Roma",
+            state: "Lazio",
+            postal_code: "00141",
+            country: "IT"
+          },
+          phone: '3388188350', # Numero di telefono
+          dob: {
+            day: 1, # Giorno di nascita
+            month: 1, # Mese di nascita
+            year: 1990 # Anno di nascita
+          },
+          id_number: 'ABCD1234EFGH5678' # Codice fiscale
+        },
+        business_profile: {
+          mcc: '5812',
+          url: 'https://www.finto.it', # URL del sito web dell'attività
+        },
+        requested_capabilities: ['card_payments', 'transfers'],
+        external_account: {
+          object: 'bank_account',
+          country: 'IT',
+          currency: 'eur',
+          account_holder_name: resource.name,
+          account_holder_type: 'individual',
+          account_number: 'IT60X0542811101000000123456'
+        }
+      })
+      Stripe::Account.update(
+        stripe_account.id,
+        {tos_acceptance: {date: 1609798905, ip: '8.8.8.8'}},
+      )
+    stripe_account.id
+      resource.stripe_account_id = stripe_account.id
+      resource.save
+    end
+  end
+  end
+  
+
+
 
   # GET /resource/edit
    def edit
@@ -43,12 +95,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_permitted_parameters
-    attributes = [:name, :email, :password]
+    attributes = [:name, :email, :password,:iva,:role_id,:remember_me]
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:iva])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:role_id])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:remember_me])
-end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

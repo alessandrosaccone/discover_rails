@@ -1,25 +1,25 @@
 1) 
-Feature: Login for user  G 
+Feature: Login for user  G Finito
     As a registered user
     i want to log in 
     so that i can access other features of the site
 2)
-Feature: Login for tourist guide G 
+Feature: Login for tourist guide G Finito
     As a registered tourist guide
     i want to log in 
     so that i can post new tabs
 3)
-Feature: Registration for new user G 
+Feature: Registration for new user G Finito
     As a new user
     i want to register my account
     so that i can access other features of the site
 4)
-Feature: Registration for new guide G
+Feature: Registration for new guide G Finito
     As a new guide
     i want to register my account
     so that i can post my tabs
 5)
-Feature: Loggout G
+Feature: Loggout G Finito
     As a user or guide
     I want the ability to logout of the system 
     so that I can view login page
@@ -109,12 +109,12 @@ Feature: Booking a tab A-S ================FATTA==============
     i want to book a tab
     so that i can visit the city descripted with my guide
 19)
-Feature: Delete tabs booking A-M-S
+Feature: Delete tabs booking S Finito
     As a user
     i want to delete my tabs booking
     so i can get a refund
 20)
-Feature: Chat system G
+Feature: Chat system G Finito
     As a user or guide
     i want to write to other users
     so i can ask for information
@@ -164,9 +164,10 @@ Feature: Change Profile Image M
     i want to change my profile image
     so that i can change it
 28)
-Feature: Analisi Contenuti Testuali dei post A-M
+Feature: Analisi Contenuti Testuali dei post S-M
     As user
     i want to see guides tabs that aren't vulgar
+    so i can choose them
 
 29 a) 
 Feature: See the guide near by your position in maps A ==============FATTA=============
@@ -299,8 +300,26 @@ Feature: Only posts that can be booked S Finito
     As a user
     I view the list of posts
     so I should only see posts that can be booked
-
-
+54)
+Feature: Tracking user online presence G Finito
+    As a user 
+    when I chat with another user I can see 
+    in real time whether they are online or not  
+55)
+Feature: Payment Proof S Finito
+    As guide
+    i want that my tourists have a ticket
+    so that i am sure that these people have payed
+56)
+Feature: Download Payment proof S Finito
+    As user
+    i want to download the ticket of my payment
+    so that i can show it at the guide even if i don't have wifi
+57)
+Feature: Email Payment proof S-A
+    as a guide 
+    I want people who have bought tickets to receive them by email
+    so I'm sure they can't lose it
 M:26
 S: 12
 A: 22

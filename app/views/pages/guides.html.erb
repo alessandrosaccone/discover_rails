@@ -8,28 +8,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0&callback=init_map" async defer></script>
 
 
-<div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg') %>')">
-  <h1>Discover</h1>
-  <p>Go ever wherever</p>
-</div>
-<div class="navheader_general" id="navbar">
-  <nav class="navbar">
-    <a href="<%= home_pages_path %>">Home</a>
-    <%= link_to t('visite'), posts_path %>
-    <%= link_to t('guide'), guides_path %>
-    <% if !user_signed_in? %>
-      <a href="<%= new_user_session_path() %>">Login</a>
-    <% end %>
-    <% if user_signed_in? %>
-      <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
-    <% end %>
-    <a href="bacheca.html">Profilo</a>
-    <%= form_tag switch_language_path, method: :post do %>
-    <%= select_tag :language, options_for_select(language_options, I18n.locale.to_s) %>
-    <%= submit_tag 'Switch Language' %>
-    <% end %>
-  </nav>
-</div>
+<%=render 'layouts/navbar'%>
 <div class="container-search">
   <div class="search_container" id="search">
     <%= form_with(url: url_for(controller: 'pages', action: 'guides'), method: 'post', id: 'myform', data: { remote: true }) do |form| %>
