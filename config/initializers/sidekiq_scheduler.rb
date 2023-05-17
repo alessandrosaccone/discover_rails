@@ -6,7 +6,7 @@ Sidekiq.configure_server do |config|
     Sidekiq.schedule = YAML.load_file(File.expand_path('../../../config/schedule.yml', __FILE__))
     SidekiqScheduler::Scheduler.reload_schedule!
     puts "I'm calling schedule_job"
-    CheckDateJob.schedule_job
+    #CheckDateJob.schedule_job
   end
 
  

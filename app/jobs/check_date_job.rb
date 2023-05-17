@@ -12,8 +12,8 @@ class CheckDateJob < ApplicationJob
     puts booking.post.ora.strftime("%H:%M")
       if (Date.today.strftime("%e %b %Y") == booking.post.data.strftime("%e %b %Y") &&
         DateTime.now.strftime("%H:%M") > booking.post.ora.strftime("%H:%M") && booking.expired==false)
+        booking.update(expired: true)
         UserMailer.date_exceeded_email(booking.user).deliver_now
-        booking.expired=true
       end
     end
   end
@@ -22,7 +22,7 @@ class CheckDateJob < ApplicationJob
     puts "I'm executing the schedule_job"
     Sidekiq::Cron::Job.create(
       name: 'check_date_job',
-      cron: '0 9/6 * * *',
+      cron: '0 9/1 * * *',
       class: 'CheckDateJob'
     )
   end
