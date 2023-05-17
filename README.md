@@ -52,7 +52,7 @@ commento in poi là)
 
 togli da script_app.js
 
- guarda la feature con numero 57. Voglio mandare via email il biglietto. Per generarlo basta chiamare la funzione generate_invoice_pdf
+guarda la feature con numero 57. Voglio mandare via email il biglietto. Per generarlo basta chiamare la funzione generate_invoice_pdf
 sul booking in questo modo:booking.generate_invoice_pdf
 
 # Per Mario
@@ -62,3 +62,5 @@ google maps
 
 fai in modo che le guide dal loro profilo possono andare ai loro post e i turisti dal loro profilo possono andare alle loro prenotazioni. I show
 di entrambi sono già stati fatti.
+
+# schedule_setup.rb
