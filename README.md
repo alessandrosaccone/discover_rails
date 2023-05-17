@@ -59,3 +59,5 @@ post prenotabili perciò ho aggiunto un controllo sui numeri di posti e la data 
 
 quando la guida compila la form per un post nella via ci deve essere un controllo che la viq esista di
 google maps
+
+# schedule_setup.rb
