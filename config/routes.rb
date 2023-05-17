@@ -41,8 +41,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
    }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  post '/conversations/delete_for_me/', to: 'conversations#delete_for_me', as: 'delete_for_me'
+  post '/conversations/send_voice_message/', to: 'conversations#send_voice_message', as: 'send_voice_message'
+  post '/conversations/delete_for_both/', to: 'conversations#delete_for_both', as: 'delete_for_both'
   post '/bookings/new', to: 'bookings#new', as: 'create_booking'
   root "pages#home"
   get '/guides', to: 'pages#guides'

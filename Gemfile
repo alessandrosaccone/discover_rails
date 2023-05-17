@@ -57,3 +57,5 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'mailcatcher'
 
 gem "bcrypt", "~> 3.1"
+
+gem "jquery-rails", "~> 4.5"

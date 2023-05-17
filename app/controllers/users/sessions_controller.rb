@@ -28,7 +28,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def set_user_offline
-    current_user.update(offline: true)
+    current_user.update(online: false)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
