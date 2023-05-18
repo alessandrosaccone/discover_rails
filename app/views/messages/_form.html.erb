@@ -14,5 +14,58 @@
   <div>
     <%= form.text_area :body %>
     <%= form.submit "Invio", class: "btn-form"%>
+    <button id='VoiceMessageIO' class='btn-register' onmousedown='StartRecording()' onmouseup='StopRecording()' >Register</button>
   </div>
 <% end %>
+
+<script>
+  function StartRecording(){
+    navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream){
+      var audioChunks = [ ]
+
+      mediaRecorder = new MediaRecorder(stream);
+
+      mediaRecorder.addEventListener('dataavailable', function(event){
+        audioChunks.push(event.data)
+      })
+
+      mediaRecorder.start();
+    }).catch(function(error){
+      console.error("Errore di registrazione")
+    })
+  }
+
+  function StopRecording(){
+    if(mediaRecorder && mediaRecorder.state !== 'inactive'){
+      mediaRecorder.stop();
+
+      mediaRecorder.addEventListener('stop', function(){
+        var audioBlob = new Blob(audioChunks, {type: 'audio/webm'})
+
+      sendVoiceMessage(audioBlob)
+      })
+    }
+  }
+  
+  function sendVoiceMessage(audioBlob){
+    const convo_id = Document.getElementById('room-id').getAttribute('data-room-id')
+    console.log(audioBlob)
+    var messagesControllerPath = "<%= url_for(controller: 'messages', action: 'create')%>"
+    const message = new FormData()
+    message.append('audio', audioBlob, "audio.mp3")
+    fetch(messagesControllerPath, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                  'X-CSRF-Token': token
+                },
+                body: message
+              })
+              .then(function(response){
+                console.log("All good")
+                el.parentElement.remove()
+              }).catch(function(error){
+                console.log("Error sending audio data")
+              })
+  }
+</script>

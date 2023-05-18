@@ -1,5 +1,6 @@
 <% content_for :for_head do %>
     <%= stylesheet_link_tag "application-messages" %>
+    <%= stylesheet_link_tag "application-user-activity"%>
     
     <style>
     .my-message{
@@ -14,7 +15,11 @@
     }
     </style>
 <% end %>
+
+
 <%= render partial: 'layouts/user', locals: {user: @guide_user}%>
+
+
 <div id='room-id' data-room-id="<%=@conversation.try(:id)%>"></div>
 
 <div id='messages-container'>

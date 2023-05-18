@@ -24,6 +24,15 @@ form textarea {
   position: absolute;
 }
 
+.btn-register {
+  background-color: blue;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  position: absolute;
+  left: 250px;
+}
+
 .col-md-10 {
   height: 100vh;
   overflow: scroll;
