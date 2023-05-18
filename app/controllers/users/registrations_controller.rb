@@ -41,8 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         },
         business_profile: {
           mcc: '4722',
-          url: 'https://www.finto.it' #è necessario
-           
+          url: 'https://www.finto.it', # URL del sito web dell'attività - è necessario per i test
         },
         requested_capabilities: ['card_payments', 'transfers'],
         external_account: {
