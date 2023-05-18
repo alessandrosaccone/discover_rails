@@ -40,7 +40,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
           id_number: 'ABCD1234EFGH5678' # Codice fiscale
         },
         business_profile: {
-          mcc: '4722'
+          mcc: '4722',
+          url: 'https://www.finto.it' #è necessario
            
         },
         requested_capabilities: ['card_payments', 'transfers'],
