@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :roles
   resources :bookings
+  resources :bacheca_guidas
 
   get '/send_email', to: 'email#send_email', as: 'send_email'
 

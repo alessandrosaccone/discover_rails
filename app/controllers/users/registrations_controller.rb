@@ -57,10 +57,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
         stripe_account.id,
         {tos_acceptance: {date: 1609798905, ip: '8.8.8.8'}},
       )
-    stripe_account.id
-      resource.stripe_account_id = stripe_account.id
-      resource.save
+      stripe_account.id
+        resource.stripe_account_id = stripe_account.id
+        resource.save
+      bacheca_guida = BachecaGuida.create(guida_id: resource.id)
+      bacheca_guida.save
     end
+    
   end
   end
   
