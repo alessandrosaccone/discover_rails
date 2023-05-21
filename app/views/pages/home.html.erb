@@ -26,7 +26,28 @@ if (
 myfunction();
 </script>
 <!-- here the code for not mobile users -->
+<<<<<<< HEAD
 <%=render 'layouts/navbar'%>
+=======
+<div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
+<h1>Discover</h1>
+<p>Go ever wherever</p>
+</div>
+<div class="navheader" id="navbar">
+    <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="app.html">Visite</a>
+        <%= link_to 'Guide', guides_path %>
+        <%if !user_signed_in?%>
+            <a href="<%= new_user_session_path() %>">Login</a>
+        <%end%>
+        <%if user_signed_in?%>
+            <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+        <%end%>
+        <a href="bacheca.html">Profilo</a>
+    </nav>
+</div>
+>>>>>>> a4a836a613c8db8474711cd329815abab556f9ba
 
 <div class="container">
 <div class="sec2 sections">

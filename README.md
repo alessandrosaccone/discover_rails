@@ -21,11 +21,16 @@ Things you may want to cover:
 
 - Deployment instructions
 
+<<<<<<< HEAD
 - ...
+=======
+* ...
+>>>>>>> a4a836a613c8db8474711cd329815abab556f9ba
 
 Rails 7.0.4.3
 Ruby version ruby 2.7.2p137
 
+<<<<<<< HEAD
 # Google Maps API Key
 
 AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0
@@ -64,3 +69,6 @@ fai in modo che le guide dal loro profilo possono andare ai loro post e i turist
 di entrambi sono già stati fatti.
 
 # schedule_setup.rb
+=======
+chiave_maps: AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0
+>>>>>>> a4a836a613c8db8474711cd329815abab556f9ba

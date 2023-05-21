@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :messages
   resources :posts do 
     collection do
       get 'all', to: 'posts#all'
     end
   end
+=======
+  resources :roles
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+>>>>>>> a4a836a613c8db8474711cd329815abab556f9ba
 
  get 'conversations/show', to: 'conversations#show', as: 'conversation'
   resources :conversations do
@@ -51,13 +57,20 @@ Rails.application.routes.draw do
   post '/bookings/new', to: 'bookings#new', as: 'create_booking'
   root "pages#home"
   get '/guides', to: 'pages#guides'
+<<<<<<< HEAD
   post '/guides', to: 'pages#guides'
+=======
+>>>>>>> a4a836a613c8db8474711cd329815abab556f9ba
   resources :pages do
     collection do
       get :home
     end
   end
 
+<<<<<<< HEAD
   post 'switch_language' => 'application#switch_language', as: 'switch_language'
+=======
+  
+>>>>>>> a4a836a613c8db8474711cd329815abab556f9ba
 
 end
