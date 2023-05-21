@@ -4,7 +4,6 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-<<<<<<< HEAD
 ##   Character.create(name: "Luke", movie: movies.first)
 #r1 = Role.create({ id: 9, name: 'Tourist', description: 'Can search for guides, normal user' })
 #r2 = Role.create({ id: 10, name: 'Guide', description: 'Can post tour announcements and do his job on the platform' })
@@ -39,13 +38,3 @@ p6 = Post.create({ descrizione: 'Evviva la vita 3', titolo: 'Visita al tomba', d
 p7 = Post.create({ descrizione: 'Evviva la vita 3', titolo: 'Visita al tomba', data: '30/05/2023', ora: '08:15',
     lingua: 'Inglese', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'jackel@example.com'})
  
-=======
-#   Character.create(name: "Luke", movie: movies.first)
-r1 = Role.create({ name: 'Tourist', description: 'Can search for guides, normal user' })
-r2 = Role.create({ name: 'Guide', description: 'Can post tour announcements and do his job on the platform' })
-
-u1 = User.create({ name: 'Sally', email: 'sally@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', user_role: r1.id })
-u2 = User.create({ name: 'Sue', email: 'sue@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', user_role: r2.id })
-u3 = User.create({ name: 'Kev', email: 'kev@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', user_role: r2.id })
-u4 = User.create({ name: 'Jack', email: 'jack@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', user_role: r1.id })
->>>>>>> a4a836a613c8db8474711cd329815abab556f9ba

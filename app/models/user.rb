@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-<<<<<<< HEAD
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable,
@@ -19,13 +18,6 @@ class User < ApplicationRecord
   has_many :booked_posts, through: :bookings, source: :post
   
   
-=======
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :trackable,
-         :timeoutable,:omniauthable, :omniauth_providers => [:facebook]
-  belongs_to :role, :optional => true
-
->>>>>>> a4a836a613c8db8474711cd329815abab556f9ba
   def tourist?
     role.name == 'Tourist'
   end
@@ -34,13 +26,6 @@ class User < ApplicationRecord
     role.name == 'Guide'
   end
   
-<<<<<<< HEAD
-=======
-  def default_role
-    role = Role.find(9)
-    self.role << role
-  end
->>>>>>> a4a836a613c8db8474711cd329815abab556f9ba
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
