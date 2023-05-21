@@ -28,7 +28,12 @@ class BookingsController < ApplicationController
   # si può cancellare ma credo di lasciarla per il momento, in caso cancellare anche la view
   def show
     @booking = Booking.find(params[:id])
-    
+    if user_signed_in?
+      @bacheca_guida = BachecaGuida.where(guida_id: current_user).first.id
+    else
+      # L'utente non è loggato
+      # Puoi gestire questa situazione come preferisci
+    end
   end
   
   def refund

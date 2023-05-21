@@ -2,21 +2,8 @@
   <%= stylesheet_link_tag "application-bacheca_guidas" %>
   <%= stylesheet_link_tag "application" %>
 <% end %>    
-    
-    <div class="all_header" id="head">
-      <h1>Discover</h1>
-      <p>Go wherever you want</p>
-    </div>
-    <div class="container_full">
-      <div class="navheader_general" id="navbar_app">
-        <nav class="navbar">
-          <a href="home.html" id="home">Home</a>
-          <a href="app.html">Visite</a>
-          <a href="guide.html">Guide</a>
-          <a href="bacheca.html">Profilo</a>
-          <a href="logout_trasizione.php" id="login_logout"></a>
-        </nav>
-      </div>
+
+<%=render 'layouts/navbar'%>
 
       <div class="container">
         <div class="block" id="3"></div>
