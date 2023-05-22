@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     if user_signed_in?
-      @bacheca_guida = BachecaGuida.where(guida_id: current_user).first.id
+      @bacheca_guida = BachecaGuida.where(guida_id: current_user.id)
     else
       # L'utente non è loggato
       # Puoi gestire questa situazione come preferisci
