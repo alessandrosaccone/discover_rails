@@ -62,8 +62,7 @@ class BookingsController < ApplicationController
     if post.persone_rimanenti > 0
       if @booking.save_with_payment
         post.update(persone_rimanenti: post.persone_rimanenti - num_pers)
-        redirect_to url_for(controller: 'email', action: 'send_email'), notice: 'Prenotazione effettuata con successo'
-       
+        redirect_to url_for(controller: 'email', action: 'send_email', booking: @booking), notice: 'Prenotazione effettuata con successo'
       else
         redirect_to @booking.post,notice: @booking.errors.full_messages.join('. ')
       end
