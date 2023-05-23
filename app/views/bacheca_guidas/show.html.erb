@@ -7,6 +7,20 @@
 
       <div class="container">
         <div class="block" id="3">
+          <div class="box">
+            <div class="image">
+              <img src="<%= image_path("guida1.webp") %>" alt="Immagine">
+            </div>
+          </div>
+
+          <div class="content">
+              <h3>Mario Reda</h3>
+              <br>
+              <br>
+              <p><%=@bacheca_guida.descrizione%></p>
+          </div>
+
+
           <div class="dropdown">
             <div class="dropdown-icon">
               <div class="dot"></div>
@@ -14,9 +28,11 @@
               <div class="dot"></div>
             </div>
             <div class="dropdown-content">
-              <a href="#">Cancellare l'account</a>
               <a href="#">Modificare username</a>
               <a href="#">Modificare la password</a>
+              <a href="#">Cambia immagine</a>
+              <%= link_to "Modifica Descrizione", edit_bacheca_guida_path(@bacheca_guida, id: @bacheca_guida.id) %>
+              <a href="#">Cancellare l'account</a>
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ Feature: Loggout G Finito
     I want the ability to logout of the system 
     so that I can view login page
 6)
-Feature: Access my profile M
+Feature: Access my profile M Finito per le guide
     As a user or guide
     i want to access my profile page
     so that i can view it

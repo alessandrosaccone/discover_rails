@@ -21,7 +21,13 @@ Rails.application.routes.draw do
 
   resources :roles
   resources :bookings
-  resources :bacheca_guidas
+
+  resources :bacheca_guidas do
+    member do
+      post 'edit/:id', action: :edit, as: 'edit_profile'
+      patch 'update/:id', action: :update, as: 'update_profile'
+    end
+  end
 
   get '/send_email', to: 'email#send_email', as: 'send_email'
 
