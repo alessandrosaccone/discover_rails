@@ -62,6 +62,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       resource.stripe_account_id = stripe_account.id
       resource.save
     end
+    @bacheca_guida = BachecaGuida.create(user_id: resource.id)
   end
   end
   

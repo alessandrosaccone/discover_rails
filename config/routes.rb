@@ -24,8 +24,9 @@ Rails.application.routes.draw do
 
   resources :bacheca_guidas do
     member do
-      post 'edit/:id', action: :edit, as: 'edit_profile'
-      patch 'update/:id', action: :update, as: 'update_profile'
+      post 'edit/:id', action: :edit, as: 'edit'
+      patch 'update/:id', action: :update, as: 'update'
+      get 'show', action: :show, as: 'bacheca'
     end
   end
 
