@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 :root {
   /* FONT */
   --font: "Poppins", sans-serif;
@@ -238,7 +238,7 @@
     display: none;
   }
 }
-=======
+
 :root{
     /* FONT */
     --font: 'Poppins', sans-serif;
@@ -336,4 +336,4 @@
     margin-top: .5em;
     cursor: pointer;
   }
->>>>>>> 263c4c7 (Creata pagina Guide ma si deve inserire js)
+

@@ -1,5 +1,5 @@
-source "https://rubygems.org"
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+source "http://rubygems.org"
+git_source(:github) { |repo| "http://github.com/#{repo}.git" }
 
 ruby "2.7.2"
 
@@ -65,3 +65,36 @@ gem 'sidekiq'
 gem 'sidekiq-scheduler'
 
 gem 'sidekiq-cron'
+
+gem "devise", "~> 4.9"
+
+gem "cancancan", "~> 3.5"
+
+gem 'omniauth-facebook'
+
+gem 'omniauth-rails_csrf_protection'
+
+gem 'stripe'
+
+gem 'figaro'
+
+gem 'rack-cors'
+
+gem "actioncable", "~> 7.0"
+
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'mailcatcher'
+
+gem "bcrypt", "~> 3.1"
+
+gem "jquery-rails", "~> 4.5"
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'sidekiq'
+
+gem 'sidekiq-scheduler'
+
+gem 'sidekiq-cron'
+

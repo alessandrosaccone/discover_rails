@@ -1,6 +1,12 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, except: [:home]
-    def home  
+    def home 
+      if user_signed_in?
+        @bacheca_guida = BachecaGuida.where(guida_id: current_user.id)
+      else
+        # L'utente non è loggato
+        # Puoi gestire questa situazione come preferisci
+      end
     end
 
 
@@ -10,6 +16,12 @@ class PagesController < ApplicationController
 <<<<<<< HEAD
 
     def guides
+        if user_signed_in?
+          @bacheca_guida = BachecaGuida.where(guida_id: current_user.id)
+        else
+          # L'utente non è loggato
+          # Puoi gestire questa situazione come preferisci
+        end
         @guides = User.where(role_id: 10)
         nome = params[:nome]
         citta = params[:citta]
