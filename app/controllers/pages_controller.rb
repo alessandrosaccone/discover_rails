@@ -13,6 +13,7 @@ class PagesController < ApplicationController
     def dummypage
     end
 
+<<<<<<< HEAD
 
     def guides
         if user_signed_in?
@@ -48,4 +49,9 @@ class PagesController < ApplicationController
         end
     end
       
+=======
+    def guides
+        @users = User.all
+    end
+>>>>>>> 263c4c7 (Creata pagina Guide ma si deve inserire js)
 end
