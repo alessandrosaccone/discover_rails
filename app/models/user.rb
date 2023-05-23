@@ -1,13 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable,
          :timeoutable,:omniauthable, :omniauth_providers => [:facebook]
-  
-  has_one :bacheca_guida
-
   belongs_to :role, :optional => true
   belongs_to :city, optional: true
   has_many :user_posts, foreign_key: 'user_email', primary_key: 'email', class_name: 'Post'

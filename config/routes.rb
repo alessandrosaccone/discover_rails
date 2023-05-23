@@ -62,10 +62,4 @@ Rails.application.routes.draw do
 
   post 'switch_language' => 'application#switch_language', as: 'switch_language'
 
-  resources :bacheca_guidas do
-    member do
-      post 'edit/:id', action: :edit, as: 'edit_profile'
-      patch 'update/:id', action: :update, as: 'update_profile'
-    end
-  end
 end

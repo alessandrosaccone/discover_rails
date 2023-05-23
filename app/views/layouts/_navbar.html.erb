@@ -7,9 +7,6 @@
         <a href="#">Home</a>
         <%=link_to t('visite'), posts_path%>
         <%= link_to t('guide'), guides_path %>
-        <%if user_signed_in?%>
-            <%= link_to "Bacheca", bacheca_guida_path(@bacheca_guida) %>
-        <%end%>
         <%if !user_signed_in?%>
             <a href="<%= new_user_session_path() %>">Login</a>
         <%end%>
