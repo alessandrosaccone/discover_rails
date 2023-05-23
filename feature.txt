@@ -308,9 +308,15 @@ Feature: Download Payment Proof for Tourists S
     As a tourist,
     I want to be able to download the ticket of my payment
     So that I can have a copy of the payment proof accessible even without an internet connection.
-62)
-Feature: Email Payment proof S-A Non Finito
-    as a guide 
-    I want people who have bought tickets to receive them by email
-    so I'm sure they can't lose it
+62) 
+Feature: Email booking proof A 
+    As a tourist,
+    I want to receive an email confirmation for my booking,
+    So that I can have the assurance that my booking has been processed successfully.
+
+63)
+Feature: Email Payment Proof for Tourists  A-S 
+    As a guide,
+    I want tourists who have purchased tickets to receive their payment proof by email,
+    So that I can ensure they have a digital copy and minimize the risk of losing it.
 
