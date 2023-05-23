@@ -50,10 +50,7 @@ Rails.application.routes.draw do
   post '/bookings/new', to: 'bookings#new', as: 'create_booking'
   root "pages#home"
   get '/guides', to: 'pages#guides'
-<<<<<<< HEAD
   post '/guides', to: 'pages#guides'
-=======
->>>>>>> 263c4c7 (Creata pagina Guide ma si deve inserire js)
   resources :pages do
     collection do
       get :home

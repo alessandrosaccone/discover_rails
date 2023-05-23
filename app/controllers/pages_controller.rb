@@ -7,7 +7,6 @@ class PagesController < ApplicationController
     def dummypage
     end
 
-<<<<<<< HEAD
 
     def guides
         @guides = User.where(role_id: 10)
@@ -37,9 +36,4 @@ class PagesController < ApplicationController
         end
     end
       
-=======
-    def guides
-        @users = User.all
-    end
->>>>>>> 263c4c7 (Creata pagina Guide ma si deve inserire js)
 end
