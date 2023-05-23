@@ -65,4 +65,5 @@ Rails.application.routes.draw do
   end
 
   post 'switch_language' => 'application#switch_language', as: 'switch_language'
+
 end
