@@ -1,326 +1,315 @@
 1) 
-Feature: Login for user  G Finito
-    As a registered user
-    i want to log in 
-    so that i can access other features of the site
+Feature: Login for user G 
+    As a user (tourist and guide)
+    I want to log in to the site,
+    So that I can access other features and functionalities.
+
 2)
-Feature: Login for tourist guide G Finito
-    As a registered tourist guide
-    i want to log in 
-    so that i can post new tabs
+Feature: Registration for new tourist G
+    As a new tourist who is not registered,
+    I want to register my account
+    So that I can access other features of the site.
 3)
-Feature: Registration for new user G Finito
-    As a new user
-    i want to register my account
-    so that i can access other features of the site
-4)
-Feature: Registration for new guide G Finito
-    As a new guide
-    i want to register my account
-    so that i can post my tabs
+Feature: Registration for new guide G
+    As a new guide who is not registered,
+    I want to register my account
+    So that I can post my tabs and share my knowledge.
 5)
-Feature: Loggout G Finito
-    As a user or guide
-    I want the ability to logout of the system 
-    so that I can view login page
+Feature: Logout  G 
+    As a tourist or guide
+    I want the ability to logout of the system
+    So that I can securely log out and view the login page.
 6)
-Feature: Access my profile M
+Feature: Access my profile M Non Finito
     As a user or guide
     i want to access my profile page
     so that i can view it
 7)
-Feature: Modify my profile username G-M
+Feature: Modify my profile username G-M Non Finito
     As a user or guide
     I want to access my profile page 
     so that I can edit my username.
 8)
-Feature: Modify my password G-M
+Feature: Modify my password G-M Non Finito
     As a user or guide
     I want to change my password
     so that I can keep it secure.
 9)
-Feature: Delete Account G-M
+Feature: Delete Account G-M Non Finito
     As a user or  Guide
     I want to delete my account
     so that I can no longer access the system
 10)
-Feature: Access to Guide tab M
+Feature: Access to Guide tab M Non Finito
     As a guide
     i want to access my tab
     so that i can view it
 11)
-Feature: Delete Guide tab M
+Feature: Delete Guide tab M Non Finito
     As a guide
     i want to delete my tabs
     so that they cannot be seen in the system
 12)
-Feature: Modify Guide tab M
+Feature: Modify Guide tab M Non Finito
     As a guide
     i want to access my tabs
     so that i can modify them
 13)
-Feature: user reviews A-M
+Feature: user reviews A-M Non Finito
     As a user
     i want to review Guide tabs
     so that more people will book with that guide
 14)
-Feature: Delete user reviews A-M
+Feature: Delete user reviews A-M Non Finito
     As a user
     i want to delete my review Guide tabs
     so that it can't be seen in the system
 15)
-Feature: Modify user reviews A-M
+Feature: Modify user reviews A-M Non Finito
     As a user
     i want to modify my review Guide tabs
     so that ???
 16)
-Feature: Search guides by my position A =============FATTO============
-    As a user
-    i want to find guides by my position
-    so that i can find them faster
-16 a)
-Feature: Search guides tabs by my position A  ================FATTO===============
-    As a user
-    i want to find guides tabs by my position
-    so that i can find them faster
-16 b)
-Feature: Search guides  by his position A  ===================FATTO===============
-    As a user
-    i want to find guides by his position
-    so that i can find them faster
-16 c)
-Feature: Search guides tabs by his position A ================FATTO===============
-    As a user
-    i want to find guides tabs by my position
-    so that i can find them faster
+Feature: Search Guides by Position A
+    As a tourist or guide,
+    I want to find guides based on my position
+    So that I can easily locate guides near me.
 17)
-Feature: Search guides by towns S Finito
-    As a user
-    i want to find guides by towns
-    so that i can find them faster
-17-a)
-Feature: Search tabs by towns A  ===============FATTA================
-    As a user
-    i want to find guides by towns
-    so that i can find them faster
+Feature: Search Guides' Tabs by Position A
+    As a tourist or guide,
+    I want to find guides' tabs based on my position
+    So that I can easily locate tabs created by guides near me.
 18)
-Feature: Booking a tab A-S ================FATTA==============
-    As a user
-    i want to book a tab
-    so that i can visit the city descripted with my guide
+Feature: Search Guides by Their Position A
+    As a tourist or guide,
+    I want to find guides based on their position
+    So that I can easily locate guides in specific locations.
 19)
-Feature: Delete tabs booking S Finito
-    As a user
-    i want to delete my tabs booking
-    so i can get a refund
+Feature: Search Guides' Tabs by Position A
+    As a tourist or guide,
+    I want to find guides' tabs based on my position
+    So that I can easily locate tabs created by guides in specific locations.
 20)
-Feature: Chat system G Finito
-    As a user or guide
-    i want to write to other users
-    so i can ask for information
+Feature: Search Guides by Towns S
+    As a tourist or guide,
+    I want to find guides based on towns
+    So that I can easily locate guides in specific towns.
 21)
-Feature: Delete message in Chat system G
-    As a user or guide
-    i want to delete my messages
-    so that they cannot be seen
+
+Feature: Search Tabs by Towns A
+    As a tourist or guide,
+    I want to find guides' tabs based on towns
+    So that I can easily locate tabs created by guides in specific towns.
 22)
-Feature: Change language A ================FINITO=================
-    As a user or guide
-    i want to change language
-    so that I can understand what is written on the site
+Feature: Booking a Tab A-S
+    As a tourist,
+    I want to book a tab created by a guide
+    So that I can visit the city described in the tab with the guide's assistance.
 23)
-Feature: Search Guide by reviews S
+Feature: Delete Tabs Booking S
+    As a tourist,
+    I want to delete my tabs booking
+    So that I can cancel my booking and receive a refund.
+24)
+Feature: Chat System G
+    As a tourist or guide,
+    I want to be able to communicate with other guides
+    So that I can ask for information or engage in conversations.
+25)
+Feature: Delete Message in Chat System G
+    As a tourist or guide,
+    I want to be able to delete my messages in the chat system
+    So that they cannot be seen by other users.
+26)
+Feature: Change Language A
+    As a tourist or guide,
+    I want to be able to change the language of the site
+    So that I can understand the content and information presented.
+27)
+Feature: Search Guide by reviews S-M Non Finito
     As a user
     i want to find guides by their reviews
     so that i can find good guides
-23-a)
-Feature: Search Guide by their name S Finito
-    As a user
-    i want to find guides by their name
-    so that i can find guides that i know
-24)
-Feature: Search Guide by language S Finito
-    As a user
-    i want to find guides by their language
-    so that i can find guides that speak my language
-25)
-Feature: Login with API S Finito
-    As a new or old user
-    i want to log in with API
-    so that i can avoid memorizing the password
-26)
-Feature: check phone numbers G
+28)
+Feature: Search Guides by Name S
+    As a tourist or guide,
+    I want to be able to search for guides by their name
+    So that I can find guides that I know or have heard about.
+29)
+Feature: Search Guides by Language S
+    As a tourist or guide,
+    I want to be able to search for guides based on their language proficiency
+    So that I can find guides who can communicate in my preferred language.
+30)
+Feature: Login with API S
+    As a tourist,
+    I want to be able to log in using an API
+    So that I can conveniently authenticate without the need to memorize my password.
+31)
+Feature: check phone numbers G-M Non Finito
     As a user or guide
     i want that my users have a valid phone numbers
     so that i can contact them
-27)
-Feature: Check Profile Image M
+32)
+Feature: Check Profile Image M Non Finito
     As user or guide
     i want to see my profile image
     so that i can see it
-27-a) 
-Feature: Change Profile Image M
+33) 
+Feature: Change Profile Image M Non Finito
     As user or guide
     i want to change my profile image
     so that i can change it
-28)
-Feature: Analisi Contenuti Testuali dei post S-M
+34)
+Feature: Analisi Contenuti Testuali dei post M Non Finito
     As user
     i want to see guides tabs that aren't vulgar
     so i can choose them
 
-29 a) 
-Feature: See the guide near by your position in maps A ==============FATTA=============
-    As a user
-    i want to find guides by me
-    so that i can see their names
+35) 
+Feature: See Guides Near Your Position in Maps A
+    As a tourist or guide,
+    I want to be able to see guides who are near my current location on a map
+    So that I can identify their names and easily find guides in my vicinity.
 
-29 b)
-Feature: Have my position saved as a guide A ==================FATTA===============
-    As a guide
-    i want to have my position automatically saved
-    so that people can see where I am working
+36)
+Feature: Automatic Position Saving for Guides A
+    As a guide,
+    I want to have my position automatically saved
+    So that people can see where I am working and easily locate me.
 
-29)
-Feature: Search posts by nations A
-    As a user
-    i want to find guides by nation
-    so that i can find them faster
-30)
-Feature: Search guides by nations S Finito
-    As a user
-    i want to find guides by nation
-    so that i can find them faster
-31)
-Feature: Price for Guide tabs A
+37)
+Feature: Search Guides by Nations S
+    As a tourist or guide,
+    I want to be able to search for guides based on their nationality or country of origin
+    So that I can find guides from specific nations more easily.
+38)
+Feature: Price for Guide tabs A-M Non Finito
     As a guide
     I want to choose the price of my tour based on that of others
     so that users will choose mine
-32)
-Feature: forgotten email G
+39)
+Feature: forgotten email G-M Non Finito
     As a user or guide
     I want to recuperate my email
     so that I can log in
-33)
-Feature: Search posts by Google Maps A ================FATTO===============
-    As a user
-    i want to find posts using Google Maps
-    so that i can find the ones near to me and see them 
-35)
-Feature: Report Guides M
+40)
+Feature: Search Tabs by Google Maps A
+    As a tourist or guide,
+    I want to be able to search for posts using Google Maps
+    So that I can find posts that are geographically close to me and view them on the map.
+
+41)
+Feature: Report Guides M Non Finito
     as a user
     I want to be able to report other guides
     so I can warn other users
-36)
-Feature: Report Users M
+42)
+Feature: Report Users M Non Finito
     as a guide
     I want to be able to report other users
     so I can warn other guides
-37)
-Feature: Booking all seats A-S ===============FATTO=============
-    As a user
-    i want to book all seats for guide's tab
-    so that i can go there with only my friends or alone
-38)
-Feature: Booking a number of seats S-A Finito
-    As a user
-    i want to book a number of seat for guide's tab
-    so that i can go there with a group of friends
-39)
-Feature: Guides tabs M
+43)
+Feature: Booking All Seats for Guide's Tab A-S
+    As a tourist,
+    I want to be able to book all seats for a guide's tab
+    So that I can reserve the entire tab for myself, my friends, or go alone.
+44)
+Feature: Booking a Number of Seats for Guide's Tab A-S
+    As a tourist,
+    I want to be able to book a specific number of seats for a guide's tab
+    So that I can reserve seats for myself and a group of friends.
+45)
+Feature: Guides tabs M Non Finito
     as a guide
     i want to view all my tabs
     so that i can find them faster
-40)
-Feature: Users Bookings M
+46)
+Feature: Users Bookings M Non Finito
     as a user 
     I want to see all my reservations
     so that i can find them faster
-41)
-Feature: Online Payment S Finito
-    as a user
-    i want to pay my reservations with credit card
-    so that i can't pay in cash
-42)
-Feature: reservation deadline A
+47)
+Feature: Online Payment S
+    As a tourist,
+    I want to be able to make online payments for my reservations using a credit card
+    So that I can conveniently and securely pay for my bookings without the need for cash.
+48)
+Feature: reservation deadline A-M Non Finito
     As a user
     I want to receive an e-mail reminding me my booking deadline 
     so i can have time to cancel it if I wish
-43)
-Feature: Email after reservation deadline A
-    As a user
-    I want to receive an e-mail after my booking deadline 
-    so that i know that i can't delete it anymore
-44)
-Feature: Delete after reservation deadline A-M
+49)
+Feature: Email Notification after Reservation Deadline A
+    As a tourist,
+    I want to receive an email notification after the booking deadline for my reservation has passed,
+    So that I am informed that I can no longer delete or modify the reservation
+50)
+Feature: Delete after reservation deadline A-M Non Finito
     As a user
     I want to delete my reservation after booking deadline 
     so that i can warn the guide
 
-46)
-Feature: Reviews with stars M
+51)
+Feature: Reviews with stars M Non Finito
     As a user
     i want to review Guide tabs
     so that more people will book with that guide
 
-47)
-Feature: Following A-M-S-G
+52)
+Feature: Following A-M-S-G Non Finito
     As a user or guide
     i want to follow another user or guide
     so i can see their tabs in homepage
 
-48) 
-Feature: See all tabs A ==================FATTA================
-    As a user 
-    i want to see all the tabs 
-    so i can decide what tabs book
-49)
-Feauture: No Reservation S Finito
-    As a guide
-    i want that my tabs cannot be booked after their seats ended
-    so that users don't pay
-50)
-Feature: No Reservation for guide S Finito
-    As a guide
-    i want that only user can book my tabs
-    so that another guide cannot copy me
-
-51)
-Feature: See the price I will pay for my booking A ==================FATTA=================
-    As a user
-    i want to see dinamically the price of my booking
-    so i can see how much to pay for a certain amount of reservation I'm asking for
-52)
-Feature: Credit Card Control S Finito
-    As a user
-    I want to know the reason why my payment is invalid
-    so that I can take the necessary corrective actions.
-53)
-Feature: Only posts that can be booked S Finito
-    As a user
-    I view the list of posts
-    so I should only see posts that can be booked
+53) 
+Feature: View All Tabs A
+    As a tourist or guide,
+    I want to be able to view all the available tabs
+    So that I can browse through them and make informed decisions on which tabs to book.
 54)
-Feature: Tracking user online presence G Finito
-    As a user 
-    when I chat with another user I can see 
-    in real time whether they are online or not  
+Feature: No Reservation for Fully Booked Tabs S
+    As a guide,
+    I want to ensure that my tabs cannot be booked once all the seats have been filled
+    So that users do not make payments for tabs that are already fully booked.
 55)
-Feature: Payment Proof S Finito
-    As guide
-    i want that my tourists have a ticket
-    so that i am sure that these people have payed
+Feature: No Reservation for Guide's Tabs by Other Guides S
+    As a guide,
+    I want to ensure that only tourists can book my tabs
+    So that other guides cannot copy or book my tabs intended for tourists.
 56)
-Feature: Download Payment proof S Finito
-    As user
-    i want to download the ticket of my payment
-    so that i can show it at the guide even if i don't have wifi
+Feature: Dynamic Price Calculation for Booking A
+    As a tourist,
+    I want to see the dynamically calculated price for my booking
+    So that I can have visibility on the total amount I need to pay based on the number of reservations I am requesting.
 57)
-Feature: Email Payment proof S-A
+Feature: Credit Card Control S
+    As a tourist,
+    I want to know the reason why my payment is invalid
+    So that I can understand the cause of the issue and take the necessary corrective actions.
+58)
+Feature: Display Only Bookable Tabs S
+    As a tourist,
+    I want to view a list of tabs that are available for booking
+    So that I can easily identify and choose from the tabs that I can book.
+59)
+Feature: User Online Presence Tracking G
+    As a user (tourist or guide),
+    I want to see the online status of other users while chatting,
+    So that I can know if they are currently online or not.
+
+60)
+Feature: Payment Proof for Guides S
+    As a guide,
+    I want to ensure that tourists have a payment proof or ticket
+    So that I can be confident that they have completed the payment for my services.
+61)
+Feature: Download Payment Proof for Tourists S
+    As a tourist,
+    I want to be able to download the ticket of my payment
+    So that I can have a copy of the payment proof accessible even without an internet connection.
+62)
+Feature: Email Payment proof S-A 
     as a guide 
     I want people who have bought tickets to receive them by email
     so I'm sure they can't lose it
-M:26
-S: 12
-A: 22
-G: 14

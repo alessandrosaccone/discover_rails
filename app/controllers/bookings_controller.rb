@@ -5,7 +5,6 @@ class BookingsController < ApplicationController
   #corretta ma non è finita
   def download_invoice
     booking = Booking.find(params[:id])
-
     invoice_path = booking.generate_invoice_pdf
     if invoice_path
       send_file invoice_path, filename: "booking_invoice.pdf", type: "application/pdf", disposition: "attachment"
@@ -20,6 +19,16 @@ class BookingsController < ApplicationController
     @post = Post.find(params[:post_id])
     @booking = Booking.new(post: @post)
     @num_pers = params[:persone].to_i
+    # Validazione dei parametri
+    if @num_pers <= 0
+        redirect_to @booking.post, alert: 'Il numero di persone deve essere maggiore di zero'
+        return
+    end
+    #Scadenza: Quando scade? Al momento il giorno stesso della visita.
+    if @post.data<=Date.today
+      redirect_to @booking.post, alert: 'Post Scaduto'
+      return
+    end
     @price = ((@post.prezzo * @post.numero_ore) / @post.persone).to_i * params[:persone].to_i
     if @price==0
       redirect_to @booking.post, alert: 'Non hai inserito alcun posto'
@@ -28,7 +37,6 @@ class BookingsController < ApplicationController
   # si può cancellare ma credo di lasciarla per il momento, in caso cancellare anche la view
   def show
     @booking = Booking.find(params[:id])
-    
   end
   
   def refund
@@ -54,8 +62,7 @@ class BookingsController < ApplicationController
     if post.persone_rimanenti > 0
       if @booking.save_with_payment
         post.update(persone_rimanenti: post.persone_rimanenti - num_pers)
-        redirect_to url_for(controller: 'email', action: 'send_email'), notice: 'Prenotazione effettuata con successo'
-       
+        redirect_to url_for(controller: 'email', action: 'send_email', booking: @booking), notice: 'Prenotazione effettuata con successo'
       else
         redirect_to @booking.post,notice: @booking.errors.full_messages.join('. ')
       end
@@ -76,5 +83,6 @@ class BookingsController < ApplicationController
       redirect_to root_path, alert: "You don't have access to view this booking."
     end
   end
+
 end
   
