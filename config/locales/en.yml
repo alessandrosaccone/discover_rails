@@ -69,3 +69,8 @@ en:
   nome: "Name..."
 
   nazione: "Nation..."
+
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "Errore di validazione dei dati"

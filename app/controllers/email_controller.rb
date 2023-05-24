@@ -6,7 +6,6 @@ class EmailController < ApplicationController
     begin
       # Attach the PDF file to the email
       UserMailer.welcome_email(user,pdf).deliver
-      puts "Errore dopo User Mailer"
       puts "Email sent to #{user.email}!"
     rescue => e
       puts "Error sending email: #{e.message}"
