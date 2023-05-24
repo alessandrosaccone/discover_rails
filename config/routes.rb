@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :messages
+  resources :messages do
+    post 'create_audio', on: :collection
+  end
   resources :posts do 
     collection do
       get 'all', to: 'posts#all'
