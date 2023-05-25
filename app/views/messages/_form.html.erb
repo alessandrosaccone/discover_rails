@@ -18,11 +18,13 @@
   <div>
     <%= form.text_area :body %>
     <%= form.submit "Invio", class: "btn-form"%>
-    <button id='VoiceMessageIO' class='btn-register' onmousedown='StartRecording()' onmouseup='StopRecording()' ><ion-icon name="mic-outline"></ion-icon></button>
+     <button id='VoiceMessageIO' data-remote="true" data-url="<%= url_for(controller: 'messages', action: 'create_audio') %>"
+      type='button' class='btn-register' onmousedown='StartRecording()' onmouseup='StopRecording()' ><ion-icon name="mic-outline"></ion-icon></button>
   </div>
 <% end %>
 
 <script>
+
 var audioChunks = [];
 var mediaRecorder;
 var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -47,18 +49,28 @@ var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('
   function StopRecording(){
     if(mediaRecorder && mediaRecorder.state !== 'inactive'){
       mediaRecorder.stop();
-      mediaRecorder.addEventListener('stop', function(){
-        var audioBlob = new Blob(audioChunks, {type: 'audio/webm'})
+    }
+    mediaRecorder.addEventListener('stop', function(){
+      var audioBlob = new Blob(audioChunks, {type: 'audio/ogg; codecs=opus'})
+      /*let file = new File([audioBlob], "audio-message.ogg",{
+        type: "audio/ogg; codecs=opus",
+        lastModified: new Date().getTime();
+      })
+      let container =  new DataTransfer();
+      container.items.add(file);
+      uploadFile(file);
+      
+      */
 
       sendVoiceMessage(audioBlob)
       })
-    }
     
   }
   
   function sendVoiceMessage(audioBlob){
     //const convo_id = document.getElementById('room-id').getAttribute('data-room-id')
-    var messagesControllerPath = "<%= url_for(controller: 'messages', action: 'create_audio')%>"
+    var messagesControllerPath = "<%= url_for(controller: 'messages', action: 'create_audio') %>";
+
     const message = new FormData()
     message.append('audio', audioBlob);
     fetch(messagesControllerPath, {

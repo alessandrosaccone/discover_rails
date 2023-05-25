@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :messages
-  resources :messages do
-    post 'create_audio', on: :collection
-  end
+
+  resources :messages 
+  post '/messages/create_audio', to: 'messages#create_audio', as: 'create_audio'
+
   resources :posts do 
     collection do
       get 'all', to: 'posts#all'

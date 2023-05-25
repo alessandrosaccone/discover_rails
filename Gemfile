@@ -65,3 +65,7 @@ gem 'sidekiq'
 gem 'sidekiq-scheduler'
 
 gem 'sidekiq-cron'
+
+gem "rails-ujs", "~> 0.1.0"
+
+gem "turbolinks", "~> 5.2"

@@ -25,7 +25,6 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.user_id = current_user.id
     @message.conversation_id = session[:current_conversation]
-    @message.deleted_for_user = false
     @message.save
     ActionCable.server.broadcast "room_channel_#{@message.conversation_id}", html:  render_message
     redirect_back(fallback_location: root_path)
@@ -36,13 +35,14 @@ class MessagesController < ApplicationController
   def create_audio
     if params[:audio].present?
       @message = Message.new
-      @data = params[:audio]
-      @message.audio.attach(params[:audio])
+      @message.audio.attach(io: params[:audio], filename: "audio_#{@message.id}.ogg", content_type: 'audio/ogg' )
       @message.user_id = current_user.id
       @message.conversation_id = session[:current_conversation]
-      @message.deleted_for_user = false
-      @message.save
-      ActionCable.server.broadcast "room_channel_#{@message.conversation_id}", html:  render_message
+
+      if @message.audio.attached?
+        @message.save
+        ActionCable.server.broadcast "room_channel_#{@message.conversation_id}", html:  render_message
+      end
       redirect_back(fallback_location: root_path)
     end
   end

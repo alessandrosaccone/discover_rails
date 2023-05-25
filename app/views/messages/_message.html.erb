@@ -4,7 +4,10 @@
     <div class="message-box my-message">
       <p class='msg-content'><%= message.body %></p>
       <% if message.audio.attached? %>
-          <%= audio_tag message.audio %>
+          <audio controls>
+          <source src="<%= url_for(message.audio) %>" type="<%= message.audio.content_type %>">
+                  Your browser does not support the audio element.
+        </audio>
       <% end %>
       <div class='ap'><p class='data-msg'><%= message.created_at %></p></div>
     </div>
@@ -12,7 +15,10 @@
     <div class="message-box not-my-message">
       <p class='msg-content'><%= message.body %></p>
       <% if message.audio.attached? %>
-          <%= audio_tag message.audio %>
+          <audio controls>
+          <source src="<%= url_for(message.audio) %>" type="<%= message.audio.content_type %>">
+                  Your browser does not support the audio element.
+        </audio>
       <% end %>
       <div class='ap' ><p class='data-msg'><%= message.created_at %></p></div>
     </div>
@@ -21,6 +27,7 @@
 </div>
 
 <script>
+  //SCRIPT PER FAR APPARIRE L'OPZIONE DI CANCELLARE UN MESSAGGIO
     var pressTimer;
     function startAction(e){
         var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
