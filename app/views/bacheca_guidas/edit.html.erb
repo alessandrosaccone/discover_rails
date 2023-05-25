@@ -1,0 +1,7 @@
+<div class="field">
+  <%= form_for (@bacheca_guida), method: :patch do |f| %>
+  <%= label_tag :description, "Description:" %>
+  <%= f.text_area :description %>
+  <%= f.submit 'Update' %>
+  <% end %>
+</div>
