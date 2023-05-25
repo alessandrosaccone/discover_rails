@@ -101,6 +101,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    ffi (1.15.5)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
     fugit (1.8.1)
@@ -185,6 +186,8 @@ GEM
     omniauth-rails_csrf_protection (1.0.1)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
+    opus-ruby (1.0.1)
+      ffi
     orm_adapter (0.5.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -220,6 +223,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.5.0)
       loofah (~> 2.19, >= 2.19.1)
+    rails-ujs (0.1.0)
+      railties (>= 3.1)
     railties (7.0.4.3)
       actionpack (= 7.0.4.3)
       activesupport (= 7.0.4.3)
@@ -300,6 +305,9 @@ GEM
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     version_gem (1.1.2)
@@ -330,9 +338,11 @@ DEPENDENCIES
   mailcatcher
   omniauth-facebook
   omniauth-rails_csrf_protection
+  opus-ruby (~> 1.0)
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4, >= 7.0.4.3)
+  rails-ujs (~> 0.1.0)
   rails-controller-testing
   redis (~> 4.0)
   rspec-rails
@@ -342,6 +352,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stripe
+  turbolinks (~> 5.2)
   tzinfo-data
   wicked_pdf
   wkhtmltopdf-binary

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :bacheca_guidas
   resources :messages
+  post '/messages/create_audio', to: 'messages#create_audio', as: 'create_audio'
+
   resources :posts do 
     collection do
       get 'all', to: 'posts#all'

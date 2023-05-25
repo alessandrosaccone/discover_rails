@@ -101,7 +101,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_092106) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "deleted_for_user", default: false, null: false
-    t.string "audio"
+    t.binary "audio"
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
