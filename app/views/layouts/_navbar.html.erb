@@ -13,7 +13,7 @@
         <%if user_signed_in?%>
             <%=link_to t('logout'), destroy_user_session_path, :method => :delete %>
             <%=link_to t('profilo'), :method => :get%>
-            <%= link_to t('bacheca'), bacheca_bacheca_guida_path(1) %>
+            <%= link_to t('bacheca'), show_bacheca_path() %>
         <%end%>
         <%= form_tag switch_language_path, method: :post do %>
         <%= select_tag :language, options_for_select(language_options, I18n.locale.to_s) %>

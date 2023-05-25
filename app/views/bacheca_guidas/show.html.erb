@@ -14,10 +14,10 @@
           </div>
 
           <div class="content">
-              <h3>Mario Reda</h3>
+              <h3><%=@name%></h3>
               <br>
               <br>
-              <p><%=@bacheca_guida.descrizione%></p>
+              <p><%=@bacheca_guida.description%></p>
           </div>
 
 
@@ -31,7 +31,7 @@
               <a href="#">Modificare username</a>
               <a href="#">Modificare la password</a>
               <a href="#">Cambia immagine</a>
-              <%= link_to "Modifica Descrizione", edit_bacheca_guida_path(@bacheca_guida, id: @bacheca_guida.id) %>
+              <%= link_to "Modifica Descrizione", edit_bacheca_path(@bacheca_guida.id) %>
               <a href="#">Cancellare l'account</a>
             </div>
           </div>
@@ -257,4 +257,3 @@
         });
       });
     </script>
-

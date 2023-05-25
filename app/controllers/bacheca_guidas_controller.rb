@@ -1,26 +1,29 @@
 class BachecaGuidasController < ApplicationController
-    def show
-      @bacheca_guida = BachecaGuida.where(user_id: current_user.id).first
-      if !@bacheca_guida
-        @bacheca_guida = BachecaGuida.create()
-      end 
+  def show
+    @bacheca_guida = BachecaGuida.find_or_initialize_by(user_id: current_user.id)
+
+    if @bacheca_guida.new_record?
+      @bacheca_guida.save
     end
 
-    def create
-      @bacheca_guida = BachecaGuida.new()
-      @bacheca_guida.guida_id = current_user.id
-      @bacheca_guida.save()
-    end
+    @name = User.where(id: current_user.id).first.name
 
-    def edit
-      @bacheca_guida = BachecaGuida.find(params[:id])
-    end
+    # Altri codici per la visualizzazione della bacheca guida
+  end
 
-    def update
-      @description = params[:description]
-      @bacheca_guida = BachecaGuida.where(user_id: current_user.id).first
-      @bacheca_guida.update(descrizione: @description)
-      redirect_to bacheca_guida_path(@bacheca_guida)
+  def edit
+    @bacheca_guida = BachecaGuida.find(params[:id])
+  end
+
+  def update
+    @bacheca_guida = BachecaGuida.find(params[:id])
+    if @bacheca_guida.update(bacheca_params)
+      redirect_to show_bacheca_path, notice: "Board updated successfully"
     end
   end
-  
+
+  private
+  def bacheca_params
+    params.require(:bacheca_guida).permit(:description)
+  end
+end
