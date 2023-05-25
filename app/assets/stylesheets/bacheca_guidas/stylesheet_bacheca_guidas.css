@@ -360,3 +360,18 @@ form {
     transform: translateX(460px);
   }
 
+  .account-delete-button {
+    background-color: rgb(255, 255, 255);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .account-delete-button:hover {
+    background-color: rgb(134, 134, 134);
+  }
+
+  
+

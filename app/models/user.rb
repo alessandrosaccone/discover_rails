@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable,
          :timeoutable,:omniauthable, :omniauth_providers => [:facebook]
 
-  has_one :bacheca_guida
+  has_one :bacheca_guida, dependent: :destroy
 
   belongs_to :role, :optional => true
   belongs_to :city, optional: true
