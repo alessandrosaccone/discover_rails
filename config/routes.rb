@@ -23,9 +23,12 @@ Rails.application.routes.draw do
   resources :roles
   resources :bookings
 
+  #bacheca_guida
   get 'bacheca_guidas/show', to: 'bacheca_guidas#show', as: 'show_bacheca'
-  get 'bacheca_guidas/edit/:id', to: 'bacheca_guidas#edit', as: 'edit_bacheca'  
+  get 'bacheca_guidas/edit/:id', to: 'bacheca_guidas#edit', as: 'edit_bacheca'
 
+  # cancella account
+  delete '/bacheca_guidas/destroy', to: 'bacheca_guidas#destroy', as: 'destroy_bacheca_guida'
 
   get '/send_email', to: 'email#send_email', as: 'send_email'
 

@@ -22,7 +22,26 @@ class BachecaGuidasController < ApplicationController
     end
   end
 
+  def destroy
+    @bacheca_guida = BachecaGuida.find_by(user_id: current_user.id)
+    @user = User.find_by(id: current_user.id)
+  
+    # Elimina la bacheca di guida
+    @bacheca_guida.destroy
+  
+    # Effettua il logout e distruggi la sessione utente
+    sign_out(current_user)
+
+    # Elimina l'utente associato alla bacheca di guida
+    #User.connection.execute("DELETE FROM users WHERE id = #{@user.id}")
+  
+    redirect_to new_user_session_path
+  end
+  
+  
+
   private
+
   def bacheca_params
     params.require(:bacheca_guida).permit(:description)
   end
