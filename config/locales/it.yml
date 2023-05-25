@@ -39,3 +39,8 @@ it:
     errors:
       messages:
         record_invalid: "Errore di validazione dei dati"
+    models:
+      conversation:
+        attributes:
+          sender: "Mittente"
+          recipient: "Destinatario"

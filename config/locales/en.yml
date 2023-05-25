@@ -73,4 +73,8 @@ en:
   activerecord:
     errors:
       messages:
-        record_invalid: "Errore di validazione dei dati"
+        record_invalid: "Validation error"
+    attributes:
+      conversation:
+        sender: "Sender"
+        recipient: "Destinatario"
