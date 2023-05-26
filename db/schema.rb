@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_25_092106) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_26_105924) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -102,6 +102,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_092106) do
     t.datetime "updated_at", null: false
     t.boolean "deleted_for_user", default: false, null: false
     t.binary "audio"
+    t.boolean "deleted_for_recipient", default: false, null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end

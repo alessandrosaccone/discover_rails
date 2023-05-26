@@ -89,7 +89,7 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:body, :audio)
+      params.require(:message).permit(:body, :audio, :image)
 
     end
 end

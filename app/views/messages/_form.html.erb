@@ -18,9 +18,17 @@
   <div>
     <%= form.text_area :body %>
     <%= form.submit "Invio", class: "btn-form"%>
-     <button id='VoiceMessageIO' data-remote="true" data-url="<%= url_for(controller: 'messages', action: 'create_audio') %>"
-      type='button' class='btn-register' onmousedown='StartRecording()' onmouseup='StopRecording()' ><ion-icon name="mic-outline"></ion-icon></button>
+     <ion-icon name="mic-outline" class='btn-register' id='VoiceMessageIO' data-remote="true" data-url="<%= url_for(controller: 'messages', action: 'create_audio') %>"
+      type='button' onmousedown='StartRecording()' onmouseup='StopRecording()'></ion-icon>
+
+      <span class ="btn-image">
+        <ion-icon name="image-outline"></ion-icon>
+        <%= form.file_field :image, multiple: false, class: "file-field", accept: 'image/*' %>
+        
+      </span>
+
   </div>
+    
 <% end %>
 
 <script>
@@ -47,7 +55,7 @@ var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('
   }
 
   function StopRecording(){
-    if(mediaRecorder && mediaRecorder.state !== 'inactive'){
+    if(mediaRecorder){
       mediaRecorder.stop();
     }
     mediaRecorder.addEventListener('stop', function(){
