@@ -45963,3 +45963,413 @@ Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-a
 An unauthorized connection attempt was rejected
 Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-25 21:37:37 +0200
 >>>>>>> GAB
+Started GET "/" for 127.0.0.1 at 2023-05-26 10:52:13 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (Duration: 26.8ms | Allocations: 4882)
+  Rendered pages/home.html.erb within layouts/application (Duration: 1269.2ms | Allocations: 69209)
+  Rendered layout layouts/application.html.erb (Duration: 1307.4ms | Allocations: 86203)
+Completed 200 OK in 1345ms (Views: 1318.0ms | ActiveRecord: 0.0ms | Allocations: 91300)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:52:16 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:16 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:16 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:52:21 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.2ms | Allocations: 254)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 63.2ms | Allocations: 8877)
+  Rendered layout layouts/application.html.erb (Duration: 80.7ms | Allocations: 10178)
+Completed 200 OK in 149ms (Views: 83.5ms | ActiveRecord: 0.6ms | Allocations: 35809)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:52:22 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:22 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:22 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:52:28 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 10ms (ActiveRecord: 1.3ms | Allocations: 1519)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 13.6ms | Allocations: 4290)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 5571)
+Completed 200 OK in 266ms (Views: 18.2ms | ActiveRecord: 0.0ms | Allocations: 6235)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:52:28 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:28 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:28 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:52:34 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.1ms | Allocations: 1017)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 21.0ms | Allocations: 4280)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 5562)
+Completed 200 OK in 267ms (Views: 26.3ms | ActiveRecord: 0.0ms | Allocations: 6103)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:52:34 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:34 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:34 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:52:41 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.3ms | Allocations: 1014)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 4280)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 5562)
+Completed 200 OK in 260ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 6103)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:52:41 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:41 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:41 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:52:49 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.1ms | Allocations: 1013)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 4280)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 5562)
+Completed 200 OK in 264ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 6103)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:52:49 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:49 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:50 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:52:53 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.2ms | Allocations: 1003)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 4304)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 5590)
+Completed 200 OK in 280ms (Views: 16.6ms | ActiveRecord: 0.0ms | Allocations: 6130)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:52:53 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:53 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:52:53 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:53:09 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.1ms | Allocations: 1009)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 4282)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 5563)
+Completed 200 OK in 255ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 6101)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:53:10 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:10 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:10 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:53:14 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.2ms | Allocations: 1001)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.2ms | Allocations: 4300)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 5581)
+Completed 200 OK in 257ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 6119)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:53:15 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:15 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:15 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:53:18 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.2ms | Allocations: 999)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 4280)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 5566)
+Completed 200 OK in 264ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 6105)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:53:18 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:18 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:18 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:53:30 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"jacke@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "jacke@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.2ms | Allocations: 1007)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"jacke@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 4280)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 5561)
+Completed 200 OK in 261ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 6100)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:53:30 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:30 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:30 +0200
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:53:34 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:34 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:34 +0200
+Started GET "/pages/home" for 127.0.0.1 at 2023-05-26 10:53:52 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (Duration: 2.5ms | Allocations: 965)
+  Rendered pages/home.html.erb within layouts/application (Duration: 14.8ms | Allocations: 4289)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 5666)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.0ms | Allocations: 6080)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:53:53 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:53 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:53 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:53:54 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 4286)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 5576)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 6206)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:53:54 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:54 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:53:54 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:54:11 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.2ms | Allocations: 1001)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.3ms | Allocations: 4280)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 5561)
+Completed 200 OK in 266ms (Views: 19.1ms | ActiveRecord: 0.0ms | Allocations: 6099)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:54:11 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:54:11 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:54:11 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:55:13 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.1ms | Allocations: 995)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.0ms | Allocations: 4281)
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 5562)
+Completed 200 OK in 270ms (Views: 25.7ms | ActiveRecord: 0.0ms | Allocations: 6187)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:55:13 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:55:13 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:55:13 +0200
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:55:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:55:31 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:55:31 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:55:44 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.9ms | Allocations: 2554)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.2ms | Allocations: 258)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 143.3ms | Allocations: 27693)
+  Rendered layout layouts/application.html.erb (Duration: 164.0ms | Allocations: 44434)
+Completed 200 OK in 489ms (Views: 184.2ms | ActiveRecord: 0.0ms | Allocations: 71179)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:55:45 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:55:45 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:55:45 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-05-26 10:56:19 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "sue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:18:in `create'
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.1ms | Allocations: 1009)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sue@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 4296)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 5577)
+Completed 200 OK in 253ms (Views: 17.1ms | ActiveRecord: 0.0ms | Allocations: 6117)
+
+
+Started GET "/cable" for 127.0.0.1 at 2023-05-26 10:56:20 +0200
+Started GET "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:56:20 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
+An unauthorized connection attempt was rejected
+Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 10:56:20 +0200
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
