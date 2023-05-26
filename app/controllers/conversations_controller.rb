@@ -42,5 +42,10 @@ class ConversationsController < ApplicationController
         @message.destroy
     end
 
+    def delete_for_recipient
+        @message = Message.find(params[:message])
+        @message.update(deleted_for_recipient: true)
+    end
+
   
 end

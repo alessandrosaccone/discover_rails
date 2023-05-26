@@ -48,6 +48,7 @@ Rails.application.routes.draw do
    }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   post '/conversations/delete_for_me/', to: 'conversations#delete_for_me', as: 'delete_for_me'
+  post '/conversations/delete_for_recipient/', to: 'conversations#delete_for_recipient', as: 'delete_for_recipient'
   post '/conversations/send_voice_message/', to: 'conversations#send_voice_message', as: 'send_voice_message'
   post '/conversations/delete_for_both/', to: 'conversations#delete_for_both', as: 'delete_for_both'
   post '/bookings/new', to: 'bookings#new', as: 'create_booking'
