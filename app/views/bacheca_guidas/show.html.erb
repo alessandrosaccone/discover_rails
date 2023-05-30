@@ -36,7 +36,7 @@
               <a href="#">Modificare la password</a>
               <a href="#">Cambia immagine</a>
               <%= link_to "Modifica Descrizione", edit_bacheca_path(@bacheca_guida.id) %>
-              <%= link_to 'Cancella Bacheca', destroy_bacheca_guida_path(@bacheca_guida.id), method: :delete, data: { confirm: 'Sei sicuro di voler cancellare il tuo account?' } %>
+              <%= link_to 'Cancella Account', registration_path(current_user), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
             </div>
           </div>
         </div>
