@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   resources :roles
   resources :bookings
 
+  #username
+  patch 'username/edit', to: 'username#edit', as: 'edit_username'
+  patch 'username', to: 'username#update_username', as: 'update_username'
+
   #bacheca_guida
   get 'bacheca_guidas/show', to: 'bacheca_guidas#show', as: 'show_bacheca'
   get 'bacheca_guidas/edit/:id', to: 'bacheca_guidas#edit', as: 'edit_bacheca'

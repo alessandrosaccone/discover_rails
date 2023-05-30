@@ -1,7 +1,6 @@
 function button() {
     document.getElementById("form").style.display = "block";
     document.getElementById("view_area").style.display = "none";
-    document.getElementById("msg").style.display = "none";
   }
   
   function button_2() {
