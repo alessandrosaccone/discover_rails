@@ -12,9 +12,34 @@ function button() {
     rimozione.style.display = 'flex';
   }
 
+
+function deletePost(url, id, token){
+  
+  fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': token
+    },
+    body: JSON.stringify({id: id}), 
+  })
+  .then(function(response){
+    if(response.ok){
+      
+      var rimuovi = document.getElementById(id);
+      rimuovi.remove();
+    }
+    else{
+      throw new Error('error')
+    }
+  
+  })
+}
+
 document.addEventListener('DOMContentLoaded', function(){
   var script_element = document.querySelector('script[data-controller-url]');
   var controller_url = script_element.dataset.controllerUrl;
+  var controller_delete_url = script_element.dataset.controllerUrl2;
 
   var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
   var button_post = document.getElementById('view');
@@ -44,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function(){
         // Creazione dell'elemento li
         var li = document.createElement('li');
         li.classList.add('card');
+        li.id = post.id;
 
         // Creazione dell'elemento div.card_image
         var divImage = document.createElement('div');
@@ -88,6 +114,17 @@ document.addEventListener('DOMContentLoaded', function(){
         var divLanguages = document.createElement('div');
         divLanguages.classList.add('card-languages');
         li.appendChild(divLanguages);
+
+        var btn_del = document.createElement('button');
+        btn_del.classList.add('dropdown-icon');
+        li.appendChild(btn_del)
+        btn_del.addEventListener('click',function(){
+          var conferma = confirm('Sei sicuro di voler eliminare?');
+            if (conferma) {
+              deletePost(controller_delete_url,post.id, token);
+              console.log(post.id)
+            }
+        });
 
         // Creazione dell'elemento h4 per la lingua e la data
         var h4LinguaData = document.createElement('h4');

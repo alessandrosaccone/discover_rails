@@ -132,7 +132,7 @@
     <%= form.submit 'Pubblica', class: 'btn btn-primary' %>
   <% end %>
 
-  <%= javascript_include_tag "script_bacheca", data: {controller_url: index_for_post_path}%>
+  <%= javascript_include_tag "script_bacheca", data: {controller_url: index_for_post_path, controller_url2: posts_destroy_for_user_path}%>
 
 <ul id="lista" class="cards" style='display:flex'>
 </ul>

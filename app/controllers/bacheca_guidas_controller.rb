@@ -23,7 +23,8 @@ class BachecaGuidasController < ApplicationController
     end
   end
 
-  def destroy
+  #quando ho tempo cambiare le routes per questo
+  def delete_account
     @bacheca_guida = BachecaGuida.find_by(user_id: current_user.id)
     @user = User.find_by(id: current_user.id)
   
@@ -48,6 +49,8 @@ class BachecaGuidasController < ApplicationController
 
     session[:index] += 1
   end
+
+  
 
   private
 

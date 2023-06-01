@@ -81,8 +81,14 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   def destroy
-    @post.destroy
-    redirect_to posts_url, notice: "Post was successfully destroyed."
+    
+  end
+  def destroy_post
+    @id = params[:id]
+    post = Post.find(@id)
+      
+    post.destroy
+    
   end
 
   def get_price
