@@ -1,7 +1,11 @@
+<%=content_for :for_head do %>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<% end %>
 <%= form_with(model: message, class: 'msg-form') do |form| %>
   <% if message.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved</h2>
 
       <ul>
         <% message.errors.each do |error| %>
@@ -14,56 +18,69 @@
   <div>
     <%= form.text_area :body %>
     <%= form.submit "Invio", class: "btn-form"%>
-    <button id='VoiceMessageIO' class='btn-register' onmousedown='StartRecording()' onmouseup='StopRecording()' >Register</button>
+     <ion-icon name="mic-outline" class='btn-register' id='VoiceMessageIO' data-remote="true" data-url="<%= url_for(controller: 'messages', action: 'create_audio') %>"
+      type='button' onmousedown='StartRecording()' onmouseup='StopRecording()'></ion-icon>
+
+      <span class ="btn-image">
+        <ion-icon name="image-outline"></ion-icon>
+        <%= form.file_field :image, multiple: false, class: "file-field", accept: 'image/*' %>
+        
+      </span>
+
   </div>
+    
 <% end %>
 
 <script>
+
+var audioChunks = [];
+var mediaRecorder;
+var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   function StartRecording(){
     navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream){
-      var audioChunks = [ ]
+      audioChunks = [];
 
       mediaRecorder = new MediaRecorder(stream);
 
       mediaRecorder.addEventListener('dataavailable', function(event){
-        audioChunks.push(event.data)
+        if(event.data.size > 0){
+          audioChunks.push(event.data);
+        }
       })
 
       mediaRecorder.start();
     }).catch(function(error){
-      console.error("Errore di registrazione")
+      console.error("Errore di registrazione vocale");
     })
   }
 
   function StopRecording(){
-    if(mediaRecorder && mediaRecorder.state !== 'inactive'){
+    if(mediaRecorder){
       mediaRecorder.stop();
-
-      mediaRecorder.addEventListener('stop', function(){
-        var audioBlob = new Blob(audioChunks, {type: 'audio/webm'})
+    }
+    mediaRecorder.addEventListener('stop', function(){
+      var audioBlob = new Blob(audioChunks, {type: 'audio/ogg; codecs=opus'})
 
       sendVoiceMessage(audioBlob)
       })
-    }
+    
   }
   
   function sendVoiceMessage(audioBlob){
-    const convo_id = Document.getElementById('room-id').getAttribute('data-room-id')
-    console.log(audioBlob)
-    var messagesControllerPath = "<%= url_for(controller: 'messages', action: 'create')%>"
+    var messagesControllerPath = "<%= url_for(controller: 'messages', action: 'create_audio') %>";
+
     const message = new FormData()
-    message.append('audio', audioBlob, "audio.mp3")
+    message.append('audio', audioBlob);
     fetch(messagesControllerPath, {
                 method: 'POST',
                 headers: {
-                  'Content-Type': 'multipart/form-data',
-                  'X-CSRF-Token': token
+                  'X-CSRF-Token': csrfToken
                 },
                 body: message
               })
               .then(function(response){
                 console.log("All good")
-                el.parentElement.remove()
+                
               }).catch(function(error){
                 console.log("Error sending audio data")
               })

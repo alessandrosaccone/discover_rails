@@ -1,5 +1,7 @@
 class BachecaGuidasController < ApplicationController
+  before_action :authenticate_user!
   def show
+    session[:index] = 0
     @bacheca_guida = BachecaGuida.find_or_initialize_by(user_id: current_user.id)
 
     if @bacheca_guida.new_record?
@@ -22,7 +24,37 @@ class BachecaGuidasController < ApplicationController
     end
   end
 
+  #quando ho tempo cambiare le routes per questo
+  def delete_account
+    @bacheca_guida = BachecaGuida.find_by(user_id: current_user.id)
+    @user = User.find_by(id: current_user.id)
+  
+    # Elimina la bacheca di guida
+    @bacheca_guida.destroy
+  
+    # Effettua il logout e distruggi la sessione utente
+    sign_out(current_user)
+
+    # Elimina l'utente associato alla bacheca di guida
+    #User.connection.execute("DELETE FROM users WHERE id = #{@user.id}")
+  
+    redirect_to new_user_session_path
+  end
+  
+  def index_for_post
+    @index = session[:index]
+
+    posts = Post.where(user_id: current_user.id).order(created_at: :desc).limit(10).offset(@index)
+
+    render json: posts
+
+    session[:index] += 1
+  end
+
+  
+
   private
+
   def bacheca_params
     params.require(:bacheca_guida).permit(:description)
   end

@@ -21,26 +21,30 @@ class MessagesController < ApplicationController
 
   # POST /messages
   def create
+
     @message = Message.new(message_params)
-    @message.user = current_user
+    @message.user_id = current_user.id
     @message.conversation_id = session[:current_conversation]
-    
-
-     #GESTIONE AUDIO
-     if params[:audio]
-      @data = ActiveStorage::Blob.create_after_upload!(
-        io: StringIO.new(params[:audio]),
-        filename: "../../audios/#{@message.id}.mp3",
-        content_type: "audio/mpeg"
-      )
-      @message.audio.attach(@data)
-     end
-
     @message.save
     ActionCable.server.broadcast "room_channel_#{@message.conversation_id}", html:  render_message
     redirect_back(fallback_location: root_path)
 
 
+  end
+
+  def create_audio
+    if params[:audio].present?
+      @message = Message.new
+      @message.audio.attach(io: params[:audio], filename: "audio_#{@message.id}.ogg", content_type: 'audio/ogg' )
+      @message.user_id = current_user.id
+      @message.conversation_id = session[:current_conversation]
+
+      if @message.audio.attached?
+        @message.save
+        ActionCable.server.broadcast "room_channel_#{@message.conversation_id}", html:  render_message
+      end
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def render_message
@@ -85,7 +89,7 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:body, :user_id, :conversation_id, :audio)
+      params.require(:message).permit(:body, :audio, :image)
 
     end
 end

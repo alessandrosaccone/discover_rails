@@ -220,6 +220,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.5.0)
       loofah (~> 2.19, >= 2.19.1)
+    rails-ujs (0.1.0)
+      railties (>= 3.1)
     railties (7.0.4.3)
       actionpack (= 7.0.4.3)
       activesupport (= 7.0.4.3)
@@ -300,6 +302,9 @@ GEM
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     version_gem (1.1.2)
@@ -334,6 +339,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.0.4, >= 7.0.4.3)
   rails-controller-testing
+  rails-ujs (~> 0.1.0)
   redis (~> 4.0)
   rspec-rails
   sidekiq
@@ -342,6 +348,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stripe
+  turbolinks (~> 5.2)
   tzinfo-data
   wicked_pdf
   wkhtmltopdf-binary
