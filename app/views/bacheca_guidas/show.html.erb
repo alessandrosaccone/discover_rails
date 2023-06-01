@@ -75,7 +75,7 @@
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <%= form.label :titolo, 'Titolo' %>
-        <%= form.text_field :titolo, class: 'form-control' %>
+        <%= form.text_field :titolo, class: 'form-control', maxlength: 30 %>
       </div>
     </div>
 
@@ -87,30 +87,71 @@
 
       <div class="col-md-2 mb-3">
         <%= form.label :data, 'Data' %>
-        <%= form.date_field :data, class: 'form-control' %>
+        <%= form.date_field :data, class: 'form-control', id: 'date-input' %>
       </div>
 
       <div class="col-md-1 mb-3">
         <%= form.label :ora, 'Ora' %>
-        <%= form.time_field :ora, class: 'form-control' %>
+        <%= form.time_field :ora, class: 'form-control', id: 'time-input' %>
       </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var dateInput = document.getElementById('date-input');
+          var dateHelp = document.getElementById('dateHelp');
+          var timeInput = document.getElementById('time-input');
+          var timeHelp = document.getElementById('timeHelp');
+
+          dateInput.addEventListener('change', function() {
+            validateDateTime();
+          });
+
+          timeInput.addEventListener('change', function() {
+            validateDateTime();
+          });
+
+          function validateDateTime() {
+            var selectedDate = new Date(dateInput.value);
+            var selectedTime = timeInput.value;
+            var currentDateTime = new Date();
+            
+            var enteredDateTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), selectedTime.substring(0, 2), selectedTime.substring(3, 5));
+            
+            if (enteredDateTime < currentDateTime) {
+              dateHelp.textContent = "Inserisci una data e un orario futuri.";
+              timeHelp.textContent = "Inserisci una data e un orario futuri.";
+              dateInput.setCustomValidity("La data e l'orario devono essere futuri");
+              timeInput.setCustomValidity("La data e l'orario devono essere futuri");
+            } else {
+              dateHelp.textContent = "Inserisci una data futura.";
+              timeHelp.textContent = "Inserisci un orario futuro.";
+              dateInput.setCustomValidity("");
+              timeInput.setCustomValidity("");
+            }
+          }
+        });
+      </script>
+
+
+
     </div>
     <br />
     <div class="form-row">
       <div class="col-md-2 mb-3">
         <%= form.label :persone, 'Persone' %>
-        <%= form.number_field :persone, class: 'form-control' %>
+        <%= form.number_field :persone, class: 'form-control', min: 10, max: 30 %>
       </div>
 
       <div class="col-md-2 mb-3">
         <%= form.label :numero_ore, 'Numero ore' %>
-        <%= form.number_field :numero_ore, class: 'form-control' %>
+        <%= form.number_field :numero_ore, class: 'form-control', min: 2, max: 5 %>
       </div>
 
       <div class="col-md-2 mb-3">
         <%= form.label :prezzo, 'Prezzo ora' %>
-        <%= form.number_field :prezzo, class: 'form-control' %>
+        <%= form.number_field :prezzo, class: 'form-control', min: 10, max: 50 %>
       </div>
+
     </div>
 
     <div class="form-row">
