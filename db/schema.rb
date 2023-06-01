@@ -157,6 +157,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_105924) do
     t.string "long"
     t.string "stripe_account_id"
     t.boolean "online", default: false, null: false
+    t.string "username"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

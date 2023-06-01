@@ -36,6 +36,7 @@
   <%end%>
 <% end %>
 
+<% if can?(:create, Booking) %>
 <% if @post.persone_rimanenti == @post.persone %>
   <button id="fill-form-button">Prenota una visita privata</button>
   <%= javascript_tag do %>
@@ -43,6 +44,7 @@
       document.getElementById('post_persone').value = <%= @post.persone_rimanenti %>; 
       document.getElementById('pay_form').submit(); <!-- non funziona la submit (SIMONE) -->
       });
+<% end %>
 <% end %>
 <% end %>
 <br> <br>

@@ -1,5 +1,6 @@
 class BachecaGuidasController < ApplicationController
   def show
+    session[:index] = 0
     @bacheca_guida = BachecaGuida.find_or_initialize_by(user_id: current_user.id)
 
     if @bacheca_guida.new_record?
@@ -22,7 +23,8 @@ class BachecaGuidasController < ApplicationController
     end
   end
 
-  def destroy
+  #quando ho tempo cambiare le routes per questo
+  def delete_account
     @bacheca_guida = BachecaGuida.find_by(user_id: current_user.id)
     @user = User.find_by(id: current_user.id)
   
@@ -38,6 +40,16 @@ class BachecaGuidasController < ApplicationController
     redirect_to new_user_session_path
   end
   
+  def index_for_post
+    @index = session[:index]
+
+    posts = Post.where(user_id: current_user.id).order(created_at: :desc).limit(10).offset(@index)
+
+    render json: posts
+
+    session[:index] += 1
+  end
+
   
 
   private

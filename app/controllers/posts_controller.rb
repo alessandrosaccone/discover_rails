@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ], except: [:all]
+  
 
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:show, :create]
   # GET /posts
   def index
     @posts = Post.where('data>= ?', Date.today)
@@ -49,15 +50,15 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
-  def edit
-  end
+  #def edit
+  #end
 
   # POST /posts
   def create
     @post = Post.new(post_params)
-
+    
     if @post.save
-      redirect_to @post, notice: "Post was successfully created."
+      redirect_to show_bacheca_path, notice: "Post was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -80,8 +81,14 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   def destroy
-    @post.destroy
-    redirect_to posts_url, notice: "Post was successfully destroyed."
+    
+  end
+  def destroy_post
+    @id = params[:id]
+    post = Post.find(@id)
+      
+    post.destroy
+    
   end
 
   def get_price
@@ -109,7 +116,7 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :published_at, :persone)
+      params.permit( :titolo, :descrizione, :address, :data, :ora, :persone, :numero_ore, :prezzo, :nomeC, :lingua, :user_email, :user_id)
     end
 
 end
