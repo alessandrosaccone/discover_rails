@@ -27,8 +27,11 @@
               </h4>
           </div>
           <div class='card-link-wrapper'>
-            
-              <%= link_to 'Contatta', conversation_path(guide_email: post.user_email), class: "card-link"%>
+              <% if !user_signed_in? %>
+                <%= link_to 'Contatta', conversation_path(guide_email: post.user_email), class: "card-link"%>
+              <% elsif current_user.email != post.user_email %>
+                <%= link_to 'Contatta', conversation_path(guide_email: post.user_email), class: "card-link"%>
+              <% end %>
               <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
           </div>
           </li> 

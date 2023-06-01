@@ -4,14 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable,
          :timeoutable,:omniauthable, :omniauth_providers => [:facebook]
+
+  has_one :bacheca_guida, dependent: :destroy
+
   belongs_to :role, :optional => true
   belongs_to :city, optional: true
   has_many :user_posts, foreign_key: 'user_email', primary_key: 'email', class_name: 'Post'
-  has_many :messages
-  has_and_belongs_to_many :conversations, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_and_belongs_to_many :languages, optional:true
-  has_many :bookings
-  has_many :booked_posts, through: :bookings, source: :post
+  has_many :bookings, dependent: :destroy
+  has_many :booked_posts, through: :bookings, source: :post, dependent: :destroy
   
   
   def tourist?

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-
-  resources :messages 
+  resources :bacheca_guidas
+  resources :messages
   post '/messages/create_audio', to: 'messages#create_audio', as: 'create_audio'
 
   resources :posts do 
@@ -24,6 +24,21 @@ Rails.application.routes.draw do
 
   resources :roles
   resources :bookings
+
+  #post
+  post 'bacheca_guidas/index_for_post', to: 'bacheca_guidas#index_for_post', as: 'index_for_post'
+  #delete
+  delete 'posts/', to: 'posts#destroy_post', as: 'posts_destroy_for_user'
+  #username
+  patch 'username/edit', to: 'username#edit', as: 'edit_username'
+  patch 'username', to: 'username#update_username', as: 'update_username'
+
+  #bacheca_guida
+  get 'bacheca_guidas/show', to: 'bacheca_guidas#show', as: 'show_bacheca'
+  get 'bacheca_guidas/edit/:id', to: 'bacheca_guidas#edit', as: 'edit_bacheca'
+
+  # cancella account
+  delete '/bacheca_guidas/destroy', to: 'bacheca_guidas#destroy', as: 'destroy_bacheca_guida'
 
   get '/send_email', to: 'email#send_email', as: 'send_email'
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_01_181340) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_30_160521) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -37,6 +37,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_181340) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "bacheca_guidas", force: :cascade do |t|
+    t.string "description"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bacheca_guidas_on_user_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -93,7 +101,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_181340) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "deleted_for_user", default: false, null: false
-    t.binary "audio"
+    t.string "audio"
     t.boolean "deleted_for_recipient", default: false, null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
@@ -150,6 +158,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_181340) do
     t.string "long"
     t.string "stripe_account_id"
     t.boolean "online", default: false, null: false
+    t.string "username"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -158,6 +167,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_181340) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bacheca_guidas", "users"
   add_foreign_key "bookings", "posts"
   add_foreign_key "bookings", "users"
   add_foreign_key "cities", "countries"

@@ -1,0 +1,138 @@
+<% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-bacheca_guidas" %>
+  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "application-post.css" %>
+<% end %>    
+
+<%=render 'layouts/navbar'%>
+
+      <div class="container">
+        <div class="block" id="3">
+          <div class="box">
+            <div class="image">
+              <img src="<%= image_path("guida1.webp") %>" alt="Immagine">
+            </div>
+          </div>
+
+          <div class="content">
+              <%if(current_user.username == '' || current_user.username == nil)%>
+                <h2><%=@name%></h2>
+              <%else%>
+                <p><h3>@<%=current_user.username%></h3></p>
+              <%end%>
+              <br>
+              <br>
+              <p><h3><%=@bacheca_guida.description%></h3></p>
+          </div>
+
+
+          <div class="dropdown">
+            <div class="dropdown-icon">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+            <div class="dropdown-content">
+              <%= link_to "Modifica Username", edit_username_path(), method: :patch %>
+              <a href="#">Modificare la password</a>
+              <a href="#">Cambia immagine</a>
+              <%= link_to "Modifica Descrizione", edit_bacheca_path(@bacheca_guida.id) %>
+              <%= link_to 'Cancella Account', registration_path(current_user), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="coll">
+        <div class="center">
+          <button id="btn_" class="btn-1" onclick="return button();">
+            Pubblica una scheda!
+          </button>
+        </div>
+        <div class="center">
+          <button id="view" class="btn-2" onclick="return button_2();">
+            Guarda le tue schede
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+  <div
+      style="position: relative; left: 5%; width: 90%"
+      id="view_area"
+      class="view_area"
+  ></div>
+
+  <%= form_with(model: @post, url: posts_path, local: true, html: { id: 'form' }) do |form| %>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <%= form.label :descrizione, 'Descrizione' %>
+        <%= form.text_area :descrizione, class: 'form-control', rows: 9, maxlength: 400 %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <%= form.label :titolo, 'Titolo' %>
+        <%= form.text_field :titolo, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <%= form.label :address, 'Indirizzo' %>
+        <%= form.text_field :address, class: 'form-control' %>
+      </div>
+
+      <div class="col-md-2 mb-3">
+        <%= form.label :data, 'Data' %>
+        <%= form.date_field :data, class: 'form-control' %>
+      </div>
+
+      <div class="col-md-1 mb-3">
+        <%= form.label :ora, 'Ora' %>
+        <%= form.time_field :ora, class: 'form-control' %>
+      </div>
+    </div>
+    <br />
+    <div class="form-row">
+      <div class="col-md-2 mb-3">
+        <%= form.label :persone, 'Persone' %>
+        <%= form.number_field :persone, class: 'form-control' %>
+      </div>
+
+      <div class="col-md-2 mb-3">
+        <%= form.label :numero_ore, 'Numero ore' %>
+        <%= form.number_field :numero_ore, class: 'form-control' %>
+      </div>
+
+      <div class="col-md-2 mb-3">
+        <%= form.label :prezzo, 'Prezzo ora' %>
+        <%= form.number_field :prezzo, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <%= form.label :nomeC, 'Città' %>
+        <%= form.text_field :nomeC, class: 'form-control' %>
+      </div>
+
+      <div class="col-md-3 mb-3">
+        <%= form.label :lingua, 'Lingua' %>
+        <%= form.text_field :lingua, class: 'form-control' %>
+      </div>
+    </div>
+    <br>
+  <!-- Resto del codice del modulo -->
+    <%= form.hidden_field :user_email, value: current_user.email %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+
+    <%= form.submit 'Pubblica', class: 'btn btn-primary' %>
+  <% end %>
+
+  <%= javascript_include_tag "script_bacheca", data: {controller_url: index_for_post_path, controller_url2: posts_destroy_for_user_path}%>
+
+<ul id="lista" class="cards" style='display:flex'>
+</ul>
