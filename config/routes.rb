@@ -11,14 +11,16 @@ Rails.application.routes.draw do
 
  get 'conversations/show', to: 'conversations#show', as: 'conversation'
   resources :conversations do
-    end
+  end
   
   resources :posts do 
     member do
       get 'get_price'
     end
   end
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create]
+  end
 
   get "/translate_html", to: "posts#translate_html"
 

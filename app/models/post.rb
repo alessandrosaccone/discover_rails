@@ -4,11 +4,12 @@ class Post < ApplicationRecord
     has_many :bookings
     has_many :users, through: :bookings
     validates :data, presence: true
+    has_many :comments
     
 
 
     def expired?
-        DateTime.now > expiration_date
+        status == "expired"
     end
     
     private 
@@ -16,7 +17,4 @@ class Post < ApplicationRecord
         self.persone_rimanenti = self.persone
     end
 
-    def expiration_date
-        DateTime.new(data.year,data.month,data.day,ora.hour)
-    end
 end

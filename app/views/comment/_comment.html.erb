@@ -1,0 +1,9 @@
+<div id="<%= comment.id %>">
+    <% if comment.user.username.present? %>
+        <h4><%= comment.user.username %>:</h4>
+    <% else %>
+        <h4><%= comment.user.name %>:</h4>
+    <% end %>
+    <p><%= comment.content %></p>
+    <p><%= comment.created_at %></p>
+</div>
