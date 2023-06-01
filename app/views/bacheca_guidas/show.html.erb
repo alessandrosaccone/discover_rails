@@ -1,6 +1,7 @@
 <% content_for :for_head do %>
   <%= stylesheet_link_tag "application-bacheca_guidas" %>
   <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "application-post.css" %>
 <% end %>    
 
 <%=render 'layouts/navbar'%>
@@ -131,5 +132,7 @@
     <%= form.submit 'Pubblica', class: 'btn btn-primary' %>
   <% end %>
 
-  <%= javascript_include_tag "script_bacheca" %>
+  <%= javascript_include_tag "script_bacheca", data: {controller_url: index_for_post_path}%>
 
+<ul id="lista" class="cards" style='display:flex'>
+</ul>
