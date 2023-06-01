@@ -129,6 +129,13 @@ form {
     width: 25px;
     height: 25px;
     cursor: pointer;
+    background-color: #a5281c;
+  }
+
+  .dropdown-icon_1 {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
   }
   
   .dot {
