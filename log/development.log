@@ -12672,3 +12672,47 @@ Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-a
   ↳ app/channels/application_cable/connection.rb:14:in `find_verified_user'
 An unauthorized connection attempt was rejected
 Finished "/cable" [WebSocket] for 127.0.0.1 at 2023-05-26 13:11:57 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddStatusToPosts (20230601180445)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "posts" ADD "status" varchar DEFAULT 'open' NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230601180445"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddStatusToPosts (20230601180445)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer NOT NULL PRIMARY KEY, "descrizione" text DEFAULT NULL, "titolo" varchar DEFAULT NULL, "data" datetime DEFAULT NULL, "ora" time DEFAULT NULL, "lingua" varchar DEFAULT NULL, "persone" integer DEFAULT NULL, "prezzo" integer DEFAULT NULL, "nomeC" varchar DEFAULT NULL, "regioneC" varchar DEFAULT NULL, "nomeP" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "numero_ore" integer DEFAULT NULL, "persone_rimanenti" integer DEFAULT NULL, "user_email" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "address" varchar DEFAULT NULL, "status" varchar DEFAULT 'open' NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aposts" ("id","descrizione","titolo","data","ora","lingua","persone","prezzo","nomeC","regioneC","nomeP","created_at","updated_at","numero_ore","persone_rimanenti","user_email","user_id","address","status")
+                     SELECT "id","descrizione","titolo","data","ora","lingua","persone","prezzo","nomeC","regioneC","nomeP","created_at","updated_at","numero_ore","persone_rimanenti","user_email","user_id","address","status" FROM "posts"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer NOT NULL PRIMARY KEY, "descrizione" text DEFAULT NULL, "titolo" varchar DEFAULT NULL, "data" datetime DEFAULT NULL, "ora" time DEFAULT NULL, "lingua" varchar DEFAULT NULL, "persone" integer DEFAULT NULL, "prezzo" integer DEFAULT NULL, "nomeC" varchar DEFAULT NULL, "regioneC" varchar DEFAULT NULL, "nomeP" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "numero_ore" integer DEFAULT NULL, "persone_rimanenti" integer DEFAULT NULL, "user_email" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "address" varchar DEFAULT NULL, CONSTRAINT "fk_rails_beb7f93be7"
+FOREIGN KEY ("user_email")
+  REFERENCES "users" ("email")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("id","descrizione","titolo","data","ora","lingua","persone","prezzo","nomeC","regioneC","nomeP","created_at","updated_at","numero_ore","persone_rimanenti","user_email","user_id","address")
+                     SELECT "id","descrizione","titolo","data","ora","lingua","persone","prezzo","nomeC","regioneC","nomeP","created_at","updated_at","numero_ore","persone_rimanenti","user_email","user_id","address" FROM "aposts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20230601180445"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddStatusToPosts (20230601181340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "posts" ADD "status" varchar DEFAULT 'open' NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230601181340"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
