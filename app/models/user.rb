@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :timeoutable,:omniauthable, :omniauth_providers => [:facebook]
 
   has_one :bacheca_guida, dependent: :destroy
+  has_one :bacheca_utente
 
   belongs_to :role, :optional => true
   belongs_to :city, optional: true
