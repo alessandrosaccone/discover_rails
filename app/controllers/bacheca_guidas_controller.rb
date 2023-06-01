@@ -1,4 +1,5 @@
 class BachecaGuidasController < ApplicationController
+  before_action :authenticate_user!
   def show
     session[:index] = 0
     @bacheca_guida = BachecaGuida.find_or_initialize_by(user_id: current_user.id)
