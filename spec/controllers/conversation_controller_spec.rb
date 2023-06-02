@@ -1,7 +1,4 @@
 require 'rails_helper'
-
-
-
   RSpec.describe ConversationsController, type: :controller do
   include Devise::Test::ControllerHelpers
 
@@ -26,16 +23,7 @@ require 'rails_helper'
           expect(assigns(:messages)).to eq(conversation.messages)
         end
       end
-  
-    #  it "creates a new conversation if none exists" do
-    #    get :show, params: { guide_email: guide.email }
-    #    new_conversation = assigns(:conversation)
-    #    expect(new_conversation).to eq(Conversation)
-    #    expect(new_conversation.sender_id).to eq(user.id)
-    #    expect(new_conversation.recipient_id).to eq(guide.id)
-    #  end
     end
   
 
   end
-  
