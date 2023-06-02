@@ -44,6 +44,9 @@ Rails.application.routes.draw do
   get 'bacheca_utentis/show', to: 'bacheca_utentis#show', as: 'show_bacheca_utenti'
   #get 'bacheca_utentis/edit/:id', to: 'bacheca_utentis#edit', as: 'edit_bacheca_utenti'
 
+  #bacheca_utenti_post
+  post 'bacheca_utentis/index_for_post', to: 'bacheca_utentis#index_for_post', as: 'index_for_booking'
+
   get '/send_email', to: 'email#send_email', as: 'send_email'
 
 

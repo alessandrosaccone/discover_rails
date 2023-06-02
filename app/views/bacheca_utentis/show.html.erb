@@ -40,9 +40,20 @@
       <br />
       <div class="coll">
         <div class="center">
-          <button id="btn_" class="btn-1" onclick="return button();">
-            Le mie prenotazioni
+          <button id="view" class="btn-2" onclick="return button_2();">
+            Guarda le tue schede
           </button>
         </div>
       </div>
     </div>
+
+    <div
+      style="position: relative; left: 5%; width: 90%"
+      id="view_area"
+      class="view_area"
+  ></div>
+
+    <%= javascript_include_tag "script_utente", data: {controller_url: index_for_booking_path}%>
+
+    <ul id="lista" class="cards" style='display:flex'>
+    </ul>
