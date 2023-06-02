@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_30_160521) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_01_185508) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -70,6 +70,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_160521) do
     t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "conversations", force: :cascade do |t|
     t.integer "sender_id", null: false
     t.integer "recipient_id", null: false
@@ -125,6 +135,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_160521) do
     t.string "user_email"
     t.integer "user_id"
     t.string "address"
+    t.string "status", default: "open", null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -170,6 +181,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_160521) do
   add_foreign_key "bookings", "posts"
   add_foreign_key "bookings", "users"
   add_foreign_key "cities", "countries"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users", column: "user_email", primary_key: "email"
