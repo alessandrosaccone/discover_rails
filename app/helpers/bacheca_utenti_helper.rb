@@ -1,0 +1,2 @@
+module BachecaUtentiHelper
+end

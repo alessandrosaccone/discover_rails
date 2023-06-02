@@ -27,7 +27,7 @@
 
 
           <div class="dropdown">
-            <div class="dropdown-icon">
+            <div class="dropdown-icon_1">
               <div class="dot"></div>
               <div class="dot"></div>
               <div class="dot"></div>
@@ -65,71 +65,113 @@
   ></div>
 
   <%= form_with(model: @post, url: posts_path, local: true, html: { id: 'form' }) do |form| %>
-    <div class="form-row">
+    <div class="form-row_10">
       <div class="col-md-6 mb-3">
         <%= form.label :descrizione, 'Descrizione' %>
-        <%= form.text_area :descrizione, class: 'form-control', rows: 9, maxlength: 400 %>
+        <%= form.text_area :descrizione, class: 'form-control_10', rows: 9, maxlength: 400, required: true %>
       </div>
     </div>
 
-    <div class="form-row">
+    <div class="form-row_10">
       <div class="col-md-6 mb-3">
         <%= form.label :titolo, 'Titolo' %>
-        <%= form.text_field :titolo, class: 'form-control' %>
+        <%= form.text_field :titolo, class: 'form-control_10', maxlength: 30, required: true %>
       </div>
     </div>
 
-    <div class="form-row">
+    <div class="form-row_10">
       <div class="col-md-3 mb-3">
         <%= form.label :address, 'Indirizzo' %>
-        <%= form.text_field :address, class: 'form-control' %>
+        <%= form.text_field :address, class: 'form-control_10', required: true %>
       </div>
 
       <div class="col-md-2 mb-3">
         <%= form.label :data, 'Data' %>
-        <%= form.date_field :data, class: 'form-control' %>
+        <%= form.date_field :data, class: 'form-control_10', id: 'date-input', required: true %>
+        <small id="dateHelp" class="form-text text-muted">Inserisci una data futura.</small>
       </div>
 
       <div class="col-md-1 mb-3">
         <%= form.label :ora, 'Ora' %>
-        <%= form.time_field :ora, class: 'form-control' %>
+        <%= form.time_field :ora, class: 'form-control_10', id: 'time-input', required: true %>
+        <small id="timeHelp" class="form-text text-muted">Inserisci un orario futuro.</small>
       </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var dateInput = document.getElementById('date-input');
+          var dateHelp = document.getElementById('dateHelp');
+          var timeInput = document.getElementById('time-input');
+          var timeHelp = document.getElementById('timeHelp');
+
+          dateInput.addEventListener('change', function() {
+            validateDateTime();
+          });
+
+          timeInput.addEventListener('change', function() {
+            validateDateTime();
+          });
+
+          function validateDateTime() {
+            var selectedDate = new Date(dateInput.value);
+            var selectedTime = timeInput.value;
+            var currentDateTime = new Date();
+            
+            var enteredDateTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), selectedTime.substring(0, 2), selectedTime.substring(3, 5));
+            
+            if (enteredDateTime < currentDateTime) {
+              dateHelp.textContent = "Inserisci una data e un orario futuri.";
+              timeHelp.textContent = "Inserisci una data e un orario futuri.";
+              dateInput.setCustomValidity("La data e l'orario devono essere futuri");
+              timeInput.setCustomValidity("La data e l'orario devono essere futuri");
+            } else {
+              dateHelp.textContent = "Inserisci una data futura.";
+              timeHelp.textContent = "Inserisci un orario futuro.";
+              dateInput.setCustomValidity("");
+              timeInput.setCustomValidity("");
+            }
+          }
+        });
+      </script>
+
+
+
     </div>
     <br />
-    <div class="form-row">
+    <div class="form-row_10">
       <div class="col-md-2 mb-3">
         <%= form.label :persone, 'Persone' %>
-        <%= form.number_field :persone, class: 'form-control' %>
+        <%= form.number_field :persone, class: 'form-control_10', min: 10, max: 30, required: true %>
       </div>
 
       <div class="col-md-2 mb-3">
         <%= form.label :numero_ore, 'Numero ore' %>
-        <%= form.number_field :numero_ore, class: 'form-control' %>
+        <%= form.number_field :numero_ore, class: 'form-control_10', min: 2, max: 5, required: true %>
       </div>
 
       <div class="col-md-2 mb-3">
         <%= form.label :prezzo, 'Prezzo ora' %>
-        <%= form.number_field :prezzo, class: 'form-control' %>
+        <%= form.number_field :prezzo, class: 'form-control_10', min: 10, max: 50, required: true %>
       </div>
+
     </div>
 
-    <div class="form-row">
+    <div class="form-row_10">
       <div class="col-md-3 mb-3">
         <%= form.label :nomeC, 'Città' %>
-        <%= form.text_field :nomeC, class: 'form-control' %>
+        <%= form.text_field :nomeC, class: 'form-control_10', required: true %>
       </div>
 
       <div class="col-md-3 mb-3">
         <%= form.label :lingua, 'Lingua' %>
-        <%= form.text_field :lingua, class: 'form-control' %>
+        <%= form.text_field :lingua, class: 'form-control_10', required: true %>
       </div>
     </div>
     <br>
-  <!-- Resto del codice del modulo -->
     <%= form.hidden_field :user_email, value: current_user.email %>
     <%= form.hidden_field :user_id, value: current_user.id %>
 
-    <%= form.submit 'Pubblica', class: 'btn btn-primary' %>
+    <%= form.submit 'Pubblica', class: 'btn btn-primary_10' %>
   <% end %>
 
   <%= javascript_include_tag "script_bacheca", data: {controller_url: index_for_post_path, controller_url2: posts_destroy_for_user_path}%>
