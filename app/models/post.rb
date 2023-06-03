@@ -4,12 +4,17 @@ class Post < ApplicationRecord
     has_many :bookings
     has_many :users, through: :bookings
     validates :data, presence: true
-    has_many :comments
+    has_many :comments, dependent: :destroy
+    has_many :ratings, dependent: :destroy
     
 
 
     def expired?
         status == "expired"
+    end
+
+    def average_rating
+        ratings.average(:rating_score).to_f
     end
     
     private 

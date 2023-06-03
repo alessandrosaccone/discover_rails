@@ -17,6 +17,11 @@
   <h3>Città: <%= @post.nomeC %></h3><br>
   <h3>Lingua: <%= @post.lingua %></h3><br>
   <h3>Scaduto il: <%= @data %> alle <%= @ora %></h3><br>
+  <% if @post.average_rating != 0 %>
+    <h3>Voto degli utenti: <%= @post.average_rating %></h3>
+  <% else %>
+    <h3>Nessuno ha ancora dato un voto a questo post</h3>
+  <% end %>
 
   <h3>Recensioni degli utenti:</h3><br>
   <% @post.comments.each do |comment| %>
@@ -26,9 +31,17 @@
   <h3>Aggiungi una recensione:</h3><br>
   <%= form_with(model: [Comment.new, @post.comments.build], url: post_comments_path(@post.id)) do |f| %>
     <%= f.text_area :content, placeholder: 'Inserisci recensione' %>
-    <%= f.submit 'Invia' %>
-    
+    <%= f.submit 'Invia' %>   
   <% end %>
+  <br>
+  <div class='rating-stars'>
+    <input type='hidden' name='rating' value='<%= @rating_for_user.rating_score %>'>
+    <span class='star' data-value='1' id='1'>&#9733;</span>
+    <span class='star' data-value='2' id='2'>&#9733;</span>
+    <span class='star' data-value='3' id='3'>&#9733;</span>
+    <span class='star' data-value='4' id='4'>&#9733;</span>
+    <span class='star' data-value='5' id='5'>&#9733;</span>
+  </div>
   <br>
 
 <% else %>
@@ -107,4 +120,94 @@
 
 </div>
 
+<script>
+  $(document).ready(function(){
 
+    $('.rating-stars .star').click(function(){
+      var rating = $(this).data('value');
+      rating = parseInt(rating);
+      $(this).addClass('selected');
+      $(this).prevAll().addClass('selected');
+      $(this).nextAll().removeClass('selected');
+      $(this).siblings('input[name="rating"]').val(rating);
+
+      
+
+      if('<%= @rating_for_user%>' != '' && '<%= @rating_for_user%>' != null){
+        updateRating();
+      }
+      else{
+        createRating();
+      }
+    })
+
+    function createRating(){
+      $.ajax({
+        url: '<%= @post.id %>'+'/ratings',
+        type: 'POST',
+        dataType: 'json',
+        data: {rating_score: rating},
+        success: function(response){
+          console.log("Rating aggiornato");
+        },
+        error: function(xhr, status, error){
+          console.log("Errore");
+        }
+      })
+    }
+
+    function updateRating(){
+      $.ajax({
+        url: '<%= @post.id %>'+'/ratings/'+'<%= @rating_for_user.id %>',
+        type: 'PATCH',
+        dataType: 'json',
+        data: {rating_score: rating},
+        success: function(response){
+          console.log("Rating aggiornato");
+        },
+        error: function(xhr, status, error){
+          console.log("Errore");
+        }
+      })
+    }  
+  })
+
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var star1 = document.getElementById('1')
+    var star2 = document.getElementById('2')
+    var star3 = document.getElementById('3')
+    var star4 = document.getElementById('4')
+    var star5 = document.getElementById('5')
+    var toshow = '<%= @rating_for_user.rating_score %>'
+
+    if(toshow === '1'){
+      star1.classList.add('selected');
+    }
+    else if(toshow === '2'){
+      star1.classList.add('selected');
+      star2.classList.add('selected');
+    }
+    else if(toshow === '3'){
+      star1.classList.add('selected');
+      star2.classList.add('selected');
+      star3.classList.add('selected');
+    }
+    else if(toshow === '4'){
+      star1.classList.add('selected');
+      star2.classList.add('selected');
+      star3.classList.add('selected');
+      star4.classList.add('selected');
+    }
+    else if(toshow === '5'){
+      star1.classList.add('selected');
+      star2.classList.add('selected');
+      star3.classList.add('selected');
+      star4.classList.add('selected');
+      star5.classList.add('selected');
+    }
+    
+  })
+</script>

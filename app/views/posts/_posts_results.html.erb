@@ -34,7 +34,7 @@
               <% end %>
               <br>
               <% if post.expired? %>
-                <%= link_to "Vedi recensioni degli utenti", post_path(post), class: "card-link" %>
+                <%= link_to "Vedi recensioni", post_path(post), class: "card-link" %>
               <% else %>
                 <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
               <% end %>

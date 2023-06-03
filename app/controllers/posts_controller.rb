@@ -42,6 +42,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @ora = @post.ora.to_s[11,5]
     @data = @post.data.to_s[2,8]
+    @rating_for_user = Rating.find_by(post_id: @post.id, user_id: current_user.id)
   end
 
   # GET /posts/new
@@ -116,7 +117,7 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.permit( :titolo, :descrizione, :address, :data, :ora, :persone, :numero_ore, :prezzo, :nomeC, :lingua, :user_email, :user_id)
+      params.require(:post).permit( :titolo, :descrizione, :address, :data, :ora, :persone, :numero_ore, :prezzo, :nomeC, :lingua, :user_email, :user_id)
     end
 
 end

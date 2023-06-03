@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
   resources :posts do
     resources :comments, only: [:create]
+    resources :ratings, only: [:create, :update, :destroy]
   end
 
   get "/translate_html", to: "posts#translate_html"
