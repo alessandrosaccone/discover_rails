@@ -42,6 +42,9 @@ Rails.application.routes.draw do
   # cancella account
   delete '/bacheca_guidas/destroy', to: 'bacheca_guidas#destroy', as: 'destroy_bacheca_guida'
 
+  #città
+  get 'bacheca_guidas/show_city', to: 'bacheca_guidas#show_city'
+
   #bacheca_utenti
   get 'bacheca_utentis/show', to: 'bacheca_utentis#show', as: 'show_bacheca_utenti'
   #get 'bacheca_utentis/edit/:id', to: 'bacheca_utentis#edit', as: 'edit_bacheca_utenti'

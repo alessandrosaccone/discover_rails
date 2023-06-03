@@ -417,13 +417,29 @@ form {
   background-color: #0069d9;
 }
 
+.container_1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .card {
   background-color: #f5f5f5;
   border-radius: 5px;
-  padding: 10px;
   margin-bottom: 20px;
-  top: 70%
+  width: 25%; /* Le 4 colonne si adattano alla larghezza del contenitore */
+  padding: 10px;
+  box-sizing: border-box;
 }
+
+@media (max-width: 768px) {
+  /* Stili per i dispositivi mobili o schermi più piccoli */
+  .card {
+    width: 50%; /* Su dispositivi mobili, mostra 2 colonne per riga */
+  }
+}
+
+
 
 .card-title {
   font-size: 18px;
