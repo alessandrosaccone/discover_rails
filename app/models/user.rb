@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable,
          :timeoutable,:omniauthable, :omniauth_providers => [:facebook]
 
+  has_one_attached :avatar
+
   has_one :bacheca_guida, dependent: :destroy
   has_one :bacheca_utente, dependent: :destroy
 

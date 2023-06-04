@@ -35,6 +35,7 @@ class PostsController < ApplicationController
       end
     end
     
+    
  end
 
   # GET /posts/1

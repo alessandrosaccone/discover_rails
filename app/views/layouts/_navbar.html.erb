@@ -17,7 +17,22 @@
         <%end%>
         <%= form_tag switch_language_path, method: :post do %>
         <%= select_tag :language, options_for_select(language_options, I18n.locale.to_s) %>
-        <%= submit_tag 'Switch Language' %>
+        <%= submit_tag 'Switch Language', class: 'btn-language' %>
         <% end %>
+        <style>
+            .btn-language {
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 14px;
+            }
+
+            .btn-language:hover {
+                background-color: #45a049;
+            }
+        </style>
     </nav>
 </div>

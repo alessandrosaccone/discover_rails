@@ -52,6 +52,11 @@ Rails.application.routes.draw do
   #bacheca_utenti_post
   post 'bacheca_utentis/index_for_post', to: 'bacheca_utentis#index_for_post', as: 'index_for_booking'
 
+  #cambia immagine
+  devise_scope :user do
+    patch 'users/cambia_img', to: 'users/registrations#cambia_img', as:'immagine'
+  end
+
   get '/send_email', to: 'email#send_email', as: 'send_email'
 
 

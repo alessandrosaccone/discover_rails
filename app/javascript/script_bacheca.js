@@ -76,10 +76,6 @@ document.addEventListener('DOMContentLoaded', function(){
         divImage.classList.add('card_image');
         li.appendChild(divImage);
 
-        // Creazione dell'immagine utilizzando image_tag
-        /* var imageTag = document.createElement('');
-        divImage.appendChild(imageTag); */
-
         // Creazione dell'elemento h3.card-title
         var h3 = document.createElement('h3');
         h3.classList.add('card-title');
