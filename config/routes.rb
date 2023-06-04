@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :bacheca_guidas
+  resources :bacheca_utentes
   resources :messages
   post '/messages/create_audio', to: 'messages#create_audio', as: 'create_audio'
 
@@ -46,16 +47,19 @@ Rails.application.routes.draw do
   get 'bacheca_guidas/show_city', to: 'bacheca_guidas#show_city'
 
   #bacheca_utenti
-  get 'bacheca_utentis/show', to: 'bacheca_utentis#show', as: 'show_bacheca_utenti'
-  #get 'bacheca_utentis/edit/:id', to: 'bacheca_utentis#edit', as: 'edit_bacheca_utenti'
+  get 'bacheca_utentes/show', to: 'bacheca_utentes#show', as: 'show_bacheca_utenti'
+  #get 'bacheca_utentes/edit/:id', to: 'bacheca_utentes#edit', as: 'edit_bacheca_utenti'
 
   #bacheca_utenti_post
-  post 'bacheca_utentis/index_for_post', to: 'bacheca_utentis#index_for_post', as: 'index_for_booking'
+  post 'bacheca_utentes/index_for_post', to: 'bacheca_utentes#index_for_post', as: 'index_for_booking'
 
   #cambia immagine
   devise_scope :user do
     patch 'users/cambia_img', to: 'users/registrations#cambia_img', as:'immagine'
   end
+
+  #descrizione utenti
+  get 'bacheca_utentes/edit/:id', to: 'bacheca_utentes#edit', as: 'edit_bacheca_utentis'
 
   get '/send_email', to: 'email#send_email', as: 'send_email'
 

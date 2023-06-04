@@ -1,422 +1,3 @@
-form {
-    display: none;
-    font-size: 1.8em;
-    position: relative;
-    left: 25%;
-  }
-  
-  .gre {
-    color: green;
-    text-align: center;
-    font-size: 20px;
-    padding: 10px;
-  }
-  
-  .coll {
-    display: grid;
-    grid-template-columns: 50% 25%;
-  }
-  
-  .center {
-    position: absolute;
-    left: 50%;
-    top: 65%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .navheader_general {
-    background-color: rgba(0, 0, 0, 0.562);
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  input {
-    font-size: 1.5em;
-  }
-  
-  .container {
-    padding: 1% 3%;
-  }
-  
-  .block {
-    position: relative;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 0.35fr 1fr 1fr 1fr;
-    padding: 2.5%;
-    border-radius: 300px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
-    transition: all 0.3s;
-  }
-  
-  .block:hover {
-    background-color: rgba(238, 158, 9, 0.578);
-    transition: all 0.3s;
-  }
-  
-  .data {
-    position: relative;
-    padding: 8%;
-    align-items: center;
-    font-size: x-large;
-  }
-  
-  .data > h4 {
-    font-size: xx-large;
-  }
-  
-  .block > img {
-    width: 100%;
-    height: 100%;
-    border-radius: 600px;
-  }
-  
-  .container_form {
-    padding: 2% 3%;
-  }
-
-  .btn-1{
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #3498db;
-    border: none;
-    color: #ffffff;
-    text-align: center;
-    font-size: 16px;
-    padding: 10px;
-    width: 150px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-
-  .btn-1:hover {
-    background-color: #2980b9;
-  }
-  
-  .btn-2:active {
-    background-color: #1f618d;
-  }
-
-  .btn-2 {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #e74c3c;
-    border: none;
-    color: #ffffff;
-    text-align: center;
-    font-size: 16px;
-    padding: 10px;
-    width: 150px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .btn-2:hover {
-    background-color: #c0392b;
-  }
-  
-  .btn-2:active {
-    background-color: #a5281c;
-  }
-  
-  .dropdown {
-    position: absolute;
-    top: 44%;
-    right: 20px;
-  }
-  
-  .dropdown-icon {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-    background-color: #a5281c;
-  }
-
-  .dropdown-icon_1 {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-  }
-  
-  .dot {
-    width: 6px;
-    height: 6px;
-    background-color: #3498db;
-    border-radius: 50%;
-    margin: 3px;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    right: 0;
-  }
-  
-  .dropdown-content a {
-    color: #000000;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #cfd8dc;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  .box {
-    display: flex;
-    align-items: center;
-  }
-  
-  .image {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-left: 20px;
-  }
-  
-  .image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .content {
-    font-family: Arial, sans-serif;
-    margin-left: 50px;
-  }
-  
-  .content h3 {
-    font-size: 18px;
-    margin: 0;
-  }
-  
-  .content p {
-    font-size: 14px;
-    margin: 0;
-  }
-  
-  
-  @media screen and (min-height: 700px) and (min-width: 1200px) and (max-height: 800px) and (max-width: 1300px) {
-    .block {
-      grid-template-rows: 100px;
-    }
-    .data {
-      font-size: large;
-      padding: 5%;
-    }
-    .data > h4 {
-      font-size: x-large;
-    }
-    .center {
-      left: 43%;
-    }
-    .block > img {
-      width: 100px;
-      height: 100px;
-    }
-  }
-  
-  @media screen and (min-height: 1000px) and (max-width: 900px) {
-    .block > img {
-      width: 120px;
-      height: 120px;
-    }
-  }
-  
-  @media screen and (max-height: 850px) and (min-width: 900px) {
-    .coll {
-      grid-template-columns: 50%;
-    }
-    .center {
-      padding: 10px 10px;
-    }
-  }
-  
-  /*MOBILE USERS*/
-  @media screen and (max-width: 769px) {
-    .block > img {
-      width: 60px;
-      height: 60px;
-    }
-    .gre {
-      position: absolute;
-      top: 34%;
-      left: 30%;
-    }
-    .container_full {
-      position: absolute;
-      width: 95%;
-      top: 10%;
-    }
-    .coll {
-      grid-template-columns: 55% 45%;
-    }
-    .block {
-      grid-template-rows: 60px;
-    }
-    .container {
-      padding: 1% 3%;
-    }
-    .data {
-      font-size: medium;
-      padding: 0 10px;
-      line-height: 1px;
-    }
-    .data > h4 {
-      font-size: medium;
-    }
-    .view_area {
-      position: absolute !important;
-      top: 20% !important;
-    }
-    .center {
-      position: sticky;
-      left: 3%;
-      right: 3%;
-      padding: 0 0;
-    }
-    form {
-      position: absolute;
-      top: 35%;
-      left: 2%;
-      font-size: 1em;
-      width: 95%;
-      padding: 1%;
-    }
-    .container_form {
-      padding: 0 0;
-    }
-    /*IPAD MINI*/
-    @media screen and (min-height: 930px) {
-      .container_full {
-        position: absolute;
-        width: 100%;
-        top: 30%;
-      }
-      .container {
-        padding: 2% 2%;
-      }
-      .coll {
-        display: grid;
-        grid-template-columns: 1.2fr 0.5fr;
-      }
-      .center {
-        top: 45%;
-        left: 10%;
-      }
-      form {
-        display: none;
-        font-size: 1.8em;
-        position: absolute;
-        top: 45%;
-        padding: 10%;
-        left: 7%;
-        width: 150%;
-      }
-      .view_area {
-        position: absolute !important;
-        top: 45% !important;
-      }
-      .data {
-        font-size: medium;
-        padding: 0 10px;
-        line-height: 15px;
-      }
-    }
-  }
-  
-  /*TABLET USERS*/
-  @media screen and (max-width: 850px) and (min-width: 769px) {
-    .block {
-      grid-template-columns: 0.45fr 1fr 1fr 1fr;
-    }
-    .coll {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .data {
-      font-size: medium;
-    }
-    .data > h4 {
-      font-size: large;
-    }
-    .center {
-      left: 0%;
-      right: 20%;
-    }
-    form {
-      font-size: 1.5em;
-      width: 130%;
-      left: 18%;
-    }
-  }
-  
-  .center_utente{
-    display: flex;
-    justify-content: center;
-    transform: translateX(460px);
-  }
-
-  .account-delete-button {
-    background-color: rgb(255, 255, 255);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .account-delete-button:hover {
-    background-color: rgb(134, 134, 134);
-  }
-
-  
-/* Aggiungi lo stile desiderato al tuo form */
-#form {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.form-row {
-  margin-bottom: 20px;
-}
-
-.form-label {
-  font-weight: bold;
-}
-
-.form-control {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.btn-primary {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background-color: #0069d9;
-}
-
 .container_1 {
   display: flex;
   flex-wrap: wrap;
@@ -431,15 +12,6 @@ form {
   padding: 10px;
   box-sizing: border-box;
 }
-
-@media (max-width: 768px) {
-  /* Stili per i dispositivi mobili o schermi più piccoli */
-  .card {
-    width: 50%; /* Su dispositivi mobili, mostra 2 colonne per riga */
-  }
-}
-
-
 
 .card-title {
   font-size: 18px;
@@ -464,3 +36,305 @@ form {
   text-decoration: underline;
 }
 
+form {
+  font-size: 1.8em;
+  position: relative;
+}
+
+.gre {
+  color: green;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.coll {
+  display: grid;
+  grid-template-columns: 50% 25%;
+}
+
+.center {
+  position: sticky;
+  padding: 0 90%;
+}
+
+.navheader_general {
+  background-color: rgba(0, 0, 0, 0.562);
+}
+
+.container {
+  padding: 1% 3%;
+}
+
+.block {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 0.35fr 1fr 1fr 1fr;
+  padding: 2.5%;
+  border-radius: 300px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+  transition: all 0.3s;
+}
+
+.block:hover {
+  background-color: rgba(238, 158, 9, 0.578);
+  transition: all 0.3s;
+}
+
+.data {
+  position: relative;
+  padding: 8%;
+  align-items: center;
+  font-size: x-large;
+}
+
+.data > h4 {
+  font-size: xx-large;
+}
+
+.block > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 600px;
+}
+
+.container_form {
+  padding: 2% 3%;
+}
+
+.btn-1{
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #3498db;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: 150px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-1:hover {
+  background-color: #2980b9;
+}
+
+.btn-2:active {
+  background-color: #1f618d;
+}
+
+.btn-2 {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #e74c3c;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: 150px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-2:hover {
+  background-color: #c0392b;
+}
+
+.btn-2:active {
+  background-color: #a5281c;
+}
+
+.dropdown {
+  position: absolute;
+  top: 44%;
+  right: 20px;
+}
+
+.dropdown-icon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background-color: #a5281c;
+}
+
+.dropdown-icon_1 {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: #3498db;
+  border-radius: 50%;
+  margin: 3px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+}
+
+.dropdown-content a {
+  color: #000000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #cfd8dc;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 20px;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  font-family: Arial, sans-serif;
+  margin-left: 50px;
+}
+
+.content h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.content p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.center_utente{
+  display: flex;
+  justify-content: center;
+  transform: translateX(460px);
+}
+
+.account-delete-button {
+  background-color: rgb(255, 255, 255);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.account-delete-button:hover {
+  background-color: rgb(134, 134, 134);
+}
+
+
+/* Aggiungi lo stile desiderato al tuo form */
+#form_10 {
+max-width: 600px;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.form-row_10 {
+margin-bottom: 20px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+}
+
+.form-label_10 {
+font-weight: bold;
+}
+
+.form-control_10 {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+.btn-primary_10 {
+padding: 10px 20px;
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.btn-primary_10:hover {
+background-color: #0069d9;
+}
+
+.container_100 {
+position: absolute;
+top: 20px;
+right: 100px;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+}
+
+.image-upload {
+padding: 10px;
+border-radius: 8px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+}
+
+.image-upload__input {
+display: block;
+width: 300px; /* Imposta la larghezza desiderata */
+height: 40px; /* Imposta l'altezza desiderata */
+font-size: 12px; /* Imposta la dimensione del testo desiderata */
+}
+
+.image-upload__button {
+background-color: #4caf50;
+color: white;
+border: none;
+padding: 5px 10px;
+border-radius: 4px;
+cursor: pointer;
+font-size: 14px;
+}
+
+.image-upload__button:hover {
+background-color: #45a049;
+}
+
+.sparisci {
+display: none;
+left: 460px;
+font-size: 24px;
+}
