@@ -22,13 +22,13 @@ class BachecaUtentesController < ApplicationController
     end
 
     def index_for_post
-        @index = session[:index]
-    
+        @index = session[:index] || 0
+      
         bookings = Booking.where(user_id: current_user.id).order(created_at: :desc).limit(10).offset(@index)
-    
+      
         render json: bookings
-    
-        session[:index] += 1
+      
+        session[:index] = @index + 10
     end
 
     private

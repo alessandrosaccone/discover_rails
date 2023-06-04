@@ -42,14 +42,14 @@ class BachecaGuidasController < ApplicationController
   end
   
   def index_for_post
-    @index = session[:index]
-
+    @index = session[:index] || 0
+  
     posts = Post.where(user_id: current_user.id).order(created_at: :desc).limit(10).offset(@index)
-
+  
     render json: posts
-
-    session[:index] += 1
-  end
+  
+    session[:index] = @index + 10
+  end  
 
   private
 
