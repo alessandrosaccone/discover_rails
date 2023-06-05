@@ -1,5 +1,6 @@
 class BachecaGuidasController < ApplicationController
   before_action :authenticate_user!
+  require 'geonames'
   def show
     session[:index] = 0
     @bacheca_guida = BachecaGuida.find_or_initialize_by(user_id: current_user.id)
@@ -9,7 +10,6 @@ class BachecaGuidasController < ApplicationController
     end
 
     @name = User.where(id: current_user.id).first.name
-
     # Altri codici per la visualizzazione della bacheca guida
   end
 
@@ -42,20 +42,19 @@ class BachecaGuidasController < ApplicationController
   end
   
   def index_for_post
-    @index = session[:index]
-
-    posts = Post.where(user_id: current_user.id).order(created_at: :desc).limit(10).offset(@index)
-
-    render json: posts
-
-    session[:index] += 1
-  end
-
+    @index = session[:index] || 0
   
+    posts = Post.where(user_id: current_user.id).order(created_at: :desc).limit(10).offset(@index)
+  
+    render json: posts
+  
+    session[:index] = @index + 10
+  end  
 
   private
 
   def bacheca_params
     params.require(:bacheca_guida).permit(:description)
   end
+
 end

@@ -1,8 +1,8 @@
 class Message < ApplicationRecord
   belongs_to :user
-  belongs_to :conversation
-  has_one_attached :audio
-  has_one_attached :image
+  belongs_to :conversation, dependent: :destroy
+  has_one_attached :audio, dependent: :destroy
+  has_one_attached :image, dependent: :destroy
   validates_presence_of :conversation_id, :user_id
   validate :must_have_body_or_audio_or_image
 

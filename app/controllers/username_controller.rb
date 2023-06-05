@@ -9,10 +9,14 @@ class UsernameController < ApplicationController
         @user.username = params[:username]
         
         if @user.update(username_params)
-        redirect_to show_bacheca_path, notice: "Username updated successfully"
-        else
-        # Gestione dell'errore se il salvataggio fallisce
-        redirect_to show_bacheca_path, notice: "Failed to update username"
+            if current_user.guide?
+                redirect_to show_bacheca_path, notice: "Username updated successfully"
+            else
+                redirect_to show_bacheca_utenti_path, notice: "Username updated successfully"
+            end
+       # else
+            # Gestione dell'errore se il salvataggio fallisce
+            #redirect_to show_bacheca_path, notice: "Failed to update username"
         end
     end
 

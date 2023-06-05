@@ -106,6 +106,7 @@ GEM
     fugit (1.8.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
+    geonames (0.3.3)
     globalid (1.1.0)
       activesupport (>= 5.0)
     haml (6.1.1)
@@ -330,6 +331,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   figaro
+  geonames
   importmap-rails (~> 1.1)
   jquery-rails (~> 4.5)
   mailcatcher

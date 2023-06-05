@@ -5,11 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable,
          :timeoutable,:omniauthable, :omniauth_providers => [:facebook]
 
+  has_one_attached :avatar
+
   has_one :bacheca_guida, dependent: :destroy
+  has_one :bacheca_utente, dependent: :destroy
 
   belongs_to :role, :optional => true
   belongs_to :city, optional: true
-  has_many :user_posts, foreign_key: 'user_email', primary_key: 'email', class_name: 'Post'
+  has_many :user_posts, foreign_key: 'user_email', primary_key: 'email', class_name: 'Post', dependent: :destroy
   has_many :messages, dependent: :destroy
   has_and_belongs_to_many :languages, optional:true
   has_many :bookings
