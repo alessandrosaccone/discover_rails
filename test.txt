@@ -1,0 +1,18 @@
+Tutti i test sono stati creati preceduti da login con device.
+Tutti i test sono stati creati in modo da evitare errori di validazione per integrità dei dati.
+Per tutti i test sono state usate le build al posto delle create in modo da non inserire i dati nel db.
+
+Test sui post:
+Le factory usate sono in factories/users.rb, factories/posts.rb
+I test riguardano le seguenti action del controller dei post: get_price, all
+Sono presenti vari test sui controlli del numero limite di persone e sui vari errori che possono avvenire.
+
+
+Test sulle email:
+Le factory usate sono in factories/bookings.rb, factories/users.rb
+Il primo test riguarda l'invio della mail con un allegato. Il secondo riguarda la gestione degli errori 
+nell'invio della mail. L'action è la send_email di email_controller.rb
+
+Test sulle conversation:
+Le factory usate sono in factories/users.rb, factories/conversations.rb, factories/messages.rb
+Il test riguarda l'assegnazione di una conversazione, l'action è la "show" del controller
