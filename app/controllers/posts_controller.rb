@@ -64,7 +64,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(post_params_create)
     
     if @post.save
       redirect_to show_bacheca_path, notice: "Post was successfully created."
@@ -125,7 +125,14 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit( :titolo, :descrizione, :address, :data, :ora, :persone, :numero_ore, :prezzo, :nomeC, :lingua, :user_email, :user_id)
+      params.require(:post).permit(:titolo, :descrizione, :address, :data, :ora, :persone, :numero_ore, :prezzo, :nomeC, :lingua).merge(user_id: current_user.id, user_email: current_user.email)
     end
+    
+    
+    def post_params_create
+      params.permit( :titolo, :descrizione, :address, :data, :ora, :persone, :numero_ore, :prezzo, :nomeC, :lingua).merge(user_id: current_user.id, user_email: current_user.email)
+    end
+    
+    
 
 end
