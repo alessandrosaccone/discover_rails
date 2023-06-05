@@ -43,6 +43,13 @@ class PostsController < ApplicationController
     @ora = @post.ora.to_s[11,5]
     @data = @post.data.to_s[2,8]
     @rating_for_user = Rating.find_by(post_id: @post.id, user_id: current_user.id)
+    if(!@rating_for_user)
+      #Se non esiste il rating dello user ne metto uno 
+      #temporaneo che non salvo per renderizzare la pagina correttamente
+      @rating_for_user = Rating.new
+      @rating_for_user.rating_score = 0
+      @rating_for_user.id = 0
+    end
   end
 
   # GET /posts/new

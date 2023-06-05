@@ -36,11 +36,11 @@
   <br>
   <div class='rating-stars'>
     <input type='hidden' name='rating' value='<%= @rating_for_user.rating_score %>'>
-    <span class='star' data-value='1' id='1'>&#9733;</span>
-    <span class='star' data-value='2' id='2'>&#9733;</span>
-    <span class='star' data-value='3' id='3'>&#9733;</span>
-    <span class='star' data-value='4' id='4'>&#9733;</span>
-    <span class='star' data-value='5' id='5'>&#9733;</span>
+    <span class='star' data-value='1' id='star1'>&#9733;</span>
+    <span class='star' data-value='2' id='star2'>&#9733;</span>
+    <span class='star' data-value='3' id='star3'>&#9733;</span>
+    <span class='star' data-value='4' id='star4'>&#9733;</span>
+    <span class='star' data-value='5' id='star5'>&#9733;</span>
   </div>
   <br>
 
@@ -132,16 +132,16 @@
       $(this).siblings('input[name="rating"]').val(rating);
 
       
-
-      if('<%= @rating_for_user%>' != '' && '<%= @rating_for_user%>' != null){
-        updateRating();
+      //ID 0 significa rating non creato per la pagina
+      if('<%= @rating_for_user.id%>' != '0' && '<%= @rating_for_user%>' != null){
+        updateRating(rating);
       }
       else{
-        createRating();
+        createRating(rating);
       }
     })
 
-    function createRating(){
+    function createRating(rating){
       $.ajax({
         url: '<%= @post.id %>'+'/ratings',
         type: 'POST',
@@ -155,8 +155,8 @@
         }
       })
     }
-
-    function updateRating(){
+  
+    function updateRating(rating){
       $.ajax({
         url: '<%= @post.id %>'+'/ratings/'+'<%= @rating_for_user.id %>',
         type: 'PATCH',
@@ -176,12 +176,13 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function(){
-    var star1 = document.getElementById('1')
-    var star2 = document.getElementById('2')
-    var star3 = document.getElementById('3')
-    var star4 = document.getElementById('4')
-    var star5 = document.getElementById('5')
+    var star1 = document.getElementById('star1')
+    var star2 = document.getElementById('star2')
+    var star3 = document.getElementById('star3')
+    var star4 = document.getElementById('star4')
+    var star5 = document.getElementById('star5')
     var toshow = '<%= @rating_for_user.rating_score %>'
+    console.log(toshow)
 
     if(toshow === '1'){
       star1.classList.add('selected');

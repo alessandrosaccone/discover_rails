@@ -15,14 +15,16 @@ class RatingsController < ApplicationController
     end
 
     def update
-    
-        rating = Rating.find(params[:id])
-        if rating.update(rating_score: params[:rating_score])
+        @rating = Rating.find(params[:id])
+        @rating.rating_score = params[:rating_score].to_i
+        if @rating.save
             render json: {message: "Rating updated"}
         else
-            render json: {error: "Error rating"}
+            render json: {error: "Unexpected error"}
         end
+    
     end
+         
 
     def destroy
     end

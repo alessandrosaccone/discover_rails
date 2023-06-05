@@ -10,7 +10,10 @@
         <%= image_tag "guida4.jpg", class:"img"%> <!-- mettere l'immagine corretta -->
       </div>
       <h3 class='card-title'>
-          <%= post.titolo %> <br> 
+          <%= post.titolo %>
+          <% if post.expired? %>
+            - scaduto
+          <% end %>
       </h3>
       <div class='card-content'>
           <p>
