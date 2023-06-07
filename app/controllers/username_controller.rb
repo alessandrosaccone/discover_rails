@@ -20,6 +20,25 @@ class UsernameController < ApplicationController
         end
     end
 
+    def update_lang
+        @user = current_user
+        lingua = params[:user][:languages]
+        
+        @new_lang = Language.find_or_create_by(name: lingua)
+        
+        unless @user.languages.include?(@new_lang)
+          @user.languages << @new_lang
+        end
+        
+        if @user.save
+          redirect_to show_bacheca_path, notice: 'Languages updated successfully.' # Reindirizza a una pagina di conferma o alla pagina desiderata
+        else
+          # Gli errori di validazione possono essere gestiti qui
+          render :edit # Reindirizza nuovamente alla pagina di modifica, se necessario
+        end
+      end
+      
+
     private
     def username_params
         params.require(:user).permit(:username)

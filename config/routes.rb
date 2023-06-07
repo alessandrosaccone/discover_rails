@@ -62,6 +62,9 @@ Rails.application.routes.draw do
   #descrizione utenti
   get 'bacheca_utentes/edit/:id', to: 'bacheca_utentes#edit', as: 'edit_bacheca_utentis'
 
+  #lang
+  patch 'username/update_lang', to: 'username#update_lang', as: 'update_lang'
+
   get '/send_email', to: 'email#send_email', as: 'send_email'
 
 
