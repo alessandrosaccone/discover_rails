@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ], except: [:all]
+  
 
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:show, :create]
   # GET /posts
   def index
     @posts = Post.where('data>= ?', Date.today)
@@ -34,6 +35,7 @@ class PostsController < ApplicationController
       end
     end
     
+    
  end
 
   # GET /posts/1
@@ -41,6 +43,14 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @ora = @post.ora.to_s[11,5]
     @data = @post.data.to_s[2,8]
+    @rating_for_user = Rating.find_by(post_id: @post.id, user_id: current_user.id)
+    if(!@rating_for_user)
+      #Se non esiste il rating dello user ne metto uno 
+      #temporaneo che non salvo per renderizzare la pagina correttamente
+      @rating_for_user = Rating.new
+      @rating_for_user.rating_score = 0
+      @rating_for_user.id = 0
+    end
   end
 
   # GET /posts/new
@@ -49,15 +59,15 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
-  def edit
-  end
+  #def edit
+  #end
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
-
+    @post = Post.new(post_params_create)
+    
     if @post.save
-      redirect_to @post, notice: "Post was successfully created."
+      redirect_to show_bacheca_path, notice: "Post was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -80,8 +90,14 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   def destroy
-    @post.destroy
-    redirect_to posts_url, notice: "Post was successfully destroyed."
+    
+  end
+  def destroy_post
+    @id = params[:id]
+    post = Post.find(@id)
+      
+    post.destroy
+    
   end
 
   def get_price
@@ -109,7 +125,14 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :published_at, :persone)
+      params.require(:post).permit(:titolo, :descrizione, :address, :data, :ora, :persone, :numero_ore, :prezzo, :nomeC, :lingua).merge(user_id: current_user.id, user_email: current_user.email)
     end
+    
+    
+    def post_params_create
+      params.permit( :titolo, :descrizione, :address, :data, :ora, :persone, :numero_ore, :prezzo, :nomeC, :lingua).merge(user_id: current_user.id, user_email: current_user.email)
+    end
+    
+    
 
 end

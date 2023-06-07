@@ -1,7 +1,9 @@
 <%@guides.each do |guida| %>
   <div class="card swiper-slide">
     <div class="card__image">
-      <%= image_tag "guida1.webp", class: 'card__image' %>
+      <%if guida.avatar.attached?%>
+            <%= image_tag guida.avatar, class: 'card_image' %>
+        <%end%>
     </div>
   
     <div class="card__content">

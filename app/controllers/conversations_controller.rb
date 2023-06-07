@@ -34,12 +34,23 @@ class ConversationsController < ApplicationController
     def delete_for_me
         @message = Message.find(params[:message])
         @message.update(deleted_for_user: true)
+        if @message.deleted_for_both?
+            @message.destroy
+        end
     end
 
     def delete_for_both
         ActionCable.server.broadcast("message_deletion_#{params[:conversation]}", message_id: params[:message])
         @message = Message.find(params[:message])
         @message.destroy
+    end
+
+    def delete_for_recipient
+        @message = Message.find(params[:message])
+        @message.update(deleted_for_recipient: true)
+        if @message.deleted_for_both?
+            @message.destroy
+        end
     end
 
   

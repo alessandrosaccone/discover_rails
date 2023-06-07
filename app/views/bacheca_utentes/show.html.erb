@@ -1,0 +1,77 @@
+<% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-bacheca_utentis" %>
+  <%= stylesheet_link_tag "application" %>
+<% end %>    
+
+<%=render 'layouts/navbar'%>
+
+      <div class="container">
+        <div class="block" id="3">
+          <div class="box">
+            <%if current_user.avatar.attached?%>
+              <div class="image">
+                <%= image_tag current_user.avatar %>
+              </div>
+            <%end%>
+          </div>
+
+          <div class="content">
+              <%if(current_user.username == '' || current_user.username == nil)%>
+                <h2><%=@name%></h2>
+              <%else%>
+                <p><h3>@<%=current_user.username%></h3></p>
+              <%end%>
+              <br>
+              <br>
+              <p><h3><%=@bacheca_utenti.descrizione%></h3></p>
+          </div>
+
+
+          <div class="dropdown">
+            <div class="dropdown-icon_1">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+            <div class="dropdown-content">
+              <%= link_to "Modifica Username", edit_username_path(), method: :patch %>
+              <%= link_to "Modifica Descrizione", edit_bacheca_utentis_path(@bacheca_utenti.id) %>
+              <%= link_to 'Cancella Account', registration_path(current_user), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+            </div>
+          </div>
+          <div class="container_100">
+            <div class="image-upload">
+              <%= form_with(url: immagine_path, method: :patch, local: true, multipart: true) do |form| %>
+                <%= form.file_field :avatar, class: 'image-upload__input' %>
+                <%= form.submit 'Cambia immagine', class: 'image-upload__button' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="coll">
+        <div class="center">
+          <button id="view" class="btn-2" onclick="return button_2();">
+            Guarda le tue schede
+          </button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+
+    <div
+      style="position: relative; left: 5%; width: 90%"
+      id="view_area"
+      class="view_area"
+  ></div>
+
+    <%= javascript_include_tag "script_utente", data: {controller_url: index_for_booking_path}%>
+
+    <ul id="lista" class="container_1">
+    </ul>

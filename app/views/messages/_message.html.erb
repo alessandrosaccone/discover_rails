@@ -2,17 +2,29 @@
 
   <% if message.user_id == current_user.id && !message.deleted_for_user%>
     <div class="message-box my-message">
+      <% if message.image.attached?%>
+        <%= image_tag message.image, style: "width: 200px; display: block" %>
+      <% end %>
       <p class='msg-content'><%= message.body %></p>
       <% if message.audio.attached? %>
-          <%= audio_tag message.audio %>
+          <audio controls>
+          <source src="<%= url_for(message.audio) %>" type="<%= message.audio.content_type %>">
+                  Your browser does not support the audio element.
+        </audio>
       <% end %>
       <div class='ap'><p class='data-msg'><%= message.created_at %></p></div>
     </div>
-  <% elsif message.user_id != current_user.id%>
+  <% elsif message.user_id != current_user.id && !message.deleted_for_recipient%>
     <div class="message-box not-my-message">
+      <% if message.image.attached?%>
+        <%= image_tag message.image, style: "width: 200px; display: block" %>
+      <% end %>
       <p class='msg-content'><%= message.body %></p>
       <% if message.audio.attached? %>
-          <%= audio_tag message.audio %>
+          <audio controls>
+          <source src="<%= url_for(message.audio) %>" type="<%= message.audio.content_type %>">
+                  Your browser does not support the audio element.
+        </audio>
       <% end %>
       <div class='ap' ><p class='data-msg'><%= message.created_at %></p></div>
     </div>
@@ -21,13 +33,16 @@
 </div>
 
 <script>
+  //SCRIPT PER FAR APPARIRE L'OPZIONE DI CANCELLARE UN MESSAGGIO
     var pressTimer;
     function startAction(e){
         var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
         const el = e.querySelector('.ap')
         pressTimer = setTimeout(function(){
-          if(!el.querySelector('button')){
-            console.log("tieni premuto")
+          const parent = el.parentElement;
+          //console.log(parent);
+          if(!el.querySelector('button')&& parent.classList.contains('my-message')){
+            //console.log("tieni premuto")
             const container = document.createElement('div')
             const b1 = document.createElement('button')
             b1.textContent = 'Eliminate for me'
@@ -39,7 +54,7 @@
 
             const id = parseInt(e.id)
             const convo_id = parseInt(e.getAttribute('convo'))
-            console.log(id)
+            //console.log(id)
 
             b1.addEventListener('click',function(){
               fetch('delete_for_me', {
@@ -79,6 +94,37 @@
                 console.log(error)
               })
             })
+          }
+          else if(!el.querySelector('button') && parent.classList.contains('not-my-message')){
+            const container = document.createElement('div')
+            const b1 = document.createElement('button')
+            b1.textContent = 'Eliminate for me'
+            container.appendChild(b1)
+            el.append(container)
+
+            const id = parseInt(e.id)
+            const convo_id = parseInt(e.getAttribute('convo'))
+            //console.log(id)
+
+            b1.addEventListener('click',function(){
+              fetch('delete_for_recipient', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-Token': token
+                },
+                body: JSON.stringify({
+                  message: id
+                })
+              })
+              .then(function(response){
+                console.log(response)
+                el.parentElement.remove()
+              }).catch(function(error){
+                console.log(error)
+              })
+            })
+            
           }
           else{
             const daRim = el.querySelectorAll('button')

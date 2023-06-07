@@ -69,3 +69,12 @@ en:
   nome: "Name..."
 
   nazione: "Nation..."
+
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "Validation error"
+    attributes:
+      conversation:
+        sender: "Sender"
+        recipient: "Destinatario"
