@@ -16,7 +16,7 @@ password:AleSimMarGab123
 Per creare account guide si deve essere in test mode e lo si fa in connect. Si devono dare molte informazioni.
 Jacke non va più. Aggiungete l'id che trovate sul sito alle guide.
 
-# Email
+# Email -> SendGrind
 
 email: discover.railsprojec@libero.it
 psw: Abcdefg1!
@@ -45,4 +45,5 @@ di entrambi sono già stati fatti.
 # Test
 
 1. bundle exec rspec spec/controllers/email_controller_spec.rb
-2.
+2. bundle exec rspec spec/controllers/post_controller_spec.rb
+3. bundle exec rspec spec/controllers/conversation_controller_spec.rb
