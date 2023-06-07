@@ -7,10 +7,15 @@
       <% end %> 
       <li class='card'>
       <div class='card_image'>
-        <%= image_tag "guida4.jpg", class:"img"%> <!-- mettere l'immagine corretta -->
+        <%if post.user.avatar.attached?%>
+            <%= image_tag post.user.avatar, class: 'img' %>
+        <%end%> <!-- mettere l'immagine corretta -->
       </div>
       <h3 class='card-title'>
-          <%= post.titolo %> <br> 
+          <%= post.titolo %>
+          <% if post.expired? %>
+            - scaduto
+          <% end %>
       </h3>
       <div class='card-content'>
           <p>
@@ -27,9 +32,18 @@
               </h4>
           </div>
           <div class='card-link-wrapper'>
-
-              <%= link_to 'Contatta', conversation_path(guide_email: post.user_email), class: "card-link"%>
-              <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
+              <% if !user_signed_in? %>
+                <%= link_to 'Contatta', conversation_path(guide_email: post.user_email), class: "card-link"%>
+              <% elsif current_user.email != post.user_email %>
+                <%= link_to 'Contatta', conversation_path(guide_email: post.user_email), class: "card-link"%>
+              <% end %>
+              <br>
+              <% if post.expired? %>
+                <%= link_to "Vedi recensioni", post_path(post), class: "card-link" %>
+              <% else %>
+                <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
+              <% end %>
+              <br>
           </div>
           </li> 
       <% if index.even? || index == @posts.size %>

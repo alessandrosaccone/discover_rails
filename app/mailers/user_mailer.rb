@@ -9,11 +9,6 @@ class UserMailer < ApplicationMailer
           puts "Error sending email to #{user.email}: #{e.message}"
         end
       end
-      
-      
-      
-      
-      
 
     def date_exceeded_email(user)
         @user = user

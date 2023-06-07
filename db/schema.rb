@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_17_194139) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_03_093407) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,30 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_194139) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bacheca_guidas", force: :cascade do |t|
+    t.string "description"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bacheca_guidas_on_user_id"
+  end
+
+  create_table "bacheca_utentes", force: :cascade do |t|
+    t.string "descrizione"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bacheca_utentes_on_user_id"
+  end
+
+  create_table "bacheca_utentis", force: :cascade do |t|
+    t.string "descrizione"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bacheca_utentis_on_user_id"
+  end
+
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
@@ -60,6 +84,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_194139) do
     t.datetime "updated_at", null: false
     t.integer "country_id"
     t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -93,7 +127,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_194139) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "deleted_for_user", default: false, null: false
-    t.string "audio"
+    t.binary "audio"
+    t.boolean "deleted_for_recipient", default: false, null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -116,6 +151,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_194139) do
     t.string "user_email"
     t.integer "user_id"
     t.string "address"
+    t.string "status", default: "open", null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.integer "rating_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_ratings_on_post_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -148,6 +194,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_194139) do
     t.string "long"
     t.string "stripe_account_id"
     t.boolean "online", default: false, null: false
+    t.string "username"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -156,12 +203,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_194139) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bacheca_guidas", "users"
+  add_foreign_key "bacheca_utentes", "users"
+  add_foreign_key "bacheca_utentis", "users"
   add_foreign_key "bookings", "posts"
   add_foreign_key "bookings", "users"
   add_foreign_key "cities", "countries"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users", column: "user_email", primary_key: "email"
+  add_foreign_key "ratings", "posts"
+  add_foreign_key "ratings", "users"
   add_foreign_key "users", "cities"
   add_foreign_key "users", "roles"
 end

@@ -20,8 +20,10 @@ consumer.subscriptions.create("ActivityChannel", {
     for (var i = 0; i < elements.length; i++) {
       if (data.status === "online") {
         elements[i].classList.remove("offline");
+        elements[i].classList.add("online");
       } else if (data.status === "offline") {
         elements[i].classList.remove("online");
+        elements[i].classList.add("offline");
       } else {
         console.log("Unexpected error showing status!");
         return;

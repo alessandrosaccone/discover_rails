@@ -66,8 +66,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
   
 
-
-
   # GET /resource/edit
    def edit
      super
@@ -77,6 +75,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
    def update
      super
    end
+
+   def cambia_img
+    current_user.avatar.attach(params[:avatar])
+    if current_user.guide?
+      redirect_to show_bacheca_path()
+    else
+      redirect_to show_bacheca_utenti_path()
+    end
+   end
+
 
   # DELETE /resource
   # def destroy
@@ -96,7 +104,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_permitted_parameters
-    attributes = [:name, :email, :password,:iva,:role_id,:remember_me]
+    attributes = [:name, :email, :password,:iva,:role_id,:remember_me, :avatar]
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
   end
 
