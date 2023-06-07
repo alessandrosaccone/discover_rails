@@ -180,9 +180,7 @@
         <%= form.text_field :lingua, class: 'form-control_10', required: true %>
       </div>
     </div>
-    <br>
-    <%= form.hidden_field :user_email, value: current_user.email %>
-    <%= form.hidden_field :user_id, value: current_user.id %>
+    
 
     <%= form.submit 'Pubblica', class: 'btn btn-primary_10' %>
   <% end %>

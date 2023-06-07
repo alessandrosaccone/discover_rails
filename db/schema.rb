@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_01_185508) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_03_093407) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -154,6 +154,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_185508) do
     t.string "status", default: "open", null: false
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.integer "rating_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_ratings_on_post_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -204,6 +214,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_185508) do
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users", column: "user_email", primary_key: "email"
+  add_foreign_key "ratings", "posts"
+  add_foreign_key "ratings", "users"
   add_foreign_key "users", "cities"
   add_foreign_key "users", "roles"
 end
