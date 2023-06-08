@@ -65,6 +65,9 @@ Rails.application.routes.draw do
   #lang
   patch 'username/update_lang', to: 'username#update_lang', as: 'update_lang'
 
+  #city e country
+  patch 'username/update_city', to: 'username#update_city', as: 'update_city'
+
   get '/send_email', to: 'email#send_email', as: 'send_email'
 
 

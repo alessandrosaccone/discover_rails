@@ -37,6 +37,25 @@ class UsernameController < ApplicationController
           render :edit # Reindirizza nuovamente alla pagina di modifica, se necessario
         end
       end
+    
+    def update_city
+      @user = current_user
+      city = params[:user][:city]
+      country=params[:user][:country]
+      @new_city = City.find_or_create_by(name: city)
+      @new_country = Country.find_or_create_by(name: country)
+      @new_city.country=@new_country
+      @new_city.save
+      @user.city=@new_city
+      if @user.save
+        redirect_to show_bacheca_path, notice: 'Languages updated successfully.' # Reindirizza a una pagina di conferma o alla pagina desiderata
+      else
+        # Gli errori di validazione possono essere gestiti qui
+        render :edit # Reindirizza nuovamente alla pagina di modifica, se necessario
+      end
+
+
+    end
       
 
     private
