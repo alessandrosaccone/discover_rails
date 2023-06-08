@@ -46,7 +46,7 @@
               <div class="dot"></div>
             </div>
             <div class="dropdown-content">
-              <%= link_to "Modifica Username e Lingue", edit_username_path(), method: :patch %>
+              <%= link_to "Modifica Username, Lingue e Città", edit_username_path(), method: :patch %>
               <%= link_to "Modifica Descrizione", edit_bacheca_path(@bacheca_guida.id) %>
               <%= link_to 'Cancella Account', registration_path(current_user), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
             </div>
