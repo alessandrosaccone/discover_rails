@@ -13,8 +13,7 @@ AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0
 
 Email:palumbosimone80@gmail.com
 password:AleSimMarGab123
-Per creare account guide si deve essere in test mode e lo si fa in connect. Si devono dare molte informazioni.
-Jacke non va più. Aggiungete l'id che trovate sul sito alle guide.
+
 
 # Email -> SendGrind
 
