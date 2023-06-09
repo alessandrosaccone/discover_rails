@@ -7,18 +7,18 @@ Ruby version ruby 2.7.2p137
 
 # Google Maps API Key
 
-AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0
+email: AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0
 
 # Stripe
 
 Email:palumbosimone80@gmail.com
-password:AleSimMarGab123
+continuo Email:AleSimMarGab123
 
 
 # Email -> SendGrind
 
 email: discover.railsprojec@libero.it
-psw: Abcdefg1!
+continuo email: Abcdefg1!
 
 # Test
 
