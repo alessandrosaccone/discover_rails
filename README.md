@@ -11,14 +11,14 @@ email: AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0
 
 # Stripe
 
-Email:palumbosimone80@gmail.com
-continuo Email:AleSimMarGab123
+email:palumbosimone80@gmail.com
+continuo_email:AleSimMarGab123
 
 
 # Email -> SendGrind
 
 email: discover.railsprojec@libero.it
-continuo email: Abcdefg1!
+continuo_email: Abcdefg1!
 
 # Test
 
