@@ -7130,14 +7130,20 @@ Processing by PostsController#all as HTML
 Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 224)
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+<<<<<<< HEAD
   [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
   [1m[35m (2.4ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+=======
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+>>>>>>> main
   [1m[35m (2.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
   [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
   [1m[35m (2.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records"[0m
   [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+<<<<<<< HEAD
   [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "bacheca_guidas"[0m
   [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "bacheca_guidas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
@@ -7185,18 +7191,75 @@ Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 224)
   [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
   [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
   [1m[35m (3.5ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+=======
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "bacheca_guidas"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "bacheca_guidas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_bacheca_guidas_on_user_id" ON "bacheca_guidas" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "bacheca_utentes"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "bacheca_utentes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "descrizione" varchar, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_bacheca_utentes_on_user_id" ON "bacheca_utentes" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "bacheca_utentis"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "bacheca_utentis" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "descrizione" varchar, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE INDEX "index_bacheca_utentis_on_user_id" ON "bacheca_utentis" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "bookings"[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "stripe_charge_id" varchar, "refunded" boolean DEFAULT 0 NOT NULL, "num_pers" integer, "expired" boolean DEFAULT 0, "amount" decimal)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_post_id" ON "bookings" ("post_id")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cities"[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "region" varchar, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "country_id" integer)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_cities_on_country_id" ON "cities" ("country_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "post_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "conversations"[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "conversations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "sender_id" integer NOT NULL, "recipient_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "countries"[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "countries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "languages"[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "languages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "languages_users"[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "languages_users" ("user_id" integer NOT NULL, "language_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages"[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "messages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "user_id" integer NOT NULL, "conversation_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "deleted_for_user" boolean DEFAULT 0 NOT NULL, "audio" blob, "deleted_for_recipient" boolean DEFAULT 0 NOT NULL)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE INDEX "index_messages_on_conversation_id" ON "messages" ("conversation_id")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE INDEX "index_messages_on_user_id" ON "messages" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "descrizione" text, "titolo" varchar, "data" datetime, "ora" time, "lingua" varchar, "persone" integer, "prezzo" integer, "nomeC" varchar, "regioneC" varchar, "nomeP" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "numero_ore" integer, "persone_rimanenti" integer, "user_email" varchar, "user_id" integer, "address" varchar, "status" varchar DEFAULT 'open' NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "ratings"[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer NOT NULL, "user_id" integer NOT NULL, "rating_score" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_post_id" ON "ratings" ("post_id")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "roles"[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "roles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "iva" varchar, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime(6), "last_sign_in_at" datetime(6), "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "role_id" integer DEFAULT 9 NOT NULL, "provider" varchar, "uid" varchar, "city_id" integer, "lat" varchar, "long" varchar, "stripe_account_id" varchar, "online" boolean DEFAULT 0 NOT NULL, "username" varchar)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_users_on_city_id" ON "users" ("city_id")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+<<<<<<< HEAD
   [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+=======
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+>>>>>>> main
   [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
                      SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
   [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+<<<<<<< HEAD
   [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+=======
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+>>>>>>> main
 FOREIGN KEY ("blob_id")
   REFERENCES "active_storage_blobs" ("id")
 )[0m
@@ -7204,10 +7267,17 @@ FOREIGN KEY ("blob_id")
   [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
                      SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+<<<<<<< HEAD
   [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
   [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
@@ -7228,13 +7298,21 @@ FOREIGN KEY ("blob_id")
   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+<<<<<<< HEAD
   [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+<<<<<<< HEAD
   [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abacheca_guidas" ("id" integer NOT NULL PRIMARY KEY, "description" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+=======
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abacheca_guidas" ("id" integer NOT NULL PRIMARY KEY, "description" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+>>>>>>> main
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abacheca_guidas_on_user_id" ON "abacheca_guidas" ("user_id")[0m
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abacheca_guidas" ("id","description","user_id","created_at","updated_at")
                      SELECT "id","description","user_id","created_at","updated_at" FROM "bacheca_guidas"[0m
@@ -7246,10 +7324,17 @@ FOREIGN KEY ("user_id")
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_bacheca_guidas_on_user_id" ON "bacheca_guidas" ("user_id")[0m
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "bacheca_guidas" ("id","description","user_id","created_at","updated_at")
                      SELECT "id","description","user_id","created_at","updated_at" FROM "abacheca_guidas"[0m
+<<<<<<< HEAD
   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "abacheca_guidas"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
   [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "abacheca_guidas"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
@@ -7260,28 +7345,49 @@ FOREIGN KEY ("user_id")
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abacheca_utentes" ("id","descrizione","user_id","created_at","updated_at")
                      SELECT "id","descrizione","user_id","created_at","updated_at" FROM "bacheca_utentes"[0m
   [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "bacheca_utentes"[0m
+<<<<<<< HEAD
   [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "bacheca_utentes" ("id" integer NOT NULL PRIMARY KEY, "descrizione" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_92e0e70a8f"
+=======
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "bacheca_utentes" ("id" integer NOT NULL PRIMARY KEY, "descrizione" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_92e0e70a8f"
+>>>>>>> main
 FOREIGN KEY ("user_id")
   REFERENCES "users" ("id")
 )[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_bacheca_utentes_on_user_id" ON "bacheca_utentes" ("user_id")[0m
+<<<<<<< HEAD
   [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "bacheca_utentes" ("id","descrizione","user_id","created_at","updated_at")
+=======
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "bacheca_utentes" ("id","descrizione","user_id","created_at","updated_at")
+>>>>>>> main
                      SELECT "id","descrizione","user_id","created_at","updated_at" FROM "abacheca_utentes"[0m
   [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "abacheca_utentes"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+<<<<<<< HEAD
   [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+<<<<<<< HEAD
   [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abacheca_utentis" ("id" integer NOT NULL PRIMARY KEY, "descrizione" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abacheca_utentis_on_user_id" ON "abacheca_utentis" ("user_id")[0m
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abacheca_utentis" ("id","descrizione","user_id","created_at","updated_at")
                      SELECT "id","descrizione","user_id","created_at","updated_at" FROM "bacheca_utentis"[0m
   [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "bacheca_utentis"[0m
   [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "bacheca_utentis" ("id" integer NOT NULL PRIMARY KEY, "descrizione" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0227300bf5"
+=======
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abacheca_utentis" ("id" integer NOT NULL PRIMARY KEY, "descrizione" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abacheca_utentis_on_user_id" ON "abacheca_utentis" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abacheca_utentis" ("id","descrizione","user_id","created_at","updated_at")
+                     SELECT "id","descrizione","user_id","created_at","updated_at" FROM "bacheca_utentis"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "bacheca_utentis"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "bacheca_utentis" ("id" integer NOT NULL PRIMARY KEY, "descrizione" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0227300bf5"
+>>>>>>> main
 FOREIGN KEY ("user_id")
   REFERENCES "users" ("id")
 )[0m
@@ -7298,12 +7404,21 @@ FOREIGN KEY ("user_id")
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
   [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abookings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "stripe_charge_id" varchar DEFAULT NULL, "refunded" boolean DEFAULT 0 NOT NULL, "num_pers" integer DEFAULT NULL, "expired" boolean DEFAULT 0, "amount" decimal DEFAULT NULL)[0m
+<<<<<<< HEAD
   [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_user_id" ON "abookings" ("user_id")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_post_id" ON "abookings" ("post_id")[0m
   [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "abookings" ("id","user_id","post_id","created_at","updated_at","stripe_charge_id","refunded","num_pers","expired","amount")
                      SELECT "id","user_id","post_id","created_at","updated_at","stripe_charge_id","refunded","num_pers","expired","amount" FROM "bookings"[0m
   [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "bookings"[0m
   [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "stripe_charge_id" varchar DEFAULT NULL, "refunded" boolean DEFAULT 0 NOT NULL, "num_pers" integer DEFAULT NULL, "expired" boolean DEFAULT 0, "amount" decimal DEFAULT NULL, CONSTRAINT "fk_rails_7f1fdf14fc"
+=======
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_user_id" ON "abookings" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_post_id" ON "abookings" ("post_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abookings" ("id","user_id","post_id","created_at","updated_at","stripe_charge_id","refunded","num_pers","expired","amount")
+                     SELECT "id","user_id","post_id","created_at","updated_at","stripe_charge_id","refunded","num_pers","expired","amount" FROM "bookings"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "bookings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "stripe_charge_id" varchar DEFAULT NULL, "refunded" boolean DEFAULT 0 NOT NULL, "num_pers" integer DEFAULT NULL, "expired" boolean DEFAULT 0, "amount" decimal DEFAULT NULL, CONSTRAINT "fk_rails_7f1fdf14fc"
+>>>>>>> main
 FOREIGN KEY ("post_id")
   REFERENCES "posts" ("id")
 )[0m
@@ -7314,7 +7429,11 @@ FOREIGN KEY ("post_id")
   [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "abookings"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+<<<<<<< HEAD
   [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
@@ -7323,7 +7442,11 @@ FOREIGN KEY ("post_id")
   [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abookings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "stripe_charge_id" varchar DEFAULT NULL, "refunded" boolean DEFAULT 0 NOT NULL, "num_pers" integer DEFAULT NULL, "expired" boolean DEFAULT 0, "amount" decimal DEFAULT NULL)[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_user_id" ON "abookings" ("user_id")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_post_id" ON "abookings" ("post_id")[0m
+<<<<<<< HEAD
   [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "abookings" ("id","user_id","post_id","created_at","updated_at","stripe_charge_id","refunded","num_pers","expired","amount")
+=======
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abookings" ("id","user_id","post_id","created_at","updated_at","stripe_charge_id","refunded","num_pers","expired","amount")
+>>>>>>> main
                      SELECT "id","user_id","post_id","created_at","updated_at","stripe_charge_id","refunded","num_pers","expired","amount" FROM "bookings"[0m
   [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "bookings"[0m
   [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "stripe_charge_id" varchar DEFAULT NULL, "refunded" boolean DEFAULT 0 NOT NULL, "num_pers" integer DEFAULT NULL, "expired" boolean DEFAULT 0, "amount" decimal DEFAULT NULL, CONSTRAINT "fk_rails_7f1fdf14fc"
@@ -7340,13 +7463,21 @@ FOREIGN KEY ("user_id")
   [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "abookings"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+<<<<<<< HEAD
   [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+<<<<<<< HEAD
   [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acities" ("id" integer NOT NULL PRIMARY KEY, "region" varchar DEFAULT NULL, "name" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "country_id" integer DEFAULT NULL)[0m
+=======
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acities" ("id" integer NOT NULL PRIMARY KEY, "region" varchar DEFAULT NULL, "name" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "country_id" integer DEFAULT NULL)[0m
+>>>>>>> main
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_acities_on_country_id" ON "acities" ("country_id")[0m
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acities" ("id","region","name","created_at","updated_at","country_id")
                      SELECT "id","region","name","created_at","updated_at","country_id" FROM "cities"[0m
@@ -7361,13 +7492,21 @@ FOREIGN KEY ("country_id")
   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "acities"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+<<<<<<< HEAD
   [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+<<<<<<< HEAD
   [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomments" ("id" integer NOT NULL PRIMARY KEY, "content" text DEFAULT NULL, "post_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+=======
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomments" ("id" integer NOT NULL PRIMARY KEY, "content" text DEFAULT NULL, "post_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+>>>>>>> main
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_user_id" ON "acomments" ("user_id")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_acomments_on_post_id" ON "acomments" ("post_id")[0m
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acomments" ("id","content","post_id","user_id","created_at","updated_at")
@@ -7384,7 +7523,11 @@ FOREIGN KEY ("post_id")
   [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "acomments"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+<<<<<<< HEAD
   [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
@@ -7405,12 +7548,20 @@ FOREIGN KEY ("user_id")
 )[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+<<<<<<< HEAD
   [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("id","content","post_id","user_id","created_at","updated_at")
+=======
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("id","content","post_id","user_id","created_at","updated_at")
+>>>>>>> main
                      SELECT "id","content","post_id","user_id","created_at","updated_at" FROM "acomments"[0m
   [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "acomments"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+<<<<<<< HEAD
   [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
@@ -7428,12 +7579,20 @@ FOREIGN KEY ("conversation_id")
 )[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_messages_on_conversation_id" ON "messages" ("conversation_id")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_messages_on_user_id" ON "messages" ("user_id")[0m
+<<<<<<< HEAD
   [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "messages" ("id","body","user_id","conversation_id","created_at","updated_at","deleted_for_user","audio","deleted_for_recipient")
+=======
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "messages" ("id","body","user_id","conversation_id","created_at","updated_at","deleted_for_user","audio","deleted_for_recipient")
+>>>>>>> main
                      SELECT "id","body","user_id","conversation_id","created_at","updated_at","deleted_for_user","audio","deleted_for_recipient" FROM "amessages"[0m
   [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "amessages"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+<<<<<<< HEAD
   [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
@@ -7444,14 +7603,20 @@ FOREIGN KEY ("conversation_id")
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_amessages_on_conversation_id" ON "amessages" ("conversation_id")[0m
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "amessages" ("id","body","user_id","conversation_id","created_at","updated_at","deleted_for_user","audio","deleted_for_recipient")
                      SELECT "id","body","user_id","conversation_id","created_at","updated_at","deleted_for_user","audio","deleted_for_recipient" FROM "messages"[0m
+<<<<<<< HEAD
   [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "messages"[0m
   [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "messages" ("id" integer NOT NULL PRIMARY KEY, "body" text DEFAULT NULL, "user_id" integer NOT NULL, "conversation_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "deleted_for_user" boolean DEFAULT 0 NOT NULL, "audio" blob DEFAULT NULL, "deleted_for_recipient" boolean DEFAULT 0 NOT NULL, CONSTRAINT "fk_rails_7f927086d2"
+=======
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "messages"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "messages" ("id" integer NOT NULL PRIMARY KEY, "body" text DEFAULT NULL, "user_id" integer NOT NULL, "conversation_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "deleted_for_user" boolean DEFAULT 0 NOT NULL, "audio" blob DEFAULT NULL, "deleted_for_recipient" boolean DEFAULT 0 NOT NULL, CONSTRAINT "fk_rails_7f927086d2"
+>>>>>>> main
 FOREIGN KEY ("conversation_id")
   REFERENCES "conversations" ("id")
 , CONSTRAINT "fk_rails_273a25a7a6"
 FOREIGN KEY ("user_id")
   REFERENCES "users" ("id")
 )[0m
+<<<<<<< HEAD
   [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_messages_on_conversation_id" ON "messages" ("conversation_id")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_messages_on_user_id" ON "messages" ("user_id")[0m
   [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "messages" ("id","body","user_id","conversation_id","created_at","updated_at","deleted_for_user","audio","deleted_for_recipient")
@@ -7460,16 +7625,34 @@ FOREIGN KEY ("user_id")
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
   [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_messages_on_conversation_id" ON "messages" ("conversation_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_messages_on_user_id" ON "messages" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "messages" ("id","body","user_id","conversation_id","created_at","updated_at","deleted_for_user","audio","deleted_for_recipient")
+                     SELECT "id","body","user_id","conversation_id","created_at","updated_at","deleted_for_user","audio","deleted_for_recipient" FROM "amessages"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "amessages"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+<<<<<<< HEAD
   [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer NOT NULL PRIMARY KEY, "descrizione" text DEFAULT NULL, "titolo" varchar DEFAULT NULL, "data" datetime DEFAULT NULL, "ora" time DEFAULT NULL, "lingua" varchar DEFAULT NULL, "persone" integer DEFAULT NULL, "prezzo" integer DEFAULT NULL, "nomeC" varchar DEFAULT NULL, "regioneC" varchar DEFAULT NULL, "nomeP" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "numero_ore" integer DEFAULT NULL, "persone_rimanenti" integer DEFAULT NULL, "user_email" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "address" varchar DEFAULT NULL, "status" varchar DEFAULT 'open' NOT NULL)[0m
   [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aposts" ("id","descrizione","titolo","data","ora","lingua","persone","prezzo","nomeC","regioneC","nomeP","created_at","updated_at","numero_ore","persone_rimanenti","user_email","user_id","address","status")
                      SELECT "id","descrizione","titolo","data","ora","lingua","persone","prezzo","nomeC","regioneC","nomeP","created_at","updated_at","numero_ore","persone_rimanenti","user_email","user_id","address","status" FROM "posts"[0m
   [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "posts"[0m
   [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer NOT NULL PRIMARY KEY, "descrizione" text DEFAULT NULL, "titolo" varchar DEFAULT NULL, "data" datetime DEFAULT NULL, "ora" time DEFAULT NULL, "lingua" varchar DEFAULT NULL, "persone" integer DEFAULT NULL, "prezzo" integer DEFAULT NULL, "nomeC" varchar DEFAULT NULL, "regioneC" varchar DEFAULT NULL, "nomeP" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "numero_ore" integer DEFAULT NULL, "persone_rimanenti" integer DEFAULT NULL, "user_email" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "address" varchar DEFAULT NULL, "status" varchar DEFAULT 'open' NOT NULL, CONSTRAINT "fk_rails_beb7f93be7"
+=======
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer NOT NULL PRIMARY KEY, "descrizione" text DEFAULT NULL, "titolo" varchar DEFAULT NULL, "data" datetime DEFAULT NULL, "ora" time DEFAULT NULL, "lingua" varchar DEFAULT NULL, "persone" integer DEFAULT NULL, "prezzo" integer DEFAULT NULL, "nomeC" varchar DEFAULT NULL, "regioneC" varchar DEFAULT NULL, "nomeP" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "numero_ore" integer DEFAULT NULL, "persone_rimanenti" integer DEFAULT NULL, "user_email" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "address" varchar DEFAULT NULL, "status" varchar DEFAULT 'open' NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aposts" ("id","descrizione","titolo","data","ora","lingua","persone","prezzo","nomeC","regioneC","nomeP","created_at","updated_at","numero_ore","persone_rimanenti","user_email","user_id","address","status")
+                     SELECT "id","descrizione","titolo","data","ora","lingua","persone","prezzo","nomeC","regioneC","nomeP","created_at","updated_at","numero_ore","persone_rimanenti","user_email","user_id","address","status" FROM "posts"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer NOT NULL PRIMARY KEY, "descrizione" text DEFAULT NULL, "titolo" varchar DEFAULT NULL, "data" datetime DEFAULT NULL, "ora" time DEFAULT NULL, "lingua" varchar DEFAULT NULL, "persone" integer DEFAULT NULL, "prezzo" integer DEFAULT NULL, "nomeC" varchar DEFAULT NULL, "regioneC" varchar DEFAULT NULL, "nomeP" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "numero_ore" integer DEFAULT NULL, "persone_rimanenti" integer DEFAULT NULL, "user_email" varchar DEFAULT NULL, "user_id" integer DEFAULT NULL, "address" varchar DEFAULT NULL, "status" varchar DEFAULT 'open' NOT NULL, CONSTRAINT "fk_rails_beb7f93be7"
+>>>>>>> main
 FOREIGN KEY ("user_email")
   REFERENCES "users" ("email")
 )[0m
@@ -7478,19 +7661,32 @@ FOREIGN KEY ("user_email")
   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aposts"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+<<<<<<< HEAD
   [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+<<<<<<< HEAD
   [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aratings" ("id" integer NOT NULL PRIMARY KEY, "post_id" integer NOT NULL, "user_id" integer NOT NULL, "rating_score" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+=======
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aratings" ("id" integer NOT NULL PRIMARY KEY, "post_id" integer NOT NULL, "user_id" integer NOT NULL, "rating_score" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+>>>>>>> main
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_user_id" ON "aratings" ("user_id")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_post_id" ON "aratings" ("post_id")[0m
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aratings" ("id","post_id","user_id","rating_score","created_at","updated_at")
                      SELECT "id","post_id","user_id","rating_score","created_at","updated_at" FROM "ratings"[0m
+<<<<<<< HEAD
   [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "ratings"[0m
   [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer NOT NULL PRIMARY KEY, "post_id" integer NOT NULL, "user_id" integer NOT NULL, "rating_score" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ae212f3c0c"
+=======
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "ratings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer NOT NULL PRIMARY KEY, "post_id" integer NOT NULL, "user_id" integer NOT NULL, "rating_score" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ae212f3c0c"
+>>>>>>> main
 FOREIGN KEY ("post_id")
   REFERENCES "posts" ("id")
 )[0m
@@ -7498,21 +7694,36 @@ FOREIGN KEY ("post_id")
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_ratings_on_user_id" ON "ratings" ("user_id")[0m
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ratings" ("id","post_id","user_id","rating_score","created_at","updated_at")
                      SELECT "id","post_id","user_id","rating_score","created_at","updated_at" FROM "aratings"[0m
+<<<<<<< HEAD
   [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aratings"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
   [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aratings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+<<<<<<< HEAD
   [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aratings" ("id" integer NOT NULL PRIMARY KEY, "post_id" integer NOT NULL, "user_id" integer NOT NULL, "rating_score" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+=======
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aratings" ("id" integer NOT NULL PRIMARY KEY, "post_id" integer NOT NULL, "user_id" integer NOT NULL, "rating_score" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+>>>>>>> main
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_user_id" ON "aratings" ("user_id")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aratings_on_post_id" ON "aratings" ("post_id")[0m
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aratings" ("id","post_id","user_id","rating_score","created_at","updated_at")
                      SELECT "id","post_id","user_id","rating_score","created_at","updated_at" FROM "ratings"[0m
+<<<<<<< HEAD
   [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "ratings"[0m
+=======
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "ratings"[0m
+>>>>>>> main
   [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" integer NOT NULL PRIMARY KEY, "post_id" integer NOT NULL, "user_id" integer NOT NULL, "rating_score" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ae212f3c0c"
 FOREIGN KEY ("post_id")
   REFERENCES "posts" ("id")
@@ -7527,13 +7738,21 @@ FOREIGN KEY ("user_id")
   [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aratings"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+<<<<<<< HEAD
   [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+<<<<<<< HEAD
   [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "iva" varchar DEFAULT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime(6) DEFAULT NULL, "last_sign_in_at" datetime(6) DEFAULT NULL, "current_sign_in_ip" varchar DEFAULT NULL, "last_sign_in_ip" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "role_id" integer DEFAULT 9 NOT NULL, "provider" varchar DEFAULT NULL, "uid" varchar DEFAULT NULL, "city_id" integer DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "stripe_account_id" varchar DEFAULT NULL, "online" boolean DEFAULT 0 NOT NULL, "username" varchar DEFAULT NULL)[0m
+=======
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "iva" varchar DEFAULT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime(6) DEFAULT NULL, "last_sign_in_at" datetime(6) DEFAULT NULL, "current_sign_in_ip" varchar DEFAULT NULL, "last_sign_in_ip" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "role_id" integer DEFAULT 9 NOT NULL, "provider" varchar DEFAULT NULL, "uid" varchar DEFAULT NULL, "city_id" integer DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "stripe_account_id" varchar DEFAULT NULL, "online" boolean DEFAULT 0 NOT NULL, "username" varchar DEFAULT NULL)[0m
+>>>>>>> main
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_ausers_on_role_id" ON "ausers" ("role_id")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
@@ -7551,16 +7770,27 @@ FOREIGN KEY ("city_id")
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
   [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id","name","email","encrypted_password","iva","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","role_id","provider","uid","city_id","lat","long","stripe_account_id","online","username")
                      SELECT "id","name","email","encrypted_password","iva","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","role_id","provider","uid","city_id","lat","long","stripe_account_id","online","username" FROM "ausers"[0m
+<<<<<<< HEAD
   [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "ausers"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
   [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+=======
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+<<<<<<< HEAD
   [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "iva" varchar DEFAULT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime(6) DEFAULT NULL, "last_sign_in_at" datetime(6) DEFAULT NULL, "current_sign_in_ip" varchar DEFAULT NULL, "last_sign_in_ip" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "role_id" integer DEFAULT 9 NOT NULL, "provider" varchar DEFAULT NULL, "uid" varchar DEFAULT NULL, "city_id" integer DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "stripe_account_id" varchar DEFAULT NULL, "online" boolean DEFAULT 0 NOT NULL, "username" varchar DEFAULT NULL)[0m
+=======
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "iva" varchar DEFAULT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime(6) DEFAULT NULL, "last_sign_in_at" datetime(6) DEFAULT NULL, "current_sign_in_ip" varchar DEFAULT NULL, "last_sign_in_ip" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "role_id" integer DEFAULT 9 NOT NULL, "provider" varchar DEFAULT NULL, "uid" varchar DEFAULT NULL, "city_id" integer DEFAULT NULL, "lat" varchar DEFAULT NULL, "long" varchar DEFAULT NULL, "stripe_account_id" varchar DEFAULT NULL, "online" boolean DEFAULT 0 NOT NULL, "username" varchar DEFAULT NULL)[0m
+>>>>>>> main
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_ausers_on_role_id" ON "ausers" ("role_id")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
   [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
@@ -7581,6 +7811,7 @@ FOREIGN KEY ("role_id")
   [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_users_on_role_id" ON "users" ("role_id")[0m
   [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id","name","email","encrypted_password","iva","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","role_id","provider","uid","city_id","lat","long","stripe_account_id","online","username")
                      SELECT "id","name","email","encrypted_password","iva","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","role_id","provider","uid","city_id","lat","long","stripe_account_id","online","username" FROM "ausers"[0m
+<<<<<<< HEAD
   [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "ausers"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
@@ -7588,6 +7819,15 @@ FOREIGN KEY ("role_id")
   [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230603093407)[0m
+=======
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230603093407)[0m
+>>>>>>> main
   [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
 (20230430124222),
 (20230430124545),
@@ -7629,6 +7869,7 @@ FOREIGN KEY ("role_id")
 (20230601185508);
 
 [0m
+<<<<<<< HEAD
   [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
@@ -7640,13 +7881,233 @@ FOREIGN KEY ("role_id")
   [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "ea76e090d84b171ea5ecea203cf5ad3005abad42"], ["created_at", "2023-06-11 21:29:54.892192"], ["updated_at", "2023-06-11 21:29:54.892192"]]
   [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+=======
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2023-06-11 21:04:06.810364"], ["updated_at", "2023-06-11 21:04:06.810364"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "ea76e090d84b171ea5ecea203cf5ad3005abad42"], ["created_at", "2023-06-11 21:04:06.818910"], ["updated_at", "2023-06-11 21:04:06.818910"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("id", "descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore", "persone_rimanenti", "user_email", "user_id", "address", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["descrizione", "Sample description"], ["titolo", "Sample title"], ["data", "2023-06-11 21:04:07.018418"], ["ora", "2000-01-01 22:04:07.018507"], ["lingua", "Inglese"], ["persone", 5], ["prezzo", 100], ["nomeC", "Roma"], ["regioneC", "Lazio"], ["nomeP", "Roma"], ["created_at", "2023-06-11 21:04:07.019370"], ["updated_at", "2023-06-11 21:04:07.019370"], ["numero_ore", 2], ["persone_rimanenti", 5], ["user_email", "sally@example.com"], ["user_id", nil], ["address", "Via G. Paone"], ["status", "open"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+Processing by PostsController#get_price as HTML
+  Parameters: {"persone"=>"3", "id"=>"1"}
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 2703)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by PostsController#get_price as HTML
+  Parameters: {"persone"=>"-1", "id"=>"1"}
+Completed 422 Unprocessable Entity in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 210)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by PostsController#get_price as HTML
+  Parameters: {"persone"=>"3", "id"=>"1"}
+Completed 422 Unprocessable Entity in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 269)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+Processing by PostsController#all as HTML
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 224)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("id", "descrizione", "titolo", "data", "ora", "lingua", "persone", "prezzo", "nomeC", "regioneC", "nomeP", "created_at", "updated_at", "numero_ore", "persone_rimanenti", "user_email", "user_id", "address", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["descrizione", "Sample description"], ["titolo", "Sample title"], ["data", "2023-06-11 21:08:46.739657"], ["ora", "2000-01-01 22:08:46.739739"], ["lingua", "Inglese"], ["persone", 5], ["prezzo", 100], ["nomeC", "Roma"], ["regioneC", "Lazio"], ["nomeP", "Roma"], ["created_at", "2023-06-11 21:08:46.740541"], ["updated_at", "2023-06-11 21:08:46.740541"], ["numero_ore", 2], ["persone_rimanenti", 5], ["user_email", "sally@example.com"], ["user_id", nil], ["address", "Via G. Paone"], ["status", "open"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+Processing by PostsController#get_price as HTML
+  Parameters: {"persone"=>"3", "id"=>"1"}
+Completed 200 OK in 14ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 2703)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by PostsController#get_price as HTML
+  Parameters: {"persone"=>"-1", "id"=>"1"}
+Completed 422 Unprocessable Entity in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 210)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by PostsController#get_price as HTML
+  Parameters: {"persone"=>"3", "id"=>"1"}
+Completed 422 Unprocessable Entity in 3ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 269)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+Processing by PostsController#all as HTML
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 224)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by EmailController#send_email as HTML
+  Parameters: {"booking"=>"1001"}
+  Rendering layout layouts/application.html.erb
+  Rendering email/send_email.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered email/send_email.html.erb within layouts/application (Duration: 2.6ms | Allocations: 318)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 438)
+Completed 200 OK in 31ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 5736)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by EmailController#send_email as HTML
+  Parameters: {"booking"=>"1002"}
+  Rendering layout layouts/application.html.erb
+  Rendering email/send_email.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered email/send_email.html.erb within layouts/application (Duration: 1.1ms | Allocations: 83)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 200)
+Completed 200 OK in 7ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 713)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Create (0.4ms)[0m  [1m[32mINSERT INTO "conversations" ("sender_id", "recipient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sender_id", 1], ["recipient_id", 2], ["created_at", "2023-06-11 21:13:16.941186"], ["updated_at", "2023-06-11 21:13:16.941186"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "conversations" WHERE "conversations"."sender_id" = ? AND "conversations"."id" != ? AND "conversations"."recipient_id" = ? LIMIT ?[0m  [["sender_id", 1], ["id", 1], ["recipient_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ConversationsController#show as HTML
+  Parameters: {"guide_email"=>"john.doe@example.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.3ms | Allocations: 2908)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Create (0.4ms)[0m  [1m[32mINSERT INTO "conversations" ("sender_id", "recipient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sender_id", 1], ["recipient_id", 2], ["created_at", "2023-06-11 21:13:49.290135"], ["updated_at", "2023-06-11 21:13:49.290135"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "conversations" WHERE "conversations"."sender_id" = ? AND "conversations"."id" != ? AND "conversations"."recipient_id" = ? LIMIT ?[0m  [["sender_id", 1], ["id", 1], ["recipient_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ConversationsController#show as HTML
+  Parameters: {"guide_email"=>"john.doe@example.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.3ms | Allocations: 2908)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by ConversationsController#show as HTML
+  Parameters: {"guide_email"=>"john.doe@example.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.3ms | Allocations: 2913)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by ConversationsController#show as HTML
+  Parameters: {"guide_email"=>"john.doe@example.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.3ms | Allocations: 2913)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Create (0.4ms)[0m  [1m[32mINSERT INTO "conversations" ("sender_id", "recipient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sender_id", 1], ["recipient_id", 2], ["created_at", "2023-06-11 21:18:51.128856"], ["updated_at", "2023-06-11 21:18:51.128856"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "conversations" WHERE "conversations"."sender_id" = ? AND "conversations"."id" != ? AND "conversations"."recipient_id" = ? LIMIT ?[0m  [["sender_id", 1], ["id", 1], ["recipient_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ConversationsController#show as HTML
+  Parameters: {"guide_email"=>"john.doe@example.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.3ms | Allocations: 2908)
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = ? /* loading for inspect */ LIMIT ?[0m  [["conversation_id", 1], ["LIMIT", 11]]
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = ? /* loading for inspect */ LIMIT ?[0m  [["conversation_id", 1], ["LIMIT", 11]]
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = ? /* loading for inspect */ LIMIT ?[0m  [["conversation_id", 1], ["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Create (0.4ms)[0m  [1m[32mINSERT INTO "conversations" ("sender_id", "recipient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sender_id", 1], ["recipient_id", 2], ["created_at", "2023-06-11 21:21:08.382365"], ["updated_at", "2023-06-11 21:21:08.382365"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "conversations" WHERE "conversations"."sender_id" = ? AND "conversations"."id" != ? AND "conversations"."recipient_id" = ? LIMIT ?[0m  [["sender_id", 1], ["id", 1], ["recipient_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ConversationsController#show as HTML
+  Parameters: {"guide_email"=>"john.doe@example.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.3ms | Allocations: 2908)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Create (0.4ms)[0m  [1m[32mINSERT INTO "conversations" ("sender_id", "recipient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sender_id", 1], ["recipient_id", 2], ["created_at", "2023-06-11 21:22:37.096733"], ["updated_at", "2023-06-11 21:22:37.096733"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "conversations" WHERE "conversations"."sender_id" = ? AND "conversations"."id" != ? AND "conversations"."recipient_id" = ? LIMIT ?[0m  [["sender_id", 1], ["id", 1], ["recipient_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ConversationsController#show as HTML
+  Parameters: {"guide_email"=>"john.doe@example.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 12ms (ActiveRecord: 0.3ms | Allocations: 2909)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+>>>>>>> main
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+<<<<<<< HEAD
   [1m[36mConversation Create (0.5ms)[0m  [1m[32mINSERT INTO "conversations" ("sender_id", "recipient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sender_id", 1], ["recipient_id", 2], ["created_at", "2023-06-11 21:29:55.145495"], ["updated_at", "2023-06-11 21:29:55.145495"]]
+=======
+  [1m[36mConversation Create (0.5ms)[0m  [1m[32mINSERT INTO "conversations" ("sender_id", "recipient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sender_id", 1], ["recipient_id", 2], ["created_at", "2023-06-11 21:23:08.710744"], ["updated_at", "2023-06-11 21:23:08.710744"]]
+>>>>>>> main
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
@@ -7656,5 +8117,30 @@ FOREIGN KEY ("role_id")
 Processing by ConversationsController#show as HTML
   Parameters: {"guide_email"=>"john.doe@example.com"}
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+<<<<<<< HEAD
 Completed 401 Unauthorized in 17ms (ActiveRecord: 0.4ms | Allocations: 2910)
   [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+=======
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.4ms | Allocations: 2909)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Create (0.5ms)[0m  [1m[32mINSERT INTO "conversations" ("sender_id", "recipient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sender_id", 1], ["recipient_id", 2], ["created_at", "2023-06-11 21:23:43.933868"], ["updated_at", "2023-06-11 21:23:43.933868"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "conversations" WHERE "conversations"."sender_id" = ? AND "conversations"."id" != ? AND "conversations"."recipient_id" = ? LIMIT ?[0m  [["sender_id", 1], ["id", 1], ["recipient_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ConversationsController#show as HTML
+  Parameters: {"guide_email"=>"john.doe@example.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 18ms (ActiveRecord: 0.4ms | Allocations: 2909)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+>>>>>>> main

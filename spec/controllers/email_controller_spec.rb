@@ -10,10 +10,10 @@ RSpec.describe EmailController, type: :controller do
       
       allow(Booking).to receive(:find).with(booking.id.to_s).and_return(booking)
       
-      pdf = 'path/to/invoice.pdf' # Path to a sample PDF for testing
+      pdf = 'path/to/invoice.pdf' # example for testing
       allow(booking).to receive(:generate_invoice_pdf).and_return(pdf)
       
-      user = FactoryBot.build_stubbed(:user) # Assuming you have a user factory set up with FactoryBot
+      user = FactoryBot.build_stubbed(:user) 
       allow(controller).to receive(:current_user).and_return(user)
       
       mailer = double('UserMailer')
