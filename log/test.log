@@ -7881,3 +7881,23 @@ Processing by ConversationsController#show as HTML
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
 Completed 401 Unauthorized in 18ms (ActiveRecord: 0.4ms | Allocations: 2909)
   [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Create (0.5ms)[0m  [1m[32mINSERT INTO "conversations" ("sender_id", "recipient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sender_id", 1], ["recipient_id", 2], ["created_at", "2023-06-11 21:37:35.419930"], ["updated_at", "2023-06-11 21:37:35.419930"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mConversation Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "conversations" WHERE "conversations"."sender_id" = ? AND "conversations"."id" != ? AND "conversations"."recipient_id" = ? LIMIT ?[0m  [["sender_id", 1], ["id", 1], ["recipient_id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by ConversationsController#show as HTML
+  Parameters: {"guide_email"=>"john.doe@example.com"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 24ms (ActiveRecord: 0.6ms | Allocations: 2909)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
