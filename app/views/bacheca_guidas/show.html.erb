@@ -25,6 +25,17 @@
               <br>
               <br>
               <p><h3><%=@bacheca_guida.description%></h3></p>
+              <br>
+              <br>
+              <p><h3>Lingue parlate:
+              <% if current_user.languages.present? %>
+                <% current_user.languages.each do |linguaggio| %>
+                  <%= linguaggio.name %>
+                <% end %>
+              <% else %>
+                Nessuna lingua specificata
+              <% end %>
+              </h3></p>
           </div>
 
 
@@ -35,7 +46,7 @@
               <div class="dot"></div>
             </div>
             <div class="dropdown-content">
-              <%= link_to "Modifica Username", edit_username_path(), method: :patch %>
+              <%= link_to "Modifica Username, Lingue e Città", edit_username_path(), method: :patch %>
               <%= link_to "Modifica Descrizione", edit_bacheca_path(@bacheca_guida.id) %>
               <%= link_to 'Cancella Account', registration_path(current_user), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
             </div>
@@ -171,6 +182,9 @@
         <%= form.label :nomeC, 'Città' %>
         <%= form.text_field :nomeC, class: 'form-control_10', required: true %>
       </div>
+      <script>
+
+      </script>
 
       <div class="col-md-3 mb-3">
         <%= form.label :lingua, 'Lingua' %>

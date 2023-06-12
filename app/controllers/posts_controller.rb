@@ -90,12 +90,12 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   def destroy
-    
+
   end
   def destroy_post
     @id = params[:id]
     post = Post.find(@id)
-      
+
     post.destroy
     
   end

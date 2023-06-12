@@ -6,13 +6,24 @@ Test sui post:
 Le factory usate sono in factories/users.rb, factories/posts.rb
 I test riguardano le seguenti action del controller dei post: get_price, all
 Sono presenti vari test sui controlli del numero limite di persone e sui vari errori che possono avvenire.
-
+Le user stories coinvolte sono la n. 30 (dynamic price calculation for booking) e la n. 29 (view all tabs).
+Dalle user stories ci si aspetterebbe di poter correttamente visualizzare il prezzo in base al numero di persone
+selezionate e di avere una corretta gestione degli errori nel displaying del prezzo in caso di un numero di persone negativo, 
+che supera il limite o pari a zero. In merito alla view ci si aspetterebbe di poter visualizzare correttamente tutte le 
+schede pubblicate dalle guide con una scadenza successiva alla data attuale. Il test sopracitato svolge questi controlli. 
 
 Test sulle email:
 Le factory usate sono in factories/bookings.rb, factories/users.rb
 Il primo test riguarda l'invio della mail con un allegato. Il secondo riguarda la gestione degli errori 
 nell'invio della mail. L'action è la send_email di email_controller.rb
+La user story coinvolta è la n. 35 (email payment proof).
+Dalla user story ci si aspetterebbe che a seguito di un pagamento andato a buon fine arrivi alla propria casella postale con cui 
+ci si è registrati al sito una mail di conferma dell'avvenuta prenotazione con in allegato un documento accertante il pagamento 
+effettuato. Il test esegue controlli sulla correttezza della creazione del documento e su eventuali errori nell'invio della mail.
 
 Test sulle conversation:
 Le factory usate sono in factories/users.rb, factories/conversations.rb, factories/messages.rb
 Il test riguarda l'assegnazione di una conversazione, l'action è la "show" del controller
+La user story coinvolta è la n. 14 (send message in chat)
+Dalla user story ci si aspetterebbe la possibilità di iniziare e continuare una conversazione con una guida. Il test esegue controlli
+sulla correttezza della creazione della conversazione e sulla gestione di eventuali errori nel salvataggio dei messaggi. 

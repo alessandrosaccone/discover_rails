@@ -7,7 +7,11 @@
     </div>
   
     <div class="card__content">
-      <span class="card__title"><%= guida.name %></span>
+      <% if guida.username.present? %>
+        <span class="card__title"><%= guida.username %></span>
+      <%else%>
+        <span class="card__title"><%= guida.name %></span>
+      <%end%>
       <p class="card__text">Città: <%= guida.city.name if guida.city.present? %></p>
       <p class="card__text">Lingue:
         <% if guida.languages.present? %>
@@ -18,7 +22,7 @@
           Nessuna lingua specificata
         <% end %>
       </p>
-      <button class="card__btn">Profilo</button>
+      
     </div>
   </div>
   <% end %>

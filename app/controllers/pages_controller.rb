@@ -4,8 +4,7 @@ class PagesController < ApplicationController
     end
 
 
-    def dummypage
-    end
+
 
 
     def guides
