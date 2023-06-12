@@ -79,7 +79,7 @@ var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('
                 body: message
               })
               .then(function(response){
-                console.log("All good")
+                location.reload()
                 
               }).catch(function(error){
                 console.log("Error sending audio data")
