@@ -3,7 +3,7 @@ sidekiq_scheduler:
     cron: "0 9/1 * * *"
     class: "CheckDateJob"
     queue: "default"
-    description: "Check date every six hours"
+    description: "Check date every hour"
 
   update_post_status_job:
     cron: "0 * * * *"
