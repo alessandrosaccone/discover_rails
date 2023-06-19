@@ -1,0 +1,35 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore the default log files
+/log/*.log
+
+# Ignore the default tmp files
+/tmp
+
+# Ignore database configuration
+/config/database.yml
+
+# Ignore local application configuration
+/config/application.yml
+
+# Ignore environment variables file
+.env
+
+# Ignore development specific files
+/db/*.sqlite3
+/public/system
+
+# Ignore compiled assets
+/public/assets
+
+# Ignore cached files
+/.sass-cache
+These entries cover common files and directories that you typically want to ignore in a Rails application. However, depending on your specific setup and additional gems you may be using, there could be other files or directories that you might want to exclude as well.
+
+Remember to review the generated .gitignore file and make any necessary adjustments based on your application's needs and dependencies.
+
+
+
+
+
