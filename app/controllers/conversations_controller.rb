@@ -2,22 +2,19 @@ class ConversationsController < ApplicationController
     before_action :authenticate_user!
     include Devise::Controllers::Helpers
     def show
-        #Controlliamo se tale conversazione già esiste
-        if session[:current_conversation]
-            @conversation = Conversation.find(session[:current_conversation])
-        end
+
         #Cerchiamo gli utenti della conversazione
         @current_user = current_user
-        @guide_user = User.find_by(email: params[:guide_email])
+        @other_user = User.find_by(email: params[:other_email])
 
         if !@conversation 
-            @conversation = Conversation.between(@current_user.id,@guide_user.id).first
+            @conversation = Conversation.between(@current_user.id, @other_user.id).first
         end
 
         #se non c'è si crea, altrimenti si prende il record dal db
         if !@conversation
             @conversation = Conversation.new
-            @conversation.recipient_id = @guide_user.id
+            @conversation.recipient_id = @other_user.id
             @conversation.sender_id = current_user.id
             @conversation.save
         end
@@ -29,6 +26,11 @@ class ConversationsController < ApplicationController
 
         
 
+    end
+
+    #Codice per la pagina delle chat
+    def index
+        @conversations = Conversation.where(" sender_id = " + current_user.id.to_s + " or recipient_id = " + current_user.id.to_s )
     end
 
     def delete_for_me
