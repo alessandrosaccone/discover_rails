@@ -17,7 +17,7 @@
 
 <%=render 'layouts/navbar'%>
 
-<%= render partial: 'layouts/user', locals: {user: @guide_user}%>
+<%= render partial: 'layouts/user', locals: {user: @other_user}%>
 
 
 <div id='room-id' data-room-id="<%=@conversation.try(:id)%>"></div>

@@ -33,9 +33,9 @@
           </div>
           <div class='card-link-wrapper'>
               <% if !user_signed_in? %>
-                <%= link_to 'Contatta', conversation_path(guide_email: post.user_email), class: "card-link"%>
+                <%= link_to 'Contatta', conversation_path(other_email: post.user_email), class: "card-link"%>
               <% elsif current_user.email != post.user_email %>
-                <%= link_to 'Contatta', conversation_path(guide_email: post.user_email), class: "card-link"%>
+                <%= link_to 'Contatta', conversation_path(other_email: post.user_email), class: "card-link"%>
               <% end %>
               <br>
               <% if post.expired? %>

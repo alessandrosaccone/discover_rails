@@ -1,0 +1,29 @@
+<% content_for :for_head do %>
+    <%= stylesheet_link_tag "application" %>
+<% end %>
+
+<%=render 'layouts/navbar'%>
+
+<!--Per ogni conversazione cerchiamo nome e foto profilo dell'utente per costruire la chat-->
+<% @conversations.each do |conversation| %>
+    
+    <% if conversation.sender_id == current_user.id %>
+
+        <% user = User.find(conversation.recipient_id) %>
+
+    <% else %>
+
+        <% user = User.find(conversation.sender_id) %>
+
+    <% end %>
+
+    <% if conversation.sender_id != conversation.recipient_id %>
+        <!--Recupero la foto da mettere in piccolo vicino al nome (è la foto dell'utente con cui voglio chattare)-->
+        <% pic = user.avatar %>
+        
+        <%= link_to user.name, conversation_path(other_email: user.email)%>
+
+    <% end %>
+    <br>
+
+<% end %>
