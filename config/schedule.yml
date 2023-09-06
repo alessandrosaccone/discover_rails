@@ -1,6 +1,6 @@
 sidekiq_scheduler:
   check_date_job:
-    cron: "0 9/1 * * *"
+    cron: "* * * * *"
     class: "CheckDateJob"
     queue: "default"
     description: "Check date every hour"
