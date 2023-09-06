@@ -48,3 +48,4 @@ p6 = Post.create({ descrizione: 'Evviva la vita 3', titolo: 'Esempio', data: '30
 p7 = Post.create({ descrizione: 'Evviva la vita 3', titolo: 'Esempio', data: '30/05/2023', ora: '08:15',
     lingua: 'Inglese', persone: '15', prezzo: '80', nomeC: 'Gaeta', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'jackel@example.com'})
  
+b1 = Booking.create({user_id: 2, post_id: 1, stripe_charge_id: 000, num_pers: 1, amount: 1, expired: true})
