@@ -9,6 +9,25 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <% if @post.expired? %>
+
+  <!--Cerchiamo di capire se l'utente corrente ha o no partecipato alla visita-->
+  <% 
+    has_booked = false 
+    @post.bookings.each do |booking|
+
+      if booking.user.id == current_user.id
+
+        has_booked = true
+
+        break
+        
+      end
+
+    end
+    
+  %>
+  
+
   <%= render @post %>
   <h1>Nome della guida: <%= @post.user.name %> </h1> <br>
   <!--<%= link_to "Profilo", pages_path(email: @post.user_email) %>-->
@@ -28,21 +47,23 @@
     <%= render partial: 'comment/comment', locals: {comment: comment} %>
   <% end %>
 
-  <h3>Aggiungi una recensione:</h3><br>
-  <%= form_with(model: [Comment.new, @post.comments.build], url: post_comments_path(@post.id)) do |f| %>
-    <%= f.text_area :content, placeholder: 'Inserisci recensione' %>
-    <%= f.submit 'Invia' %>   
+  <% if has_booked %>
+    <h3>Aggiungi una recensione:</h3><br>
+    <%= form_with(model: [Comment.new, @post.comments.build], url: post_comments_path(@post.id)) do |f| %>
+      <%= f.text_area :content, placeholder: 'Inserisci recensione' %>
+      <%= f.submit 'Invia' %>   
+    <% end %>
+    <br>
+    <div class='rating-stars'>
+      <input type='hidden' name='rating' value='<%= @rating_for_user.rating_score %>'>
+      <span class='star' data-value='1' id='star1'>&#9733;</span>
+      <span class='star' data-value='2' id='star2'>&#9733;</span>
+      <span class='star' data-value='3' id='star3'>&#9733;</span>
+      <span class='star' data-value='4' id='star4'>&#9733;</span>
+      <span class='star' data-value='5' id='star5'>&#9733;</span>
+    </div>
+    <br>
   <% end %>
-  <br>
-  <div class='rating-stars'>
-    <input type='hidden' name='rating' value='<%= @rating_for_user.rating_score %>'>
-    <span class='star' data-value='1' id='star1'>&#9733;</span>
-    <span class='star' data-value='2' id='star2'>&#9733;</span>
-    <span class='star' data-value='3' id='star3'>&#9733;</span>
-    <span class='star' data-value='4' id='star4'>&#9733;</span>
-    <span class='star' data-value='5' id='star5'>&#9733;</span>
-  </div>
-  <br>
 
 <% else %>
   <%= render @post %>

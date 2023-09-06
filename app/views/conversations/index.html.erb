@@ -18,12 +18,21 @@
     <% end %>
 
     <% if conversation.sender_id != conversation.recipient_id %>
-        <!--Recupero la foto da mettere in piccolo vicino al nome (è la foto dell'utente con cui voglio chattare)-->
-        <% pic = user.avatar %>
+        <!--Recupero la foto se esiste da mettere in piccolo vicino al nome (è la foto dell'utente con cui voglio chattare)-->
+        <% if user.avatar.attached? %>
+
+              <div class="image">
+
+                <%= image_tag user.avatar %>
+
+              </div>
+
+        <% end %>
         
-        <%= link_to user.name, conversation_path(other_email: user.email)%>
+        <%= link_to user.name, conversation_path(other_email: user.email) %>
 
     <% end %>
+
     <br>
 
 <% end %>
