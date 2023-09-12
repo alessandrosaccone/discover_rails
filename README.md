@@ -28,3 +28,15 @@ continuo_email: Xp[(-m(M1T'95poM
 # checkout
 
 b1427078e34197099eca9ad8ecedc5a7635171a7
+
+# COMPITI
+
+# ales
+
+# gab
+
+# simo
+
+# marius
+
+- mi serve che curi il layout della mail "Date Exceeded". è una mail che specifica all'utente che non può più chiedere un refund perché è il giorno prima della visita. Devi modificare app/views/user_mailer/date_exceeded_email.html.erb. Cerca di fare una bella mail, magari mettici in mezzo pure qual è la visita o anche inizia con "Ciao [nome_utente]! "
