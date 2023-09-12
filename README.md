@@ -16,8 +16,8 @@ continuo_email:AleSimMarGab123
 
 # Email -> SendGrind
 
-email: discover.railsprojec@libero.it
-continuo_email: Abcdefg1!
+email: discover.mailproject@gmail.com
+continuo_email: Xp[(-m(M1T'95poM
 
 # Test
 

@@ -8,4 +8,4 @@ sidekiq_scheduler:
   update_post_status_job:
     cron: "0 * * * *"
     class: "UpdatePostStatusJob"
-  #bundle exec sidekiq -r ./config/environment.rb
+#bundle exec sidekiq -r ./config/environment.rb
