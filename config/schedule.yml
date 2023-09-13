@@ -8,4 +8,10 @@ sidekiq_scheduler:
   update_post_status_job:
     cron: "0 * * * *"
     class: "UpdatePostStatusJob"
+
+  check_time_job:
+    cron: "0 * * * *"
+    class: "CheckTimeJob"
+    queue: "default"
+    description: "Check time every hour"
 #bundle exec sidekiq -r ./config/environment.rb
