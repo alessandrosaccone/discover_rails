@@ -78,3 +78,5 @@ gem 'geonames'
 
 gem 'countries'
 
+gem 'paypal-sdk-rest'
+

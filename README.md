@@ -14,6 +14,11 @@ email: AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0
 email:palumbosimone80@gmail.com
 continuo_email:AleSimMarGab123
 
+# Paypal
+
+email:discover.railsprojec@libero.it
+continuo_email:Abcdefg1!
+
 # Email -> SendGrind
 
 email: discover.railsprojec@libero.it

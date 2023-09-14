@@ -153,6 +153,7 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.8.1)
     minitest (5.18.0)
+    multi_json (1.15.0)
     multi_xml (0.6.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
@@ -189,6 +190,9 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
+    paypal-sdk-rest (1.7.4)
+      multi_json (~> 1.0)
+      xml-simple
     puma (5.6.5)
       nio4r (~> 2.0)
     raabro (1.4.0)
@@ -241,6 +245,7 @@ GEM
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
+    rexml (3.2.6)
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.3)
@@ -320,6 +325,8 @@ GEM
     wicked_pdf (2.6.3)
       activesupport
     wkhtmltopdf-binary (0.12.6.6)
+    xml-simple (1.1.9)
+      rexml
     zeitwerk (2.6.8)
 
 PLATFORMS
@@ -341,6 +348,7 @@ DEPENDENCIES
   mailcatcher
   omniauth-facebook
   omniauth-rails_csrf_protection
+  paypal-sdk-rest
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4, >= 7.0.4.3)

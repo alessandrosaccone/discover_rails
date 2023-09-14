@@ -5,7 +5,10 @@ class Booking < ApplicationRecord
   after_create :generate_invoice_pdf
 
   attr_accessor  :card_number, :exp_month, :exp_year, :cvc,:name
-
+  enum booking_type: {
+    stripe: 0,
+    paypal: 1
+  }
   def refundable?
     # Verifica le condizioni che rendono la prenotazione rimborsabile
     # Ad esempio, potresti controllare se la prenotazione non è già stata cancellata o se la data di inizio è nel futuro
@@ -111,6 +114,8 @@ class Booking < ApplicationRecord
     errors.add :base, "Errore."
     false
   end
+  
+  
   
   
 

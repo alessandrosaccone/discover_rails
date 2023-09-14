@@ -46,8 +46,10 @@
               </div>
           </div>
       </div>
-       <%= form.hidden_field :post_id %>
+
+      <%= form.hidden_field :post_id %>
       <%= form.hidden_field :num_pers, value: @num_pers %>
+      <%= form.hidden_field :booking_type, value: @booking_type %>
     <input type="submit" value="proceed to checkout" class="submit-btn">
   <% end %>
 </div>    
