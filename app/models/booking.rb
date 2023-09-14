@@ -64,6 +64,34 @@ class Booking < ApplicationRecord
     file_path
   end
 
+  def save_with_payment_paypal
+      payment = PayPal::SDK::REST::Payment.new({
+        intent: 'sale',
+        payer: {
+          payment_method: 'paypal'
+        },
+        transactions: [
+          {
+            amount: {
+              total: amount,
+              currency: 'EUR'
+            },
+            description: "Prenotazione del post #{post.titolo} di #{post.user.name} da parte di #{user.name}"
+          }
+        ]
+      })
+      # Rest of the code remains the same...
+      if payment.create
+        self.paypal_charge_id = payment.id
+        self.amount = amount.to_i 
+        save!
+      else
+        errors.add :base, "PayPal payment creation failed."
+        return false
+      end
+  end
+
+
   def save_with_payment
     sanitize_card_number
 

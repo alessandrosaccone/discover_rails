@@ -9,9 +9,3 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
-test: &default
-  PAYPAL_ENV: sandbox
-  PAYPAL_CLIENT_ID: 	 	AXKllgLd6Z5z30BzlYHQtzn6iNi-bFRU1ANb6f5BJCqogiYEGnrbnozEBR5mFzVrH6E_XZrmiNTxvPzI
-  PAYPAL_CLIENT_SECRET: 	EBxwLeBEwpZI7YUpeBsc3hmObgTG7ZrT0CVjCNqTfQf2kKxh9EY9oUA-L_CMbjgXUhpSsz3mERAAkowW
-development:
-  <<: *default
