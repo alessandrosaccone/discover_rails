@@ -28,3 +28,8 @@ continuo_email: Abcdefg1!
 # checkout
 
 b1427078e34197099eca9ad8ecedc5a7635171a7
+
+# Per Gabriele
+
+Ho bisogno di queste informazioni: data di nascita, nome e cognome, indirizzo e città e stato in cui vive, codice postale, codice fiscale,
+numero dell'account banca, nome completo dell'account banca, stato in cui si trova la banca, nome della banca.
