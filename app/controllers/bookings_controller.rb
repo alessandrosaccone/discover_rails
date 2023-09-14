@@ -19,8 +19,6 @@ class BookingsController < ApplicationController
     @post = Post.find(params[:post_id])
     @booking = Booking.new(post: @post)
     @num_pers = params[:persone].to_i
-    #Da modificare per essere stripe o paypal
-    @booking_type='stripe'
     # Validazione dei parametri
     if @num_pers <= 0
         redirect_to @booking.post, alert: 'Il numero di persone deve essere maggiore di zero'
@@ -59,17 +57,14 @@ class BookingsController < ApplicationController
   def create
     @booking = current_user.bookings.build(booking_params)
     num_pers = params[:booking][:num_pers].to_i
-
     @booking.num_pers=num_pers
     post = Post.find(@booking.post_id)
     if post.persone_rimanenti > 0
-      if @booking.booking_type == 'stripe'
-        if @booking.save_with_payment_paypal
-          post.update(persone_rimanenti: post.persone_rimanenti - num_pers)
-          redirect_to url_for(controller: 'email', action: 'send_email', booking: @booking), notice: 'Prenotazione effettuata con successo'
-        else
-          redirect_to @booking.post,notice: @booking.errors.full_messages.join('. ')
-        end
+      if @booking.save_with_payment
+        post.update(persone_rimanenti: post.persone_rimanenti - num_pers)
+        redirect_to url_for(controller: 'email', action: 'send_email', booking: @booking), notice: 'Prenotazione effettuata con successo'
+      else
+        redirect_to @booking.post,notice: @booking.errors.full_messages.join('. ')
       end
     else
       redirect_to @booking.post, notice: 'Posti Esauriti.'
@@ -79,7 +74,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:amount, :card_number, :exp_month, :exp_year, :cvc, :post_id, :num_pers, :name, :booking_type)
+    params.require(:booking).permit(:amount, :card_number, :exp_month, :exp_year, :cvc, :post_id, :num_pers,:name)
   end
 
   def authorize_booking

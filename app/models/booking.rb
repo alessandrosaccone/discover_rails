@@ -5,10 +5,7 @@ class Booking < ApplicationRecord
   after_create :generate_invoice_pdf
 
   attr_accessor  :card_number, :exp_month, :exp_year, :cvc,:name
-  enum booking_type: {
-    stripe: 0,
-    paypal: 1
-  }
+
   def refundable?
     # Verifica le condizioni che rendono la prenotazione rimborsabile
     # Ad esempio, potresti controllare se la prenotazione non è già stata cancellata o se la data di inizio è nel futuro
@@ -64,34 +61,6 @@ class Booking < ApplicationRecord
     file_path
   end
 
-  def save_with_payment_paypal
-      payment = PayPal::SDK::REST::Payment.new({
-        intent: 'sale',
-        payer: {
-          payment_method: 'paypal'
-        },
-        transactions: [
-          {
-            amount: {
-              total: amount,
-              currency: 'EUR'
-            },
-            description: "Prenotazione del post #{post.titolo} di #{post.user.name} da parte di #{user.name}"
-          }
-        ]
-      })
-      # Rest of the code remains the same...
-      if payment.create
-        self.paypal_charge_id = payment.id
-        self.amount = amount.to_i 
-        save!
-      else
-        errors.add :base, "PayPal payment creation failed."
-        return false
-      end
-  end
-
-
   def save_with_payment
     sanitize_card_number
 
@@ -142,8 +111,6 @@ class Booking < ApplicationRecord
     errors.add :base, "Errore."
     false
   end
-  
-  
   
   
 

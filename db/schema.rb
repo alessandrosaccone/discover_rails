@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_14_131435) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_03_093407) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -73,8 +73,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_131435) do
     t.integer "num_pers"
     t.boolean "expired", default: false
     t.decimal "amount"
-    t.string "paypal_charge_id"
-    t.integer "booking_type"
     t.index ["post_id"], name: "index_bookings_on_post_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
