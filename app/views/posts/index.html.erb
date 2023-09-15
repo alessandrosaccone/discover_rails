@@ -28,11 +28,13 @@
             <%=link_to t('home'), home_pages_path %>
             <%=link_to t('visite'), posts_path%>
             <%= link_to t('guide'), guides_path %>
+            
             <%if !user_signed_in?%>
                 <a href="<%= new_user_session_path() %>">Login</a>
             <%end%>
             <%if user_signed_in?%>
                 <%=link_to t('logout'), destroy_user_session_path, :method => :delete %>
+                <%= link_to t('chat'), conversations_path%>
                 <%if current_user.guide?%>
                     <%= link_to t('bacheca'), show_bacheca_path() %>
                 <%else%>
