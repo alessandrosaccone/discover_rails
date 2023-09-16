@@ -60,26 +60,6 @@
                     background-color: #45a049;
                 }
             </style>
-
-            <%
-=begin%>
- <a href="<%= home_pages_path %>">Home</a>
-            <%= link_to t('visite'), posts_path %>
-            <%= link_to t('guide'), guides_path %>
-            <%if !user_signed_in?%>
-                <a href="<%= new_user_session_path() %>">Login</a>
-            <%end%>
-            <%if user_signed_in?%>
-                <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
-            <%end%>
-            <a href="bacheca.html">Profilo</a>
-            
-            <%= form_tag switch_language_path, method: :post do %>
-            <%= select_tag :language, options_for_select(language_options, I18n.locale.to_s) %>
-            <%= submit_tag 'Switch Language' %>
-            <% end %> 
-<%
-=end%>
         
 
         </nav>

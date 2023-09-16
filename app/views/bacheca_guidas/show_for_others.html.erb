@@ -1,0 +1,56 @@
+
+<% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-bacheca_guidas" %>
+  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "application-post.css" %>
+<% end %>    
+
+<%=render 'layouts/navbar'%>
+
+      <div class="container">
+        <div class="block" id="3">
+          <div class="box">
+            <%if @other_user.avatar.attached?%>
+              <div class="image">
+                <%= image_tag @other_user.avatar %>
+              </div>
+            <%end%>
+          </div>
+
+          <div class="content">
+              <% if(@other_user.username == '' || @other_user.username == nil) %>
+                <h2><%= @other_user.name %></h2>
+              <%else%>
+                <p><h3><%= @other_user.username %></h3></p>
+              <%end%>
+              <br>
+              <br>
+              <p><h3><%= @bacheca_guida.description %></h3></p>
+              <br>
+              <br>
+              <p><h3>Lingue parlate:
+              <% if @other_user.languages.present? %>
+                <% @other_user.languages.each do |linguaggio| %>
+                  <%= linguaggio.name %>
+                <% end %>
+              <% else %>
+                Nessuna lingua specificata
+              <% end %>
+              </h3></p>
+          </div>
+
+
+
+        </div>
+
+    <!-- Si fanno vedere tutti i post pubblicati generati dal più recente-->
+
+    <%= render partial: "posts/post" %>
+   
+    
+
+
+
+
+<ul id="lista" class="cards" style='display:flex'>
+</ul>

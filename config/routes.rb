@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :bacheca_guidas
+ 
   resources :bacheca_utentes
   resources :messages
   post '/messages/create_audio', to: 'messages#create_audio', as: 'create_audio'
@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   #bacheca_guida
   get 'bacheca_guidas/show', to: 'bacheca_guidas#show', as: 'show_bacheca'
   get 'bacheca_guidas/edit/:id', to: 'bacheca_guidas#edit', as: 'edit_bacheca'
+  get 'bacheca_guidas/show_for_others', to: 'bacheca_guidas#show_for_others', as: 'show_bacheca_for_others'
 
   # cancella account
   delete '/bacheca_guidas/destroy', to: 'bacheca_guidas#destroy', as: 'destroy_bacheca_guida'

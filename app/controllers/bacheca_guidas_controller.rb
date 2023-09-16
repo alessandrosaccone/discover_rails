@@ -34,6 +34,12 @@ class BachecaGuidasController < ApplicationController
     session[:index] = @index + 10
   end  
 
+  def show_for_others 
+    @bacheca_guida = BachecaGuida.find_by(user_id: params[:user_id])
+    @other_user = User.find(params[:user_id])
+    @posts = Post.where(user_id: params[:user_id])
+  end 
+
   private
 
   def bacheca_params
