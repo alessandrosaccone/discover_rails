@@ -95,8 +95,9 @@ class PostsController < ApplicationController
   def destroy_post
     @id = params[:id]
     post = Post.find(@id)
-
-    post.destroy
+    if post.status != "expired"
+      post.destroy
+    end
     
   end
 
