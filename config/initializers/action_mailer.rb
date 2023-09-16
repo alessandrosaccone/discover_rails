@@ -1,12 +1,10 @@
-
-
 Rails.application.config.action_mailer.delivery_method = :smtp
 Rails.application.config.action_mailer.smtp_settings = {
     address:              'smtp.sendgrid.net',
     port:                 587,
-    #domain:               'libero.it',
+    #domain:               'gmail.com',
     user_name:            'apikey',
-    password:             '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',
+    password:             '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',
     authentication:       'plain',
     enable_starttls_auto: true
  }

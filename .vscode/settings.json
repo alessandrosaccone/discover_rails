@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[ruby]": {
+    "editor.tabSize": 2,
+    "editor.useTabStops": false,
+    "editor.defaultFormatter": "ruby-syntax-tree.vscode-syntax-tree"
+  },
+  "[erb]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

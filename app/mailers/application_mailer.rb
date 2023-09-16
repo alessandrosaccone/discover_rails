@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'discover.railsprojec@libero.it'	
+  default from: 'discover.mailproject@gmail.com'	
   layout 'mailer'
 end
 

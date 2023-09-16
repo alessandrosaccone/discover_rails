@@ -25,11 +25,12 @@
 
 # Ignore cached files
 /.sass-cache
-These entries cover common files and directories that you typically want to ignore in a Rails application. However, depending on your specific setup and additional gems you may be using, there could be other files or directories that you might want to exclude as well.
 
-Remember to review the generated .gitignore file and make any necessary adjustments based on your application's needs and dependencies.
+#These entries cover common files and directories that you typically want to ignore in a Rails application. However, depending on your specific setup and additional gems you may be using, there could be other files or directories that you might want to exclude as well.
 
+#Remember to review the generated .gitignore file and make any necessary adjustments based on your application's needs and dependencies.
 
+/db/seeds.rb
 
 
 

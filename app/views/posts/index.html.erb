@@ -1,197 +1,191 @@
 <% content_for :for_head do %>
-  <%= stylesheet_link_tag "application-post"%>
-  <%= stylesheet_link_tag "application" %>
-<% end %>   
-
+  <%= stylesheet_link_tag 'application-post' %>
+  <%= stylesheet_link_tag 'application' %>
+<% end %>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0&callback=init_map"
+  async
+  defer
+></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0&callback=init_map" async defer></script>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Visite</title>
 
+<div
+  id="home"
+  class="all_header"
+  style="background-image: url('<%= image_path('banner_mario.jpg') %>')"
+>
+  <h1>Discover</h1>
+  <p>Go ever wherever</p>
+</div>
+<div class="navheader_general" id="navbar_app">
+  <nav class="navbar">
+    <%= link_to t('home'), home_pages_path %>
+    <%= link_to t('visite'), posts_path %>
+    <%= link_to t('guide'), guides_path %>
+    <%if !user_signed_in?%>
+      <a href="<%= new_user_session_path %>">Login</a>
+    <%end%>
+    <%if user_signed_in?%>
+      <%= link_to t('logout'), destroy_user_session_path, method: :delete %>
+      <%= link_to t('chat'), conversations_path%>
 
-
-    <title>Visite</title>
-
-    <div id="home" class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
-
-    <h1>Discover</h1>
-    <p>Go ever wherever</p>
-    </div>
-    <div class="navheader_general" id="navbar_app">
-        <nav class="navbar">
-            <%=link_to t('home'), home_pages_path %>
-            <%=link_to t('visite'), posts_path%>
-            <%= link_to t('guide'), guides_path %>
-            
-            <%if !user_signed_in?%>
-                <a href="<%= new_user_session_path() %>">Login</a>
-            <%end%>
-            <%if user_signed_in?%>
-                <%=link_to t('logout'), destroy_user_session_path, :method => :delete %>
-                <%= link_to t('chat'), conversations_path%>
-                <%if current_user.guide?%>
-                    <%= link_to t('bacheca'), show_bacheca_path() %>
-                <%else%>
-                    <%=link_to t('profilo'), show_bacheca_utenti_path ,:method => :get%>
-                <%end%>
-            <%end%>
-            <%= form_tag switch_language_path, method: :post do %>
-            <%= select_tag :language, options_for_select(language_options, I18n.locale.to_s) %>
-            <%= submit_tag 'Switch Language', class: 'btn-language' %>
-            <% end %>
-            <style>
-                .btn-language {
-                    background-color: #4caf50;
-                    color: white;
-                    border: none;
-                    padding: 5px 10px;
-                    border-radius: 4px;
-                    cursor: pointer;
-                    font-size: 14px;
-                }
-
-                .btn-language:hover {
-                    background-color: #45a049;
-                }
-            </style>
-
-            <%
-=begin%>
- <a href="<%= home_pages_path %>">Home</a>
-            <%= link_to t('visite'), posts_path %>
-            <%= link_to t('guide'), guides_path %>
-            <%if !user_signed_in?%>
-                <a href="<%= new_user_session_path() %>">Login</a>
-            <%end%>
-            <%if user_signed_in?%>
-                <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
-            <%end%>
-            <a href="bacheca.html">Profilo</a>
-            
-            <%= form_tag switch_language_path, method: :post do %>
-            <%= select_tag :language, options_for_select(language_options, I18n.locale.to_s) %>
-            <%= submit_tag 'Switch Language' %>
-            <% end %> 
-<%
-=end%>
-        
-
-        </nav>
-    </div>
-
-    <!-- deleting the "home" from the navbar while using a mobile device -->
-   
-    <script>
-      var a;
-      function myfunction() {
-        if (
-          navigator.userAgent.match(/webOS/i) ||
-          navigator.userAgent.match(/iPhone/i) ||
-          navigator.userAgent.match(/iPod/i) ||
-          navigator.userAgent.match(/BlackBerry/i) ||
-          navigator.userAgent.match(/Windows Phone/i)
-        ) {
-          a = true;
-          const home = document.getElementById("home");
-          home.remove();
-          const search = document.getElementById("searchbar");
-          search.remove();
-        } else {
-          a = false;
-        }
-        //alert(a);
+      <%if current_user.guide?%>
+        <%= link_to t('bacheca'), show_bacheca_path %>
+      <%else%>
+        <%= link_to t('profilo'), show_bacheca_utenti_path, method: :get %>
+      <%end%>
+    <%end%>
+    <%= form_tag switch_language_path, method: :post do %>
+      <%=
+        select_tag :language,
+                   options_for_select(language_options, I18n.locale.to_s)
+      %>
+      <%= submit_tag 'Switch Language', class: 'btn-language' %>
+    <% end %>
+    <style>
+      .btn-language {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
       }
-      myfunction();
-    </script>
 
-      <div class="container-search">
-        <div class="search_container" id="search">
-        <%= form_with(url: url_for(controller: 'posts', action: 'index'), method: 'get', id: 'myform', data: { remote: true }) do |form| %>
-            <div class="search-bar_center">
-              <%= text_field_tag(:citta, nil, placeholder: t('citta'),id: 'cercacitta') %>
-              <%= text_field_tag(:lingua, nil, placeholder: t('lingua'),id: 'cercalingua') %>
-            </div>
-            <%= submit_tag '' %>
-          <% end %>
-        </div>
+      .btn-language:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </nav>
+</div>
+
+<!-- deleting the "home" from the navbar while using a mobile device -->
+
+<script>
+  var a;
+  function myfunction() {
+    if (
+      navigator.userAgent.match(/webOS/i) ||
+      navigator.userAgent.match(/iPhone/i) ||
+      navigator.userAgent.match(/iPod/i) ||
+      navigator.userAgent.match(/BlackBerry/i) ||
+      navigator.userAgent.match(/Windows Phone/i)
+    ) {
+      a = true;
+      const home = document.getElementById("home");
+      home.remove();
+      const search = document.getElementById("searchbar");
+      search.remove();
+    } else {
+      a = false;
+    }
+    //alert(a);
+  }
+  myfunction();
+</script>
+
+<div class="container-search">
+  <div class="search_container" id="search">
+    <%= form_with(url: url_for(controller: 'posts', action: 'index'), method: 'get', id: 'myform', data: { remote: true }) do |form| %>
+      <div class="search-bar_center">
+        <%=
+          text_field_tag(:citta, nil, placeholder: t('citta'), id: 'cercacitta')
+        %>
+        <%=
+          text_field_tag(
+            :lingua,
+            nil,
+            placeholder: t('lingua'),
+            id: 'cercalingua',
+          )
+        %>
       </div>
-      <button id="see_map" onclick="see_map();">Let me see the map</button>
+      <%= submit_tag '' %>
+    <% end %>
+  </div>
+</div>
+<button id="see_map" onclick="see_map();">Let me see the map</button>
 
-      <div id="map_container" class="map_container" style="display: none">
-        <div id="mapDiv" class="map_class" style="display: none"></div>
-      </div>
+<div id="map_container" class="map_container" style="display: none">
+  <div id="mapDiv" class="map_class" style="display: none"></div>
+</div>
 
-    <div class="container" id="wrapper_post">
-     <%= render 'posts_results', posts: @posts %>
-    </div>
-    
-    <script>bar_color()</script>
-    
-    <script>
-    $(document).ready(function() {
-      var cercacittaValue = '';
-      var cercaLinguaValue='';
+<div class="container" id="wrapper_post">
+  <%= render 'posts_results', posts: @posts %>
+</div>
 
-        $('#cercalingua').on('input', function() {
-        cercaLinguaValue = $(this).val();
-        $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cerca"
-      });
-      $('#cercacitta').on('input', function() {
-        cercacittaValue = $(this).val();
-        $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
-      });
+<script>
+  bar_color();
+</script>
 
-      $('#myform').on('submit', function(event) {
-        event.preventDefault(); // Evita il comportamento predefinito del browser di sottomissione del modulo
-        var form = $(this);
-        
-        $.ajax({
-          url: form.attr('action'),
-          method: form.attr('method'),
-          data: form.serialize(),
-          success: function(response) {
-            $('#wrapper_post').html(response);
-            $('#cercacitta').val(cercacittaValue);
-            $('#cercalingua').val(cercaLinguaValue);
-          }
-        });
+<script>
+  $(document).ready(function () {
+    var cercacittaValue = "";
+    var cercaLinguaValue = "";
+
+    $("#cercalingua").on("input", function () {
+      cercaLinguaValue = $(this).val();
+      $("#myform").trigger("submit"); // Simula l'invio del modulo quando viene modificato il campo "cerca"
+    });
+    $("#cercacitta").on("input", function () {
+      cercacittaValue = $(this).val();
+      $("#myform").trigger("submit"); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
+    });
+
+    $("#myform").on("submit", function (event) {
+      event.preventDefault(); // Evita il comportamento predefinito del browser di sottomissione del modulo
+      var form = $(this);
+
+      $.ajax({
+        url: form.attr("action"),
+        method: form.attr("method"),
+        data: form.serialize(),
+        success: function (response) {
+          $("#wrapper_post").html(response);
+          $("#cercacitta").val(cercacittaValue);
+          $("#cercalingua").val(cercaLinguaValue);
+        },
       });
     });
-    </script>
-
+  });
+</script>
 
 <!-- PRELEVO LA POSIZIONE ATTUALE DELLA GUIDA -->
 <script>
-function init_position() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      };
+  function init_position() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
 
-      $.ajax({
-        type: "GET",
-        url: "<%= update_location_guide_users_path %>",
-        data: { lat: pos.lat, lng: pos.lng },
-        success: function () {
-          console.log("Location saved successfully");
-        },
-        error: function () {
-          console.log("Error saving location");
-        },
+        $.ajax({
+          type: "GET",
+          url: "<%= update_location_guide_users_path %>",
+          data: { lat: pos.lat, lng: pos.lng },
+          success: function () {
+            console.log("Location saved successfully");
+          },
+          error: function () {
+            console.log("Error saving location");
+          },
+        });
       });
-    });
+    }
   }
-} 
 </script>
 
-<%= javascript_include_tag "script_app" %>
-<%= javascript_include_tag "script" %>
-<%= javascript_include_tag "script_responsiveness" %>
+<%= javascript_include_tag 'script_app' %>
+<%= javascript_include_tag 'script' %>
+<%= javascript_include_tag 'script_responsiveness' %>
