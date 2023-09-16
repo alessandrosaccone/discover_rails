@@ -38,6 +38,15 @@ class BachecaGuidasController < ApplicationController
     @bacheca_guida = BachecaGuida.find_by(user_id: params[:user_id])
     @other_user = User.find(params[:user_id])
     @posts = Post.where(user_id: params[:user_id])
+
+    @posts.each do |post|
+      total_price = (post.prezzo * post.numero_ore / post.persone).to_s+'€'
+      ora = post.ora.to_s[11,5]
+      data = post.data.to_s[2,8]
+      post.instance_variable_set(:@total_price, total_price)
+      post.instance_variable_set(:@ora, ora)
+      post.instance_variable_set(:@data, data)
+    end
   end 
 
   private
