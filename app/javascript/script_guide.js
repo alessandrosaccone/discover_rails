@@ -77,16 +77,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(map);
 }
-
 function see_map() {
   var map = document.getElementById("mapDiv");
   var container = document.getElementById("map_container");
-  if (map.style.display == "none") {
-    map.style.display = "block";
-    container.style.display = "block";
-  } else {
+
+  if (map.style.display == "" || map.style.display == "block") {
     map.style.display = "none";
     container.style.display = "none";
+  } else {
+    map.style.display = "block";
+    container.style.display = "block";
   }
 }
 
