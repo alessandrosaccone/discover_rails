@@ -4,6 +4,7 @@ require 'application_job'
 class CheckDateJob < ApplicationJob
   #sidekiq_options queue: 'default', priority: 10
   def perform
+    puts "I'm performing the CheckDateJob"
     bookings = Booking.all
     bookings.each do |booking|
 =begin    

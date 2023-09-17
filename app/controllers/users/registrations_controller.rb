@@ -41,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         },
         business_profile: {
           mcc: '4722',
-          url: 'https://www.finto.it' #è necessario
+          product_description: 'Tourism services'
            
         },
         requested_capabilities: ['card_payments', 'transfers'],
@@ -52,6 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
           account_holder_name: resource.name,
           account_holder_type: 'individual',
           account_number: 'IT60X0542811101000000123456'
+
         }
       })
       Stripe::Account.update(
