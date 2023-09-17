@@ -13,5 +13,5 @@ sidekiq_scheduler:
     cron: "0 * * * *"
     class: "CheckTimeJob"
     queue: "default"
-    description: "Check time every hour"
+    description: "Check time every minute"
 #bundle exec sidekiq -r ./config/environment.rb

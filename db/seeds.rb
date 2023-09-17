@@ -48,11 +48,8 @@ p6 = Post.create({ descrizione: 'Evviva la vita 3', titolo: 'Esempio', data: '30
 p7 = Post.create({ descrizione: 'Evviva la vita 3', titolo: 'Esempio', data: '30/05/2023', ora: '08:15',
     lingua: 'Inglese', persone: '15', prezzo: '80', nomeC: 'Gaeta', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'jackel@example.com'})
  
-<<<<<<< HEAD
 b1 = Booking.create({user_id: 2, post_id: 1, stripe_charge_id: 000, num_pers: 1, amount: 1, expired: true})
-=======
 b1 = Booking.create({user_id: u6.id, post_id: p1.id, expired: false, num_pers: 1, refunded: false})
 b2 = Booking.create({user_id: u6.id, post_id: p1.id, expired: true, num_pers: 1, refunded: false})
 b3 = Booking.create({user_id: u6.id, post_id: p1.id, expired: false, num_pers: 1, refunded: true})
 b4 = Booking.create({user_id: u6.id, post_id: p2.id, expired: false, num_pers: 1, refunded: false})
->>>>>>> ales

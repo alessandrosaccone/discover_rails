@@ -33,6 +33,8 @@ b1427078e34197099eca9ad8ecedc5a7635171a7
 
 # ales
 
+- job per simone ogni 24 h
+
 # gab
 
 # simo
@@ -40,4 +42,4 @@ b1427078e34197099eca9ad8ecedc5a7635171a7
 # marius
 
 - mi serve che curi il layout della mail "Date Exceeded". è una mail che specifica all'utente che non può più chiedere un refund perché è il giorno prima della visita. Devi modificare app/views/user_mailer/date_exceeded_email.html.erb. Cerca di fare una bella mail, magari mettici in mezzo pure qual è la visita o anche inizia con "Ciao [nome_utente]! "
-- mi serve che nella scheda di prenotazione di un post, ci sia anche aggiunta la sezione "sovrannumero" con numero selezionabile fino a massimo 5 di persone e spuntina per volerlo (poi ci mettiamo d'accordo su dove passarmi queste info, possiamo aggiungerle come migration)
+- metti nel front-end nel form di creazione delle visite un vincolo sull'orario (solo ore con mezzora annessa)

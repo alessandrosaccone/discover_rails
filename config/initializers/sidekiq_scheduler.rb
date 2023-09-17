@@ -11,6 +11,5 @@ Sidekiq.configure_server do |config|
     CheckTimeJob.schedule_job
     #UpdatePostStatusJob.schedule_job
   end
-
  
 end
