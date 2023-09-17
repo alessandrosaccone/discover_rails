@@ -7,6 +7,10 @@
 
 <%=render 'layouts/navbar'%>
 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
       <div class="container">
         <div class="block" id="3">
           <div class="box">
@@ -43,53 +47,58 @@
 
         </div>
 
-    <!-- Si fanno vedere tutti i post pubblicati generati dal più recente-->
-    <% @posts.each_with_index do |post, index| %>
-  <% if post.persone_rimanenti != 0 %>
-  <% if ((Time.now.strftime("%Y-%d-%m") < post.data.strftime("%Y-%d-%m")) || ((Time.now.strftime("%H:%M:%S") < post.ora.strftime("%H:%M:%S")) && (Time.now.strftime("%Y-%d-%m") == post.data.strftime("%Y-%d-%m")))) %>
-      <%= puts index %>
-      <% if (index.odd? || index==0) %>
-        <ul class="cards">
-      <% end %> 
-      <li class='card'>
-      <h3 class='card-title'>
-          <%= post.titolo %>
-          <% if post.expired? %>
-            - scaduto
+    <!-- Barra di ricerca -->
+    <div class="container-search">
+        <div class="search_container" id="search">
+        <%= form_with(url: url_for(controller: 'bacheca_guidas', action: 'show_for_others'), method: 'get', id: 'myform', data: { remote: true }) do |form| %>
+            <div class="search-bar_center">
+              <%= text_field_tag(:citta, nil, placeholder: t('citta'),id: 'cercacitta') %>
+              <%= text_field_tag(:lingua, nil, placeholder: t('lingua'),id: 'cercalingua') %>
+              <%= hidden_field_tag(:user_id, @other_user.id) %>
+            </div>
+            <%= submit_tag '' %>
           <% end %>
-      </h3>
-      <div class='card-content'>
-          <p>
-              <%= post.descrizione%>
-          </p>
-          <hr> 
-          <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
-          </div>
-          
-          <div class='card-languages'>
-              <h4>
-                  Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
-                  Data e ora: <span style='font-weight: normal'><%= post.instance_variable_get(:@data) %> <%= post.instance_variable_get(:@ora) %></span>
-              </h4>
-          </div>
-          <div class='card-link-wrapper'>
-              <% if !user_signed_in? %>
-                <%= link_to 'Contatta', conversation_path(other_email: post.user_email), class: "card-link"%>
-              <% elsif current_user.email != post.user_email %>
-                <%= link_to 'Contatta', conversation_path(other_email: post.user_email), class: "card-link"%>
-              <% end %>
-              <br>
-              <% if post.expired? %>
-                <%= link_to "Vedi recensioni", post_path(post), class: "card-link" %>
-              <% else %>
-                <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
-              <% end %>
-              <br>
-          </div>
-          </li> 
-      <% if index.even? || index == @posts.size %>
-        </ul>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
+        </div>
+      </div>
+
+
+    <!-- Si fanno vedere tutti i post pubblicati generati dal più recente, nota: il container è necessario per fare il giochetto della searchbar-->
+    <div class="container" id="wrapper_post">
+     <%= render 'show_posts', posts: @posts %>
+    </div>
+     
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var cercacittaValue = '';
+      var cercaLinguaValue='';
+
+        $('#cercalingua').on('input', function() {
+        cercaLinguaValue = $(this).val();
+        $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cerca"
+
+      });
+      $('#cercacitta').on('input', function() {
+        cercacittaValue = $(this).val();
+        $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
+      });
+
+      $('#myform').on('submit', function(event) {
+        event.preventDefault(); // Evita il comportamento predefinito del browser di sottomissione del modulo
+        var form = $(this);
+        
+        $.ajax({
+          url: form.attr('action'),
+          method: form.attr('method'),
+          data: form.serialize(),
+          success: function(response) {
+            $('#wrapper_post').html(response);
+            $('#cercacitta').val(cercacittaValue);
+            $('#cercalingua').val(cercaLinguaValue);
+          }
+        });
+      });
+    });
+    </script>
+

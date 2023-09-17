@@ -35,19 +35,56 @@ class BachecaGuidasController < ApplicationController
   end  
 
   def show_for_others 
-    @bacheca_guida = BachecaGuida.find_by(user_id: params[:user_id])
-    @other_user = User.find(params[:user_id])
-    @posts = Post.where(user_id: params[:user_id])
 
-    @posts.each do |post|
-      total_price = (post.prezzo * post.numero_ore / post.persone).to_s+'€'
-      ora = post.ora.to_s[11,5]
-      data = post.data.to_s[2,8]
-      post.instance_variable_set(:@total_price, total_price)
-      post.instance_variable_set(:@ora, ora)
-      post.instance_variable_set(:@data, data)
+    if request.xhr?
+      citta = params[:citta]
+      lingua = params[:lingua]
+
+      if (citta.present? && lingua.present?)
+        @posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%").where("lingua LIKE ?", "%#{params[:lingua]}%").where(user_id: params[:user_id])
+      elsif (!citta.present? && lingua.present?)
+        @posts = Post.where("lingua LIKE ?", "%#{params[:lingua]}%").where(user_id: params[:user_id])
+      elsif (citta.present? && !lingua.present?)
+        @posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%").where(user_id: params[:user_id])
+      else  
+        @posts = Post.where(user_id: params[:user_id])
+      end
+
+      @posts.each do |post|
+        total_price = (post.prezzo * post.numero_ore / post.persone).to_s+'€'
+        ora = post.ora.to_s[11,5]
+        data = post.data.to_s[2,8]
+        post.instance_variable_set(:@total_price, total_price)
+        post.instance_variable_set(:@ora, ora)
+        post.instance_variable_set(:@data, data)
+      end
+
+      render partial: 'show_posts', locals: { posts: @posts }
+
+    else
+      session[:show_for_others_idx] = 0
+      @bacheca_guida = BachecaGuida.find_by(user_id: params[:user_id])
+      @other_user = User.find(params[:user_id])
+      @posts = Post.where(user_id: params[:user_id]).limit(10).offset(@index)
+
+      @posts.each do |post|
+        total_price = (post.prezzo * post.numero_ore / post.persone).to_s+'€'
+        ora = post.ora.to_s[11,5]
+        data = post.data.to_s[2,8]
+        post.instance_variable_set(:@total_price, total_price)
+        post.instance_variable_set(:@ora, ora)
+        post.instance_variable_set(:@data, data)
+      end
+
+      respond_to do |format|
+        format.html { render 'show_for_others' }
+      end
+      
     end
+
   end 
+
+
 
   private
 
