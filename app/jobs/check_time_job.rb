@@ -4,13 +4,13 @@ require 'application_job'
 class CheckTimeJob < ApplicationJob
   #sidekiq_options queue: 'default', priority: 10
   def perform
-    puts "I'm performing"
+    puts "I'm performing the CheckTimeJob"
     posts = Post.all
     posts.each do |post|
     post_minutes=post.ora.strftime("%H:%M").split(':').map(&:to_i).inject(0) { |acc, val| acc * 60 + val }
     now_minutes=Time.now.strftime("%H:%M").split(':').map(&:to_i).inject(0) { |acc, val| acc * 60 + val }
     #puts (post_minutes - now_minutes)
-    puts post.data == Date.today && (post_minutes-now_minutes) <= 60
+    #puts post.data == Date.today && (post_minutes-now_minutes) <= 60
     if post.data == Date.today && (post_minutes-now_minutes) <= 60 #&& post.num_pers == 0
         post.update(last_minute: true)
         begin

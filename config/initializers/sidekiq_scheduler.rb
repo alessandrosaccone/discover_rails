@@ -7,8 +7,9 @@ Sidekiq.configure_server do |config|
     SidekiqScheduler::Scheduler.reload_schedule!
     puts "I'm calling schedule_job"
     CheckDateJob.schedule_job
-    UpdatePostStatus.schedule_job
+    UpdatePostStatusJob.schedule_job
     CheckTimeJob.schedule_job
+    EveryTfJob.schedule_job
     #UpdatePostStatusJob.schedule_job
   end
  
