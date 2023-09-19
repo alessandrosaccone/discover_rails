@@ -17,7 +17,7 @@ class CheckDateJob < ApplicationJob
    if (Date.today.strftime("%e %b %Y") == booking.post.data.strftime("%e %b %Y") &&
         DateTime.now.strftime("%H:%M") > booking.post.ora.strftime("%H:%M") && booking.expired==false)
 =end 
-      if (((Date.today + 1.day).strftime("%e %b %Y") == booking.post.data.strftime("%e %b %Y")) && booking.expired==false)
+      if (((Date.today + 1.day).strftime("%e %b %Y") == booking.post.data.strftime("%e %b %Y")) && booking.expired==false && booking.post.last_minute==false)
         booking.update(expired: true)
         begin
           puts "I'm sending the exceeded email"
