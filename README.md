@@ -45,8 +45,11 @@ b1427078e34197099eca9ad8ecedc5a7635171a7
 
 - mi serve che curi il layout della mail "Date Exceeded". è una mail che specifica all'utente che non può più chiedere un refund perché è il giorno prima della visita. Devi modificare app/views/user_mailer/date_exceeded_email.html.erb. Cerca di fare una bella mail, magari mettici in mezzo pure qual è la visita o anche inizia con "Ciao [nome_utente]! "
 - metti nel front-end nel form di creazione delle visite un vincolo sull'orario (solo ore con mezzora annessa)
+<<<<<<< HEAD
 
 # Per Gabriele
 
 Ho bisogno di queste informazioni: data di nascita, nome e cognome, indirizzo e città e stato in cui vive, codice postale, codice fiscale,
 numero dell'account banca, nome completo dell'account banca, stato in cui si trova la banca, nome della banca.
+=======
+>>>>>>> ee172af7 (Modified the aims in the README)
