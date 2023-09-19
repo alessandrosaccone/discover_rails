@@ -63,3 +63,10 @@ it:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+    models:
+      user:
+        attributes:
+          email:
+            blank: "Il campo email non può essere vuoto"
+          password:
+            blank: "Il campo password non può essere vuoto"

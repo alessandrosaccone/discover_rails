@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    anno, mese, giorno = params[:nascita].split('-').map(&:to_i)
     #serve per i test, nella realtà la guida deve darci tramite form il suo stripe_account_id. più semplice crearli così che a mano
     super do |resource|
       if resource.guide?
@@ -23,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         individual: {
           email: resource.email,
           first_name: resource.name,
-          last_name: resource.name,
+          last_name: params[:cognome],
           address: {
             line1: "Via dei Campi Flegrei",
             city: "Roma",
@@ -33,9 +34,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
           },
           phone: '3388188350', # Numero di telefono
           dob: {
-            day: 1, # Giorno di nascita
-            month: 1, # Mese di nascita
-            year: 1990 # Anno di nascita
+            day: giorno, # Giorno di nascita
+            month: mese, # Mese di nascita
+            year: anno # Anno di nascita
           },
           id_number: 'ABCD1234EFGH5678' # Codice fiscale
         },
@@ -49,10 +50,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
           object: 'bank_account',
           country: 'IT',
           currency: 'eur',
-          account_holder_name: resource.name,
           account_holder_type: 'individual',
           account_number: 'IT60X0542811101000000123456'
-
         }
       })
       Stripe::Account.update(
@@ -105,7 +104,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_permitted_parameters
-    attributes = [:name, :email, :password,:iva,:role_id,:remember_me, :avatar]
+    attributes = [:name, :email, :password,:iva,:role_id,:remember_me, :avatar, :cognome, :nascita, :indirizzo, :citta, :stato, :codicepostale,
+                  :codicefiscale, :iban]
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
   end
 
