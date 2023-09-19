@@ -1,39 +1,57 @@
 <% content_for :for_head do %>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+  />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <%= stylesheet_link_tag "application-guides" %>
-  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag 'application-guides' %>
+  <%= stylesheet_link_tag 'application' %>
 <% end %>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0&callback=init_map" async defer></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4CVx_y35NwW07nB7CCOi0HLQu44HVov0&callback=init_map"
+  async
+  defer
+></script>
 
-
-<%=render 'layouts/navbar'%>
+<%= render 'layouts/navbar' %>
 <div class="container-search">
   <div class="search_container" id="search">
     <%= form_with(url: url_for(controller: 'pages', action: 'guides'), method: 'post', id: 'myform', data: { remote: true }) do |form| %>
       <div class="search-bar_center">
         <%= text_field_tag(:nome, nil, placeholder: t('nome'), id: 'cerca') %>
-        <%= text_field_tag(:citta, nil, placeholder: t('citta'), id: 'cercacitta') %>
-        <%= text_field_tag(:linguaggio, nil, placeholder: t('lingua'), id: 'cercalingua') %>
-        <%= text_field_tag(:nazione, nil, placeholder: t('nazione'), id: 'cercanazione') %>
+        <%=
+          text_field_tag(:citta, nil, placeholder: t('citta'), id: 'cercacitta')
+        %>
+        <%=
+          text_field_tag(
+            :linguaggio,
+            nil,
+            placeholder: t('lingua'),
+            id: 'cercalingua',
+          )
+        %>
+        <%=
+          text_field_tag(
+            :nazione,
+            nil,
+            placeholder: t('nazione'),
+            id: 'cercanazione',
+          )
+        %>
       </div>
-      
     <% end %>
   </div>
 </div>
 <button id="see_map" onclick="return see_map();">Let me see the map</button>
 
-  <div id="map_container" class="map_container">
-    <div id="mapDiv" class="map_class"></div>
-  </div>
-
+<div id="map_container" class="map_container" style="display: none">
+  <div id="mapDiv" class="map_class" style="display: none"></div>
+</div>
 
 <section class="swiper mySwiper">
   <div class="swiper-wrapper" id="guides-wrapper">
-  <%= render 'guides_results', guides: @guides %>
-  
-  
+    <%= render 'guides_results', guides: @guides %>
   </div>
 </section>
 
@@ -59,54 +77,49 @@
   }
   myfunction();
 </script>
-  
-<script>
-$(document).ready(function() {
-  var cercaValue = '';
-  var cercacittaValue = '';
-  var cercaLinguaValue='';
-  var cercaNazioneValue='';
-  $('#cerca').on('input', function() {
-    cercaValue = $(this).val();
-    $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cerca"
-  });
-    $('#cercalingua').on('input', function() {
-    cercaLinguaValue = $(this).val();
-    $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cerca"
-  });
-  $('#cercacitta').on('input', function() {
-    cercacittaValue = $(this).val();
-    $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
-  });
-    $('#cercanazione').on('input', function() {
-    cercaNazioneValue = $(this).val();
-    $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
-  });
 
-  $('#myform').on('submit', function(event) {
-    event.preventDefault(); // Evita il comportamento predefinito del browser di sottomissione del modulo
-    var form = $(this);
-    
-    $.ajax({
-      url: form.attr('action'),
-      method: form.attr('method'),
-      data: form.serialize(),
-      success: function(response) {
-        $('#guides-wrapper').html(response);
-        $('#cerca').val(cercaValue);
-        $('#cercacitta').val(cercacittaValue);
-        $('#cercalingua').val(cercaLinguaValue);
-        $('#cercanazione').val(cercaNazioneValue);
-      }
+<script>
+  $(document).ready(function () {
+    var cercaValue = "";
+    var cercacittaValue = "";
+    var cercaLinguaValue = "";
+    var cercaNazioneValue = "";
+    $("#cerca").on("input", function () {
+      cercaValue = $(this).val();
+      $("#myform").trigger("submit"); // Simula l'invio del modulo quando viene modificato il campo "cerca"
+    });
+    $("#cercalingua").on("input", function () {
+      cercaLinguaValue = $(this).val();
+      $("#myform").trigger("submit"); // Simula l'invio del modulo quando viene modificato il campo "cerca"
+    });
+    $("#cercacitta").on("input", function () {
+      cercacittaValue = $(this).val();
+      $("#myform").trigger("submit"); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
+    });
+    $("#cercanazione").on("input", function () {
+      cercaNazioneValue = $(this).val();
+      $("#myform").trigger("submit"); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
+    });
+
+    $("#myform").on("submit", function (event) {
+      event.preventDefault(); // Evita il comportamento predefinito del browser di sottomissione del modulo
+      var form = $(this);
+
+      $.ajax({
+        url: form.attr("action"),
+        method: form.attr("method"),
+        data: form.serialize(),
+        success: function (response) {
+          $("#guides-wrapper").html(response);
+          $("#cerca").val(cercaValue);
+          $("#cercacitta").val(cercacittaValue);
+          $("#cercalingua").val(cercaLinguaValue);
+          $("#cercanazione").val(cercaNazioneValue);
+        },
+      });
     });
   });
-});
-
-
-
 </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <%= javascript_include_tag "script_guide" %>
-   
-   
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<%= javascript_include_tag 'script_guide' %>

@@ -76,4 +76,3 @@ gem "turbolinks", "~> 5.2"
 gem 'geonames'
 
 gem 'countries'
-

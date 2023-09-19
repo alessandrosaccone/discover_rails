@@ -1,42 +1,48 @@
-<div class="all_header" style="background-image: url('<%= image_path('banner_mario.jpg')%>')">
-<h1>Discover</h1>
-<p>Go ever wherever</p>
+<div
+  class="all_header"
+  style="background-image: url('<%= image_path('banner_mario.jpg') %>')"
+>
+  <h1>Discover</h1>
+  <p>Go ever wherever</p>
 </div>
 <div class="navheader" id="navbar">
-    <nav class="navbar">
-        <%=link_to t('home'), home_pages_path %>
-        <%=link_to t('visite'), posts_path%>
-        <%= link_to t('guide'), guides_path %>
-        <%if !user_signed_in?%>
-            <a href="<%= new_user_session_path() %>">Login</a>
-        <%end%>
-        <%if user_signed_in?%>
-            <%=link_to t('logout'), destroy_user_session_path, :method => :delete %>
-            <%= link_to t('chat'), conversations_path, :method => :get %>
-            <%if current_user.guide?%>
-                <%= link_to t('bacheca'), show_bacheca_path() %>
-            <%else%>
-                <%=link_to t('profilo'), show_bacheca_utenti_path ,:method => :get%>
-            <%end%>
-        <%end%>
-        <%= form_tag switch_language_path, method: :post do %>
-        <%= select_tag :language, options_for_select(language_options, I18n.locale.to_s) %>
-        <%= submit_tag 'Switch Language', class: 'btn-language' %>
-        <% end %>
-        <style>
-            .btn-language {
-                background-color: #4caf50;
-                color: white;
-                border: none;
-                padding: 5px 10px;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 14px;
-            }
+  <nav class="navbar">
+    <%= link_to t('home'), home_pages_path %>
+    <%= link_to t('visite'), posts_path %>
+    <%= link_to t('guide'), guides_path %>
+    <%if !user_signed_in?%>
+      <a href="<%= new_user_session_path %>">Login</a>
+    <%end%>
+    <%if user_signed_in?%>
+      <%= link_to t('logout'), destroy_user_session_path, method: :delete %>
+      <%= link_to t('chat'), conversations_path, method: :get %>
+      <%if current_user.guide?%>
+        <%= link_to t('bacheca'), show_bacheca_path %>
+      <%else%>
+        <%= link_to t('profilo'), show_bacheca_utenti_path, method: :get %>
+      <%end%>
+    <%end%>
+    <%= form_tag switch_language_path, method: :post do %>
+      <%=
+        select_tag :language,
+                   options_for_select(language_options, I18n.locale.to_s)
+      %>
+      <%= submit_tag 'Switch Language', class: 'btn-language' %>
+    <% end %>
+    <style>
+      .btn-language {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+      }
 
-            .btn-language:hover {
-                background-color: #45a049;
-            }
-        </style>
-    </nav>
+      .btn-language:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </nav>
 </div>

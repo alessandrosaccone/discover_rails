@@ -1,6 +1,6 @@
 sidekiq_scheduler:
   check_date_job:
-    cron: "0 9/1 * * *"
+    cron: "* * * * *"
     class: "CheckDateJob"
     queue: "default"
     description: "Check date every hour"
@@ -8,4 +8,18 @@ sidekiq_scheduler:
   update_post_status_job:
     cron: "0 * * * *"
     class: "UpdatePostStatusJob"
-  #bundle exec sidekiq -r ./config/environment.rb
+    queue: "default"
+    description: "Check time every minute"
+
+  check_time_job:
+    cron: "0 * * * *"
+    class: "CheckTimeJob"
+    queue: "default"
+    description: "Check time every minute"
+
+  every_tf_job:
+    cron: "0 0 * * *"
+    class: "EveryTfJob"
+    queue: "default"
+    description: "Check something every hour"
+#bundle exec sidekiq -r ./config/environment.rb
