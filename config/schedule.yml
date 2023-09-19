@@ -16,10 +16,13 @@ sidekiq_scheduler:
     class: "CheckTimeJob"
     queue: "default"
     description: "Check time every minute"
+<<<<<<< HEAD
 
   every_tf_job:
     cron: "0 0 * * *"
     class: "EveryTfJob"
     queue: "default"
     description: "Check something every hour"
+=======
+>>>>>>> ee172af7 (Modified the aims in the README)
 #bundle exec sidekiq -r ./config/environment.rb
