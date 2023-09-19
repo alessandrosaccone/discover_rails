@@ -33,8 +33,11 @@ b1427078e34197099eca9ad8ecedc5a7635171a7
 
 # ales
 
+<<<<<<< HEAD
 # gab
 
+=======
+>>>>>>> a6e26ee1 (README modified)
 # simo
 
 - modifica il perform in jobs/every_tf_job.rb
