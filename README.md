@@ -33,10 +33,6 @@ b1427078e34197099eca9ad8ecedc5a7635171a7
 
 # ales
 
-- job per simone ogni 24 h
-
-# gab
-
 # simo
 
 - modifica il perform in jobs/every_tf_job.rb
