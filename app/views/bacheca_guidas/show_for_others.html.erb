@@ -32,13 +32,13 @@
               <p><h3><%= @bacheca_guida.description %></h3></p>
               <br>
               <br>
-              <p><h3>Lingue parlate:
+              <p><h3> <%= t('lingue parlate:') %>
               <% if @other_user.languages.present? %>
                 <% @other_user.languages.each do |linguaggio| %>
                   <%= linguaggio.name %>
                 <% end %>
               <% else %>
-                Nessuna lingua specificata
+               <%= t('nessuna lingua specificata') %>
               <% end %>
               </h3></p>
           </div>
@@ -54,10 +54,13 @@
             <div class="search-bar_center">
               <%= text_field_tag(:citta, nil, placeholder: t('citta'),id: 'cercacitta') %>
               <%= text_field_tag(:lingua, nil, placeholder: t('lingua'),id: 'cercalingua') %>
+              <%= form.date_select(:date, include_blank: true) %>
+              <%= form.label :expired, t('mostra solo post scaduti') %>
+              <%= form.check_box :expired %>
               <%= hidden_field_tag(:user_id, @other_user.id) %>
             </div>
             <%= submit_tag '' %>
-          <% end %>
+        <% end %>
         </div>
       </div>
 
@@ -84,10 +87,31 @@
         $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
       });
 
+      $('#expired').on('input', function(){
+        $('#myform').trigger('submit');
+      })
+
+      $('#_date_1i').on('input', function(){
+        $('#myform').trigger('submit');
+      })
+
+      $('#_date_2i').on('input', function(){
+        if($('#_date_1i').val() != ''){
+          $('#myform').trigger('submit');
+        }
+      })
+
+      $('#_date_3i').on('input', function(){
+        if($('#_date_1i').val() != '' && $('#_date_2i').val() != ''){
+          $('#myform').trigger('submit');
+        }
+      })
+
+
       $('#myform').on('submit', function(event) {
         event.preventDefault(); // Evita il comportamento predefinito del browser di sottomissione del modulo
         var form = $(this);
-        
+
         $.ajax({
           url: form.attr('action'),
           method: form.attr('method'),

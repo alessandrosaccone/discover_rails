@@ -8,7 +8,7 @@
     <h3 class='card-title'>
         <%= post.titolo %>
         <% if post.expired? %>
-            - scaduto
+            - <%= t('scaduto')%>
         <% end %>
     </h3>
     <div class='card-content'>
@@ -21,19 +21,19 @@
         
         <div class='card-languages'>
             <h4>
-                Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
-                Data e ora: <span style='font-weight: normal'><%= post.instance_variable_get(:@data) %> <%= post.instance_variable_get(:@ora) %></span>
+                <%= t('lingua:')%> <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+                <%= t('data e ora:')%> <span style='font-weight: normal'><%= post.instance_variable_get(:@data) %> <%= post.instance_variable_get(:@ora) %></span>
             </h4>
         </div>
         <div class='card-link-wrapper'>
             <% if !user_signed_in? %>
-                <%= link_to 'Contatta', conversation_path(other_email: post.user_email), class: "card-link"%>
+                <%= link_to t('Contatta'), conversation_path(other_email: post.user_email), class: "card-link"%>
             <% elsif current_user.email != post.user_email %>
-                <%= link_to 'Contatta', conversation_path(other_email: post.user_email), class: "card-link"%>
+                <%= link_to t('Contatta'), conversation_path(other_email: post.user_email), class: "card-link"%>
             <% end %>
             <br>
             <% if post.expired? %>
-                <%= link_to "Vedi recensioni", post_path(post), class: "card-link" %>
+                <%= link_to t("Vedi recensioni"), post_path(post), class: "card-link" %>
             <% else %>
                 <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
             <% end %>

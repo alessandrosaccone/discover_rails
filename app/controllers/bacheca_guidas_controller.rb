@@ -50,6 +50,23 @@ class BachecaGuidasController < ApplicationController
         @posts = Post.where(user_id: params[:user_id])
       end
 
+      if(params[:expired] == '1')
+
+        @posts = @posts.where(status: 'expired')
+
+      end
+
+      if(params["date(1i)"] != '' && params["date(2i)"] == '' && params["date(3i)"] == '')
+        @posts = @posts.where("STRFTIME('%Y', data) = ?","#{params["date(1i)"]}")
+      elsif(params["date(1i)"] != '' && params["date(2i)"] != '' && params["date(3i)"] == '')
+        month = '%02d' % params["date(2i)"]
+        @posts = @posts.where("STRFTIME('%Y %m', data) = ?", "#{params["date(1i)"]} #{month}")
+      elsif(params["date(1i)"] != '' && params["date(2i)"] != '' && params["date(3i)"] != '')
+        month = '%02d' % params["date(2i)"]
+        day = '%02d' % params["date(3i)"]
+        @posts = @posts.where("STRFTIME('%Y %m %d', data) = ?", "#{params["date(1i)"]} #{month} #{day}")
+      end
+
       @posts.each do |post|
         total_price = (post.prezzo * post.numero_ore / post.persone).to_s+'€'
         ora = post.ora.to_s[11,5]
@@ -89,7 +106,8 @@ class BachecaGuidasController < ApplicationController
   private
 
   def bacheca_params
-    params.require(:bacheca_guida).permit(:description)
+    params.require(:bacheca_guida).permit(:description, :date)
   end
+  
 
 end
