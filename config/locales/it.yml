@@ -44,3 +44,7 @@ it:
         attributes:
           sender: "Mittente"
           recipient: "Destinatario"
+
+  date:
+    order: ['year', 'month', 'day']
+    month_names: ['Gennaio', 'Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre']

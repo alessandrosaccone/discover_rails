@@ -36,6 +36,7 @@
                 <%= link_to 'Contatta', conversation_path(other_email: post.user_email), class: "card-link"%>
               <% elsif current_user.email != post.user_email %>
                 <%= link_to 'Contatta', conversation_path(other_email: post.user_email), class: "card-link"%>
+                <%= link_to "Vedi profilo", show_bacheca_for_others_path(user_id: post.user.id), class: "card-link"%>
               <% end %>
               <br>
               <% if post.expired? %>

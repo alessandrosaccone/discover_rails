@@ -1,0 +1,128 @@
+
+<% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-bacheca_guidas" %>
+  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "application-post.css" %>
+<% end %>    
+
+<%=render 'layouts/navbar'%>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
+      <div class="container">
+        <div class="block" id="3">
+          <div class="box">
+            <%if @other_user.avatar.attached?%>
+              <div class="image">
+                <%= image_tag @other_user.avatar %>
+              </div>
+            <%end%>
+          </div>
+
+          <div class="content">
+              <% if(@other_user.username == '' || @other_user.username == nil) %>
+                <h2><%= @other_user.name %></h2>
+              <%else%>
+                <p><h3><%= @other_user.username %></h3></p>
+              <%end%>
+              <br>
+              <br>
+              <p><h3><%= @bacheca_guida.description %></h3></p>
+              <br>
+              <br>
+              <p><h3> <%= t('lingue parlate:') %>
+              <% if @other_user.languages.present? %>
+                <% @other_user.languages.each do |linguaggio| %>
+                  <%= linguaggio.name %>
+                <% end %>
+              <% else %>
+               <%= t('nessuna lingua specificata') %>
+              <% end %>
+              </h3></p>
+          </div>
+
+
+
+        </div>
+
+    <!-- Barra di ricerca -->
+    <div class="container-search">
+        <div class="search_container" id="search">
+        <%= form_with(url: url_for(controller: 'bacheca_guidas', action: 'show_for_others'), method: 'get', id: 'myform', data: { remote: true }) do |form| %>
+            <div class="search-bar_center">
+              <%= text_field_tag(:citta, nil, placeholder: t('citta'),id: 'cercacitta') %>
+              <%= text_field_tag(:lingua, nil, placeholder: t('lingua'),id: 'cercalingua') %>
+              <%= form.date_select(:date, include_blank: true) %>
+              <%= form.label :expired, t('mostra solo post scaduti') %>
+              <%= form.check_box :expired %>
+              <%= hidden_field_tag(:user_id, @other_user.id) %>
+            </div>
+            <%= submit_tag '' %>
+        <% end %>
+        </div>
+      </div>
+
+
+    <!-- Si fanno vedere tutti i post pubblicati generati dal più recente, nota: il container è necessario per fare il giochetto della searchbar-->
+    <div class="container" id="wrapper_post">
+     <%= render 'show_posts', posts: @posts %>
+    </div>
+     
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var cercacittaValue = '';
+      var cercaLinguaValue='';
+
+        $('#cercalingua').on('input', function() {
+        cercaLinguaValue = $(this).val();
+        $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cerca"
+
+      });
+      $('#cercacitta').on('input', function() {
+        cercacittaValue = $(this).val();
+        $('#myform').trigger('submit'); // Simula l'invio del modulo quando viene modificato il campo "cercacitta"
+      });
+
+      $('#expired').on('input', function(){
+        $('#myform').trigger('submit');
+      })
+
+      $('#_date_1i').on('input', function(){
+        $('#myform').trigger('submit');
+      })
+
+      $('#_date_2i').on('input', function(){
+        if($('#_date_1i').val() != ''){
+          $('#myform').trigger('submit');
+        }
+      })
+
+      $('#_date_3i').on('input', function(){
+        if($('#_date_1i').val() != '' && $('#_date_2i').val() != ''){
+          $('#myform').trigger('submit');
+        }
+      })
+
+
+      $('#myform').on('submit', function(event) {
+        event.preventDefault(); // Evita il comportamento predefinito del browser di sottomissione del modulo
+        var form = $(this);
+
+        $.ajax({
+          url: form.attr('action'),
+          method: form.attr('method'),
+          data: form.serialize(),
+          success: function(response) {
+            $('#wrapper_post').html(response);
+            $('#cercacitta').val(cercacittaValue);
+            $('#cercalingua').val(cercaLinguaValue);
+          }
+        });
+      });
+    });
+    </script>
+
