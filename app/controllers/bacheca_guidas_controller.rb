@@ -36,7 +36,16 @@ class BachecaGuidasController < ApplicationController
 
   def show_for_others 
 
+    if(params[:increment] == 'true')
+      session[:show_for_others_idx] += 50
+
+    else
+      session[:show_for_others_idx] = 0
+
+    end
+
     if request.xhr?
+      @index = session[:show_for_others_idx]
       citta = params[:citta]
       lingua = params[:lingua]
 
@@ -67,6 +76,8 @@ class BachecaGuidasController < ApplicationController
         @posts = @posts.where("STRFTIME('%Y %m %d', data) = ?", "#{params["date(1i)"]} #{month} #{day}")
       end
 
+      @posts = @posts.limit(50).offset(@index)
+
       @posts.each do |post|
         total_price = (post.prezzo * post.numero_ore / post.persone).to_s+'€'
         ora = post.ora.to_s[11,5]
@@ -79,10 +90,10 @@ class BachecaGuidasController < ApplicationController
       render partial: 'show_posts', locals: { posts: @posts }
 
     else
-      session[:show_for_others_idx] = 0
+      @index = session[:show_for_others_idx]
       @bacheca_guida = BachecaGuida.find_by(user_id: params[:user_id])
       @other_user = User.find(params[:user_id])
-      @posts = Post.where(user_id: params[:user_id]).limit(10).offset(@index)
+      @posts = Post.where(user_id: params[:user_id]).limit(50).offset(@index)
 
       @posts.each do |post|
         total_price = (post.prezzo * post.numero_ore / post.persone).to_s+'€'
@@ -100,7 +111,6 @@ class BachecaGuidasController < ApplicationController
     end
 
   end 
-
 
 
   private

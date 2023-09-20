@@ -58,6 +58,7 @@
               <%= form.label :expired, t('mostra solo post scaduti') %>
               <%= form.check_box :expired %>
               <%= hidden_field_tag(:user_id, @other_user.id) %>
+              <%= hidden_field_tag(:increment, false)%>
             </div>
             <%= submit_tag '' %>
         <% end %>
@@ -69,6 +70,8 @@
     <div class="container" id="wrapper_post">
      <%= render 'show_posts', posts: @posts %>
     </div>
+
+    <%= button_to 'See more', show_bacheca_for_others_path, id: 'see_more_btn', method: :get, remote: true %>
      
 
 
@@ -76,6 +79,10 @@
     $(document).ready(function() {
       var cercacittaValue = '';
       var cercaLinguaValue='';
+
+      /*if(document.getElementsByClassName('cards').length < 50){
+        $('#see_more_btn').attr('disabled','disabled')
+      }*/
 
         $('#cercalingua').on('input', function() {
         cercaLinguaValue = $(this).val();
@@ -92,7 +99,9 @@
       })
 
       $('#_date_1i').on('input', function(){
-        $('#myform').trigger('submit');
+        if($('#_date_1i').val() != ''){
+          $('#myform').trigger('submit');
+        }
       })
 
       $('#_date_2i').on('input', function(){
@@ -105,6 +114,25 @@
         if($('#_date_1i').val() != '' && $('#_date_2i').val() != ''){
           $('#myform').trigger('submit');
         }
+      })
+
+      $('#see_more_btn').on('click',function(event){
+        event.preventDefault()
+        var inc = $('#increment');
+        inc.val('true');
+        var form = $('#myform');
+
+        $.ajax({
+          url: $(this).attr('action'),
+          method: $(this).attr('method'),
+          data: form.serialize(),
+          success: function(response){
+            $('#wrapper_post').html(response);
+            $('#cercacitta').val(cercacittaValue);
+            $('#cercalingua').val(cercaLinguaValue);
+            inc.val('false');
+          }
+        })
       })
 
 
