@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_13_174538) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_19_182819) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -153,6 +153,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_174538) do
     t.string "address"
     t.string "status", default: "open", null: false
     t.boolean "last_minute", default: false, null: false
+    t.integer "persone_lastminute"
   end
 
   create_table "ratings", force: :cascade do |t|
