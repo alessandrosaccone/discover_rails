@@ -21,6 +21,8 @@ it:
 
   logout: "Logout"
 
+  bacheca: "Bacheca"
+
   profilo: "Profilo"
 
   come_funziona: "Come funziona"
@@ -46,5 +48,40 @@ it:
           recipient: "Destinatario"
 
   date:
-    order: ['year', 'month', 'day']
-    month_names: ['Gennaio', 'Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre']
+    order: ["year", "month", "day"]
+    month_names:
+      [
+        "Gennaio",
+        "Febbraio",
+        "Marzo",
+        "Aprile",
+        "Maggio",
+        "Giugno",
+        "Luglio",
+        "Agosto",
+        "Settembre",
+        "Ottobre",
+        "Novembre",
+        "Dicembre",
+      ]
+
+  lingue_guide: "Lingue"
+  citta_guide: "Città"
+
+  scaduto: "Scaduto"
+  lingua_post_bacheca: "Lingua"
+  data_post_bacheca: "Data e ora"
+  contatta: "Contatta"
+  vedi_recensioni: "Vedi recensioni"
+  nessuna_lingua_specificata: "Nessuna lingua specificata"
+  mostra_solo_post_scaduti: "Mostra solo post scaduti"
+
+  modifica_username: "Modifica Username"
+  modifica_descrizione: "Modifica Descrizione"
+  cancella_account: "Cancella Account"
+  guarda_prenotazioni: "Guarda le tue prenotazioni"
+
+  lingue_parlate: "Lingue parlate"
+  modifica_username_lingue_e_citta: "Modifica Username, Lingue e Città"
+  cambia_immagine: "Cambia immagine"
+  pubblica: "Pubblica una scheda"

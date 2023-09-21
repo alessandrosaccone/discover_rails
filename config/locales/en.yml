@@ -66,6 +66,8 @@ en:
 
   lingua: "Language..."
 
+  bacheca: "Profile"
+
   nome: "Name..."
 
   nazione: "Nation..."
@@ -79,4 +81,23 @@ en:
         sender: "Sender"
         recipient: "Destinatario"
 
+  lingue_guide: "Languages"
+  citta_guide: "City"
 
+  scaduto: "Expired"
+  lingua_post_bacheca: "Language"
+  data_post_bacheca: "Date and time"
+  contatta: "Contact"
+  vedi_recensioni: "See reviews"
+  nessuna_lingua_specificata: "No language specified"
+  mostra_solo_post_scaduti: "Show only expired posts"
+
+  modifica_username: "Modify Username"
+  modifica_descrizione: "Modify Description"
+  cancella_account: "Delete Account"
+  guarda_prenotazioni: "See your bookings"
+
+  lingue_parlate: "Spoken languages"
+  modifica_username_lingue_e_citta: "Modify Username, Languages and Cities"
+  cambia_immagine: "Change image"
+  pubblica: "Publish a post"

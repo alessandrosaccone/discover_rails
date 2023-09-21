@@ -27,13 +27,13 @@
               <p><h3><%=@bacheca_guida.description%></h3></p>
               <br>
               <br>
-              <p><h3>Lingue parlate:
+              <p><h3><%= t('lingue_parlate')%>:
               <% if current_user.languages.present? %>
                 <% current_user.languages.each do |linguaggio| %>
                   <%= linguaggio.name %>
                 <% end %>
               <% else %>
-                Nessuna lingua specificata
+                <%= t('nessuna_lingua_specificata') %>
               <% end %>
               </h3></p>
           </div>
@@ -46,9 +46,9 @@
               <div class="dot"></div>
             </div>
             <div class="dropdown-content">
-              <%= link_to "Modifica Username, Lingue e Città", edit_username_path(), method: :patch %>
-              <%= link_to "Modifica Descrizione", edit_bacheca_path(@bacheca_guida.id) %>
-              <%= link_to 'Cancella Account', registration_path(current_user), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+              <%= link_to t('modifica_username_lingue_e_citta'), edit_username_path(), method: :patch %>
+              <%= link_to t('modifica_descrizione'), edit_bacheca_path(@bacheca_guida.id) %>
+              <%= link_to t('cancella_account'), registration_path(current_user), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
             </div>
           </div>
 
@@ -56,7 +56,7 @@
             <div class="image-upload">
               <%= form_with(url: immagine_path, method: :patch, local: true, multipart: true) do |form| %>
                 <%= form.file_field :avatar, class: 'image-upload__input' %>
-                <%= form.submit 'Cambia immagine', class: 'image-upload__button' %>
+                <%= form.submit t('cambia_immagine'), class: 'image-upload__button' %>
               <% end %>
             </div>
           </div>
@@ -67,12 +67,12 @@
       <div class="coll">
         <div class="center">
           <button id="btn_" class="btn-1" onclick="return button();">
-            <%= t('Pubblica una scheda') %>
+            <%= t('pubblica') %>
           </button>
         </div>
         <div class="center">
           <button id="view" class="btn-2" onclick="return button_2();">
-            <%= t('Guarda le tue schede') %>
+            <%= t('guarda_prenotazioni') %>
           </button>
         </div>
       </div>

@@ -32,13 +32,13 @@
               <p><h3><%= @bacheca_guida.description %></h3></p>
               <br>
               <br>
-              <p><h3> <%= t('lingue parlate:') %>
+              <p><h3> <%= t('lingua_post_bacheca') %>
               <% if @other_user.languages.present? %>
                 <% @other_user.languages.each do |linguaggio| %>
                   <%= linguaggio.name %>
                 <% end %>
               <% else %>
-               <%= t('nessuna lingua specificata') %>
+               <%= t('nessuna_lingua_specificata') %>
               <% end %>
               </h3></p>
           </div>
@@ -55,7 +55,7 @@
               <%= text_field_tag(:citta, nil, placeholder: t('citta'),id: 'cercacitta') %>
               <%= text_field_tag(:lingua, nil, placeholder: t('lingua'),id: 'cercalingua') %>
               <%= form.date_select(:date, include_blank: true) %>
-              <%= form.label :expired, t('mostra solo post scaduti') %>
+              <%= form.label :expired, t('mostra_solo_post_scaduti') %>
               <%= form.check_box :expired %>
               <%= hidden_field_tag(:user_id, @other_user.id) %>
               <%= hidden_field_tag(:increment, false)%>

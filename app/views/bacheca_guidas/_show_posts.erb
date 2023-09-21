@@ -16,22 +16,22 @@
             <%= post.descrizione%>
         </p>
         <hr> 
-        <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+        <h4 style='font-size: 15px'> <%= t('citta_guide')%>: <%= post.nomeC %> <br/></h4>
         </div>
         
         <div class='card-languages'>
             <h4>
-                <%= t('lingua:')%> <span style='font-weight: normal;'><%= post.lingua %></span> <br />
-                <%= t('data e ora:')%> <span style='font-weight: normal'><%= post.instance_variable_get(:@data) %> <%= post.instance_variable_get(:@ora) %></span>
+                <%= t('lingua_post_bacheca')%> <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+                <%= t('data_post_bacheca')%> <span style='font-weight: normal'><%= post.instance_variable_get(:@data) %> <%= post.instance_variable_get(:@ora) %></span>
             </h4>
         </div>
         <div class='card-link-wrapper'>
             <% if current_user.email != post.user_email  %>
-                <%= link_to t('Contatta'), conversation_path(other_email: post.user_email), class: "card-link"%>
+                <%= link_to t('contatta'), conversation_path(other_email: post.user_email), class: "card-link"%>
             <% end %>
             <br>
             <% if post.expired? %>
-                <%= link_to t("Vedi recensioni"), post_path(post), class: "card-link" %>
+                <%= link_to t("vedi_recensioni"), post_path(post), class: "card-link" %>
             <% else %>
                 <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
             <% end %>

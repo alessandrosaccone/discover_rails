@@ -14,13 +14,7 @@ class ApplicationController < ActionController::Base
         I18n.locale = chosen_language
         redirect_back(fallback_location: root_path)
     end
-=begin    
-    def switch_language
-        puts "Language selected: #{params[:language]}"
-        I18n.locale = params[:language] || I18n.default_locale
-        redirect_back(fallback_location: root_path)
-    end
-=end
+
     private
 
     def set_locale
