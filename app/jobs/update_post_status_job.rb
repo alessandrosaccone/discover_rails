@@ -18,6 +18,14 @@ class UpdatePostStatusJob < ApplicationJob
   #sidekiq_options queue: 'default', priority: 10
   def perform
     puts "I'm performing the update post status job"
+    posts = Post.where(status: 'open')
+    date_time_now = DateTime.now
+    posts.each do |post|
+      if (post.data <= date_time_now && post.ora < date_time_now) || (post.data < date_time_now) 
+        post.update(status: "expired")
+      end
+    end
+
     
   end
 
