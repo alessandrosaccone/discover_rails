@@ -98,7 +98,9 @@
   <div class="search_container" id="search">
     <%= form_with(url: url_for(controller: 'posts', action: 'index'), method: 'get', id: 'myform', data: { remote: true }) do |form| %>
       <div class="search-bar_center">
-        <%= text_field_tag(:citta, nil, placeholder: t('citta'), id: 'cercacitta') %>
+        <%=
+          text_field_tag(:citta, nil, placeholder: t('citta'), id: 'cercacitta')
+        %>
         <%=
           text_field_tag(
             :lingua,
@@ -112,7 +114,7 @@
     <% end %>
   </div>
 </div>
-<button id="see_map" onclick="see_map();">Let me see the map</button>
+<button id="see_map" onclick="see_map();"><%= t('map') %></button>
 
 <div id="map_container" class="map_container" style="display: none">
   <div id="mapDiv" class="map_class" style="display: none"></div>

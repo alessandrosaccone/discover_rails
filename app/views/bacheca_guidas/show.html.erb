@@ -107,15 +107,15 @@
       </div>
 
       <div class="col-md-2 mb-3">
-        <%= form.label :data, 'Data' %>
+        <%= form.label :data, t('data') %>
         <%= form.date_field :data, class: 'form-control_10', id: 'date-input', required: true %>
-        <small id="dateHelp" class="form-text text-muted">Inserisci una data futura.</small>
+        <small id="dateHelp" class="form-text text-muted"> <%= t('request_future_date') %></small>
       </div>
 
       <div class="col-md-1 mb-3">
-        <%= form.label :ora, 'Ora' %>
+        <%= form.label :ora, t('ora') %>
         <%= form.time_field :ora, class: 'form-control_10', id: 'time-input', required: true %>
-        <small id="timeHelp" class="form-text text-muted">Inserisci un orario futuro.</small>
+        <small id="timeHelp" class="form-text text-muted"> <%= t('request_future_date') %></small>
       </div>
 
       <script>
@@ -141,13 +141,13 @@
             var enteredDateTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), selectedTime.substring(0, 2), selectedTime.substring(3, 5));
             
             if (enteredDateTime < currentDateTime) {
-              dateHelp.textContent = "Inserisci una data e un orario futuri.";
-              timeHelp.textContent = "Inserisci una data e un orario futuri.";
-              dateInput.setCustomValidity("La data e l'orario devono essere futuri");
-              timeInput.setCustomValidity("La data e l'orario devono essere futuri");
+              dateHelp.textContent = t('error_date_time');
+              timeHelp.textContent = t('error_dare_time');
+              dateInput.setCustomValidity(t('error_dare_time'));
+              timeInput.setCustomValidity(t('error_dare_time'));
             } else {
-              dateHelp.textContent = "Inserisci una data futura.";
-              timeHelp.textContent = "Inserisci un orario futuro.";
+              dateHelp.textContent = t('error_date');
+              timeHelp.textContent = t('error_time');
               dateInput.setCustomValidity("");
               timeInput.setCustomValidity("");
             }
@@ -161,16 +161,16 @@
     <br />
     <div class="form-row_10">
       <div class="col-md-2 mb-3">
-        <%= form.label :persone, 'Persone' %>
+        <%= form.label :persone, t('persone') %>
         <%= form.number_field :persone, class: 'form-control_10', min: 10, max: 30, required: true %>
       </div>
 
      <div class="col-md-2 mb-3">
-    <%= form.label :persone_lastminute, 'Persone (Last_Minute)' %>
+    <%= form.label :persone_lastminute, t('persone_lastminute') %>
     <%= form.number_field :persone_lastminute, id: 'post_persone_lastminute', class: 'form-control_10', min: 1, max: 5, required: false %>
     <br>
     <%= form.check_box :require_persone_lastminute, { class: 'toggle-required', onchange: 'toggleRequired()' } %> 
-    <%= form.label :require_persone_lastminute, 'Rendi obbligatorio' %>
+    <%= form.label :require_persone_lastminute, t('rendi_obbligatorio') %>
 </div>
 
 <script>
@@ -188,12 +188,12 @@
 
 
       <div class="col-md-2 mb-3">
-        <%= form.label :numero_ore, 'Numero ore' %>
+        <%= form.label :numero_ore, t('numero_ore') %>
         <%= form.number_field :numero_ore, class: 'form-control_10', min: 2, max: 5, required: true %>
       </div>
 
       <div class="col-md-2 mb-3">
-        <%= form.label :prezzo, 'Prezzo ora' %>
+        <%= form.label :prezzo, t('prezzo_orario') %>
         <%= form.number_field :prezzo, class: 'form-control_10', min: 10, max: 50, required: true %>
       </div>
 
@@ -201,7 +201,7 @@
 
     <div class="form-row_10">
       <div class="col-md-3 mb-3">
-        <%= form.label :nomeC, 'Città' %>
+        <%= form.label :nomeC, t('citta') %>
         <%= form.text_field :nomeC, class: 'form-control_10', required: true %>
       </div>
       <script>
@@ -209,7 +209,7 @@
       </script>
 
       <div class="col-md-3 mb-3">
-        <%= form.label :lingua, 'Lingua' %>
+        <%= form.label :lingua, t('lingua') %>
         <%= form.text_field :lingua, class: 'form-control_10', required: true %>
       </div>
     </div>
@@ -217,7 +217,7 @@
    
     
 
-    <%= form.submit 'Pubblica', class: 'btn btn-primary_10' %>
+    <%= form.submit t('pubblica'), class: 'btn btn-primary_10' %>
   <% end %>
 
   <%= javascript_include_tag "script_bacheca", data: {controller_url: index_for_post_path, controller_url2: posts_destroy_for_user_path}%>
