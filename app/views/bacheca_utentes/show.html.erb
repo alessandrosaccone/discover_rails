@@ -34,9 +34,9 @@
               <div class="dot"></div>
             </div>
             <div class="dropdown-content">
-              <%= link_to "Modifica Username", edit_username_path(), method: :patch %>
-              <%= link_to "Modifica Descrizione", edit_bacheca_utentis_path(@bacheca_utenti.id) %>
-              <%= link_to 'Cancella Account', registration_path(current_user), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+              <%= link_to t('modifica_username'), edit_username_path(), method: :patch %>
+              <%= link_to t('modifica_descrizione'), edit_bacheca_utentis_path(@bacheca_utenti.id) %>
+              <%= link_to t('cancella_account'), registration_path(current_user), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
             </div>
           </div>
           <div class="container_100">
@@ -53,7 +53,7 @@
       <div class="coll">
         <div class="center">
           <button id="view" class="btn-2" onclick="return button_2();">
-            Guarda le tue prenotazioni
+            <%= t('guarda_prenotazioni') %>
           </button>
         </div>
       </div>

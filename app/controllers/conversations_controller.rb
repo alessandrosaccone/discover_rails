@@ -1,18 +1,17 @@
 class ConversationsController < ApplicationController
     before_action :authenticate_user!
-    include Devise::Controllers::Helpers
+    
     def show
 
         #Cerchiamo gli utenti della conversazione
-        @current_user = current_user
         @other_user = User.find_by(email: params[:other_email])
 
-        if !@conversation 
-            @conversation = Conversation.between(@current_user.id, @other_user.id).first
-        end
+
+        @conversation = Conversation.between(current_user.id, @other_user.id).first
+
 
         #se non c'è si crea, altrimenti si prende il record dal db
-        if !@conversation
+        if !@conversation 
             @conversation = Conversation.new
             @conversation.recipient_id = @other_user.id
             @conversation.sender_id = current_user.id

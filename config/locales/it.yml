@@ -21,6 +21,8 @@ it:
 
   logout: "Logout"
 
+  bacheca: "Bacheca"
+
   profilo: "Profilo"
 
   come_funziona: "Come funziona"
@@ -44,3 +46,82 @@ it:
         attributes:
           sender: "Mittente"
           recipient: "Destinatario"
+
+  date:
+    order: ["year", "month", "day"]
+    month_names:
+      [
+        "Gennaio",
+        "Febbraio",
+        "Marzo",
+        "Aprile",
+        "Maggio",
+        "Giugno",
+        "Luglio",
+        "Agosto",
+        "Settembre",
+        "Ottobre",
+        "Novembre",
+        "Dicembre",
+      ]
+
+  lingue_guide: "Lingue"
+  citta_guide: "Città"
+
+  scaduto: "Scaduto"
+  lingua_post_bacheca: "Lingua"
+  data_post_bacheca: "Data e ora"
+  contatta: "Contatta"
+  vedi_recensioni: "Vedi recensioni"
+  nessuna_lingua_specificata: "Nessuna lingua specificata"
+  mostra_solo_post_scaduti: "Mostra solo post scaduti"
+
+  modifica_username: "Modifica Username"
+  modifica_descrizione: "Modifica Descrizione"
+  cancella_account: "Cancella Account"
+  guarda_prenotazioni: "Guarda le tue prenotazioni"
+
+  lingue_parlate: "Lingue parlate"
+  modifica_username_lingue_e_citta: "Modifica Username, Lingue e Città"
+  cambia_immagine: "Cambia immagine"
+  pubblica: "Pubblica una scheda"
+
+  descrizione: "Descrizione"
+  titolo: "Titolo"
+  indirizzo: "Indirizzo"
+  data: "Data"
+  ora: "Ora"
+  error_date_time: "Inserisci una data e un orario futuri"
+  error_date: "Inserisci una data futura"
+  error_time: "Inserisci un orario futuro"
+  persone: "Numero di persone"
+  persone_lastminute: "Numero di persone (last-minute)"
+  numero_ore: "Numero di ore"
+  prezzo_orario: "Prezzo all'ora"
+  pubblica: "Pubblica"
+  request_future_date: "Inserire una data futura"
+  request_future_time: "Inserire un orario futuro"
+  rendi_obbligatorio: "Rendi obbligatorio"
+  post_citta: "Città:"
+  post_lingua: "Lingua:"
+  post_date: "Data e ora:"
+  contatta: "Contatta"
+  vedi_profilo: "Vedi profilo"
+  vedi_recensioni: "Vedi recensioni"
+  
+  nome_guida: "Nome della guida:"
+  titolo: "Titolo:"
+  descrizione: "Descrizione:"
+  numero_di_persone: "Numero di persone:"
+  posti_esauriti: "Posti esauriti"
+  error_guide: "Una guida non può prenotare"
+  visita_privata: "Prenota una visita privata"
+  scaduto: "Scaduto il:"
+  voto: "Voto degli utenti:"
+  empty_voto: "Nessuno ha ancora dato un voto a questo post"
+  prezzo: "Prezzo"
+  invia: "Invia"
+  inserisci_recensione: "Inserisci recensione"
+  aggiungi_recensione: "Aggiungi una recensione"
+  recensioni: "Recensioni degli utenti"
+  map: "Mostrami la mappa"

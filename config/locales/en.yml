@@ -66,6 +66,8 @@ en:
 
   lingua: "Language..."
 
+  bacheca: "Profile"
+
   nome: "Name..."
 
   nazione: "Nation..."
@@ -78,3 +80,71 @@ en:
       conversation:
         sender: "Sender"
         recipient: "Destinatario"
+
+  lingue_guide: "Languages"
+  citta_guide: "City"
+
+  scaduto: "Expired"
+  lingua_post_bacheca: "Language"
+  data_post_bacheca: "Date and time"
+  contatta: "Contact"
+  vedi_recensioni: "See reviews"
+  nessuna_lingua_specificata: "No language specified"
+  mostra_solo_post_scaduti: "Show only expired posts"
+
+  modifica_username: "Modify Username"
+  modifica_descrizione: "Modify Description"
+  cancella_account: "Delete Account"
+  guarda_prenotazioni: "See your bookings"
+
+  lingue_parlate: "Spoken languages"
+  modifica_username_lingue_e_citta: "Modify Username, Languages and Cities"
+  cambia_immagine: "Change image"
+  pubblica: "Publish a post"
+
+  descrizione: "Description"
+  titolo: "Title"
+  indirizzo: "Address"
+  data: "Date"
+  ora: "Time"
+  error_date_time: "Please insert a future Date and Time"
+  error_date: "Insert a future date"
+  error_time: "Insert a future time"
+  persone: "Number of persons"
+  persone_lastminute: "Number of (last-minute) persons"
+  numero_ore: "Number of hours"
+  prezzo_orario: "Price per hour"
+  pubblica: "Publish"
+  request_future_date: "Insert a future date"
+  request_future_time: "Insert a future time"
+  rendi_obbligatorio: "Make it compulsory"
+  post_citta: "City:"
+  post_lingua: "Language:"
+  post_date: "Date and time:"
+  contatta: "Contact"
+  vedi_profilo: "See profile"
+  vedi_recensioni: "See reviews"
+
+  nome_guida: "Name of the guide:"
+  titolo: "Title:"
+  descrizione: "Description:"
+  numero_di_persone: "Number of persons:"
+  posti_esauriti: "Sold-out"
+  error_guide: "A guide can not book"
+  visita_privata: "Book a private visit"
+  scaduto: "Expired:"
+  voto: "Users vote:"
+  empty_voto: "Nobody has given any vote for the moment"
+  prezzo: "Price"
+  invia: "Submit"
+  inserisci_recensione: "Add a review"
+  aggiungi_recensione: "Add a review"
+  recensioni: "Reviews from users"
+  map: "Let me see the map"
+
+
+
+
+
+
+

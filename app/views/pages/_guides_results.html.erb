@@ -2,18 +2,21 @@
   <div class="card swiper-slide">
     <div class="card__image">
       <%if guida.avatar.attached?%>
-            <%= image_tag guida.avatar, class: 'card_image' %>
-        <%end%>
+        <%= image_tag guida.avatar, class: 'card_image' %>
+      <%end%>
     </div>
-  
+
     <div class="card__content">
       <% if guida.username.present? %>
         <span class="card__title"><%= guida.username %></span>
       <%else%>
         <span class="card__title"><%= guida.name %></span>
       <%end%>
-      <p class="card__text">Città: <%= guida.city.name if guida.city.present? %></p>
-      <p class="card__text">Lingue:
+      <p class="card__text">
+        <%= t('citta_guide') %>: <%= guida.city.name if guida.city.present? %>
+      </p>
+      <p class="card__text">
+        <%= t('lingue_guide') %>:
         <% if guida.languages.present? %>
           <% guida.languages.each do |linguaggio| %>
             <%= linguaggio.name %>
@@ -22,7 +25,6 @@
           Nessuna lingua specificata
         <% end %>
       </p>
-      
     </div>
   </div>
-  <% end %>
+<% end %>

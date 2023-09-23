@@ -36,7 +36,7 @@
     <%end%>
     <%if user_signed_in?%>
       <%= link_to t('logout'), destroy_user_session_path, method: :delete %>
-      <%= link_to t('chat'), conversations_path%>
+      <%= link_to t('chat'), conversations_path %>
 
       <%if current_user.guide?%>
         <%= link_to t('bacheca'), show_bacheca_path %>
@@ -114,7 +114,7 @@
     <% end %>
   </div>
 </div>
-<button id="see_map" onclick="see_map();">Let me see the map</button>
+<button id="see_map" onclick="see_map();"><%= t('map') %></button>
 
 <div id="map_container" class="map_container" style="display: none">
   <div id="mapDiv" class="map_class" style="display: none"></div>

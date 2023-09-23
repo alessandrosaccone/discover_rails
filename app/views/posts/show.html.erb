@@ -1,235 +1,239 @@
 <% content_for :for_head do %>
-  <%= stylesheet_link_tag "application-post"%>
-  <%= stylesheet_link_tag "application" %>
-       
-<% end %>   
-<%= javascript_include_tag "script" %>
-<%= javascript_include_tag "script_responsiveness" %>
+  <%= stylesheet_link_tag 'application-post' %>
+  <%= stylesheet_link_tag 'application' %>
+<% end %>
+<%= javascript_include_tag 'script' %>
+<%= javascript_include_tag 'script_responsiveness' %>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <% if @post.expired? %>
-
   <!--Cerchiamo di capire se l'utente corrente ha o no partecipato alla visita-->
-  <% 
-    has_booked = false 
+  <%
+    has_booked = false
     @post.bookings.each do |booking|
-
       if booking.user.id == current_user.id
-
         has_booked = true
 
         break
-        
       end
-
     end
-    
   %>
-  
 
   <%= render @post %>
-  <h1>Nome della guida: <%= @post.user.name %> </h1> <br>
-  <!--<%= link_to "Profilo", pages_path(email: @post.user_email) %>-->
-  <h1>Titolo: <%= @post.titolo %></h1> <br>
-  <h3>Descrizione: <%= @post.descrizione %> </h3><br>
-  <h3>Città: <%= @post.nomeC %></h3><br>
-  <h3>Lingua: <%= @post.lingua %></h3><br>
-  <h3>Scaduto il: <%= @data %> alle <%= @ora %></h3><br>
+  <h1><%= t('nome_guida') %> <%= @post.user.name %></h1>
+  <br />
+  <!--<%= link_to 'Profilo', pages_path(email: @post.user_email) %>-->
+  <h1><%= t('titolo') %> <%= @post.titolo %></h1>
+  <br />
+  <h3><%= t('descrizione') %> <%= @post.descrizione %></h3>
+  <br />
+  <h3><%= t('post_citta') %> <%= @post.nomeC %></h3>
+  <br />
+  <h3><%= t('post_lingua') %> <%= @post.lingua %></h3>
+  <br />
+  <h3><%= t('scaduto') %> <%= @data %> alle <%= @ora %></h3>
+  <br />
   <% if @post.average_rating != 0 %>
-    <h3>Voto degli utenti: <%= @post.average_rating %></h3>
+    <h3><%= t('voto') %> <%= @post.average_rating %></h3>
   <% else %>
-    <h3>Nessuno ha ancora dato un voto a questo post</h3>
+    <h3><%= t('empty_voto') %></h3>
   <% end %>
 
-  <h3>Recensioni degli utenti:</h3><br>
+  <h3><%= t('recensioni') %></h3>
+  <br />
   <% @post.comments.each do |comment| %>
-    <%= render partial: 'comment/comment', locals: {comment: comment} %>
+    <%= render partial: 'comment/comment', locals: { comment: comment } %>
   <% end %>
 
   <% if has_booked %>
-    <h3>Aggiungi una recensione:</h3><br>
+    <h3><%= t('aggiungi_recensione') %></h3>
+    <br />
     <%= form_with(model: [Comment.new, @post.comments.build], url: post_comments_path(@post.id)) do |f| %>
-      <%= f.text_area :content, placeholder: 'Inserisci recensione' %>
-      <%= f.submit 'Invia' %>   
+      <%= f.text_area :content, placeholder: t('inserisci_recensione') %>
+      <%= f.submit t('invia') %>
     <% end %>
-    <br>
-    <div class='rating-stars'>
-      <input type='hidden' name='rating' value='<%= @rating_for_user.rating_score %>'>
-      <span class='star' data-value='1' id='star1'>&#9733;</span>
-      <span class='star' data-value='2' id='star2'>&#9733;</span>
-      <span class='star' data-value='3' id='star3'>&#9733;</span>
-      <span class='star' data-value='4' id='star4'>&#9733;</span>
-      <span class='star' data-value='5' id='star5'>&#9733;</span>
+    <br />
+    <div class="rating-stars">
+      <input
+        type="hidden"
+        name="rating"
+        value="<%= @rating_for_user.rating_score %>"
+      />
+      <span class="star" data-value="1" id="star1">&#9733;</span>
+      <span class="star" data-value="2" id="star2">&#9733;</span>
+      <span class="star" data-value="3" id="star3">&#9733;</span>
+      <span class="star" data-value="4" id="star4">&#9733;</span>
+      <span class="star" data-value="5" id="star5">&#9733;</span>
     </div>
-    <br>
+    <br />
   <% end %>
-
 <% else %>
   <%= render @post %>
-  <h1>Nome della guida: <%= @post.user.name %> </h1> <br>
-  <!--<%= link_to "Profilo", pages_path(email: @post.user_email) %>-->
-  <h1>Titolo: <%= @post.titolo %></h1> <br>
-  <h3>Descrizione: <%= @post.descrizione %> </h3><br>
-  <h3>Città: <%= @post.nomeC %></h3><br>
-  <h3>Lingua: <%= @post.lingua %></h3><br>
-  <h3>Data e ora: <%= @data %> <%= @ora %></h3><br>
-  <h3>Numero di persone: <%= @post.persone_rimanenti %></h3><br>
+  <h1><%= t('nome_guida') %> <%= @post.user.name %></h1>
+  <br />
+  <!--<%= link_to 'Profilo', pages_path(email: @post.user_email) %>-->
+  <h1><%= t('titolo') %> <%= @post.titolo %></h1>
+  <br />
+  <h3><%= t('descrizione') %> <%= @post.descrizione %></h3>
+  <br />
+  <h3><%= t('post_citta') %> <%= @post.nomeC %></h3>
+  <br />
+  <h3><%= t('post_lingua') %> <%= @post.lingua %></h3>
+  <br />
+  <h3><%= t('post_date') %> <%= @data %> <%= @ora %></h3>
+  <br />
+  <h3><%= t('numero_di_persone') %> <%= @post.persone_rimanenti %></h3>
+  <br />
   <%= form_tag(new_booking_path, method: :get, id: "pay_form") do %>
     <div class="field">
-      <%= label_tag :persone, "Persone" %>
-      <%= number_field_tag :persone , value=0, step: 1, id: "post_persone", max: @post.persone_rimanenti, min: 0 %>
+      <%= label_tag :persone, 'Persone' %>
+      <%=
+        number_field_tag :persone,
+                         value = 0,
+                         step: 1,
+                         id: 'post_persone',
+                         max: @post.persone_rimanenti,
+                         min: 0
+      %>
     </div>
     <div class="field">
-      <%= hidden_field_tag :post_id,value=@post.id %>
+      <%= hidden_field_tag :post_id, value = @post.id %>
     </div>
     <% if can?(:create, Booking) %>
-    <% if @post.persone_rimanenti > 0 %>
-      <%= submit_tag "Prenota" %>
-    <% else %>
-      <span class="text-danger">Posti esauriti</span>
+      <% if @post.persone_rimanenti > 0 %>
+        <%= submit_tag 'Prenota' %>
+      <% else %>
+        <span class="text-danger"> <%= t('posti_esauriti') %></span>
       <% end %>
     <%else%>
-    <span class="text-danger">Una guida non può prenotare</span>
+      <span class="text-danger"> <%= t('error_guide') %></span>
     <%end%>
   <% end %>
 
   <% if can?(:create, Booking) %>
-  <% if @post.persone_rimanenti == @post.persone %>
-    <button id="fill-form-button">Prenota una visita privata</button>
-    <%= javascript_tag do %>
-        document.getElementById('fill-form-button').addEventListener('click', function() {
-        document.getElementById('post_persone').value = <%= @post.persone_rimanenti %>; 
-        document.getElementById('pay_form').submit(); <!-- non serve -->
+    <% if @post.persone_rimanenti == @post.persone %>
+      <button id="fill-form-button"><%= t('visita_privata') %></button>
+      <%= javascript_tag do %>
+        document.getElementById('fill-form-button').addEventListener('click',
+        function() { document.getElementById('post_persone').value =
+        <%= @post.persone_rimanenti %>;
+        document.getElementById('pay_form').submit();
+        <!-- non serve -->
         });
+      <% end %>
+    <% end %>
   <% end %>
-  <% end %>
-  <% end %>
-  <br> <br>
-  <h3 style="color: green">Prezzo: <div id="price"></div> <%=@price%> </h3>
-  <br> <br>
+  <br />
+  <br />
+  <h3 style="color: green">
+    <%= t('prezzo') %>
+    <div id="price"></div>
+    <%= @price %>
+  </h3>
+  <br />
+  <br />
   <%= javascript_tag do %>
-    $(document).ready(function() {
-      var personeInput = $('#post_persone');
-      console.log(personeInput);
-      personeInput.on('input', function() {
-        var selectedValue = personeInput.val();
-        console.log(personeInput.val());
-        $.ajax({
-          url: '<%= get_price_post_path(@post) %>',
-          method: 'GET',
-          data: { persone: selectedValue },
-          success: function(response) {
-            var priceInput = $('#price');
-            priceInput.text(response.price + ' Euro');
-            console.log(priceInput);
-            console.log("Success with changing price");
-          },
-          error: function () {
-            var priceInput = $('#price');
-            priceInput.text('Numero improcessabile di persone');
-            console.log("Error changing the price");
-          }
-        });
-      });
-    });
+    $(document).ready(function() { var personeInput = $('#post_persone');
+    console.log(personeInput); personeInput.on('input', function() { var
+    selectedValue = personeInput.val(); console.log(personeInput.val());
+    $.ajax({ url: '<%= get_price_post_path(@post) %>', method: 'GET', data: {
+    persone: selectedValue }, success: function(response) { var priceInput =
+    $('#price'); priceInput.text(response.price + ' Euro');
+    console.log(priceInput); console.log("Success with changing price"); },
+    error: function () { var priceInput = $('#price'); priceInput.text('Numero
+    improcessabile di persone'); console.log("Error changing the price"); } });
+    }); });
   <% end %>
 <% end %>
 
 <div>
-  <%= link_to "Back to posts", posts_path %>
-
+  <%= link_to 'Back to posts', posts_path %>
 </div>
 
 <script>
-  $(document).ready(function(){
-
-    $('.rating-stars .star').click(function(){
-      var rating = $(this).data('value');
+  $(document).ready(function () {
+    $(".rating-stars .star").click(function () {
+      var rating = $(this).data("value");
       rating = parseInt(rating);
-      $(this).addClass('selected');
-      $(this).prevAll().addClass('selected');
-      $(this).nextAll().removeClass('selected');
+      $(this).addClass("selected");
+      $(this).prevAll().addClass("selected");
+      $(this).nextAll().removeClass("selected");
       $(this).siblings('input[name="rating"]').val(rating);
 
-      
       //ID 0 significa rating non creato per la pagina
-      if('<%= @rating_for_user.id%>' != '0' && '<%= @rating_for_user%>' != null){
+      if (
+        "<%= @rating_for_user.id %>" != "0" &&
+        "<%= @rating_for_user %>" != null
+      ) {
         updateRating(rating);
-      }
-      else{
+      } else {
         createRating(rating);
       }
-    })
+    });
 
-    function createRating(rating){
+    function createRating(rating) {
       $.ajax({
-        url: '<%= @post.id %>'+'/ratings',
-        type: 'POST',
-        dataType: 'json',
-        data: {rating_score: rating},
-        success: function(response){
+        url: "<%= @post.id %>" + "/ratings",
+        type: "POST",
+        dataType: "json",
+        data: { rating_score: rating },
+        success: function (response) {
           console.log("Rating aggiornato");
         },
-        error: function(xhr, status, error){
+        error: function (xhr, status, error) {
           console.log("Errore");
-        }
-      })
+        },
+      });
     }
-  
-    function updateRating(rating){
+
+    function updateRating(rating) {
       $.ajax({
-        url: '<%= @post.id %>'+'/ratings/'+'<%= @rating_for_user.id %>',
-        type: 'PATCH',
-        dataType: 'json',
-        data: {rating_score: rating},
-        success: function(response){
+        url: "<%= @post.id %>" + "/ratings/" + "<%= @rating_for_user.id %>",
+        type: "PATCH",
+        dataType: "json",
+        data: { rating_score: rating },
+        success: function (response) {
           console.log("Rating aggiornato");
         },
-        error: function(xhr, status, error){
+        error: function (xhr, status, error) {
           console.log("Errore");
-        }
-      })
-    }  
-  })
-
+        },
+      });
+    }
+  });
 </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function(){
-    var star1 = document.getElementById('star1')
-    var star2 = document.getElementById('star2')
-    var star3 = document.getElementById('star3')
-    var star4 = document.getElementById('star4')
-    var star5 = document.getElementById('star5')
-    var toshow = '<%= @rating_for_user.rating_score %>'
-    console.log(toshow)
+  document.addEventListener("DOMContentLoaded", function () {
+    var star1 = document.getElementById("star1");
+    var star2 = document.getElementById("star2");
+    var star3 = document.getElementById("star3");
+    var star4 = document.getElementById("star4");
+    var star5 = document.getElementById("star5");
+    var toshow = "<%= @rating_for_user.rating_score %>";
+    console.log(toshow);
 
-    if(toshow === '1'){
-      star1.classList.add('selected');
+    if (toshow === "1") {
+      star1.classList.add("selected");
+    } else if (toshow === "2") {
+      star1.classList.add("selected");
+      star2.classList.add("selected");
+    } else if (toshow === "3") {
+      star1.classList.add("selected");
+      star2.classList.add("selected");
+      star3.classList.add("selected");
+    } else if (toshow === "4") {
+      star1.classList.add("selected");
+      star2.classList.add("selected");
+      star3.classList.add("selected");
+      star4.classList.add("selected");
+    } else if (toshow === "5") {
+      star1.classList.add("selected");
+      star2.classList.add("selected");
+      star3.classList.add("selected");
+      star4.classList.add("selected");
+      star5.classList.add("selected");
     }
-    else if(toshow === '2'){
-      star1.classList.add('selected');
-      star2.classList.add('selected');
-    }
-    else if(toshow === '3'){
-      star1.classList.add('selected');
-      star2.classList.add('selected');
-      star3.classList.add('selected');
-    }
-    else if(toshow === '4'){
-      star1.classList.add('selected');
-      star2.classList.add('selected');
-      star3.classList.add('selected');
-      star4.classList.add('selected');
-    }
-    else if(toshow === '5'){
-      star1.classList.add('selected');
-      star2.classList.add('selected');
-      star3.classList.add('selected');
-      star4.classList.add('selected');
-      star5.classList.add('selected');
-    }
-    
-  })
+  });
 </script>

@@ -22,24 +22,25 @@
               <%= post.descrizione%>
           </p>
           <hr> 
-          <h4 style='font-size: 15px'>Città: <%= post.nomeC %> <br/></h4>
+          <h4 style='font-size: 15px'><%= t('post_citta')%><%= post.nomeC %> <br/></h4>
           </div>
           
           <div class='card-languages'>
               <h4>
-                  Lingua: <span style='font-weight: normal;'><%= post.lingua %></span> <br />
-                  Data e ora: <span style='font-weight: normal'><%= post.instance_variable_get(:@data) %> <%= post.instance_variable_get(:@ora) %></span>
+                  <%= t('post_lingua') %> <span style='font-weight: normal;'><%= post.lingua %></span> <br />
+                  <%= t('post_date')%> <span style='font-weight: normal'><%= post.instance_variable_get(:@data) %> <%= post.instance_variable_get(:@ora) %></span>
               </h4>
           </div>
           <div class='card-link-wrapper'>
               <% if !user_signed_in? %>
-                <%= link_to 'Contatta', conversation_path(other_email: post.user_email), class: "card-link"%>
+                <%= link_to t('contatta'), conversation_path(other_email: post.user_email), class: "card-link"%>
               <% elsif current_user.email != post.user_email %>
-                <%= link_to 'Contatta', conversation_path(other_email: post.user_email), class: "card-link"%>
+                <%= link_to t('contatta'), conversation_path(other_email: post.user_email), class: "card-link"%>
+                <%= link_to t('vedi_profilo'), show_bacheca_for_others_path(user_id: post.user.id), class: "card-link"%>
               <% end %>
               <br>
               <% if post.expired? %>
-                <%= link_to "Vedi recensioni", post_path(post), class: "card-link" %>
+                <%= link_to t('vedi_recensioni'), post_path(post), class: "card-link" %>
               <% else %>
                 <%= link_to post.instance_variable_get(:@total_price), post_path(post), class: "card-link" %>
               <% end %>
