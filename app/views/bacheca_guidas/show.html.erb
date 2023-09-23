@@ -88,21 +88,21 @@
 <%= form_with(model: @post, url: posts_path, local: true, html: { id: 'form' }, class: 'sparisci') do |form| %>
     <div class="form-row_10">
       <div class="col-md-6 mb-3">
-        <%= form.label :descrizione, 'Descrizione' %>
+        <%= form.label :descrizione, t('descrizione') %>
         <%= form.text_area :descrizione, class: 'form-control_10', rows: 9, maxlength: 400, required: true %>
       </div>
     </div>
 
     <div class="form-row_10">
       <div class="col-md-6 mb-3">
-        <%= form.label :titolo, 'Titolo' %>
+        <%= form.label :titolo, t('titolo') %>
         <%= form.text_field :titolo, class: 'form-control_10', maxlength: 30, required: true %>
       </div>
     </div>
 
     <div class="form-row_10">
       <div class="col-md-3 mb-3">
-        <%= form.label :address, 'Indirizzo' %>
+        <%= form.label :address, t('indirizzo') %>
         <%= form.text_field :address, class: 'form-control_10', required: true %>
       </div>
 
