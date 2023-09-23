@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if resource.guide?
       stripe_account = Stripe::Account.create({
         type: 'custom',
-        country: 'IT',
+        country: params[:stato],
         email: resource.email,
         business_type: 'individual',
         individual: {
@@ -26,19 +26,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
           first_name: resource.name,
           last_name: params[:cognome],
           address: {
-            line1: "Via dei Campi Flegrei",
-            city: "Roma",
-            state: "Lazio",
-            postal_code: "00141",
-            country: "IT"
+            line1: params[:indirizzo],
+            city: params[:citta],
+            state: params[:regione],
+            postal_code: params[:codicepostale],
+            country: params[:stato]
           },
-          phone: '3388188350', # Numero di telefono
+          phone: params[:telefono], # Numero di telefono
           dob: {
             day: giorno, # Giorno di nascita
             month: mese, # Mese di nascita
             year: anno # Anno di nascita
           },
-          id_number: 'ABCD1234EFGH5678' # Codice fiscale
+          id_number: params[:codicefiscale] # Codice fiscale
         },
         business_profile: {
           mcc: '4722',
@@ -48,10 +48,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
         requested_capabilities: ['card_payments', 'transfers'],
         external_account: {
           object: 'bank_account',
-          country: 'IT',
+          country: params[:statobanca],
           currency: 'eur',
           account_holder_type: 'individual',
-          account_number: 'IT60X0542811101000000123456'
+          account_number: params[:iban]
         }
       })
       Stripe::Account.update(
@@ -105,7 +105,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_permitted_parameters
     attributes = [:name, :email, :password,:iva,:role_id,:remember_me, :avatar, :cognome, :nascita, :indirizzo, :citta, :stato, :codicepostale,
-                  :codicefiscale, :iban]
+                  :codicefiscale, :iban, :regione, :statobanca, :telefono ]
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
   end
 
