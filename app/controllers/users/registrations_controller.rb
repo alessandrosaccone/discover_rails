@@ -16,51 +16,68 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #serve per i test, nella realtà la guida deve darci tramite form il suo stripe_account_id. più semplice crearli così che a mano
     super do |resource|
       if resource.guide?
-      stripe_account = Stripe::Account.create({
-        type: 'custom',
-        country: params[:stato],
-        email: resource.email,
-        business_type: 'individual',
-        individual: {
+
+      begin
+        stripe_account = Stripe::Account.create({
+          type: 'custom',
+          country: params[:stato],
           email: resource.email,
-          first_name: resource.name,
-          last_name: params[:cognome],
-          address: {
-            line1: params[:indirizzo],
-            city: params[:citta],
-            state: params[:regione],
-            postal_code: params[:codicepostale],
-            country: params[:stato]
+          business_type: 'individual',
+          individual: {
+            email: resource.email,
+            first_name: resource.name,
+            last_name: params[:cognome],
+            address: {
+              line1: params[:indirizzo],
+              city: params[:citta],
+              state: params[:regione],
+              postal_code: params[:codicepostale],
+              country: params[:stato]
+            },
+            phone: params[:telefono], # Numero di telefono
+            dob: {
+              day: giorno, # Giorno di nascita
+              month: mese, # Mese di nascita
+              year: anno # Anno di nascita
+            },
+            id_number: params[:codicefiscale] # Codice fiscale
           },
-          phone: params[:telefono], # Numero di telefono
-          dob: {
-            day: giorno, # Giorno di nascita
-            month: mese, # Mese di nascita
-            year: anno # Anno di nascita
+          business_profile: {
+            mcc: '4722',
+            product_description: 'Tourism services'
+            
           },
-          id_number: params[:codicefiscale] # Codice fiscale
-        },
-        business_profile: {
-          mcc: '4722',
-          product_description: 'Tourism services'
-           
-        },
-        requested_capabilities: ['card_payments', 'transfers'],
-        external_account: {
-          object: 'bank_account',
-          country: params[:statobanca],
-          currency: 'eur',
-          account_holder_type: 'individual',
-          account_number: params[:iban]
-        }
-      })
-      Stripe::Account.update(
-        stripe_account.id,
-        {tos_acceptance: {date: 1609798905, ip: '8.8.8.8'}},
-      )
-    stripe_account.id
-      resource.stripe_account_id = stripe_account.id
-      resource.save
+          requested_capabilities: ['card_payments', 'transfers'],
+          external_account: {
+            object: 'bank_account',
+            country: params[:statobanca],
+            currency: 'eur',
+            account_holder_type: 'individual',
+            account_number: params[:iban]
+          }
+        })
+        Stripe::Account.update(
+          stripe_account.id,
+          {tos_acceptance: {date: 1609798905, ip: '8.8.8.8'}},
+        )
+      stripe_account.id
+        resource.stripe_account_id = stripe_account.id
+        resource.save
+      rescue Stripe::StripeError => e
+        # Handle Stripe-specific errors
+        # You can log the error for debugging purposes
+        Rails.logger.error("Stripe error: #{e.message}")
+      
+        # Provide a user-friendly error message
+        # to do
+      rescue => e
+        # Handle other unexpected errors
+        # Log the error for debugging purposes
+        Rails.logger.error("Unexpected error: #{e.message}")
+      
+        # Provide a user-friendly error message
+        # to do
+      end
     end
   end
   end
