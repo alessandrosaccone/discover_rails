@@ -14,18 +14,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     anno, mese, giorno = params[:nascita].split('-').map(&:to_i)
     #serve per i test, nella realtà la guida deve darci tramite form il suo stripe_account_id. più semplice crearli così che a mano
-    super do |resource|
-      if resource.guide?
-
+    
+      
+      if params[:user][:role_id]=="10"
+      
       begin
         stripe_account = Stripe::Account.create({
           type: 'custom',
           country: params[:stato],
-          email: resource.email,
+          email: params[:user][:email],
           business_type: 'individual',
           individual: {
-            email: resource.email,
-            first_name: resource.name,
+            email: params[:user][:email],
+            first_name: params[:user][:name],
             last_name: params[:cognome],
             address: {
               line1: params[:indirizzo],
@@ -61,24 +62,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
           {tos_acceptance: {date: 1609798905, ip: '8.8.8.8'}},
         )
       stripe_account.id
-        resource.stripe_account_id = stripe_account.id
-        resource.save
       rescue Stripe::StripeError => e
         # Handle Stripe-specific errors
         # You can log the error for debugging purposes
         Rails.logger.error("Stripe error: #{e.message}")
-      
-        # Provide a user-friendly error message
-        # to do
+        #risolvere frontend
+        redirect_to new_user_registration_path,notice: e.message
+        return
+        
       rescue => e
         # Handle other unexpected errors
         # Log the error for debugging purposes
         Rails.logger.error("Unexpected error: #{e.message}")
-      
-        # Provide a user-friendly error message
-        # to do
+        #risolvere frontend per errore console
+        redirect_to new_user_registration_path,notice: e.message
+        return
       end
-    end
+      super do |resource|
+        resource.stripe_account_id = stripe_account.id
+        resource.save
+      end
+
+    
   end
   end
   
