@@ -83,9 +83,9 @@ class Booking < ApplicationRecord
         source: token.id,
         description: "Prenotazione del post #{post.titolo} di #{post.user.name} da parte di #{user.name}",
         metadata: { user_id: user.id, post_id: post.id },
-        application_fee_amount: (amount.to_i * 7) # Imposta l'importo della commissione per la guida (10% dell'importo della prenotazione)
+        #application_fee_amount: (amount.to_i * 7) # Imposta l'importo della commissione per la guida (10% dell'importo della prenotazione)
       },
-      stripe_account: post.user.stripe_account_id # Imposta l'ID dell'account collegato della guida come destinatario del pagamento
+      #stripe_account: post.user.stripe_account_id # Imposta l'ID dell'account collegato della guida come destinatario del pagamento
     )
     
     self.stripe_charge_id = charge.id
@@ -108,7 +108,8 @@ class Booking < ApplicationRecord
     end
     false
   rescue Stripe::StripeError => e
-    errors.add :base, "Errore."
+    puts "Stripe::StripeError - Message: #{e.message}" # Capture and display Stripe error message
+    errors.add :base, "Errore durante l'elaborazione del pagamento. Si prega di riprovare più tardi."
     false
   end
   
