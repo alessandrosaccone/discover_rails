@@ -8,7 +8,7 @@ class EveryTfJob < ApplicationJob
     bookings=Booking.where(transfertoguide: false)
     bookings.each do |booking|
       post=booking.post
-      if post.data>Date.today 
+      if post.data<Date.today 
         value=((booking.amount-0.1*booking.amount)*100).to_i
         puts "Booking Amount: #{value}"
         transfer = Stripe::Transfer.create(
