@@ -1,4 +1,8 @@
 it:
+  language_name:
+    english: "Inglese"
+    italian: "Italiano"
+    spanish: "Spagnolo"
   one: |
     Discover è un'app che consente agli utenti di trovare una guida turistica per il posto in cui soggiornano o in cui avranno intenzione di farlo.
     Puoi scegliere il luogo e trovare l'esperto, l'itinerario ed il prezzo più adatti per te. Tutto, in maniera più che semplice!

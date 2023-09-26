@@ -41,10 +41,10 @@ u4.save;
 u5.city=c2;
 u5.save;
 
-p1 = Post.create({ descrizione: 'Lorem ipsum', titolo: 'Esempio', data: '13/09/2023', ora: '22:58',
+p1 = Post.create({ descrizione: 'Lorem ipsum', titolo: 'Esempio', data: '25/09/2023', ora: '22:58',
   lingua: 'Italiano', persone: '10', prezzo: '60', nomeC: 'Roma', regioneC: 'Lazio', nomeP: 'Roma', numero_ore: 3, user_email: 'sally@example.com', address: 'Via Nicola Salvi', user_id: u1.id})
-p2 = Post.create({ descrizione: 'Lorem ipsum', titolo: 'Esempio', data: '11/11/2024', ora: '10:00',
-    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'sue@example.com', address: 'Via Nicola Salvi 3', user_id: u2.id, last_minute: true, persone_lastminute: 3})
+p2 = Post.create({ descrizione: 'Lorem ipsum', titolo: 'Esempio', data: '27/09/2023', ora: '23:40',
+    lingua: 'Tedesco', persone: '15', prezzo: '80', nomeC: 'Formia', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'alessandrosaccone96@gmail.com', address: 'Via Nicola Salvi 3', user_id: u6.id})
 p3 = Post.create({ descrizione: 'Lorem ipsum', titolo: 'Esempio', data: '11/06/2024', ora: '15:00',
     lingua: 'Inglese', persone: '8', prezzo: '50', nomeC: 'Napoli', regioneC: 'Campania', nomeP: 'Napoli', numero_ore: 2, user_email: 'jackel@example.com', address: 'Via della Minerva 1', user_id: u5.id})
 p4 = Post.create({ descrizione: 'Lorem ipsum', titolo: 'Esempio', data: '8/11/2024', ora: '10:00',
@@ -56,8 +56,5 @@ p6 = Post.create({ descrizione: 'Evviva la vita 3', titolo: 'Esempio', data: '30
 p7 = Post.create({ descrizione: 'Evviva la vita 3', titolo: 'Esempio', data: '30/05/2023', ora: '08:15',
     lingua: 'Inglese', persone: '15', prezzo: '80', nomeC: 'Gaeta', regioneC: 'Lazio', nomeP: 'Latina', numero_ore: 4, user_email: 'jackel@example.com',user_id: u5.id})
  
-b1 = Booking.create({user_id: 2, post_id: 1, stripe_charge_id: 000, num_pers: 1, amount: 1, expired: true})
-b1 = Booking.create({user_id: u6.id, post_id: p1.id, expired: false, num_pers: 1, refunded: false})
-b2 = Booking.create({user_id: u6.id, post_id: p1.id, expired: true, num_pers: 1, refunded: false})
-b3 = Booking.create({user_id: u6.id, post_id: p1.id, expired: false, num_pers: 1, refunded: true})
-b4 = Booking.create({user_id: u6.id, post_id: p2.id, expired: false, num_pers: 1, refunded: false})
+
+b1 = Booking.create({user_id: 6, post_id: 2, stripe_charge_id: 000, num_pers: 1, amount: 1, expired: false})

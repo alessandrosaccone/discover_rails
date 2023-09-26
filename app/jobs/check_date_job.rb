@@ -7,16 +7,7 @@ class CheckDateJob < ApplicationJob
     puts "I'm performing the CheckDateJob"
     bookings = Booking.all
     bookings.each do |booking|
-=begin    
-    puts Date.today.strftime("%e %b %Y") 
-    puts DateTime.now.strftime("%H:%M")
-    puts booking.post.data.strftime("%e %b %Y")
-    puts booking.post.ora.strftime("%H:%M")
-    puts (Date.today + 1.day).strftime("%e %b %Y")
-    puts (Date.today + 1.day).strftime("%e %b %Y") == booking.post.data.strftime("%e %b %Y")      
-   if (Date.today.strftime("%e %b %Y") == booking.post.data.strftime("%e %b %Y") &&
-        DateTime.now.strftime("%H:%M") > booking.post.ora.strftime("%H:%M") && booking.expired==false)
-=end 
+
       if (((Date.today + 1.day).strftime("%e %b %Y") == booking.post.data.strftime("%e %b %Y")) && booking.expired==false && booking.post.last_minute==false)
         booking.update(expired: true)
         begin
