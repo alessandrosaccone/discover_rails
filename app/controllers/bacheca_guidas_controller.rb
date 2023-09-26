@@ -116,7 +116,7 @@ class BachecaGuidasController < ApplicationController
   private
 
   def bacheca_params
-    params.require(:bacheca_guida).permit(:description, :date)
+    params.require(:bacheca_guida).sanitize.permit(:description, :date)
   end
   
 

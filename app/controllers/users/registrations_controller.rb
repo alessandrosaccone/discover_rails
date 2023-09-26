@@ -12,11 +12,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    anno, mese, giorno = params[:nascita].split('-').map(&:to_i)
+    
     #serve per i test, nella realtà la guida deve darci tramite form il suo stripe_account_id. più semplice crearli così che a mano
+
+
     
       
       if params[:user][:role_id]=="10"
+
+        anno, mese, giorno = params[:nascita].split('-').map(&:to_i)
       
       begin
         stripe_account = Stripe::Account.create({
@@ -80,11 +84,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
       super do |resource|
         resource.stripe_account_id = stripe_account.id
+        bacheca_guida = BachecaGuida.new
+        bacheca_guida.user_id = resource.id
+        bacheca_guida.save
         resource.save
       end
 
-    
+    else
+      super do |resource|
+        bacheca_utente = BachecaUtente.new
+        bacheca_utente.user_id = resource.id
+        bacheca_utente.save
+      end
   end
+
   end
   
 
