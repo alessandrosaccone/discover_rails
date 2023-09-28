@@ -45,6 +45,3 @@ b1427078e34197099eca9ad8ecedc5a7635171a7
 Ho bisogno di queste informazioni per account guida:  
 nome della banca (forse non serve) e, se la banca è all'estero, devo inserire anche la valuta: Vedere se aggiungere campo. Intanto test euro.
 Aggiungere Controlli in caso di campi errati.
-
-Il mio job invia una mail quando non puoi più fare il refund di un booking. Ma non credo abbiamo permesso
-in effetti di fare in modo che questo refund venga eliminato. Discutiamone, lasciami il codice da aggiungere al mio job, e poi verificherò (immagino si tratti di un parametro da modificare tipo refundable: false, ma chiedo per evitare problemi)
