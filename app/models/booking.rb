@@ -25,14 +25,13 @@ class Booking < ApplicationRecord
   def refund_payment
     return false unless stripe_charge_id.present?
   
-    charge = Stripe::Charge.retrieve(stripe_charge_id, { stripe_account: post.user.stripe_account_id })
+    charge = Stripe::Charge.retrieve(stripe_charge_id, { stripe_account: 'acct_1N6vy0A60U57XjZB'})
     
     if charge
       puts charge
       refund = Stripe::Refund.create({
-        charge: charge.id,
-        refund_application_fee: true,},
-        stripe_account: post.user.stripe_account_id
+        charge: charge.id,},
+        stripe_account: 'acct_1N6vy0A60U57XjZB'
       )
       
       update(refunded: true)
