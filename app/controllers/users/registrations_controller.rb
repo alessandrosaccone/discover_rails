@@ -12,12 +12,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    
-    #serve per i test, nella realtà la guida deve darci tramite form il suo stripe_account_id. più semplice crearli così che a mano
-
-
-    
-      
       if params[:user][:role_id]=="10"
 
         anno, mese, giorno = params[:nascita].split('-').map(&:to_i)

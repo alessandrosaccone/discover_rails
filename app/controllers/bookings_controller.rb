@@ -45,6 +45,8 @@ class BookingsController < ApplicationController
       if @booking.refund_payment
         post = Post.find(@booking.post_id)
         num_pers = @booking.num_pers
+        post.persone_rimanenti+=num_pers
+        post.save!
         redirect_to @booking.post, notice: 'Prenotazione cancellata con successo e rimborso effettuato.'
       else
         redirect_to @booking.post, notice: @booking.errors.full_messages.join('. ')
