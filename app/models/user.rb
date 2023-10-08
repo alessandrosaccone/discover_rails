@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :ratings
   has_many :booked_posts, through: :bookings, source: :post, dependent: :destroy
-  
+  has_many :notifications, as: :recipient, dependent: :destroy
   
   def tourist?
     role.name == 'Tourist'

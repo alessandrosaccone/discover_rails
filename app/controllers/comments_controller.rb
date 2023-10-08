@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
         else
             redirect_to @post, alert: "Failure adding comment"
         end
+
     end
 
 

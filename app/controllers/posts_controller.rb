@@ -40,6 +40,11 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
+    if params[:notification]
+      params[:notification].update(read_at: DateTime.now)
+    end
+
+
     @post = Post.find(params[:id])
     @ora = @post.ora.to_s[11,5]
     @data = @post.data.to_s[2,8]

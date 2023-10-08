@@ -10,10 +10,14 @@
     <%= link_to t('home'), home_pages_path %>
     <%= link_to t('visite'), posts_path %>
     <%= link_to t('guide'), guides_path %>
+
     <%if !user_signed_in?%>
       <a href="<%= new_user_session_path %>">Login</a>
     <%end%>
+
     <%if user_signed_in?%>
+      <% @notifications = current_user.notifications.where(read_at: nil).reverse %>
+
       <%= link_to t('logout'), destroy_user_session_path, method: :delete %>
       <%= link_to t('chat'), conversations_path, method: :get %>
       <%if current_user.guide?%>
@@ -21,14 +25,45 @@
       <%else%>
         <%= link_to t('profilo'), show_bacheca_utenti_path, method: :get %>
       <%end%>
-    <%end%>
+
+      <ion-icon
+        name="notifications-outline"
+        id="icon-notif"
+        onclick="showNotifications()"
+        style="color: white;
+              font-size: 27px;
+              "
+      ></ion-icon>
+
+      <table
+        id="notification-container"
+        style="visibility: collapse; overflow-x: hidden; overflow-y: auto; width: 150px;"
+      >
+        <% @notifications.each do |notification| %>
+          <% username = notification.recipient.name %>
+          <% if notification.type == 'CommentNotification' %>
+            <% content = notification.params[:comment][:content] %>
+          <% else %>
+            <% content = notification.params[:message][:body] %>
+          <% end %>
+          <tr>
+            <td>
+              <%= link_to "#{username}: #{content}", notification_path(notification: notification) %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+
     <%= form_tag switch_language_path, method: :post do %>
       <%=
         select_tag :language,
                    options_for_select(language_options, I18n.locale.to_s)
       %>
+
       <%= submit_tag 'Switch Language', class: 'btn-language' %>
     <% end %>
+
     <style>
       .btn-language {
         background-color: #4caf50;
@@ -43,6 +78,31 @@
       .btn-language:hover {
         background-color: #45a049;
       }
+
+      .notifications {
+      }
+      .notifications:before {
+        position: absolute;
+        content: "";
+        background-color: #ff0000;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+      }
     </style>
+    <script>
+      function showNotifications() {
+        cont = document.getElementById("notification-container");
+        cont.readonly = "false";
+        cont.style.visibility = "visible";
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        if (document.getElementsByTagName("td").length !== 0) {
+          document.getElementById("icon-notif").classList.add("notifications");
+        }
+      });
+    </script>
   </nav>
 </div>

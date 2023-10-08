@@ -1,81 +1,80 @@
 <% content_for :for_head do %>
-  <%= stylesheet_link_tag "application-home"%>
+  <%= stylesheet_link_tag "application-home" %>
   <%= stylesheet_link_tag "application" %>
 <% end %>
 <!-- I'm verifying if I'm using a mobile browser // a little different from the js in js/script_responsiveness.js -->
 <script>
-var a;
-function myfunction() {
-if (
-    navigator.userAgent.match(/Android/i) ||
-    navigator.userAgent.match(/webOS/i) ||
-    navigator.userAgent.match(/iPhone/i) ||
-    navigator.userAgent.match(/iPad/i) ||
-    navigator.userAgent.match(/iPod/i) ||
-    navigator.userAgent.match(/BlackBerry/i) ||
-    navigator.userAgent.match(/Windows Phone/i) 
-    
-) {
-    a = true;
-    window.location.replace("/posts");
-} else {
-    a = false;
-}
-//alert(a);
-}
-myfunction();
+  var a;
+  function myfunction() {
+    if (
+      navigator.userAgent.match(/Android/i) ||
+      navigator.userAgent.match(/webOS/i) ||
+      navigator.userAgent.match(/iPhone/i) ||
+      navigator.userAgent.match(/iPad/i) ||
+      navigator.userAgent.match(/iPod/i) ||
+      navigator.userAgent.match(/BlackBerry/i) ||
+      navigator.userAgent.match(/Windows Phone/i)
+    ) {
+      a = true;
+      window.location.replace("/posts");
+    } else {
+      a = false;
+    }
+    //alert(a);
+  }
+  myfunction();
 </script>
 <!-- here the code for not mobile users -->
-<%=render 'layouts/navbar'%>
+<%= render 'layouts/navbar' %>
 
 <div class="container">
-<div class="sec2 sections">
-<div class="image1">
-    <%= image_tag "ROMA.png", class: 'image' %>
-    <div class="middle">
-    <div class="text1">Castel Sant'Angelo</div>
+  <div class="sec2 sections">
+    <div class="image1">
+      <%= image_tag "ROMA.png", class: 'image' %>
+      <div class="middle">
+        <div class="text1">Castel Sant'Angelo</div>
+      </div>
     </div>
-</div>
-<div class="section_container">
-    <div class="text">
-    <p class="title">Discover</p>
-    <p class="description">
-       <%= t('one') %>
-    </p>
+    <div class="section_container">
+      <div class="text">
+        <p class="title">Discover</p>
+        <p class="description">
+          <%= t('one') %>
+        </p>
+      </div>
     </div>
-</div>
-</div>
+  </div>
 
-<div class="sec1 sections">
-<div class="section_container reveal">
-    <div class="text">
-    <p class="title"><%=t('come_funziona')%></p>
-    <p class="description">
-       <%= t('two') %>
-    </p>
+  <div class="sec1 sections">
+    <div class="section_container reveal">
+      <div class="text">
+        <p class="title"><%= t('come_funziona') %></p>
+        <p class="description">
+          <%= t('two') %>
+        </p>
+      </div>
     </div>
-</div>
-<div class="image1 reveal">
-    <%= image_tag "tutte-le-strade-portano-a-roma.jpg", class: 'image'%>
-    <div class="middle">
-    <div class="text1">Colosseo</div>
+    <div class="image1 reveal">
+      <%= image_tag "tutte-le-strade-portano-a-roma.jpg", class: 'image' %>
+      <div class="middle">
+        <div class="text1">Colosseo</div>
+      </div>
     </div>
-</div>
-</div>
-<div class="sec3 sections">
-<div class="image1 reveal">
-    <%= image_tag "mondo.jpg", class: 'image'%>
-    <div class="middle">
-    <div class="text1">San Pietro</div>
+  </div>
+  <div class="sec3 sections">
+    <div class="image1 reveal">
+      <%= image_tag "mondo.jpg", class: 'image' %>
+      <div class="middle">
+        <div class="text1">San Pietro</div>
+      </div>
     </div>
-</div>
-<div class="section_container reveal">
-    <div class="text">
-    <p class="title"><%=t('soluzioni_moderne')%></p>
-    <p class="description">
-        <%= t('three') %>
-    </p>
+    <div class="section_container reveal">
+      <div class="text">
+        <p class="title"><%= t('soluzioni_moderne') %></p>
+        <p class="description">
+          <%= t('three') %>
+        </p>
+      </div>
     </div>
-</div>
-</div>
+  </div>
 </div>
