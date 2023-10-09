@@ -5,17 +5,30 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
   # GET /posts
   def index
-    @posts = Post.where('data>= ?', Date.today)
+    @posts = Post.where('data >= ?', Date.today)
     @posts=@posts.where('persone_rimanenti>0')
     citta = params[:citta]
     lingua = params[:lingua]
     if (citta.present? && lingua.present?)
-      @posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%")
-      @posts = @posts.where("lingua LIKE ?", "%#{params[:lingua]}%")
+      #SANITIZED
+      nomeC_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["nomeC LIKE ?", "%#{params[:citta]}%"])
+      lingua_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["lingua LIKE ?", "%#{params[:lingua]}%"])
+
+      @posts = Post.where(nomeC_sanitized)
+      @posts = @posts.where(lingua_sanitized)
+
+      #@posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%")
+      #@posts = @posts.where("lingua LIKE ?", "%#{params[:lingua]}%")
     elsif (!citta.present? && lingua.present?)
-      @posts = Post.where("lingua LIKE ?", "%#{params[:lingua]}%")
+      #SANITIZED
+      lingua_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["lingua LIKE ?", "%#{params[:lingua]}%"])
+      @posts = Post.where(lingua_sanitized)
+      #@posts = Post.where("lingua LIKE ?", "%#{params[:lingua]}%")
     elsif (citta.present? && !lingua.present?)
-      @posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%")
+      #SANITIZED
+      nomeC_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["nomeC LIKE ?", "%#{params[:citta]}%"])
+      @posts = Post.where(nomeC_sanitized)
+      #@posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%")
     else 
       @posts = Post.all
     end
