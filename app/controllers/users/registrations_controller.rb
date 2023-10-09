@@ -116,9 +116,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+   def destroy
+      if current_user.tourist?
+        bookings=current_user.bookings
+        bookings.each do |booking|
+          if booking.refunded==false && booking.expired==false
+            redirect_to show_bacheca_utenti_path,notice: "Hai prenotazioni attive. Non puoi cancellare l'account."
+            return
+          end
+        end
+      end
+      super
+   end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
