@@ -36,12 +36,9 @@ b1427078e34197099eca9ad8ecedc5a7635171a7
 # marius
 
 - mi serve che curi il layout della mail "Date Exceeded". è una mail che specifica all'utente che non può più chiedere un refund perché è il giorno prima della visita. Devi modificare app/views/user_mailer/date_exceeded_email.html.erb. Cerca di fare una bella mail, magari mettici in mezzo pure qual è la visita o anche inizia con "Ciao [nome_utente]! "
-- metti nel front-end nel form di creazione delle visite un vincolo sull'orario (solo ore con mezzora annessa)
+- fatto vincolo-Ale controlla per vedere se ti va bene. 
 - apri il server, vai sul profilo di una guida e crea un post. ora vedrai un nuovo campo "persone last-minute". Vorrei che affianco al checkbutton con scritto "Rendi obbligatorio" ci sia un'icona quella delle informazioni, che se ci vai sopra fa uscire un box che ti spiega cosa sono le persone Last_Minute.
-  -fai quello che vuoi ma migliorami la pagina di registrazione dell guida. Non è urgente. Nel frontend serviranno controlli su codicefiscale ecc.
+  
 
 # Per Simone
-
-Ho bisogno di queste informazioni per account guida:  
-nome della banca (forse non serve) e, se la banca è all'estero, devo inserire anche la valuta: Vedere se aggiungere campo. Intanto test euro.
-Aggiungere Controlli in caso di campi errati.
+Mettere form di Stripe settimana prossima

@@ -136,9 +136,14 @@
           function validateDateTime() {
             var selectedDate = new Date(dateInput.value);
             var selectedTime = timeInput.value;
+            var minutes=selectedTime.substring(3, 5);
+            if (minutes != 0 && minutes !=30) {
+              alert("Si prega di selezionare un'ora precisa o mezza ora.");
+              timeInput.value = ''; // Cancella il valore non valido
+            }
             var currentDateTime = new Date();
             
-            var enteredDateTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), selectedTime.substring(0, 2), selectedTime.substring(3, 5));
+            var enteredDateTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), selectedTime.substring(0, 2), minutes);
             
             if (enteredDateTime < currentDateTime) {
               dateHelp.textContent = t('error_date_time');
@@ -221,6 +226,6 @@
   <% end %>
 
   <%= javascript_include_tag "script_bacheca", data: {controller_url: index_for_post_path, controller_url2: posts_destroy_for_user_path}%>
-
+  
 <ul id="lista" class="cards" style='display:flex'>
 </ul>
