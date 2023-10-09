@@ -134,16 +134,26 @@
   <br />
   <br />
   <%= javascript_tag do %>
-    $(document).ready(function() { var personeInput = $('#post_persone');
-    console.log(personeInput); personeInput.on('input', function() { var
-    selectedValue = personeInput.val(); console.log(personeInput.val());
-    $.ajax({ url: '<%= get_price_post_path(@post) %>', method: 'GET', data: {
-    persone: selectedValue }, success: function(response) { var priceInput =
-    $('#price'); priceInput.text(response.price + ' Euro');
-    console.log(priceInput); console.log("Success with changing price"); },
-    error: function () { var priceInput = $('#price'); priceInput.text('Numero
-    improcessabile di persone'); console.log("Error changing the price"); } });
-    }); });
+    $(document).ready(function() { 
+      var personeInput = $('#post_persone');
+      console.log(personeInput); personeInput.on('input', function() { 
+      var selectedValue = personeInput.val(); console.log(personeInput.val());
+    
+      $.ajax({ 
+        url: '<%= get_price_post_path(@post) %>', 
+        method: 'GET', 
+        data: { persone: selectedValue }, 
+        success: function(response) { 
+          var priceInput = $('#price'); 
+          priceInput.text(response.price + ' Euro');
+          console.log(priceInput); 
+          console.log("Success with changing price"); },
+        error: function () {
+          var priceInput = $('#price'); 
+          priceInput.text('Numero improcessabile di persone'); 
+          console.log("Error changing the price"); } });
+      }); 
+    });
   <% end %>
 <% end %>
 
