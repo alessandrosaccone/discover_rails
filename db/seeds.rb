@@ -13,7 +13,7 @@ u2 = User.create({ name: 'Sue', email: 'sue@example.com', password: 'aaaaaaaa', 
 u3 = User.create({ name: 'Kev', email: 'kev@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r2.id })
 u4 = User.create({ name: 'Jack', email: 'jack@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r1.id})
 u5 = User.create({ name: 'Jackel', email: 'jackel@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: 10, lat: 41.9079616, long: 12.514760, stripe_account_id: 'acct_1N74unPLkNCoVoUm'})
-u6 = User.create({ name: 'Alesacco', email: 'alessandrosaccone96@gmail.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r1.id})
+u6 = User.create({ name: 'Alesacco', email: 'beathovenprodb@gmail.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r1.id})
 
 l1=Language.create(name: "Francese")
 l2=Language.create(name:"Italiano")

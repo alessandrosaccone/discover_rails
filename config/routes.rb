@@ -88,7 +88,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => 
   { :omniauth_callbacks => "users/omniauth_callbacks",
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    confirmations: 'users/confirmations'
    }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   post '/conversations/delete_for_me/', to: 'conversations#delete_for_me', as: 'delete_for_me'
@@ -106,5 +107,6 @@ Rails.application.routes.draw do
   end
 
   post 'switch_language' => 'application#switch_language', as: 'switch_language'
+
 
 end
