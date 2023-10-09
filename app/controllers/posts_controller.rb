@@ -10,28 +10,14 @@ class PostsController < ApplicationController
     citta = params[:citta]
     lingua = params[:lingua]
     if (citta.present? && lingua.present?)
-      #SANITIZED
-=begin
-      nomeC_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["nomeC LIKE ?", "%#{params[:citta]}%"])
-      lingua_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["lingua LIKE ?", "%#{params[:lingua]}%"])
-
-      @posts = Post.where(nomeC_sanitized)
-      @posts = @posts.where(lingua_sanitized)
-=end
       @posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%")
       @posts = @posts.where("lingua LIKE ?", "%#{params[:lingua]}%")
     elsif (!citta.present? && lingua.present?)
-      #SANITIZED
-      lingua_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["lingua LIKE ?", "%#{params[:lingua]}%"])
-      @posts = Post.where(lingua_sanitized)
-      #@posts = Post.where("lingua LIKE ?", "%#{params[:lingua]}%")
+      @posts = Post.where("lingua LIKE ?", "%#{params[:lingua]}%")
     elsif (citta.present? && !lingua.present?)
-      #SANITIZED
-      nomeC_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["nomeC LIKE ?", "%#{params[:citta]}%"])
-      @posts = Post.where(nomeC_sanitized)
-      #@posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%")
+      @posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%")
     else 
-      @posts = Post.all
+      @posts 
     end
     @posts.each do |post|
       total_price = (post.prezzo * post.numero_ore / post.persone).to_s+'€'
