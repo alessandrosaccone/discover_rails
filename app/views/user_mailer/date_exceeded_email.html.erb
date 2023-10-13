@@ -1,3 +1,30 @@
-<h2>La data per la possibilità di recedere dalla prenotazione è scaduta</h2>
-<p>Ciao <%= @user.name %></p>
-Ci vediamo domani!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicazione Prenotazione</title>
+</head>
+<body>
+    <table cellpadding="0" cellspacing="0" width="100%" bgcolor="#f2f2f2">
+        <tr>
+            <td align="center" valign="top" style="padding: 20px 0;">
+                <table cellpadding="0" cellspacing="0" width="600" style="background-color: #ffffff; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin: 0 auto;">
+                    <tr>
+                        <td align="center" valign="top" style="padding: 20px;">
+                            <h1 style="color: #333;">Comunicazione Importante</h1>
+                            <p style="color: #666;">Ciao <%= @user.name %></p>
+                            <p style="color: #666;">La data per la possibilità di recedere dalla prenotazione di domani è scaduta</p>
+                            <p style="color: #666;">Se hai domande o hai bisogno di assistenza, non esitare a contattarci.</p>
+                            <br>
+                            <p style="color: #888;">A domani</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+

@@ -10,7 +10,6 @@ class EveryTfJob < ApplicationJob
       post=booking.post
       if post.data<Date.today 
         value=((booking.amount-0.1*booking.amount)*100).to_i
-        puts "Booking Amount: #{value}"
         transfer = Stripe::Transfer.create(
           {
             amount: value, 

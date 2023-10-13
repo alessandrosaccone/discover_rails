@@ -35,7 +35,7 @@ b1427078e34197099eca9ad8ecedc5a7635171a7
 
 # marius
 
-- mi serve che curi il layout della mail "Date Exceeded". è una mail che specifica all'utente che non può più chiedere un refund perché è il giorno prima della visita. Devi modificare app/views/user_mailer/date_exceeded_email.html.erb. Cerca di fare una bella mail, magari mettici in mezzo pure qual è la visita o anche inizia con "Ciao [nome_utente]! "
+- fatto layout exceed email. Vedi se ti va bene. 
 - fatto vincolo-Ale controlla per vedere se ti va bene. 
 - apri il server, vai sul profilo di una guida e crea un post. ora vedrai un nuovo campo "persone last-minute". Vorrei che affianco al checkbutton con scritto "Rendi obbligatorio" ci sia un'icona quella delle informazioni, che se ci vai sopra fa uscire un box che ti spiega cosa sono le persone Last_Minute.
   
