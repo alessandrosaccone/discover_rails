@@ -12,9 +12,14 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # GET /resource/confirmation?confirmation_token=abcdef
-  # def show
-  #   super
-  # end
+   def show
+    super do |resource| 
+      if resource.errors.empty?
+        sign_in(resource)  # sign the user in
+        redirect_to root_path and return  # redirect to a custom path
+      end 
+    end
+   end
 
   # protected
 
