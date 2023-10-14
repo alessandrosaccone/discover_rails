@@ -5,11 +5,26 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
   # GET /posts
   def index
+<<<<<<< HEAD
     @posts = Post.where('data>= ?', Date.today)
+=======
+    @posts = Post.where(status: "open")
+>>>>>>> 0a9b14b1 (Testing the newer functionalities)
     @posts=@posts.where('persone_rimanenti>0')
     citta = params[:citta]
     lingua = params[:lingua]
     if (citta.present? && lingua.present?)
+<<<<<<< HEAD
+=======
+      #SANITIZED
+=begin
+      nomeC_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["nomeC LIKE ?", "%#{params[:citta]}%"])
+      lingua_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["lingua LIKE ?", "%#{params[:lingua]}%"])
+
+      @posts = Post.where(nomeC_sanitized)
+      @posts = @posts.where(lingua_sanitized)
+=end
+>>>>>>> 0a9b14b1 (Testing the newer functionalities)
       @posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%")
       @posts = @posts.where("lingua LIKE ?", "%#{params[:lingua]}%")
     elsif (!citta.present? && lingua.present?)
