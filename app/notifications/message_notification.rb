@@ -14,7 +14,7 @@ class MessageNotification < Noticed::Base
   end
 
   def action_cable_data 
-    { notification_url: url, user: User.find(params[:message].user_id).name, content: params[:message].body }
+    { notification_url: url, user: User.find(params[:message].user_id).name, content: params[:message].body, msg_id: params[:message].id}
   end
 
   # Add required params
