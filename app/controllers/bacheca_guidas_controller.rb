@@ -50,11 +50,24 @@ class BachecaGuidasController < ApplicationController
       lingua = params[:lingua]
 
       if (citta.present? && lingua.present?)
-        @posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%").where("lingua LIKE ?", "%#{params[:lingua]}%").where(user_id: params[:user_id])
+        #SANITIZED
+        nomeC_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["nomeC LIKE ?", "%#{params[:citta]}%"])
+        lingua_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["lingua LIKE ?", "%#{params[:lingua]}%"])
+        @posts = Post.where(nomeC_sanitized).where(lingua_sanitized).where(user_id: params[:user_id])
+
+        #@posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%").where("lingua LIKE ?", "%#{params[:lingua]}%").where(user_id: params[:user_id])
       elsif (!citta.present? && lingua.present?)
-        @posts = Post.where("lingua LIKE ?", "%#{params[:lingua]}%").where(user_id: params[:user_id])
+        lingua_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["lingua LIKE ?", "%#{params[:lingua]}%"])
+        @posts = Post.where(lingua_sanitized).where(user_id: params[:user_id])
+
+        #SANITIZED
+        #@posts = Post.where("lingua LIKE ?", "%#{params[:lingua]}%").where(user_id: params[:user_id])
       elsif (citta.present? && !lingua.present?)
-        @posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%").where(user_id: params[:user_id])
+        #SANITIZED
+        nomeC_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["nomeC LIKE ?", "%#{params[:citta]}%"])
+        @posts = Post.where(nomeC_sanitized).where(user_id: params[:user_id])
+
+        #@posts = Post.where("nomeC LIKE ?", "%#{params[:citta]}%").where(user_id: params[:user_id])
       else  
         @posts = Post.where(user_id: params[:user_id])
       end
@@ -66,14 +79,23 @@ class BachecaGuidasController < ApplicationController
       end
 
       if(params["date(1i)"] != '' && params["date(2i)"] == '' && params["date(3i)"] == '')
-        @posts = @posts.where("STRFTIME('%Y', data) = ?","#{params["date(1i)"]}")
+        #SANITIZED
+        condition_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["STRFTIME('%Y', data) = ?", "#{params["date(li)"]}"])
+        @posts = @posts.where(condition_sanitized)
+
+        #@posts = @posts.where("STRFTIME('%Y', data) = ?","#{params["date(1i)"]}")
       elsif(params["date(1i)"] != '' && params["date(2i)"] != '' && params["date(3i)"] == '')
+        #SANITIZED
         month = '%02d' % params["date(2i)"]
-        @posts = @posts.where("STRFTIME('%Y %m', data) = ?", "#{params["date(1i)"]} #{month}")
+        condition_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["STRFTIME('%Y %m', data) = ?", "#{params["date(li)"]} #{month}"])
+        @posts = @posts.where(condition_sanitized)
+        #@posts = @posts.where("STRFTIME('%Y %m', data) = ?", "#{params["date(1i)"]} #{month}")
       elsif(params["date(1i)"] != '' && params["date(2i)"] != '' && params["date(3i)"] != '')
         month = '%02d' % params["date(2i)"]
         day = '%02d' % params["date(3i)"]
-        @posts = @posts.where("STRFTIME('%Y %m %d', data) = ?", "#{params["date(1i)"]} #{month} #{day}")
+        condition_sanitized = ActiveRecord::Base.sanitize_sql_for_conditions(["STRFTIME('%Y %m %d', data) = ?", "#{params["date(li)"]} #{month} #{day}"])
+        @posts = @posts.where(condition_sanitized)
+        #@posts = @posts.where("STRFTIME('%Y %m %d', data) = ?", "#{params["date(1i)"]} #{month} #{day}")
       end
 
       @posts = @posts.limit(50).offset(@index)
