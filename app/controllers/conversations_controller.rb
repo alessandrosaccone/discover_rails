@@ -37,7 +37,9 @@ class ConversationsController < ApplicationController
         @message.update(deleted_for_user: true)
         if @message.deleted_for_both?
             @notification = Notification.find_by(params: {message: @message})
-            @notification.destroy
+            if @notification
+                @notification.destroy
+            end
             @message.destroy
         end
     end
@@ -46,7 +48,9 @@ class ConversationsController < ApplicationController
         ActionCable.server.broadcast("message_deletion_#{params[:conversation]}", message_id: params[:message])
         @message = Message.find(params[:message])
         @notification = Notification.find_by(params: {message: @message})
-        @notification.destroy
+        if @notification
+            @notification.destroy
+        end
         @message.destroy
 
     end
@@ -56,7 +60,9 @@ class ConversationsController < ApplicationController
         @message.update(deleted_for_recipient: true)
         if @message.deleted_for_both?
             @notification = Notification.find_by(params: {message: @message})
-            @notification.destroy
+            if @notification
+                @notification.destroy
+            end
             @message.destroy
         end
     end
