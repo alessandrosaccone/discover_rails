@@ -13,9 +13,15 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   #
     def create
-      
-      flash.delete(:notice)
-      super
+      user = User.find_by(email: params[:user][:email])
+
+      if user && !user.confirmed?
+        redirect_to new_user_session_path, alert: 'You have to confirm your email address before continuing.'
+      else
+        super
+      end
+      #flash.delete(:notice)
+      #super
    end
 
   # DELETE /resource/sign_out
@@ -27,11 +33,15 @@ class Users::SessionsController < Devise::SessionsController
 
   protected
   def set_user_online
-    current_user.update(online: true)
+    if current_user
+      current_user.update(online: true)
+    end
   end
 
   def set_user_offline
-    current_user.update(online: false)
+    if current_user
+      current_user.update(online: false)
+    end
   end
 
   # If you have extra params to permit, append them to the sanitizer.

@@ -42,4 +42,13 @@ class User < ApplicationRecord
         end
       end
     end
+
+
+  def active_for_authentication?
+    super && confirmed?
+  end
+
+  def inactive_message
+    confirmed? ? super : :unconfirmed
+  end
   end
