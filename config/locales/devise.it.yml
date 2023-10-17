@@ -65,6 +65,7 @@ it:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
       confirmation: "La conferma della password non corrisponde"
+      taken: "Email già utilizzata"
     models:
       user:
         attributes:
