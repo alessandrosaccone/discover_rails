@@ -18,12 +18,10 @@ class MessageNotification < Noticed::Base
   end
 
   # Add required params
-  #
+  
   param :message
 
   # Define helper methods to make rendering easier.
-  #
-  
 
   def message
     t(".message")

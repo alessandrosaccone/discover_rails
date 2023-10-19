@@ -11,6 +11,7 @@ consumer.subscriptions.create("UserNotificationChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
+    console.log(data["notification"]);
 
     const notifCont = document.getElementById("notification-container");
     const tr = document.createElement("tr");

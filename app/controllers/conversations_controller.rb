@@ -7,6 +7,8 @@ class ConversationsController < ApplicationController
         @other_user = User.find_by(email: params[:other_email])
 
 
+
+
         @conversation = Conversation.between(current_user.id, @other_user.id).first
 
 
@@ -20,6 +22,17 @@ class ConversationsController < ApplicationController
         
 
         @messages = @conversation.messages
+
+        @messages.each do |message|
+            if message.user_id == @other_user.id
+                @notification = Notification.where("params->>'message' LIKE ?", "%#{message.id}%").first
+
+                if @notification && @notification.read_at.nil?
+                    @notification.update(read_at: DateTime.now)
+                end
+            end
+
+        end
 
         session[:current_conversation] = @conversation.id
 

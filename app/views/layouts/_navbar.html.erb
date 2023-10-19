@@ -40,11 +40,16 @@
         style="visibility: collapse; overflow-x: hidden; overflow-y: auto; width: 150px;"
       >
         <% @notifications.each do |notification| %>
-          <% username = notification.recipient.name %>
           <% if notification.type == 'CommentNotification' %>
-            <% content = notification.params[:comment][:content] %>
+            <%
+              username = User.find(notification.params[:comment][:user_id]).name
+              content = notification.params[:comment][:content]
+            %>
           <% else %>
-            <% content = notification.params[:message][:body] %>
+            <%
+              username = User.find(notification.params[:message][:user_id]).name
+                         content = notification.params[:message][:body]
+            %>
           <% end %>
           <tr>
             <td>
