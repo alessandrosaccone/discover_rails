@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   #post
   post 'bacheca_guidas/index_for_post', to: 'bacheca_guidas#index_for_post', as: 'index_for_post'
+  get 'notification', to: 'notification#notification_handler', as: 'notification'
   #delete
   delete 'posts/', to: 'posts#destroy_post', as: 'posts_destroy_for_user'
   #username

@@ -13,7 +13,6 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   #
     def create
-      
       flash.delete(:notice)
       super
    end

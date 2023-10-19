@@ -7,6 +7,8 @@ class ConversationsController < ApplicationController
         @other_user = User.find_by(email: params[:other_email])
 
 
+
+
         @conversation = Conversation.between(current_user.id, @other_user.id).first
 
 
@@ -20,6 +22,17 @@ class ConversationsController < ApplicationController
         
 
         @messages = @conversation.messages
+
+        @messages.each do |message|
+            if message.user_id == @other_user.id
+                @notification = Notification.where("params->>'message' LIKE ?", "%#{message.id}%").first
+
+                if @notification && @notification.read_at.nil?
+                    @notification.update(read_at: DateTime.now)
+                end
+            end
+
+        end
 
         session[:current_conversation] = @conversation.id
 
@@ -36,6 +49,10 @@ class ConversationsController < ApplicationController
         @message = Message.find(params[:message])
         @message.update(deleted_for_user: true)
         if @message.deleted_for_both?
+            @notification = Notification.find_by(params: {message: @message})
+            if @notification
+                @notification.destroy
+            end
             @message.destroy
         end
     end
@@ -43,13 +60,22 @@ class ConversationsController < ApplicationController
     def delete_for_both
         ActionCable.server.broadcast("message_deletion_#{params[:conversation]}", message_id: params[:message])
         @message = Message.find(params[:message])
+        @notification = Notification.find_by(params: {message: @message})
+        if @notification
+            @notification.destroy
+        end
         @message.destroy
+
     end
 
     def delete_for_recipient
         @message = Message.find(params[:message])
         @message.update(deleted_for_recipient: true)
         if @message.deleted_for_both?
+            @notification = Notification.find_by(params: {message: @message})
+            if @notification
+                @notification.destroy
+            end
             @message.destroy
         end
     end

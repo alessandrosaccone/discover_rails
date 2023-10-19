@@ -1,11 +1,17 @@
-const logregBox = document.querySelector(".logreg-box");
-const loginLink = document.querySelector(".login-link");
-const registerLink = document.querySelector(".register-link");
+guida_btn = document.getElementById("guide-btn");
+par = document.getElementById("cheeky-question");
 
-registerLink.addEventListener("click", () => {
-  logregBox.classList.add("active");
-});
+function SonoGuida() {
+  event.preventDefault();
+  const elems = document.querySelectorAll(".hidden");
+  console.log(elems.length);
+  elems.forEach((elem) => {
+    elem.classList.remove("hidden");
+  });
 
-loginLink.addEventListener("click", () => {
-  logregBox.classList.remove("active");
-});
+  ur = document.getElementById("user_role_id");
+  ur.value = 10;
+
+  guida_btn.classList.add("hidden");
+  par.classList.add("hidden");
+}

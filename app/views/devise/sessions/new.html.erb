@@ -1,121 +1,85 @@
-  <% content_for :for_head do %>
-    <%= stylesheet_link_tag "application-login" %>
-  <% end %>
-  <body>
-    <header class="header">
-      <nav class="navbar">
-        <a href="<%= home_pages_path %>">Home</a>
-      </nav>
-    </header>
-    <div class="background" style="background: url('<%= image_path('banner_mario.jpg') %>')
-    no-repeat;"></div>
-    <div class="container" style="background: url('<%=image_path('banner_mario.jpg')%>') no-repeat;">
-      <div class="content">
-        <h2 class="logo"><i class="bx bx-world"></i>Discover</h2>
+<% content_for :for_head do %>
+  <%= stylesheet_link_tag "application-login" %>
+<% end %>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <a href="<%= home_pages_path %>">Home</a>
+    </nav>
+  </header>
+  <div
+    class="background"
+    style="background: url('<%= image_path('banner_mario.jpg') %>')
+    no-repeat;"
+  ></div>
+  <div
+    class="container"
+    style="background: url('<%= image_path('banner_mario.jpg') %>') no-repeat;"
+  >
+    <div class="content">
+      <h2 class="logo"><i class="bx bx-world"></i>Discover</h2>
 
-        <div class="text-sci">
-          <h2><b>Benvenuto su Discover!</b><br /><span><b>Go wherever you want</b></span></h2>
-        </div>
-
-        <p>
-          <b>
-            La prima applicazione al mondo che ti permette di visitare le più 
-            belle città in Italia e nel mondo con un semplice click
-          </b>
-        </p>
-
-        <div class="social-icons">
-          <a href="#"><i class="bx bxl-linkedin-square"></i></a>
-          <a href="#"><i class="bx bxl-instagram-alt"></i></a>
-          <a href="#"><i class="bx bxl-twitter"></i></a>
-        </div>
+      <div class="text-sci">
+        <h2>
+          <b>Benvenuto su Discover!</b><br /><span
+            ><b>Go wherever you want</b></span
+          >
+        </h2>
       </div>
 
-      <div class="logreg-box">
-        <div class="form-box login">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <h2>Accedi</h2>
+      <p>
+        <b>
+          La prima applicazione al mondo che ti permette di visitare le più
+          belle città in Italia e nel mondo con un semplice click
+        </b>
+      </p>
 
-            <div class="input-box">
-              <span class="icon"><i class="bx bxs-envelope"></i></span>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-              <label>Email</label>
-            </div>
-
-            <div class="input-box">
-              <span class="icon"><i class="bx bxs-lock"></i></span>
-              <%= f.password_field :password, autocomplete: "current-password" %>
-              <label>Password</label>
-            </div>
-
-            <div class="remember-forgot">
-              <% if devise_mapping.rememberable? %>
-                <label>
-                <%= f.check_box :remember_me %>
-                Ricordami
-                </label>
-              <% end %>
-              <%= link_to "Modifica Password", new_user_password_path() %>
-            </div>
-
-            <button type="submit" class="btn">Accedi</button>
-
-            <div class="login-register">
-              <p>
-                Non hai un account?
-                <a href="#" class="register-link">Registrati</a>
-              </p>
-            </div>
-            <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post %>
-          <%end%>
-        </div>
-        <div class="form-box register">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <h2>Registrati</h2>
-            <%= render "devise/shared/error_messages", resource: resource %>
-            <div class="input-box">
-              <span class="icon"><i class="bx bxs-user"></i></span>
-              <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-              <label>Nome</label>
-            </div>
-
-            <div class="input-box">
-              <span class="icon"><i class="bx bxs-envelope"></i></span>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-              <label>Email</label>
-            </div>
-
-            <div class="input-box">
-              <span class="icon"><i class="bx bxs-lock"></i></span>
-                <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-                <% end %>
-                <%= f.password_field :password, autocomplete: "new-password" %>
-                <label>Password</label>
-            </div>
-            <div class='input-box'>
-              <span class="icon"><i class="bx bxs-lock"></i></span>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-              <label>Conferma password</label>
-            </div>
-            
-            <button type="submit" class="btn">Registrati</button>
-
-
-            <div class="login-register">
-              <p>
-                Hai già un account?
-                <a href="#" class="login-link">Accedi</a>
-              </p>
-              <p>
-                Sei una guida senza account? 
-                <a href="<%=new_user_registration_path%>" class="login-link">Registrati</a>
-              </p>
-            </div>
-          <%end%>
-        </div>
+      <div class="social-icons">
+        <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+        <a href="#"><i class="bx bxl-instagram-alt"></i></a>
+        <a href="#"><i class="bx bxl-twitter"></i></a>
       </div>
     </div>
-    <%= javascript_include_tag "script_login" %>
 
+    <div class="logreg-box">
+      <div class="form-box login">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <h2>Accedi</h2>
 
+          <div class="input-box">
+            <span class="icon"><i class="bx bxs-envelope"></i></span>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <label>Email</label>
+          </div>
+
+          <div class="input-box">
+            <span class="icon"><i class="bx bxs-lock"></i></span>
+            <%= f.password_field :password, autocomplete: "current-password" %>
+            <label>Password</label>
+          </div>
+
+          <div class="remember-forgot">
+            <% if devise_mapping.rememberable? %>
+              <label>
+                <%= f.check_box :remember_me %>
+                Ricordami
+              </label>
+            <% end %>
+            <%= link_to "Modifica Password", new_user_password_path() %>
+          </div>
+
+          <button type="submit" class="btn">Accedi</button>
+
+          <div class="login-register">
+            <p>
+              <a href="<%= new_user_registration_path %>" class="login-link"
+                >Non hai un account?</a
+              >
+            </p>
+          </div>
+          <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post %>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</body>
