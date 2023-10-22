@@ -125,6 +125,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
             return
           end
         end
+      else
+        posts=Post.where(user_id: current_user.id)
+        posts.each do |post|
+          if post.status=="open"
+            redirect_to show_bacheca_path,notice: "Hai post attivi. Non puoi cancellare l'account."
+            return
+          end
+        end
       end
       super
    end

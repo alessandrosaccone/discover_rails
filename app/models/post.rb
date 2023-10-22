@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
     before_create :set_persone_rimanenti_default
     belongs_to :user, foreign_key: 'user_email', primary_key: 'email'
-    has_many :bookings
+    has_many :bookings,  dependent: :destroy
     has_many :users, through: :bookings
     validates :data, presence: true
     has_many :comments, dependent: :destroy

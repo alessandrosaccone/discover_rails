@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
   belongs_to :user, optional: true
-  belongs_to :post
+  belongs_to :post, optional: true
 
   after_create :generate_invoice_pdf
 
