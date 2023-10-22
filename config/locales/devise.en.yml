@@ -65,6 +65,7 @@ en:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
       confirmation: "Password confirmation not correspondent"
+      taken: "Email already taken"
     models:
       user:
         attributes:

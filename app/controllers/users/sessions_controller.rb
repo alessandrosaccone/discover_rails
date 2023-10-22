@@ -12,17 +12,20 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   #
-    def create
-      user = User.find_by(email: params[:user][:email])
-
-      if user && !user.confirmed?
-        redirect_to new_user_session_path, alert: 'You have to confirm your email address before continuing.'
-      else
-        super
-      end
-      #flash.delete(:notice)
-      #super
-   end
+  def create
+    self.resource = User.find_by(email: params[:user][:email])
+  
+    if resource && !resource.confirmed?
+      flash.now[:error] = 'You have to confirm your email address before continuing.'
+      self.resource = resource_class.new(sign_in_params) # Initialize with submitted params for the form
+      clean_up_passwords(resource)
+      render template: 'devise/sessions/new'
+    else
+      flash.delete(:notice)
+      super
+    end
+  end
+  
 
   # DELETE /resource/sign_out
     def destroy
