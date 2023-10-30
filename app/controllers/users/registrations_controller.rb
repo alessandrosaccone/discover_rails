@@ -39,9 +39,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
           account_link = Stripe::AccountLink.create({
             account: stripe_account.id,
             refresh_url: 'http://localhost:3000',
-            return_url: 'http://localhost:3000', 
+            return_url: 'http://localhost:3000',
+            type: 'account_onboarding',
           })
-      
+          redirect_to account_link.url, allow_other_host: true and return
           rescue Stripe::StripeError => e
             # Handle Stripe-specific errors
             # You can log the error for debugging purposes
@@ -65,7 +66,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         bacheca_guida.save
         resource.save
       end
-      redirect_to account_link.url, allow_other_host: true 
+      
     else
       super do |resource|
         bacheca_utente = BachecaUtente.new
