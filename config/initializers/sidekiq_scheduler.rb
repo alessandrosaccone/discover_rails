@@ -10,7 +10,7 @@ Sidekiq.configure_server do |config|
     UpdatePostStatusJob.schedule_job
     CheckTimeJob.schedule_job
     EveryTfJob.schedule_job
-    #UpdatePostStatusJob.schedule_job
+    CleanNotificationJob.schedule_job
   end
  
 end
