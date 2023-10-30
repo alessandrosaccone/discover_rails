@@ -4,7 +4,7 @@ Rails.application.config.action_mailer.smtp_settings = {
     port:                 587,
     #domain:               'gmail.com',
     user_name:            'apikey',
-    password:             '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',
+    password:             ENV['SENDGRIND_KEY'],
     authentication:       'plain',
     enable_starttls_auto: true
  }

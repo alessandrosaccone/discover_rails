@@ -22,4 +22,10 @@ sidekiq_scheduler:
     class: "EveryTfJob"
     queue: "default"
     description: "Check something every hour"
+
+  clean_notification_job:
+    cron: "0 * * * *"
+    class: "CleanNotificationJob"
+    queue: "default"
+    description: "Insert a description GAB"
 #bundle exec sidekiq -r ./config/environment.rb
