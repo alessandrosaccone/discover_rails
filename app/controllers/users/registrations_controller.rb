@@ -38,9 +38,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
           stripe_account.id
           account_link = Stripe::AccountLink.create({
             account: stripe_account.id,
-            refresh_url: 'http://localhost:3000', # Cambia questo in base al tuo ambiente locale
-            return_url: 'http://localhost:3000', # Cambia questo in base al tuo ambiente locale
-            type: 'account_onboarding',
+            refresh_url: 'http://localhost:3000',
+            return_url: 'http://localhost:3000', 
           })
       
           rescue Stripe::StripeError => e
