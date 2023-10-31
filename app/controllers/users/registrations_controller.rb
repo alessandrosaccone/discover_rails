@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    #modificare tos_acceptance
       if params[:user][:role_id]=="10"
         account_link=nil;
         begin
@@ -19,15 +20,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
             type: 'custom',
             email: params[:user][:email],
             business_type: 'individual',
-            individual: {
-              email: params[:user][:email],
-              first_name: params[:user][:name],
-              last_name: params[:cognome],
-            },
             business_profile: {
               mcc: '4722',
               product_description: 'Tourism services'
-            
             },
             requested_capabilities: ['card_payments', 'transfers'],
           })
@@ -42,7 +37,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
             return_url: 'http://localhost:3000',
             type: 'account_onboarding',
           })
-          redirect_to account_link.url, allow_other_host: true and return
+          
           rescue Stripe::StripeError => e
             # Handle Stripe-specific errors
             # You can log the error for debugging purposes
@@ -65,6 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         bacheca_guida.user_id = resource.id
         bacheca_guida.save
         resource.save
+        redirect_to account_link.url, allow_other_host: true and return
       end
       
     else
