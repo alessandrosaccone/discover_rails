@@ -64,7 +64,10 @@ class Booking < ApplicationRecord
     sanitize_card_number
 
     return false unless valid?
-
+    if post.user.stripe_account_id==nil
+      errors.add :base, "La guida non ha un account stripe"
+      return false
+    end
     token = Stripe::Token.create(
       card: {
         number: card_number,
