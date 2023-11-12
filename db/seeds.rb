@@ -8,4 +8,3 @@
 r1 = Role.create({ id: 9, name: 'Tourist', description: 'Can search for guides, normal user' })
 r2 = Role.create({ id: 10, name: 'Guide', description: 'Can post tour announcements and do his job on the platform' })
 
-
