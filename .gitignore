@@ -30,7 +30,7 @@
 
 #Remember to review the generated .gitignore file and make any necessary adjustments based on your application's needs and dependencies.
 
-/db/seeds.rb
+#/db/seeds.rb
 
 
 
