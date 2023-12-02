@@ -33,6 +33,9 @@ b1427078e34197099eca9ad8ecedc5a7635171a7
 
 - modifica il perform in jobs/every_tf_job.rb
 
+#MODIFICHE
+commentato confirmable in app/models/user.rb  per la conferma delle email
+
 # marius
 
 - fatto layout exceed email. Vedi se ti va bene. 

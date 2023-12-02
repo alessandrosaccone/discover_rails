@@ -8,10 +8,10 @@
 /tmp
 
 # Ignore database configuration
-/config/database.yml
+#/config/database.yml
 
 # Ignore local application configuration
-/config/application.yml
+#/config/application.yml
 
 # Ignore environment variables file
 .env

@@ -46,6 +46,12 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <h2>Accedi</h2>
 
+          <% if flash[:alert] %>
+            <div class="alert alert-error">
+              <%= flash[:alert] %>
+            </div>
+          <% end %>
+
           <div class="input-box">
             <span class="icon"><i class="bx bxs-envelope"></i></span>
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
