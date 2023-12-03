@@ -7,6 +7,7 @@ it:
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
+      unconfirmed: 'You have to confirm your email address before continuing.'
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
       invalid: "Invalid %{authentication_keys} or password."
@@ -63,11 +64,11 @@ it:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+      confirmation: "La conferma della password non corrisponde"
+      taken: "Email già utilizzata"
     models:
       user:
         attributes:
-          password_confirmation:
-              confirmation: "La conferma della password non corrisponde"
           email:
             blank: "Il campo email non può essere vuoto"
             taken: "Email già utilizzata"

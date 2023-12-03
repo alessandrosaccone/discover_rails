@@ -15,7 +15,7 @@ require "action_cable/engine"
 require "rails/test_unit/railtie"
 require 'sidekiq'
 require 'sidekiq/scheduler'
-
+require_relative 'boot'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -32,6 +32,16 @@ module Discover
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    if ['development', 'test'].include?(ENV['RAILS_ENV'])
+    env_file = File.join(Rails.root, 'var.env')
+     File.readlines(env_file).each do |line|
+       parts = line.split('=')
+       key = parts[0].strip
+       value = parts[1].strip
+       ENV[key] = value
+     end if File.exist?(env_file)
+    end
 
     # Don't generate system test files.
     config.active_storage.service = :local

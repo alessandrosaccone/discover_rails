@@ -25,23 +25,38 @@ continuo_email: Xp[(-m(M1T'95poM
 2. bundle exec rspec spec/controllers/post_controller_spec.rb
 3. bundle exec rspec spec/controllers/conversation_controller_spec.rb
 
-# checkout
+### COSA MANCA
 
-b1427078e34197099eca9ad8ecedc5a7635171a7
+-FRONTEND
+--Nella Home, se scorro tutto verso il basso e poi tutto verso l'alto la navbar rimane arancione anziché diventare trasparente. Se scendo di poco e risalgo ridiventa trasparente
+--Bottone "Let me see the map" sia in Visite che in Guide
+--Bottoni sulle schede fuori dalle schede in Visite: da ridimensionare
+--Praticamente tutto tra form, sfondo e style generale del login/registrazione
+--Tutte le chat sono da modificare
 
-# COMPITI
+-LOGIN/REGISTRAZIONE
+--Il check "Ricordami", funziona?
+--Nel login capita che delle volte si blurrano le form
+--Manca il messaggio di errore nel caso in cui tu voglia entrare ma non hai confermato la mail
+--Manca il messaggio di errore di sbagliata mail e password
+--Manca il messaggio di errore nel caso in cui io voglia fare login dopo aver eliminato il mio account
 
-- modifica il perform in jobs/every_tf_job.rb
+-MESSAGGI
 
-#MODIFICHE
-commentato confirmable in app/models/user.rb  per la conferma delle email
+-PAGAMENTI
 
-# marius
+-VISITE
+--Vengono mostrati i post scaduti
 
-- fatto layout exceed email. Vedi se ti va bene. 
-- fatto vincolo-Ale controlla per vedere se ti va bene. 
-- apri il server, vai sul profilo di una guida e crea un post. ora vedrai un nuovo campo "persone last-minute". Vorrei che affianco al checkbutton con scritto "Rendi obbligatorio" ci sia un'icona quella delle informazioni, che se ci vai sopra fa uscire un box che ti spiega cosa sono le persone Last_Minute.
-  
+-PROFILO
+--Se clicco su change image senza aver selezionato un'immagine non dà errore o avvertimenti o popup
+--Sarebbe carino implementare le azioni di cambio username o descrizione senza passare ad un'altra pagina
+--Se elimino l'account siamo sicuri venga eliminato tutto coerentemente? C'è il controllo sull'impossibilità di eliminare un account se prenotato a qualche visita?
 
-# Per Simone
-Mettere form di Stripe settimana prossima
+-API
+--Google APIs non funziona (Mario se ne è andato, ed aveva già staccato la carta mi sa) -> DA RISOLVERE
+
+-JOB
+--Sistemare lo scheduling (ora è ogni minuto)
+
+-NOTIFICHE

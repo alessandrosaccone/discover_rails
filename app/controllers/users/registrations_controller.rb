@@ -12,85 +12,64 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    #modificare tos_acceptance
       if params[:user][:role_id]=="10"
-
-        anno, mese, giorno = params[:nascita].split('-').map(&:to_i)
-      
-      begin
-        stripe_account = Stripe::Account.create({
-          type: 'custom',
-          country: params[:stato],
-          email: params[:user][:email],
-          business_type: 'individual',
-          individual: {
+        account_link=nil;
+        begin
+          stripe_account = Stripe::Account.create({
+            type: 'custom',
             email: params[:user][:email],
-            first_name: params[:user][:name],
-            last_name: params[:cognome],
-            address: {
-              line1: params[:indirizzo],
-              city: params[:citta],
-              state: params[:regione],
-              postal_code: params[:codicepostale],
-              country: params[:stato]
+            business_type: 'individual',
+            business_profile: {
+              mcc: '4722',
+              product_description: 'Tourism services'
             },
-            phone: params[:telefono], # Numero di telefono
-            dob: {
-              day: giorno, # Giorno di nascita
-              month: mese, # Mese di nascita
-              year: anno # Anno di nascita
-            },
-            id_number: params[:codicefiscale] # Codice fiscale
-          },
-          business_profile: {
-            mcc: '4722',
-            product_description: 'Tourism services'
-            
-          },
-          requested_capabilities: ['card_payments', 'transfers'],
-          external_account: {
-            object: 'bank_account',
-            country: params[:statobanca],
-            currency: 'eur',
-            account_holder_type: 'individual',
-            account_number: params[:iban]
-          }
-        })
-        Stripe::Account.update(
-          stripe_account.id,
-          {tos_acceptance: {date: 1609798905, ip: '8.8.8.8'}},
-        )
-      stripe_account.id
-      rescue Stripe::StripeError => e
-        # Handle Stripe-specific errors
-        # You can log the error for debugging purposes
-        Rails.logger.error("Stripe error: #{e.message}")
-        #risolvere frontend
-        redirect_to new_user_registration_path,notice: e.message
-        return
+            requested_capabilities: ['card_payments', 'transfers'],
+          })
+          Stripe::Account.update(
+            stripe_account.id,
+            {tos_acceptance: {date: 1609798905, ip: '8.8.8.8'}},
+          )
+          stripe_account.id
+          account_link = Stripe::AccountLink.create({
+            account: stripe_account.id,
+            refresh_url: 'http://localhost:3000',
+            return_url: 'http://localhost:3000',
+            type: 'account_onboarding',
+          })
+          
+          rescue Stripe::StripeError => e
+            # Handle Stripe-specific errors
+            # You can log the error for debugging purposes
+            Rails.logger.error("Stripe error: #{e.message}")
+            #risolvere frontend
+            redirect_to new_user_registration_path,notice: e.message
+            return
         
-      rescue => e
-        # Handle other unexpected errors
-        # Log the error for debugging purposes
-        Rails.logger.error("Unexpected error: #{e.message}")
-        #risolvere frontend per errore console
-        redirect_to new_user_registration_path,notice: e.message
-        return
-      end
+          rescue => e
+            # Handle other unexpected errors
+            # Log the error for debugging purposes
+            Rails.logger.error("Unexpected error: #{e.message}")
+            #risolvere frontend per errore console
+            redirect_to new_user_registration_path,notice: e.message
+            return
+         end
       super do |resource|
         resource.stripe_account_id = stripe_account.id
         bacheca_guida = BachecaGuida.new
         bacheca_guida.user_id = resource.id
         bacheca_guida.save
         resource.save
+        redirect_to account_link.url, allow_other_host: true and return
       end
-
+      
     else
       super do |resource|
         bacheca_utente = BachecaUtente.new
         bacheca_utente.user_id = resource.id
         bacheca_utente.save
       end
-  end
+    end
 
   end
   
@@ -150,8 +129,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_permitted_parameters
-    attributes = [:name, :email, :password,:iva,:role_id,:remember_me, :avatar, :cognome, :nascita, :indirizzo, :citta, :stato, :codicepostale,
-                  :codicefiscale, :iban, :regione, :statobanca, :telefono ]
+    attributes = [:name, :email, :password,:iva,:role_id,:remember_me, :avatar, :cognome ]
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
   end
 
