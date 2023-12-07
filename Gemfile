@@ -79,5 +79,4 @@ gem 'countries'
 
 gem 'noticed'
 
-gem 'dotenv-rails', groups: [:development, :test]
-
+#gem 'aws-sdk-s3'

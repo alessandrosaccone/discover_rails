@@ -41,3 +41,14 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
+
+# Use the 'ssl_bind' directive to enable SSL
+#ssl_bind '127.0.0.1', '3000', {
+#  key: '/home/alessandro/Desktop/discover/discover_rails/config/localhost.key',
+#  cert: '/home/alessandro/Desktop/discover/discover_rails/config/localhost.crt',
+#  verify_mode: 'none' # Use 'peer' for production with a valid certificate
+#}
+
+# Add other Puma configuration settings as needed
+
+

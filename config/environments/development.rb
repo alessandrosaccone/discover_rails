@@ -75,4 +75,12 @@ Rails.application.configure do
 
   config.active_storage.service = :local
 
+  config.require_master_key = true
+
+  config.force_ssl = true
+
+  config.hosts << "abc.localhost"
+
+  #bin/rails s -b 'ssl://0.0.0.0:3000?key=config/ssl/abc.localhost.key&cert=config/ssl/abc.localhost.crt'
+
 end

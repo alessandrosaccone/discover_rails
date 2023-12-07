@@ -15,6 +15,7 @@ require "action_cable/engine"
 require "rails/test_unit/railtie"
 require 'sidekiq'
 require 'sidekiq/scheduler'
+require 'dotenv/rails-now'
 require_relative 'boot'
 
 # Require the gems listed in Gemfile, including any gems
